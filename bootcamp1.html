@@ -547,7 +547,7 @@
                         
                         <div class="session-card">
                             <div class="session-number">8</div>
-                            <div class="session-title">생성형 AI성능 형가 및 최적화</div>
+                            <div class="session-title">생성형 AI성능 평가 및 최적화</div>
                             <div class="session-description">
                                 • 성능 지표와 평가 방법론<br>
                                 • 수동 및 자동화 평가 기법<br>
@@ -679,3 +679,42 @@
                                 • 자유 네트워킹<br>
                             </div>
                         </div>
+    <script>
+        function showTab(tabName) {
+            // 모든 탭 컨텐츠 숨기기
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // 모든 탭 버튼 비활성화
+            const tabButtons = document.querySelectorAll('.tab-button');
+            tabButtons.forEach(button => {
+                button.classList.remove('active');
+            });
+            
+            // 선택된 탭 컨텐츠 보이기
+            const selectedTab = document.getElementById(tabName);
+            if (selectedTab) {
+                selectedTab.classList.add('active');
+            }
+            
+            // 클릭된 버튼 활성화
+            const clickedButton = event.target;
+            clickedButton.classList.add('active');
+        }
+        
+        // 페이지 로드 시 첫 번째 탭 활성화
+        document.addEventListener('DOMContentLoaded', function() {
+            const firstTab = document.querySelector('.tab-button');
+            if (firstTab) {
+                firstTab.classList.add('active');
+            }
+        });
+    </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
