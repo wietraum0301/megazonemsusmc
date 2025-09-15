@@ -94,7 +94,17 @@
             box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
             background: linear-gradient(145deg, #5a6fd8, #6b42a0);
         }
-        
+
+        .tab-button.vibe-tab {
+            background: linear-gradient(145deg, #28a745, #20c997);
+            box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+        }
+
+        .tab-button.vibe-tab:hover, .tab-button.vibe-tab.active {
+            background: linear-gradient(145deg, #218838, #1ea085);
+            box-shadow: 0 8px 25px rgba(40, 167, 69, 0.4);
+        }
+                
         .tab-content {
             display: none;
         }
@@ -433,8 +443,8 @@
         
         <!-- 프로그램 탭 -->
         <div class="program-tabs">
-            <button class="tab-button active" onclick="showTab('foundry')">AI Foundry 기초 과정 (2일)</button>
-            <button class="tab-button active" onclick="showTab('vibe')">바이브 코딩 심화 과정 (1일)</button>
+            <button class="tab-button active" onclick="showTab('foundry')"> 📊 AI Foundry 기초 과정 (2일)</button>
+            <button class="tab-button vibe-tab" onclick="showTab('vibe')"> 🚀 바이브 코딩 심화 과정 (1일)</button>
         </div>
         
         <!-- AI Foundry 기초 과정 -->
