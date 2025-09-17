@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Power BI & AI 매출 분석 교육 신청</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      color: #333;
+      background-color: #f5f7fa;
+      line-height: 1.6;
+    }
+    .hero {
+      position: relative;
+      background-image: url('https://mbcgtmvideos.blob.core.windows.net/leaflet/powerbifabricdataagentbg.png?sp=r&st=2025-09-17T04:15:18Z&se=2026-09-17T12:30:18Z&spr=https&sv=2024-11-04&sr=b&sig=6moS2vggRzpaq1YbGmjWFAJSNof3H5SBB%2Bc5DCrDmbA%3D');
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+      text-align: center;
+      height: 250px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5); /* dark overlay for readability */
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      padding: 0 15px;
+    }
+    .reg {
+      position: relative;
+      background-image: url('524dd20d-acbb-4b94-af48-33e8b41329ab.png');
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+      text-align: center;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    h1 {
+      font-size: 2.4em;
+      margin: 0 0 10px 0;
+    }
+    .tagline {
+      font-size: 1.2em;
+      margin-bottom: 20px;
+    }
+    .cta-button {
+      background: #3a86ff;
+      color: #fff;
+      padding: 12px 100px;
+      text-decoration: none;
+      border-radius: 0px;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+    .cta-button:hover {
+      background: #265cff;
+    }
+    .section {
+      max-width: 960px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    .section h2 {
+      color: #2a2a2a;
+      margin-bottom: 10px;
+    }
+    .agenda {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    .card {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      padding: 20px;
+      margin-bottom: 20px;
+      flex: 1 1 45%;
+      display: flex;
+      flex-direction: column;
+    }
+    .card h3 {
+      margin-top: 0;
+      color: #3a86ff;
+    }
+    .card ul {
+      list-style: disc;
+      padding-left: 20px;
+    }
+    .card ul li {
+      margin-bottom: 6px;
+    }
+    .agenda-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    .agenda-table th,
+    .agenda-table td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+    }
+    .agenda-table th {
+      background: #f0f4ff;
+    }
+    .footer {
+      text-align: center;
+      padding: 20px;
+      background: #f0f0f0;
+      color: #666;
+      font-size: 0.9em;
+    }
+    @media (max-width: 768px) {
+      .agenda {
+        flex-direction: column;
+      }
+      .card {
+        flex: 1 1 100%;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Power&nbsp;BI & AI 매출 분석 교육</h1>
+      <p class="tagline">매출 데이터 경영지표 시각화 + Fabric&nbsp;/&nbsp;Copilot Data&nbsp;Agent 실습</p>
+    </div>
+  </header>
+
+  <section class="section">
+    <h2>교육 개요</h2>
+    <p>본 교육은 한방병원 보조제 공급기업의 데이터를 기반으로 매출 지표를 시각화하고, Microsoft Fabric과 Copilot을 활용한 AI 기반 Data&nbsp;Agent를 체험하는 1일 핸즈온 워크숍입니다. 데이터 통합부터 대시보드 설계, AI 도우미 구축까지 최신 기능을 경험합니다.</p>
+  </section>
+
+  <section class="section">
+    <h2>핵심 세션</h2>
+    <div class="agenda">
+      <div class="card">
+        <h3>Power&nbsp;BI 매출 시각화 (3/4)</h3>
+        <ul>
+          <li>중앙 데이터 저장소에서 매출·재고 데이터 수집</li>
+          <li>스타 스키마 모델링과 DAX 기반 핵심 지표 작성</li>
+          <li>병원·제품별 매출 분석, 성장률과 재고 회전율 시각화</li>
+          <li>세그먼트 분석, KPI 경보 및 고급 시각화 기법</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Fabric&nbsp;+ Copilot Data&nbsp;Agent (1/4)</h3>
+        <ul>
+          <li>OneLake를 통한 데이터 통합 및 사일로 제거</li>
+          <li>Fabric Data&nbsp;Agent 개요와 활용 사례</li>
+          <li>Copilot Studio에서 AI Agent 생성 및 트리거 설정</li>
+          <li>실시간 Q&A와 멀티 에이전트 협업 체험</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>일정</h2>
+    <table class="agenda-table">
+      <tr>
+        <th>시간</th>
+        <th>내용</th>
+      </tr>
+      <tr>
+        <td>09:00 – 09:20</td>
+        <td>프로젝트 및 매출 데이터 구조 소개</td>
+      </tr>
+      <tr>
+        <td>09:20 – 10:30</td>
+        <td>Power BI 데이터 수집·모델링</td>
+      </tr>
+      <tr>
+        <td>10:30 – 12:00</td>
+        <td>경영지표 대시보드 구축</td>
+      </tr>
+      <tr>
+        <td>13:00 – 15:00</td>
+        <td>세부 분석 및 보고서 최적화</td>
+      </tr>
+      <tr>
+        <td>15:15 – 15:45</td>
+        <td>Fabric 개요 및 Copilot 소개</td>
+      </tr>
+      <tr>
+        <td>15:45 – 16:45</td>
+        <td>Data Agent 생성·트리거 실습</td>
+      </tr>
+      <tr>
+        <td>16:45 – 17:00</td>
+        <td>Q&A 및 적용 방안 논의</td>
+      </tr>
+    </table>
+  </section>
+
+  <section class="section">
+    <h2>참가 대상 및 혜택</h2>
+    <p>본 교육은 한방병원 경영진, 데이터 분석가, IT 담당자 등 매출 데이터를 활용하여 경영 의사결정을 개선하고자 하는 모든 분들을 대상으로 합니다. 교육을 통해 다음을 얻을 수 있습니다.</p>
+    <ul>
+      <li>실제 매출 데이터를 활용한 Power&nbsp;BI 모델링과 시각화 역량</li>
+      <li>Fabric OneLake를 기반으로 한 데이터 통합 전략</li>
+      <li>Copilot과 Data&nbsp;Agent를 통한 AI 대화형 분석 경험</li>
+      <li>미래 AI 서비스와 통합된 데이터 기반 의사결정 역량 강화</li>
+    </ul>
+  </section>
+	<section class="reg">
+		<div class="hero-content">		
+      			<a href="#" class="cta-button">지금 신청하기</a>
+		</div>
+	</section>
+  <footer class="footer">
+    <p>© 2025 메가존클라우드 Microsoft Business SMC Unit. All rights reserved.</p>
+  </footer>
+</body>
+</html>
