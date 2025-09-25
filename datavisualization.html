@@ -102,7 +102,7 @@
     }
     .curriculum-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 15px;
       margin-top: 20px;
     }
@@ -124,26 +124,44 @@
       padding: 20px 20px 10px 20px;
       display: flex;
       align-items: center;
-      justify-content: flex-start;
+      justify-content: space-between;
       gap: 15px;
     }
-    .session-number {
+    .session-title-btn {
       background: linear-gradient(135deg, #6c63ff 0%, #5a52ff 100%);
       color: white;
+      border-radius: 20px;
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      font-size: 0.95em;
+      flex: 1;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .session-title-btn:hover {
+      background: linear-gradient(135deg, #5a52ff 0%, #4a42ff 100%);
+      transform: translateY(-1px);
+    }
+    .session-number {
+      background: rgba(255,255,255,0.2);
       border-radius: 50%;
-      width: 32px;
-      height: 32px;
+      width: 24px;
+      height: 24px;
       display: flex;
       align-items: center;
       justify-content: center;
       font-weight: bold;
-      font-size: 1em;
+      font-size: 0.9em;
       flex-shrink: 0;
     }
     .card-header h3 {
       margin: 0;
-      font-size: 1.1em;
-      color: #333;
+      font-size: 1em;
+      color: white;
       font-weight: 600;
       flex: 1;
     }
@@ -235,11 +253,6 @@
         grid-template-columns: repeat(2, 1fr);
       }
     }
-    @media (max-width: 1200px) and (min-width: 1025px) {
-      .curriculum-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
   </style>
 </head>
 <body>
@@ -284,9 +297,11 @@
     <div class="curriculum-grid">
       <div class="curriculum-card">
         <div class="card-header">
-          <span class="session-number">1</span>
-          <h3>Power BI 이해</h3>
-          <span class="duration">1H</span>
+          <div class="session-title-btn">
+            <span class="session-number">1</span>
+            <h3>Power BI 이해</h3>
+          </div>
+          <span class="duration">1시간</span>
         </div>
         <ul class="curriculum-list">
           <li>Power BI 요소 및 작업 흐름</li>
@@ -298,9 +313,11 @@
 
       <div class="curriculum-card">
         <div class="card-header">
-          <span class="session-number">2</span>
-          <h3>데이터 모델링</h3>
-          <span class="duration">1H</span>
+          <div class="session-title-btn">
+            <span class="session-number">2</span>
+            <h3>데이터 모델링</h3>
+          </div>
+          <span class="duration">1시간</span>
         </div>
         <ul class="curriculum-list">
           <li>관계 설정</li>
@@ -310,9 +327,11 @@
 
       <div class="curriculum-card">
         <div class="card-header">
-          <span class="session-number">3</span>
-          <h3>데이터 시각화</h3>
-          <span class="duration">2H</span>
+          <div class="session-title-btn">
+            <span class="session-number">3</span>
+            <h3>데이터 시각화</h3>
+          </div>
+          <span class="duration">2시간</span>
         </div>
         <ul class="curriculum-list">
           <li>기본 차트</li>
@@ -324,9 +343,11 @@
 
       <div class="curriculum-card">
         <div class="card-header">
-          <span class="session-number">4</span>
-          <h3>Power BI 서비스</h3>
-          <span class="duration">1H</span>
+          <div class="session-title-btn">
+            <span class="session-number">4</span>
+            <h3>Power BI 서비스</h3>
+          </div>
+          <span class="duration">1시간</span>
         </div>
         <ul class="curriculum-list">
           <li>보고서 게시</li>
@@ -337,9 +358,11 @@
 
       <div class="curriculum-card">
         <div class="card-header">
-          <span class="session-number">5</span>
-          <h3>DAX</h3>
-          <span class="duration">1H</span>
+          <div class="session-title-btn">
+            <span class="session-number">5</span>
+            <h3>DAX</h3>
+          </div>
+          <span class="duration">1시간</span>
         </div>
         <ul class="curriculum-list">
           <li>DAX 소개</li>
@@ -350,9 +373,11 @@
 
       <div class="curriculum-card">
         <div class="card-header">
-          <span class="session-number">6</span>
-          <h3>Microsoft Fabric 확장</h3>
-          <span class="duration">2H</span>
+          <div class="session-title-btn">
+            <span class="session-number">6</span>
+            <h3>Microsoft Fabric 확장</h3>
+          </div>
+          <span class="duration">2시간</span>
         </div>
         <ul class="curriculum-list">
           <li>Lakehouse 소개</li>
