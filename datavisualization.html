@@ -8,103 +8,91 @@
       margin: 0;
       font-family: 'Segoe UI', Tahoma, sans-serif;
       color: #333;
-      background-color: #f5f7fa;
+      background-color: #f8f9fa;
       line-height: 1.6;
     }
     .hero {
-      position: relative;
-      background: linear-gradient(135deg, #3a86ff 0%, #1e5fff 100%);
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       color: #fff;
       text-align: center;
-      height: 250px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      padding: 60px 20px;
     }
-    .hero::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.1);
+    .hero h1 {
+      font-size: 2.5em;
+      margin: 0 0 15px 0;
+      font-weight: 700;
     }
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      padding: 0 15px;
+    .hero .subtitle {
+      font-size: 1.1em;
+      opacity: 0.9;
+      margin-bottom: 30px;
     }
-    .reg {
-      position: relative;
-      background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
-      color: #fff;
-      text-align: center;
-      height: 100px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    h1 {
-      font-size: 2.4em;
-      margin: 0 0 10px 0;
-    }
-    .tagline {
-      font-size: 1.2em;
-      margin-bottom: 20px;
-    }
-    .cta-button {
-      background: #3a86ff;
-      color: #fff;
-      padding: 12px 100px;
-      text-decoration: none;
-      border-radius: 0px;
-      font-weight: 600;
-      transition: background 0.3s;
-    }
-    .cta-button:hover {
-      background: #265cff;
-    }
-    .section {
-      max-width: 960px;
+    
+    .overview-box {
+      max-width: 900px;
       margin: 40px auto;
-      padding: 0 20px;
-    }
-    .section h2 {
-      color: #2a2a2a;
-      margin-bottom: 10px;
-    }
-    .agenda {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-    }
-    .card {
       background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      padding: 20px;
-      margin-bottom: 20px;
-      flex: 1 1 45%;
+      border: 2px solid #e3f2fd;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .overview-box h3 {
+      color: #1976d2;
+      margin: 0 0 15px 0;
       display: flex;
-      flex-direction: column;
+      align-items: center;
+      gap: 10px;
     }
-    .card h3 {
-      margin-top: 0;
-      color: #3a86ff;
+    .overview-box h3:before {
+      content: '💡';
+      font-size: 1.2em;
     }
-    .card ul {
-      list-style: disc;
-      padding-left: 20px;
+    
+    .info-section {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 0 20px;
+      text-align: center;
     }
-    .card ul li {
-      margin-bottom: 6px;
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 20px 0;
+      font-size: 0.95em;
+    }
+    .info-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    
+    .section-header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin: 40px auto 20px auto;
+      max-width: 900px;
+      border-radius: 8px;
+      font-weight: 600;
+    }
+    .section-header:before {
+      content: '📚';
+      margin-right: 10px;
+    }
+    
+    .curriculum-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 20px;
     }
     .curriculum-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 15px;
-      margin-top: 20px;
+      margin-bottom: 30px;
     }
     .curriculum-card {
       background: #fff;
@@ -113,143 +101,189 @@
       overflow: hidden;
       transition: transform 0.3s, box-shadow 0.3s;
       border: 1px solid #e8e8e8;
+      min-height: 200px;
     }
     .curriculum-card:hover {
       transform: translateY(-3px);
       box-shadow: 0 4px 16px rgba(0,0,0,0.12);
     }
-    .card-header {
-      background: #fff;
-      color: #333;
-      padding: 20px 20px 10px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 15px;
-    }
-    .session-title-btn {
-      background: linear-gradient(135deg, #6c63ff 0%, #5a52ff 100%);
+    .card-number {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       color: white;
-      border-radius: 20px;
-      padding: 8px 16px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 600;
-      font-size: 0.95em;
-      flex: 1;
-      border: none;
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-    .session-title-btn:hover {
-      background: linear-gradient(135deg, #5a52ff 0%, #4a42ff 100%);
-      transform: translateY(-1px);
-    }
-    .session-number {
-      background: rgba(255,255,255,0.2);
-      border-radius: 50%;
-      width: 24px;
-      height: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      padding: 12px;
+      text-align: center;
       font-weight: bold;
-      font-size: 0.9em;
-      flex-shrink: 0;
+      font-size: 1.1em;
+      position: relative;
     }
-    .card-header h3 {
-      margin: 0;
-      font-size: 1em;
-      color: white;
+    .card-number:after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: -10px;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-top: 10px solid #764ba2;
+    }
+    .card-title {
+      padding: 20px 15px 10px 15px;
       font-weight: 600;
-      flex: 1;
+      color: #333;
+      text-align: center;
+      font-size: 1em;
     }
-    .duration {
-      background: #28a745;
-      color: white;
-      padding: 4px 10px;
-      border-radius: 12px;
-      font-weight: 500;
-      font-size: 0.85em;
-      flex-shrink: 0;
+    .card-content {
+      padding: 0 15px 20px 15px;
     }
     .curriculum-list {
-      padding: 10px 20px 20px 20px;
-      margin: 0;
       list-style: none;
+      padding: 0;
+      margin: 0;
     }
     .curriculum-list li {
-      padding: 6px 0;
+      padding: 4px 0;
+      color: #666;
+      font-size: 0.85em;
       position: relative;
       padding-left: 15px;
-      color: #666;
-      font-size: 0.9em;
-      line-height: 1.4;
     }
     .curriculum-list li:before {
       content: '•';
-      color: #6c63ff;
+      color: #667eea;
       font-weight: bold;
       position: absolute;
       left: 0;
     }
-    .agenda-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 20px;
+    .duration-badge {
+      background: #28a745;
+      color: white;
+      padding: 4px 8px;
+      border-radius: 12px;
+      font-size: 0.8em;
+      font-weight: 500;
+      display: inline-block;
+      margin-top: 10px;
     }
-    .agenda-table th,
-    .agenda-table td {
-      border: 1px solid #ddd;
-      padding: 6px 10px;
-      text-align: left;
-      vertical-align: top;
-      font-size: 0.9em;
-      line-height: 1.3;
+    
+    .next-section-header {
+      background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin: 40px auto 20px auto;
+      max-width: 900px;
+      border-radius: 8px;
+      font-weight: 600;
     }
-    .agenda-table th {
-      background: #f0f4ff;
+    .next-section-header:before {
+      content: '🚀';
+      margin-right: 10px;
     }
-    .agenda-table td:first-child {
+    
+    .next-curriculum-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+      max-width: 900px;
+      margin: 0 auto 40px auto;
+      padding: 0 20px;
+    }
+    .next-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      overflow: hidden;
+      transition: transform 0.3s;
+      border: 1px solid #e8e8e8;
+    }
+    .next-card:hover {
+      transform: translateY(-3px);
+    }
+    .next-card-number {
+      background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+      color: white;
+      padding: 12px;
       text-align: center;
       font-weight: bold;
-      background: #f8f9ff;
-      width: 60px;
+      font-size: 1.1em;
     }
-    .agenda-table td:nth-child(2) {
-      font-weight: bold;
-      background: #f8f9ff;
-      width: 150px;
+    .next-card-content {
+      padding: 15px;
     }
-    .agenda-table td:last-child {
+    .next-card-title {
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 10px;
+      font-size: 0.95em;
+    }
+    .next-card-desc {
+      color: #666;
+      font-size: 0.8em;
+      line-height: 1.4;
+    }
+    .action-btn {
+      background: #28a745;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.8em;
+      font-weight: 500;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+    
+    .cta-section {
+      background: linear-gradient(135deg, #dc3545 0%, #fd7e14 100%);
+      color: #fff;
       text-align: center;
-      font-weight: bold;
-      width: 80px;
+      padding: 50px 20px;
+      margin-top: 50px;
     }
+    .cta-button {
+      background: #fff;
+      color: #dc3545;
+      padding: 15px 40px;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: 600;
+      font-size: 1.1em;
+      transition: all 0.3s;
+      display: inline-block;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    }
+    
     .footer {
       text-align: center;
-      padding: 20px;
-      background: #f0f0f0;
-      color: #666;
-      font-size: 0.9em;
+      padding: 30px 20px;
+      background: #f8f9fa;
+      color: #6c757d;
+      border-top: 1px solid #e9ecef;
     }
+    
     @media (max-width: 768px) {
-      .agenda {
-        flex-direction: column;
-      }
-      .card {
-        flex: 1 1 100%;
-      }
-      .curriculum-grid {
+      .curriculum-grid,
+      .next-curriculum-grid {
         grid-template-columns: 1fr;
       }
-      h1 {
-        font-size: 1.8em;
+      .info-row {
+        flex-direction: column;
+        gap: 10px;
+      }
+      .hero h1 {
+        font-size: 2em;
       }
     }
     @media (max-width: 1024px) and (min-width: 769px) {
-      .curriculum-grid {
+      .curriculum-grid,
+      .next-curriculum-grid {
         grid-template-columns: repeat(2, 1fr);
       }
     }
@@ -257,153 +291,153 @@
 </head>
 <body>
   <header class="hero">
-    <div class="hero-content">
-      <h1>Power&nbsp;BI & AI 매출 분석 교육</h1>
-      <p class="tagline">매출 데이터 경영지표 시각화 + Fabric&nbsp;/&nbsp;Copilot Data&nbsp;Agent 실습</p>
-    </div>
+    <h1>Power BI & AI 매출 분석 교육</h1>
+    <p class="subtitle">AI 에이전트와의 개발 진단과 영상 프로그램</p>
   </header>
 
-  <section class="section">
-    <h2>교육 개요</h2>
-    <p>본 교육은 기업의 매출 데이터를 기반으로 경영 지표를 시각화하고, Microsoft Fabric과 Copilot을 활용한 AI 기반 Data&nbsp;Agent를 체험하는 핸즈온 워크숍입니다. 데이터 통합부터 대시보드 설계, AI 도우미 구축까지 최신 기능을 경험합니다.</p>
-  </section>
+  <div class="overview-box">
+    <h3>프로그램 특징</h3>
+    <p>실제 상황의 응용프로그램 개발방법에 AI 에이전트에이전트 정보 전문가의 참고할 각실천 개발로 체계적으로 진행됩니다. Azure AI Foundry를 활용한 설정 출력형 분석과 비어서 권하는 출력 설명 프로그션 상황에서 AI 에이전트에이전트 개발 역무을 모든글 볼 수 있습니다.</p>
+  </div>
 
-  <section class="section">
-    <h2>핵심 세션</h2>
-    <div class="agenda">
-      <div class="card">
-        <h3>Power&nbsp;BI 매출 시각화 (3/4)</h3>
-        <ul>
-          <li>중앙 데이터 저장소에서 매출·재고 데이터 수집</li>
-          <li>스타 스키마 모델링과 DAX 기반 핵심 지표 작성</li>
-          <li>고객·제품별 매출 분석, 성장률과 재고 회전율 시각화</li>
-          <li>세그먼트 분석, KPI 경보 및 고급 시각화 기법</li>
-        </ul>
+  <div class="info-section">
+    <div class="info-row">
+      <div class="info-item">
+        <strong>대상:</strong> AI에 관심이 있는 응용프로그램 개발자, 기술/설계직 IT 전문가
       </div>
-      <div class="card">
-        <h3>Fabric&nbsp;+ Copilot Data&nbsp;Agent (1/4)</h3>
-        <ul>
-          <li>OneLake를 통한 데이터 통합 및 사일로 제거</li>
-          <li>Fabric Data&nbsp;Agent 개요와 활용 사례</li>
-          <li>Copilot Studio에서 AI Agent 생성 및 트리거 설정</li>
-          <li>실시간 Q&A와 멀티 에이전트 협업 체험</li>
-        </ul>
+      <div class="info-item">
+        <strong>기술 수준:</strong> 초급 - 중급
+      </div>
+      <div class="info-item">
+        <strong>내부 환경:</strong> Azure 기반 지식 제공
       </div>
     </div>
-  </section>
+  </div>
 
-  <section class="section">
-    <h2>일정</h2>
+  <div class="section-header">
+    1차시: Power BI 기초 과정 (4차시)
+  </div>
+
+  <div class="curriculum-container">
     <div class="curriculum-grid">
       <div class="curriculum-card">
-        <div class="card-header">
-          <div class="session-title-btn">
-            <span class="session-number">1</span>
-            <h3>Power BI 이해</h3>
-          </div>
-          <span class="duration">1시간</span>
+        <div class="card-number">1</div>
+        <div class="card-title">Power BI 이해</div>
+        <div class="card-content">
+          <ul class="curriculum-list">
+            <li>Power BI 요소 및 작업 흐름</li>
+            <li>Power BI 라이선스</li>
+            <li>Power BI 둘러보기</li>
+            <li>데이터 불러오기</li>
+          </ul>
+          <span class="duration-badge">1시간</span>
         </div>
-        <ul class="curriculum-list">
-          <li>Power BI 요소 및 작업 흐름</li>
-          <li>Power BI 라이선스</li>
-          <li>Power BI 둘러보기</li>
-          <li>데이터 불러오기</li>
-        </ul>
       </div>
 
       <div class="curriculum-card">
-        <div class="card-header">
-          <div class="session-title-btn">
-            <span class="session-number">2</span>
-            <h3>데이터 모델링</h3>
-          </div>
-          <span class="duration">1시간</span>
+        <div class="card-number">2</div>
+        <div class="card-title">데이터 모델링</div>
+        <div class="card-content">
+          <ul class="curriculum-list">
+            <li>관계 설정</li>
+            <li>데이터 변환</li>
+          </ul>
+          <span class="duration-badge">1시간</span>
         </div>
-        <ul class="curriculum-list">
-          <li>관계 설정</li>
-          <li>데이터 변환</li>
-        </ul>
       </div>
 
       <div class="curriculum-card">
-        <div class="card-header">
-          <div class="session-title-btn">
-            <span class="session-number">3</span>
-            <h3>데이터 시각화</h3>
-          </div>
-          <span class="duration">2시간</span>
+        <div class="card-number">3</div>
+        <div class="card-title">데이터 시각화</div>
+        <div class="card-content">
+          <ul class="curriculum-list">
+            <li>기본 차트</li>
+            <li>슬라이서/필터</li>
+            <li>상호작용</li>
+            <li>보고서 디자인</li>
+          </ul>
+          <span class="duration-badge">2시간</span>
         </div>
-        <ul class="curriculum-list">
-          <li>기본 차트</li>
-          <li>슬라이서/필터</li>
-          <li>상호작용</li>
-          <li>보고서 디자인</li>
-        </ul>
       </div>
 
       <div class="curriculum-card">
-        <div class="card-header">
-          <div class="session-title-btn">
-            <span class="session-number">4</span>
-            <h3>Power BI 서비스</h3>
-          </div>
-          <span class="duration">1시간</span>
+        <div class="card-number">4</div>
+        <div class="card-title">Power BI 서비스</div>
+        <div class="card-content">
+          <ul class="curriculum-list">
+            <li>보고서 게시</li>
+            <li>온라인 보고서</li>
+            <li>새로고침</li>
+          </ul>
+          <span class="duration-badge">1시간</span>
         </div>
-        <ul class="curriculum-list">
-          <li>보고서 게시</li>
-          <li>온라인 보고서</li>
-          <li>새로고침</li>
-        </ul>
-      </div>
-
-      <div class="curriculum-card">
-        <div class="card-header">
-          <div class="session-title-btn">
-            <span class="session-number">5</span>
-            <h3>DAX</h3>
-          </div>
-          <span class="duration">1시간</span>
-        </div>
-        <ul class="curriculum-list">
-          <li>DAX 소개</li>
-          <li>열과 측정값</li>
-          <li>날짜 비교</li>
-        </ul>
-      </div>
-
-      <div class="curriculum-card">
-        <div class="card-header">
-          <div class="session-title-btn">
-            <span class="session-number">6</span>
-            <h3>Microsoft Fabric 확장</h3>
-          </div>
-          <span class="duration">2시간</span>
-        </div>
-        <ul class="curriculum-list">
-          <li>Lakehouse 소개</li>
-          <li>데이터 통합</li>
-          <li>Fabric 데이터 분석</li>
-          <li>Copilot 및 Data Agent</li>
-        </ul>
       </div>
     </div>
+  </div>
+
+  <div class="next-section-header">
+    2차시: 고급 기능 및 프로덕션 배포
+  </div>
+
+  <div class="next-curriculum-grid">
+    <div class="next-card">
+      <div class="next-card-number">5</div>
+      <div class="next-card-content">
+        <div class="next-card-title">DAX 고급 개발</div>
+        <div class="next-card-desc">
+          • DAX 소개<br>
+          • 열과 측정값<br>
+          • 날짜 비교
+        </div>
+        <button class="action-btn">상세: DAX 고급 측정값 개발</button>
+      </div>
+    </div>
+
+    <div class="next-card">
+      <div class="next-card-number">6</div>
+      <div class="next-card-content">
+        <div class="next-card-title">Microsoft Fabric 확장</div>
+        <div class="next-card-desc">
+          • Lakehouse 소개<br>
+          • 데이터 통합<br>
+          • Fabric 데이터 분석<br>
+          • Copilot 및 Data Agent
+        </div>
+        <button class="action-btn">상세: Fabric 및 Copilot 고급 분석</button>
+      </div>
+    </div>
+
+    <div class="next-card">
+      <div class="next-card-number">7</div>
+      <div class="next-card-content">
+        <div class="next-card-title">실습 있는 생성형 AI 솔루션 구현</div>
+        <div class="next-card-desc">
+          • 실제형 비어서 학습<br>
+          • 콘텐츠 협력적 생성 제목 작성<br>
+        </div>
+        <button class="action-btn">상세: 대화형 AI 도구 생성 및 최적화</button>
+      </div>
+    </div>
+
+    <div class="next-card">
+      <div class="next-card-number">8</div>
+      <div class="next-card-content">
+        <div class="next-card-title">생성형 AI 모델 평가 및 최적화</div>
+        <div class="next-card-desc">
+          • 성능 지표와 평가 방법론<br>
+          • 추론 및 지능형 평가 기법<br>
+        </div>
+        <button class="action-btn">상세: 생성형 AI 모델 성능 평가 및 최적화</button>
+      </div>
+    </div>
+  </div>
+
+  <section class="cta-section">
+    <h2>지금 신청하세요!</h2>
+    <p>Power BI와 AI 기반 데이터 분석 역량을 함께 키워보세요</p>
+    <a href="https://forms.microsoft.com/r/3PF0dWKhLM" class="cta-button">교육 신청하기</a>
   </section>
 
-  <section class="section">
-    <h2>참가 대상 및 혜택</h2>
-    <p>본 교육은 기업 경영진, 데이터 분석가, IT 담당자 등 매출 데이터를 활용하여 경영 의사결정을 개선하고자 하는 모든 분들을 대상으로 합니다. 교육을 통해 다음을 얻을 수 있습니다.</p>
-    <ul>
-      <li>실제 기업 매출 데이터를 활용한 Power&nbsp;BI 모델링과 시각화 역량</li>
-      <li>Fabric OneLake를 기반으로 한 데이터 통합 전략</li>
-      <li>Copilot과 Data&nbsp;Agent를 통한 AI 대화형 분석 경험</li>
-      <li>미래 AI 서비스와 통합된 데이터 기반 의사결정 역량 강화</li>
-    </ul>
-  </section>
-	<section class="reg">
-		<div class="hero-content">		
-      			<a href="https://forms.microsoft.com/r/3PF0dWKhLM" class="cta-button">지금 신청하기</a>
-		</div>
-	</section>
   <footer class="footer">
     <p>© 2025 메가존클라우드 Microsoft Business SMC Unit. All rights reserved.</p>
   </footer>
