@@ -13,9 +13,7 @@
     }
     .hero {
       position: relative;
-      background-image: url('https://mbcgtmvideos.blob.core.windows.net/leaflet/powerbifabricdataagentbg.png?sp=r&st=2025-09-17T04:15:18Z&se=2026-09-17T12:30:18Z&spr=https&sv=2024-11-04&sr=b&sig=6moS2vggRzpaq1YbGmjWFAJSNof3H5SBB%2Bc5DCrDmbA%3D');
-      background-size: cover;
-      background-position: center;
+      background: linear-gradient(135deg, #3a86ff 0%, #1e5fff 100%);
       color: #fff;
       text-align: center;
       height: 250px;
@@ -30,7 +28,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0,0,0,0.5); /* dark overlay for readability */
+      background: rgba(0,0,0,0.1);
     }
     .hero-content {
       position: relative;
@@ -39,9 +37,7 @@
     }
     .reg {
       position: relative;
-      background-image: url('524dd20d-acbb-4b94-af48-33e8b41329ab.png');
-      background-size: cover;
-      background-position: center;
+      background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
       color: #fff;
       text-align: center;
       height: 100px;
@@ -114,9 +110,26 @@
       border: 1px solid #ddd;
       padding: 10px;
       text-align: left;
+      vertical-align: top;
     }
     .agenda-table th {
       background: #f0f4ff;
+    }
+    .agenda-table td:first-child {
+      text-align: center;
+      font-weight: bold;
+      background: #f8f9ff;
+      width: 60px;
+    }
+    .agenda-table td:nth-child(2) {
+      font-weight: bold;
+      background: #f8f9ff;
+      width: 150px;
+    }
+    .agenda-table td:last-child {
+      text-align: center;
+      font-weight: bold;
+      width: 80px;
     }
     .footer {
       text-align: center;
@@ -148,7 +161,7 @@
 
   <section class="section">
     <h2>교육 개요</h2>
-    <p>본 교육은 한방병원 보조제 공급기업의 데이터를 기반으로 매출 지표를 시각화하고, Microsoft Fabric과 Copilot을 활용한 AI 기반 Data&nbsp;Agent를 체험하는 1일 핸즈온 워크숍입니다. 데이터 통합부터 대시보드 설계, AI 도우미 구축까지 최신 기능을 경험합니다.</p>
+    <p>본 교육은 기업의 매출 데이터를 기반으로 경영 지표를 시각화하고, Microsoft Fabric과 Copilot을 활용한 AI 기반 Data&nbsp;Agent를 체험하는 핸즈온 워크숍입니다. 데이터 통합부터 대시보드 설계, AI 도우미 구축까지 최신 기능을 경험합니다.</p>
   </section>
 
   <section class="section">
@@ -159,7 +172,7 @@
         <ul>
           <li>중앙 데이터 저장소에서 매출·재고 데이터 수집</li>
           <li>스타 스키마 모델링과 DAX 기반 핵심 지표 작성</li>
-          <li>병원·제품별 매출 분석, 성장률과 재고 회전율 시각화</li>
+          <li>고객·제품별 매출 분석, 성장률과 재고 회전율 시각화</li>
           <li>세그먼트 분석, KPI 경보 및 고급 시각화 기법</li>
         </ul>
       </div>
@@ -179,45 +192,100 @@
     <h2>일정</h2>
     <table class="agenda-table">
       <tr>
+        <th>차시</th>
+        <th>주제</th>
+        <th>세부 내용</th>
         <th>시간</th>
-        <th>내용</th>
       </tr>
       <tr>
-        <td>09:00 – 09:20</td>
-        <td>프로젝트 및 매출 데이터 구조 소개</td>
+        <td rowspan="4">1</td>
+        <td rowspan="4">Power BI 이해</td>
+        <td>Power BI 요소 및 작업 흐름</td>
+        <td rowspan="4">1H</td>
       </tr>
       <tr>
-        <td>09:20 – 10:30</td>
-        <td>Power BI 데이터 수집·모델링</td>
+        <td>Power BI 라이선스</td>
       </tr>
       <tr>
-        <td>10:30 – 12:00</td>
-        <td>경영지표 대시보드 구축</td>
+        <td>Power BI 둘러보기</td>
       </tr>
       <tr>
-        <td>13:00 – 15:00</td>
-        <td>세부 분석 및 보고서 최적화</td>
+        <td>데이터 불러오기</td>
       </tr>
       <tr>
-        <td>15:15 – 15:45</td>
-        <td>Fabric 개요 및 Copilot 소개</td>
+        <td rowspan="3">2</td>
+        <td rowspan="3">데이터 모델링</td>
+        <td>관계 설정</td>
+        <td rowspan="3">1H</td>
       </tr>
       <tr>
-        <td>15:45 – 16:45</td>
-        <td>Data Agent 생성·트리거 실습</td>
+        <td>데이터 변환</td>
       </tr>
       <tr>
-        <td>16:45 – 17:00</td>
-        <td>Q&A 및 적용 방안 논의</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td rowspan="4">3</td>
+        <td rowspan="4">데이터 시각화</td>
+        <td>기본 차트</td>
+        <td rowspan="4">2H</td>
+      </tr>
+      <tr>
+        <td>슬라이서/필터</td>
+      </tr>
+      <tr>
+        <td>상호작용</td>
+      </tr>
+      <tr>
+        <td>보고서 디자인</td>
+      </tr>
+      <tr>
+        <td rowspan="3">4</td>
+        <td rowspan="3">Power BI 서비스</td>
+        <td>보고서 게시</td>
+        <td rowspan="3">1H</td>
+      </tr>
+      <tr>
+        <td>온라인 보고서</td>
+      </tr>
+      <tr>
+        <td>새로고침</td>
+      </tr>
+      <tr>
+        <td rowspan="3">5</td>
+        <td rowspan="3">DAX</td>
+        <td>DAX 소개</td>
+        <td rowspan="3">1H</td>
+      </tr>
+      <tr>
+        <td>열과 측정값</td>
+      </tr>
+      <tr>
+        <td>날짜 비교</td>
+      </tr>
+      <tr>
+        <td rowspan="4">6</td>
+        <td rowspan="4">Microsoft Fabric 확장</td>
+        <td>Lakehouse 소개</td>
+        <td rowspan="4">2H</td>
+      </tr>
+      <tr>
+        <td>데이터 통합</td>
+      </tr>
+      <tr>
+        <td>Fabric 데이터 분석</td>
+      </tr>
+      <tr>
+        <td>Copilot 및 Data Agent</td>
       </tr>
     </table>
   </section>
 
   <section class="section">
     <h2>참가 대상 및 혜택</h2>
-    <p>본 교육은 한방병원 경영진, 데이터 분석가, IT 담당자 등 매출 데이터를 활용하여 경영 의사결정을 개선하고자 하는 모든 분들을 대상으로 합니다. 교육을 통해 다음을 얻을 수 있습니다.</p>
+    <p>본 교육은 기업 경영진, 데이터 분석가, IT 담당자 등 매출 데이터를 활용하여 경영 의사결정을 개선하고자 하는 모든 분들을 대상으로 합니다. 교육을 통해 다음을 얻을 수 있습니다.</p>
     <ul>
-      <li>실제 매출 데이터를 활용한 Power&nbsp;BI 모델링과 시각화 역량</li>
+      <li>실제 기업 매출 데이터를 활용한 Power&nbsp;BI 모델링과 시각화 역량</li>
       <li>Fabric OneLake를 기반으로 한 데이터 통합 전략</li>
       <li>Copilot과 Data&nbsp;Agent를 통한 AI 대화형 분석 경험</li>
       <li>미래 AI 서비스와 통합된 데이터 기반 의사결정 역량 강화</li>
