@@ -265,36 +265,29 @@
       border-top: 1px solid #e9ecef;
     }
 
-    /* 갤러그 총알 애니메이션 - 숫자 모양 */
+    /* 갤러그 총알 애니메이션 - 숫자만 */
     .bullet {
       position: absolute;
-      width: 24px;
-      height: 24px;
-      background: linear-gradient(135deg, #ffff00, #ff8800);
-      border-radius: 50%;
-      box-shadow: 0 0 12px #ffff00, 0 0 20px #ff8800;
+      width: 30px;
+      height: 30px;
       z-index: 1000;
       pointer-events: none;
       display: flex;
       align-items: center;
       justify-content: center;
       font-weight: bold;
-      font-size: 14px;
-      color: #000;
-      text-shadow: 0 0 3px #fff;
-      border: 2px solid #fff;
+      font-size: 24px;
+      text-shadow: 
+        0 0 8px rgba(102, 126, 234, 0.9),
+        0 0 15px rgba(102, 126, 234, 0.7),
+        0 0 25px rgba(102, 126, 234, 0.5);
     }
 
     .bullet::before {
       content: attr(data-number);
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: #000;
+      color: #667eea;
       font-weight: bold;
-      font-size: 12px;
-      text-shadow: 0 0 2px #fff;
+      font-size: 24px;
     }
 
     @keyframes bulletShoot {
@@ -302,18 +295,26 @@
         opacity: 1;
         transform: translateY(0) scale(1) rotate(0deg);
       }
+      25% {
+        opacity: 1;
+        transform: translateY(-60px) scale(1.2) rotate(90deg);
+      }
       50% {
         opacity: 1;
-        transform: translateY(-100px) scale(1.1) rotate(180deg);
+        transform: translateY(-120px) scale(1.1) rotate(180deg);
+      }
+      75% {
+        opacity: 0.7;
+        transform: translateY(-180px) scale(0.9) rotate(270deg);
       }
       100% {
         opacity: 0;
-        transform: translateY(-250px) scale(0.7) rotate(360deg);
+        transform: translateY(-250px) scale(0.6) rotate(360deg);
       }
     }
 
     .bullet.shoot {
-      animation: bulletShoot 0.8s ease-out forwards;
+      animation: bulletShoot 0.9s ease-out forwards;
     }
 
     /* 총알 발사 시 카드 임팩트 효과 */
@@ -494,10 +495,12 @@
 
   <script>
     // 갤러그 스타일 총알 발사 효과
-    function createBullet(x, y, number) {
+    function createBullet(x, y) {
       const bullet = document.createElement('div');
       bullet.className = 'bullet';
-      bullet.setAttribute('data-number', number);
+      // 0-9 랜덤 숫자
+      const randomNumber = Math.floor(Math.random() * 10);
+      bullet.setAttribute('data-number', randomNumber);
       bullet.style.left = x + 'px';
       bullet.style.top = y + 'px';
       
@@ -513,7 +516,7 @@
         if (bullet.parentNode) {
           bullet.parentNode.removeChild(bullet);
         }
-      }, 800);
+      }, 900);
     }
     
     // 카드에 클릭 이벤트 추가
@@ -522,24 +525,19 @@
       
       cards.forEach(card => {
         card.addEventListener('click', function(e) {
-          // 카드 번호 추출
-          const cardNumber = card.querySelector('.card-number, .next-card-number');
-          const number = cardNumber ? cardNumber.textContent.trim() : '★';
-          
-          // 카드 중앙 위치 계산
+          // 카드의 정확한 중앙 상단 위치 계산
           const rect = card.getBoundingClientRect();
           const centerX = rect.left + rect.width / 2;
-          const centerY = rect.top + 20; // 카드 상단 부분에서 발사
+          const topY = rect.top; // 카드 맨 위에서 발사
           
-          // 여러 발의 총알 발사 (갤러그 스타일)
-          const bulletCount = Math.random() > 0.5 ? 4 : 3; // 랜덤하게 3-4발
+          // 5-7발의 랜덤 숫자 총알 발사
+          const bulletCount = Math.floor(Math.random() * 3) + 5; // 5-7발
           
           for (let i = 0; i < bulletCount; i++) {
             setTimeout(() => {
-              const offsetX = (Math.random() - 0.5) * 40; // 약간의 x축 분산
-              const offsetY = Math.random() * 10; // 약간의 y축 분산
-              createBullet(centerX + offsetX, centerY + offsetY, number);
-            }, i * 80); // 80ms 간격으로 발사
+              const offsetX = (Math.random() - 0.5) * 60; // 더 넓은 x축 분산
+              createBullet(centerX + offsetX, topY);
+            }, i * 60); // 60ms 간격으로 빠른 연사
           }
           
           // 카드에 임팩트 효과 추가
