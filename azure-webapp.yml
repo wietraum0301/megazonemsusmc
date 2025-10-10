@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - agentic-ai-copilot  # 또는 배포에 사용하는 브랜치
+  workflow_dispatch:
 
 jobs:
   build-and-deploy:
@@ -28,6 +29,7 @@ jobs:
       uses: azure/webapps-deploy@v2
       with:
         app-name: megazone  # Azure Web App 이름
+        slot-name: 'agentic-ai-copilot'
         publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
         package: .
 
