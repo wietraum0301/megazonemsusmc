@@ -3,7 +3,7 @@ name: Deploy Node.js app to Azure Web App
 on:
   push:
     branches:
-      - main  # 또는 배포에 사용하는 브랜치
+      - agentic-ai-copilot  # 또는 배포에 사용하는 브랜치
 
 jobs:
   build-and-deploy:
