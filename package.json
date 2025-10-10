@@ -1,7 +1,7 @@
 {
-  "name": "github-copilot-workshop",
+  "name": "Agentic AI with Copilot — Envisioning Workshop",
   "version": "1.0.0",
-  "description": "GitHub Copilot 워크숍용 Express 서버",
+  "description": "Agentic AI with Copilot — Envisioning Workshop",
   "author": "celia yang",
   "license": "MIT",
   "scripts": {
