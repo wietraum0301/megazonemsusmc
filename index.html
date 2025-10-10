@@ -159,11 +159,30 @@
             border: 1px solid #2f335b;
             background: #1b1f3a;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(98, 100, 167, 0.1), transparent);
+            transition: left 0.5s;
         }
 
         .feature-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px) scale(1.02);
+            border-color: #6264a7;
+            box-shadow: 0 12px 24px rgba(98, 100, 167, 0.3), 0 0 20px rgba(138, 140, 217, 0.2);
+        }
+
+        .feature-card:hover::before {
+            left: 100%;
         }
 
         .feature-card h4 {
@@ -212,6 +231,15 @@
             border-radius: 16px;
             border: 1px solid #2f335b;
             background: #1b1f3a;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .session-card:hover {
+            transform: translateX(5px);
+            border-color: #6264a7;
+            background: linear-gradient(135deg, #1b1f3a 0%, #252956 100%);
+            box-shadow: 0 8px 16px rgba(98, 100, 167, 0.2);
         }
 
         .session-time {
@@ -223,10 +251,15 @@
             border-radius: 8px;
             display: grid;
             place-items: center;
-            font-weight: bold;
+            font-weight: default;
             font-size: 0.75rem;
             background: linear-gradient(180deg, #6264a7, #8a8cd9);
             color: #121f36;
+            transition: transform 0.3s ease;
+        }
+
+        .session-card:hover .session-time {
+            transform: scale(1.1) rotate(-5deg);
         }
 
         .session-card strong {
