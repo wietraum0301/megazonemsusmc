@@ -3,6 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="M365 Copilot 중심의 Agentic AI Envisioning 워크샵 - 조직 맞춤형 AI 비전 구체화">
+    <meta name="keywords" content="Copilot, Agentic AI, Microsoft 365, AI Workshop, Megazone">
+    <meta name="author" content="Megazone Cloud Corporation">
+    <meta property="og:title" content="Agentic AI with Copilot — Envisioning Workshop">
+    <meta property="og:description" content="M365 Copilot 중심의 Agentic AI Envisioning 워크샵">
+    <meta property="og:type" content="website">
     <title>Agentic AI with Copilot — Envisioning Workshop</title>
     <style>
         * {
@@ -18,12 +24,30 @@
             line-height: 1.6;
         }
 
+        /* Skip Link */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #6264a7;
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            z-index: 100;
+            border-radius: 4px;
+        }
+
+        .skip-link:focus {
+            top: 10px;
+            left: 10px;
+        }
+
         /* Header */
         header {
             position: sticky;
             top: 0;
             z-index: 50;
-            background: rgba(27, 31, 58, 0.8);
+            background: rgba(27, 31, 58, 0.95);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid #2f335b;
         }
@@ -35,6 +59,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 1rem 1.5rem;
+            position: relative;
         }
 
         .logo-container {
@@ -55,6 +80,16 @@
             font-weight: bold;
         }
 
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: #f3f2f1;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
         nav {
             display: flex;
             gap: 1rem;
@@ -65,10 +100,13 @@
             color: #f3f2f1;
             text-decoration: none;
             transition: color 0.3s;
+            padding: 0.5rem;
+            border-radius: 4px;
         }
 
-        nav a:hover {
+        nav a:hover, nav a:focus {
             color: #d1d5ff;
+            outline: 2px solid #6264a7;
         }
 
         /* Hero Section */
@@ -109,11 +147,15 @@
             background: linear-gradient(90deg, #6264a7, #8a8cd9);
             color: #1b1f3a;
             text-decoration: none;
-            transition: transform 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            cursor: pointer;
         }
 
-        .btn-primary:hover {
+        .btn-primary:hover, .btn-primary:focus {
             transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(98, 100, 167, 0.4);
+            outline: 2px solid #8a8cd9;
         }
 
         .btn-secondary {
@@ -123,10 +165,12 @@
             color: #f3f2f1;
             text-decoration: none;
             transition: border-color 0.3s;
+            background: transparent;
         }
 
-        .btn-secondary:hover {
+        .btn-secondary:hover, .btn-secondary:focus {
             border-color: #7a7fe0;
+            outline: 2px solid #6264a7;
         }
 
         /* Container */
@@ -136,15 +180,17 @@
             padding: 0 1.5rem;
         }
 
-        /* Features Section */
-        .features {
-            margin-bottom: 4rem;
-        }
-
+        /* Section Title */
         .section-title {
             font-size: 1.5rem;
             font-weight: 600;
             margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        /* Features Section */
+        .features {
+            margin-bottom: 4rem;
         }
 
         .features-grid {
@@ -197,6 +243,11 @@
             color: #b9bdfc;
         }
 
+        /* Guide Section */
+        .guide-section {
+            margin-bottom: 4rem;
+        }
+
         /* Curriculum Section */
         .curriculum {
             margin-bottom: 5rem;
@@ -242,6 +293,10 @@
             box-shadow: 0 8px 16px rgba(98, 100, 167, 0.2);
         }
 
+        .session-card.lunch-break {
+            opacity: 0.8;
+        }
+
         .session-time {
             position: absolute;
             left: 1rem;
@@ -252,7 +307,7 @@
             display: grid;
             place-items: center;
             font-weight: 600;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             background: linear-gradient(180deg, #6264a7, #8a8cd9);
             color: #121f36;
             transition: transform 0.3s ease;
@@ -271,6 +326,77 @@
         .session-card p {
             font-size: 0.875rem;
             color: #b9bdfc;
+        }
+
+        /* Apply Section */
+        .apply-section {
+            margin-bottom: 5rem;
+        }
+
+        .apply-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .apply-intro {
+            color: #d2d6ff;
+            margin-bottom: 2rem;
+        }
+
+        .contact-box {
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid #2f335b;
+            background: #1b1f3a;
+        }
+
+        .contact-box p {
+            margin-bottom: 1rem;
+        }
+
+        .contact-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-box a {
+            color: #8a8cd9;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-box a:hover, .contact-box a:focus {
+            color: #d1d5ff;
+            text-decoration: underline;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #6264a7, #8a8cd9);
+            color: white;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+            box-shadow: 0 4px 12px rgba(98, 100, 167, 0.4);
+            z-index: 40;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover, .back-to-top:focus {
+            transform: translateY(-5px);
         }
 
         /* Footer */
@@ -300,9 +426,24 @@
                 font-size: 2rem;
             }
 
+            .mobile-menu-btn {
+                display: block;
+            }
+
             nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(27, 31, 58, 0.98);
+                padding: 1rem;
                 flex-direction: column;
-                gap: 0.5rem;
+                border-top: 1px solid #2f335b;
+            }
+
+            nav.active {
+                display: flex;
             }
 
             .features-grid {
@@ -312,15 +453,32 @@
             .sessions-grid {
                 grid-template-columns: 1fr;
             }
+
+            .back-to-top {
+                bottom: 1rem;
+                right: 1rem;
+                width: 2.5rem;
+                height: 2.5rem;
+                font-size: 1.2rem;
+            }
         }
 
         /* Smooth Scroll */
         html {
             scroll-behavior: smooth;
         }
+
+        /* Focus Visible */
+        *:focus-visible {
+            outline: 2px solid #6264a7;
+            outline-offset: 2px;
+        }
     </style>
 </head>
 <body>
+    <!-- Skip Link -->
+    <a href="#main-content" class="skip-link">본문으로 건너뛰기</a>
+
     <!-- Header -->
     <header>
         <div class="header-container">
@@ -328,16 +486,17 @@
                 <div class="logo" role="img" aria-label="Agentic AI with Copilot 로고"></div>
                 <h1 class="logo-text">Agentic AI with Copilot</h1>
             </div>
-            <nav>
-                <a href="#curriculum">커리큘럼</a>
+            <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="메뉴 열기">☰</button>
+            <nav id="mainNav">
                 <a href="#guide">안내</a>
+                <a href="#curriculum">커리큘럼</a>
                 <a href="#apply">신청하기</a>
             </nav>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section id="main-content" class="hero">
         <h2>Agentic AI with Copilot — Envisioning Workshop</h2>
         <p>
             M365 <strong>Copilot</strong> 중심의 <strong>Agentic AI Envisioning</strong> 워크샵으로,
@@ -373,6 +532,29 @@
         </div>
     </section>
 
+    <!-- Guide Section -->
+    <section id="guide" class="guide-section container">
+        <h3 class="section-title">참가 안내</h3>
+        <div class="features-grid">
+            <div class="feature-card">
+                <h4>🎯 대상</h4>
+                <p>AI 전환을 고민하는 기업의 IT 리더, 개발자, 업무 혁신 담당자</p>
+            </div>
+            <div class="feature-card">
+                <h4>📅 일정</h4>
+                <p>2일간 집중 워크샵 (09:30 - 17:00)</p>
+            </div>
+            <div class="feature-card">
+                <h4>💼 준비물</h4>
+                <p>노트북, Microsoft 365 계정 (권장)</p>
+            </div>
+            <div class="feature-card">
+                <h4>🎓 수료 혜택</h4>
+                <p>워크샵 수료증, 실습 자료 제공</p>
+            </div>
+        </div>
+    </section>
+
     <!-- Curriculum Section -->
     <section id="curriculum" class="curriculum container">
         <h3 class="section-title">Agentic AI with Copilot — Envisioning Workshop (2 Days)</h3>
@@ -400,10 +582,10 @@
                     <strong>Design Thinking for Copilot</strong>
                     <p>문제 정의, 사용자 여정 설계, 아이디어 워크샵</p>
                 </div>
-                <div class="session-card">
+                <div class="session-card lunch-break">
                     <div class="session-time">12:30</div>
-                    <strong>점심</strong>
-                    <p></p>
+                    <strong>점심 시간</strong>
+                    <p>휴식 및 네트워킹</p>
                 </div>
                 <div class="session-card">
                     <div class="session-time">13:30</div>
@@ -432,10 +614,10 @@
                     <strong>Copilot Studio Hands-on</strong>
                     <p>Conversation Flow, Topic, Power Automate Action 설정</p>
                 </div>
-                <div class="session-card">
+                <div class="session-card lunch-break">
                     <div class="session-time">12:30</div>
-                    <strong>점심</strong>
-                    <p></p>
+                    <strong>점심 시간</strong>
+                    <p>휴식 및 네트워킹</p>
                 </div>
                 <div class="session-card">
                     <div class="session-time">13:30</div>
@@ -451,9 +633,68 @@
         </div>
     </section>
 
+    <!-- Apply Section -->
+    <section id="apply" class="apply-section container">
+        <h3 class="section-title">워크샵 신청</h3>
+        <div class="apply-content">
+            <p class="apply-intro">
+                참가를 원하시는 분은 아래 정보를 확인해주세요.
+            </p>
+            <div class="contact-box">
+                <p>📧 문의: <a href="mailto:workshop@megazone.com">workshop@megazone.com</a></p>
+                <p>📞 연락처: 02-1234-5678</p>
+                <p>📍 장소: 추후 공지</p>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer>
         © 2025 Megazone Cloud Corporation Microsoft Business Unit SPF Project
     </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" onclick="scrollToTop()" aria-label="맨 위로 가기">↑</button>
+
+    <!-- JavaScript -->
+    <script>
+        // Toggle Mobile Menu
+        function toggleMenu() {
+            const nav = document.getElementById('mainNav');
+            nav.classList.toggle('active');
+        }
+
+        // Close menu when clicking a link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mainNav').classList.remove('active');
+            });
+        });
+
+        // Back to Top Button
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        window.addEventListener('scroll', function() {
+            const btn = document.getElementById('backToTop');
+            if (window.scrollY > 300) {
+                btn.classList.add('visible');
+            } else {
+                btn.classList.remove('visible');
+            }
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const nav = document.getElementById('mainNav');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            const header = document.querySelector('header');
+            
+            if (!header.contains(event.target) && nav.classList.contains('active')) {
+                nav.classList.remove('active');
+            }
+        });
+    </script>
 </body>
 </html>
