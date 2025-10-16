@@ -37,6 +37,8 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read # Minimally required, or none if preferred
     needs: build
     
     steps:
