@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Copilot 에이전트 & 자동화 실무 워크샵 - 실전 자동화 시나리오로 배우는 M365 Copilot + Copilot Studio + Power Platform">
+    <meta name="keywords" content="Copilot, Copilot Studio, Microsoft 365, Power Platform, Power Automate, AI Agent, 업무 자동화, Megazone">
+    <meta name="author" content="Megazone Cloud Corporation">
+    <meta property="og:title" content="Copilot 에이전트 & 자동화 실무 워크샵">
+    <meta property="og:description" content="선언적 에이전트부터 Copilot Studio 고급 시나리오까지 2일 집중 과정">
+    <meta property="og:type" content="website">
+    <title>Copilot 에이전트 & 자동화 실무 워크샵</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #121f36;
+            color: #f3f2f1;
+            line-height: 1.6;
+        }
+
+        /* Skip Link */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #6264a7;
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            z-index: 100;
+            border-radius: 4px;
+        }
+
+        .skip-link:focus {
+            top: 10px;
+            left: 10px;
+        }
+
+        /* Header */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(27, 31, 58, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid #2f335b;
+        }
+
+        .header-container {
+            max-width: 1152px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1rem;
+            position: relative;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo {
+            width: 28px;
+            height: 28px;
+            border-radius: 8px;
+            background: conic-gradient(from 180deg, #6264a7, #8a8cd9, #464775);
+        }
+
+        .logo-text {
+            font-size: 1.125rem;
+            font-weight: bold;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: #f3f2f1;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        nav {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.875rem;
+        }
+
+        nav a {
+            color: #f3f2f1;
+            text-decoration: none;
+            transition: color 0.3s;
+            padding: 0.5rem;
+            border-radius: 4px;
+        }
+
+        nav a:hover, nav a:focus {
+            color: #d1d5ff;
+            outline: 2px solid #6264a7;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 6rem 1rem;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, #6264a7, #8a8cd9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            color: #8a8cd9;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            max-width: 48rem;
+            margin: 0 auto 2rem;
+            color: #d2d6ff;
+            font-size: 1.125rem;
+        }
+
+        .date-badge {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: linear-gradient(135deg, #6264a7, #8a8cd9);
+            color: white;
+            border-radius: 24px;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            font-size: 1rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            padding: 0.75rem 1.5rem;
+            border-radius: 12px;
+            font-weight: 600;
+            background: linear-gradient(90deg, #6264a7, #8a8cd9);
+            color: #1b1f3a;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover, .btn-primary:focus {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(98, 100, 167, 0.4);
+            outline: 2px solid #8a8cd9;
+        }
+
+        .btn-secondary {
+            padding: 0.75rem 1.5rem;
+            border: 1px solid #3a3f74;
+            border-radius: 12px;
+            color: #f3f2f1;
+            text-decoration: none;
+            transition: border-color 0.3s;
+            background: transparent;
+        }
+
+        .btn-secondary:hover, .btn-secondary:focus {
+            border-color: #7a7fe0;
+            outline: 2px solid #6264a7;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1152px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Section Title */
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        /* Features Section */
+        .features {
+            margin-bottom: 4rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .feature-card {
+            padding: 1.25rem;
+            border-radius: 16px;
+            border: 1px solid #2f335b;
+            background: #1b1f3a;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(98, 100, 167, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: #6264a7;
+            box-shadow: 0 12px 24px rgba(98, 100, 167, 0.3), 0 0 20px rgba(138, 140, 217, 0.2);
+        }
+
+        .feature-card:hover::before {
+            left: 100%;
+        }
+
+        .feature-card h4 {
+            font-weight: bold;
+            font-size: 1.125rem;
+            margin-bottom: 0.5rem;
+            color: #d2d6ff;
+        }
+
+        .feature-card p {
+            font-size: 0.875rem;
+            color: #b9bdfc;
+        }
+
+        /* Guide Section */
+        .guide-section {
+            margin-bottom: 4rem;
+        }
+
+        /* Curriculum Section */
+        .curriculum {
+            margin-bottom: 5rem;
+        }
+
+        .curriculum-intro {
+            color: #b9bdfc;
+            margin-bottom: 2rem;
+        }
+
+        .day-section {
+            margin-bottom: 3rem;
+        }
+
+        .day-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .day-badge {
+            padding: 0.5rem 1rem;
+            background: linear-gradient(135deg, #6264a7, #8a8cd9);
+            color: white;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+
+        .day-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .module-section {
+            margin-bottom: 2rem;
+        }
+
+        .module-header {
+            padding: 1rem 1.5rem;
+            background: linear-gradient(135deg, #1b1f3a 0%, #252956 100%);
+            border-left: 4px solid #6264a7;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+        }
+
+        .module-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #d2d6ff;
+            margin-bottom: 0.25rem;
+        }
+
+        .module-duration {
+            font-size: 0.875rem;
+            color: #8a8cd9;
+        }
+
+        .module-content {
+            padding-left: 1.5rem;
+        }
+
+        .module-content ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .module-content li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #b9bdfc;
+            font-size: 0.9rem;
+        }
+
+        .module-content li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #6264a7;
+            font-weight: bold;
+        }
+
+        .sessions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+
+        .session-card {
+            position: relative;
+            padding: 1.25rem;
+            padding-left: 3.5rem;
+            border-radius: 16px;
+            border: 1px solid #2f335b;
+            background: #1b1f3a;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .session-card:hover {
+            transform: translateX(5px);
+            border-color: #6264a7;
+            background: linear-gradient(135deg, #1b1f3a 0%, #252956 100%);
+            box-shadow: 0 8px 16px rgba(98, 100, 167, 0.2);
+        }
+
+        .session-card.lunch-break {
+            opacity: 0.8;
+        }
+
+        .session-time {
+            position: absolute;
+            left: 1rem;
+            top: 1rem;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 8px;
+            display: grid;
+            place-items: center;
+            font-weight: 600;
+            font-size: 0.7rem;
+            background: linear-gradient(180deg, #6264a7, #8a8cd9);
+            color: #121f36;
+            transition: transform 0.3s ease;
+        }
+
+        .session-card:hover .session-time {
+            transform: scale(1.1) rotate(-5deg);
+        }
+
+        .session-card strong {
+            display: block;
+            color: #d2d6ff;
+            margin-bottom: 0.25rem;
+        }
+
+        .session-card p {
+            font-size: 0.875rem;
+            color: #b9bdfc;
+        }
+
+        /* Key Points Section */
+        .key-points {
+            margin-bottom: 4rem;
+        }
+
+        .key-points-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+
+        /* Apply Section */
+        .apply-section {
+            margin-bottom: 5rem;
+        }
+
+        .apply-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .apply-intro {
+            color: #d2d6ff;
+            margin-bottom: 2rem;
+        }
+
+        .contact-box {
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid #2f335b;
+            background: #1b1f3a;
+        }
+
+        .contact-box p {
+            margin-bottom: 1rem;
+        }
+
+        .contact-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-box a {
+            color: #8a8cd9;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-box a:hover, .contact-box a:focus {
+            color: #d1d5ff;
+            text-decoration: underline;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #6264a7, #8a8cd9);
+            color: white;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+            box-shadow: 0 4px 12px rgba(98, 100, 167, 0.4);
+            z-index: 40;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover, .back-to-top:focus {
+            transform: translateY(-5px);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            font-size: 0.875rem;
+            color: #aab0ff;
+            padding: 2rem 1.5rem;
+            border-top: 1px solid #2f335b;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.25rem;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(27, 31, 58, 0.98);
+                padding: 1rem;
+                flex-direction: column;
+                border-top: 1px solid #2f335b;
+            }
+
+            nav.active {
+                display: flex;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sessions-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .key-points-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .back-to-top {
+                bottom: 1rem;
+                right: 1rem;
+                width: 2.5rem;
+                height: 2.5rem;
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Focus Visible */
+        *:focus-visible {
+            outline: 2px solid #6264a7;
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip Link -->
+    <a href="#main-content" class="skip-link">본문으로 건너뛰기</a>
+
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo-container">
+                <div class="logo" role="img" aria-label="Copilot Workshop 로고"></div>
+                <h1 class="logo-text">Copilot Workshop</h1>
+            </div>
+            <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="메뉴 열기">☰</button>
+            <nav id="mainNav">
+                <a href="#guide">안내</a>
+                <a href="#curriculum">커리큘럼</a>
+                <a href="https://forms.microsoft.com/r/FvqJnyWEdf">신청하기</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="main-content" class="hero">
+        <h2>Copilot 에이전트 & 자동화 실무 워크샵</h2>
+        <p class="subtitle">선언적 에이전트부터 Copilot Studio 고급 시나리오까지</p>
+        <div class="date-badge">📅 2025년 12월 11일(목) ~ 12일(금)</div>
+        <p>
+            <strong>M365 Copilot</strong>과 <strong>Copilot Studio</strong>를 활용한 실전 자동화 워크샵입니다.<br>
+            선언적 에이전트 구축부터 Power Automate 연동, 재무/영업 도메인 실습까지<br>
+            코드 생성 자동화와 실무 시나리오로 조직의 업무 자동화를 직접 구현합니다.
+        </p>
+        <div class="hero-buttons">
+            <a href="https://forms.microsoft.com/r/FvqJnyWEdf" class="btn-primary">사전 등록하기</a>
+            <a href="#curriculum" class="btn-secondary">커리큘럼 보기 →</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features container">
+        <h3 class="section-title">프로그램 특징</h3>
+        <div class="features-grid">
+            <div class="feature-card">
+                <h4>선언적 에이전트 실습</h4>
+                <p>Copilot Chat에서 바로 활용 가능한 선언적 에이전트를 만들고 업무 생산성을 향상시킵니다.</p>
+            </div>
+            <div class="feature-card">
+                <h4>Power Automate 자동화</h4>
+                <p>워드 템플릿 자동화, Teams/Excel 연동, AI Builder까지 실무 시나리오로 학습합니다.</p>
+            </div>
+            <div class="feature-card">
+                <h4>코드 생성 자동화</h4>
+                <p>Copilot으로 VBA, Office Scripts를 생성하고 Power Automate에서 실행합니다.</p>
+            </div>
+            <div class="feature-card">
+                <h4>Copilot Studio 고급 과정</h4>
+                <p>재무/영업 도메인의 실전 시나리오로 엔터프라이즈급 에이전트를 구축합니다.</p>
+            </div>
+            <div class="feature-card">
+                <h4>Excel & Power BI 통합</h4>
+                <p>데이터 전처리부터 대시보드 구축까지 Copilot 기반 데이터 분석을 경험합니다.</p>
+            </div>
+            <div class="feature-card">
+                <h4>실전 프로젝트</h4>
+                <p>매출 보고서 자동화, 고객 데이터 처리 등 실무에 바로 적용 가능한 프로젝트를 진행합니다.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guide Section -->
+    <section id="guide" class="guide-section container">
+        <h3 class="section-title">참가 안내</h3>
+        <div class="features-grid">
+            <div class="feature-card">
+                <h4>🎯 대상</h4>
+                <p>AI 자동화를 도입하려는 기업의 IT 담당자, 개발자, 업무 혁신 담당자, 데이터 분석가</p>
+            </div>
+            <div class="feature-card">
+                <h4>📅 일정</h4>
+                <p>2025년 12월 11일(목) ~ 12일(금), 2일간 집중 워크샵 (09:00 - 17:00)</p>
+            </div>
+            <div class="feature-card">
+                <h4>💼 준비물</h4>
+                <p>노트북, Microsoft 365 계정 (Copilot 라이선스 권장)</p>
+            </div>
+            <div class="feature-card">
+                <h4>🎓 수료 혜택</h4>
+                <p>워크샵 수료증, 실습 자료 및 템플릿, 커뮤니티 액세스</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Curriculum Section -->
+    <section id="curriculum" class="curriculum container">
+        <h3 class="section-title">Copilot 에이전트 & 자동화 실무 워크샵 (2일 과정)</h3>
+        <p class="curriculum-intro">
+            <strong>목표:</strong> M365 Copilot과 Copilot Studio를 활용한 실전 업무 자동화 역량 확보<br>
+            <strong>형식:</strong> 핸즈온 실습 중심, 재무/영업 도메인 실전 시나리오
+        </p>
+
+        <!-- Day 1 -->
+        <div class="day-section">
+            <div class="day-header">
+                <div class="day-badge">Day 1</div>
+                <h4 class="day-title">Copilot 에이전트 & 기본 자동화 실습 (6시간)</h4>
+            </div>
+
+            <div class="module-section">
+                <div class="module-header">
+                    <div class="module-title">1. 선언적 에이전트 만들고 활용하기</div>
+                    <div class="module-duration">⏱️ 1.5시간 | 09:00 - 10:30</div>
+                </div>
+                <div class="module-content">
+                    <ul>
+                        <li>Copilot Chat & 선언적 에이전트 개념</li>
+                        <li>UI/UX 기본 소개 (5~10분)</li>
+                        <li>선언적 에이전트 만들기 실습 (초급/중급)</li>
+                        <li>업무 생산성 향상 시나리오</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="module-section">
+                <div class="module-header">
+                    <div class="module-title">2. Power Automate 기본 자동화</div>
+                    <div class="module-duration">⏱️ 2시간 | 10:30 - 12:30</div>
+                </div>
+                <div class="module-content">
+                    <ul>
+                        <li>Power Automate 소개 및 기본 개념 (5분)</li>
+                        <li>워드 템플릿에 데이터 자동 채우기 실습</li>
+                        <li>Teams, Excel 연동 자동화</li>
+                        <li>AI Builder 활용 간단 사례</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="sessions-grid">
+                <div class="session-card lunch-break">
+                    <div class="session-time">12:30</div>
+                    <strong>점심 시간</strong>
+                    <p>휴식 및 네트워킹 (1시간)</p>
+                </div>
+            </div>
+
+            <div class="module-section">
+                <div class="module-header">
+                    <div class="module-title">3. Copilot으로 코드 생성 자동화</div>
+                    <div class="module-duration">⏱️ 1.5시간 | 13:30 - 15:00</div>
+                </div>
+                <div class="module-content">
+                    <ul>
+                        <li>Excel VBA를 Copilot으로 생성하기</li>
+                        <li>Office Scripts를 Copilot으로 생성하기</li>
+                        <li>Power Automate에서 Office Scripts 실행</li>
+                        <li>결과물을 메일/Teams로 자동 전송하는 시나리오 실습</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="module-section">
+                <div class="module-header">
+                    <div class="module-title">4. Excel & Power BI 데이터 처리</div>
+                    <div class="module-duration">⏱️ 1시간 | 15:00 - 16:00</div>
+                </div>
+                <div class="module-content">
+                    <ul>
+                        <li>Excel 데이터 전처리 자동화</li>
+                        <li>Power BI 대시보드 가이드라인 받아서 구축하기</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 2 -->
+        <div class="day-section">
+            <div class="day-header">
+                <div class="day-badge">Day 2</div>
+                <h4 class="day-title">Copilot Studio 고급 에이전트 & 실전 시나리오 (6시간)</h4>
+            </div>
+
+            <div class="module-section">
+                <div class="module-header">
+                    <div class="module-title">1. Copilot Studio 소개 및 필요성</div>
+                    <div class="module-duration">⏱️ 1시간 | 09:00 - 10:00</div>
+                </div>
+                <div class="module-content">
+                    <ul>
+                        <li>Copilot Studio 개념 및 필요성</li>
+                        <li>왜 Studio가 필요한가? (트리거, 툴 호출, 워크플로우)</li>
+                        <li>Copilot Chat vs Copilot Studio 차이점</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="module-section">
+                <div class="module-header">
+                    <div class="module-title">2. 재무 시나리오: 매출 보고서 자동화 에이전트</div>
+                    <div class="module-duration">⏱️ 2.5시간 | 10:00 - 12:30</div>
+                </div>
+                <div class="module-content">
+                    <ul>
+                        <li>시나리오: "오늘 기준 매출 보고서를 Word 임원보고서 서식으로 작성 → Teams 채널에 요약 카드 알림"</li>
+                        <li>Copilot Studio에서 에이전트 구성</li>
+                        <li>Power Automate 연동 (Word 문서 생성)</li>
+                        <li>Teams 알림 자동화</li>
+                        <li>SharePoint 문서 저장 및 관리</li>
+                        <li>실습 진행</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="sessions-grid">
+                <div class="session-card lunch-break">
+                    <div class="session-time">12:30</div>
+                    <strong>점심 시간</strong>
+                    <p>휴식 및 네트워킹 (1시간)</p>
+                </div>
+            </div>
+
+            <div class="module-section">
+                <div class="module-header">
+                    <div class="module-title">3. 영업 시나리오: 고객 데이터 기반 자동화</div>
+                    <div class="module-duration">⏱️ 2시간 | 13:30 - 15:30</div>
+                </div>
+                <div class="module-content">
+                    <ul>
+                        <li>영업/재무 데이터 처리 및 분석</li>
+                        <li>Copilot Studio로 업무 에이전트 만들기</li>
+                        <li>SharePoint, Teams를 오가는 통합 시나리오</li>
+                        <li>실습 및 커스터마이징</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="module-section">
+                <div class="module-header">
+                    <div class="module-title">4. Q&A 및 향후 확장 방향</div>
+                    <div class="module-duration">⏱️ 0.5시간 | 15:30 - 16:00</div>
+                </div>
+                <div class="module-content">
+                    <ul>
+                        <li>배운 내용 정리</li>
+                        <li>실무 적용 팁</li>
+                        <li>향후 확장 방향 및 로드맵 논의</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Points Section -->
+    <section class="key-points container">
+        <h3 class="section-title">핵심 포인트</h3>
+        <div class="key-points-grid">
+            <div class="feature-card">
+                <h4>💡 Copilot Chat & Studio 중심</h4>
+                <p>기본부터 고급까지 체계적으로 학습하며, 실무에 바로 적용 가능한 기술을 습득합니다.</p>
+            </div>
+            <div class="feature-card">
+                <h4>🔄 자동화 시나리오</h4>
+                <p>재현 가능하고 실용적인 재무/영업 도메인 시나리오로 실습합니다.</p>
+            </div>
+            <div class="feature-card">
+                <h4>📈 단계적 학습</h4>
+                <p>Power Automate 기본을 탄탄히 한 후 Copilot으로 확장하는 단계적 접근 방식을 사용합니다.</p>
+            </div>
+            <div class="feature-card">
+                <h4>⚙️ 코드 생성 자동화</h4>
+                <p>VBA, Office Scripts를 Copilot으로 생성하여 개발 생산성을 극대화합니다.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Apply Section -->
+    <section id="apply" class="apply-section container">
+        <h3 class="section-title">워크샵 신청</h3>
+        <div class="apply-content">
+            <p class="apply-intro">
+                2025년 12월 11~12일, 2일간의 집중 워크샵에 참가하세요.<br>
+                실전 자동화 시나리오로 Copilot 활용 역량을 획기적으로 향상시킬 수 있습니다.
+            </p>
+            <div class="contact-box">
+                <p><a href="https://forms.microsoft.com/r/FvqJnyWEdf" class="btn-primary">지금 신청하기</a></p> 
+                <p>📧 문의: <a href="mailto:celia@megazone.com">celia@megazone.com</a></p>
+                <p>📞 전화: 02-2108-9140 (메가존클라우드 Microsoft BU)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        © 2025 Megazone Cloud Corporation Microsoft Business Unit
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" onclick="scrollToTop()" aria-label="맨 위로 가기">↑</button>
+
+    <!-- JavaScript -->
+    <script>
+        // Toggle Mobile Menu
+        function toggleMenu() {
+            const nav = document.getElementById('mainNav');
+            nav.classList.toggle('active');
+        }
+
+        // Close menu when clicking a link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mainNav').classList.remove('active');
+            });
+        });
+
+        // Back to Top Button
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        window.addEventListener('scroll', function() {
+            const btn = document.getElementById('backToTop');
+            if (window.scrollY > 300) {
+                btn.classList.add('visible');
+            } else {
+                btn.classList.remove('visible');
+            }
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const nav = document.getElementById('mainNav');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            const header = document.querySelector('header');
+            
+            if (!header.contains(event.target) && nav.classList.contains('active')) {
+                nav.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
