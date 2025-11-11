@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="GitHub Spark & VS Code 바이브코딩 원데이(6h) — Universe 2025 핵심 업데이트 요약부터 Spark 바이브코딩, VS Code·Codespaces 고급 개발, AEO 대응 블로그까지 하루 완성">
+    <meta name="keywords" content="GitHub Spark, VS Code, Codespaces, Copilot, AGENTS.md, Agent HQ, Plan Mode, MCP, AEO, GEO, JSON-LD, Next.js, 바이브코딩">
+    <meta name="author" content="Vibe Coding">
+    <meta property="og:title" content="GitHub Spark & VS Code 바이브코딩 원데이">
+    <meta property="og:description" content="아이디어를 앱으로, 그리고 AEO 대응 블로그까지 원데이로 완성하는 6시간 실전 과정">
+    <meta property="og:type" content="website">
+    <title>GitHub Spark & VS Code 바이브코딩 원데이</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background-color: #121f36; color: #f3f2f1; line-height: 1.6; }
+
+        /* Skip Link */
+        .skip-link { position: absolute; top: -40px; left: 0; background: #6264a7; color: #fff; padding: 8px 16px; text-decoration: none; z-index: 100; border-radius: 4px; }
+        .skip-link:focus { top: 10px; left: 10px; }
+
+        /* Header */
+        header { position: sticky; top: 0; z-index: 50; background: rgba(27, 31, 58, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid #2f335b; }
+        .header-container { max-width: 1152px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 1rem; position: relative; }
+        .logo-container { display: flex; align-items: center; gap: 0.5rem; }
+        .logo { width: 28px; height: 28px; border-radius: 8px; background: conic-gradient(from 180deg, #ff6a3d, #ffd166, #4cc9f0, #a06cd5); }
+        .logo-text { font-size: 1.125rem; font-weight: 800; }
+        .mobile-menu-btn { display: none; background: none; border: none; color: #f3f2f1; font-size: 1.5rem; cursor: pointer; padding: 0.5rem; }
+        nav { display: flex; gap: 1rem; font-size: 0.875rem; }
+        nav a { color: #f3f2f1; text-decoration: none; transition: color 0.3s; padding: 0.5rem; border-radius: 4px; }
+        nav a:hover, nav a:focus { color: #d1d5ff; outline: 2px solid #6264a7; }
+
+        /* Hero */
+        .hero { padding: 6rem 1rem; text-align: center; }
+        .hero h2 { font-size: 3rem; font-weight: 800; background: linear-gradient(90deg, #ff6a3d, #ffd166); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 1rem; animation: fadeInUp 0.8s ease-out; }
+        .hero .subtitle { font-size: 1.25rem; color: #9ae6ff; font-weight: 600; margin-bottom: 1rem; }
+        .hero p { max-width: 48rem; margin: 0 auto 2rem; color: #d2d6ff; font-size: 1.125rem; }
+        .date-badge { display: inline-block; padding: 0.5rem 1.25rem; background: linear-gradient(135deg, #4cc9f0, #a06cd5); color: #121f36; font-weight: 800; border-radius: 999px; margin-bottom: 1.25rem; }
+        .hero-buttons { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+        .btn-primary { padding: 0.75rem 1.5rem; border-radius: 12px; font-weight: 700; background: linear-gradient(90deg, #ff6a3d, #ffd166); color: #121f36; text-decoration: none; transition: transform 0.3s, box-shadow 0.3s; border: none; cursor: pointer; }
+        .btn-primary:hover, .btn-primary:focus { transform: translateY(-2px); box-shadow: 0 8px 16px rgba(255, 165, 0, 0.25); outline: 2px solid #ffd166; }
+        .btn-secondary { padding: 0.75rem 1.5rem; border: 1px solid #3a3f74; border-radius: 12px; color: #f3f2f1; text-decoration: none; background: transparent; }
+        .btn-secondary:hover, .btn-secondary:focus { border-color: #7a7fe0; outline: 2px solid #6264a7; }
+
+        /* Containers */
+        .container { max-width: 1152px; margin: 0 auto; padding: 0 1rem; }
+        .section-title { font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: #fff; }
+
+        /* Cards & Grids */
+        .features { margin-bottom: 4rem; }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
+        .feature-card { padding: 1.25rem; border-radius: 16px; border: 1px solid #2f335b; background: #1b1f3a; transition: all 0.35s ease; position: relative; overflow: hidden; }
+        .feature-card::before { content: ''; position: absolute; inset: 0; background: radial-gradient(600px circle at var(--mx, 0) var(--my, 0), rgba(255,255,255,0.06), transparent 40%); opacity: 0; transition: opacity 0.3s; }
+        .feature-card:hover { transform: translateY(-6px); border-color: #4cc9f0; box-shadow: 0 10px 20px rgba(76, 201, 240, 0.15); }
+        .feature-card:hover::before { opacity: 1; }
+        .feature-card h4 { font-size: 1.05rem; font-weight: 800; color: #d2d6ff; margin-bottom: 0.5rem; }
+        .feature-card p { font-size: 0.9rem; color: #b9bdfc; }
+
+        /* Curriculum */
+        .curriculum { margin-bottom: 5rem; }
+        .curriculum-intro { color: #b9bdfc; margin-bottom: 1.5rem; }
+        .sessions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1rem; }
+        .session-card { position: relative; padding: 1.25rem 1.25rem 1.25rem 4.2rem; border-radius: 16px; border: 1px solid #2f335b; background: #1b1f3a; transition: all 0.3s ease; }
+        .session-card:hover { transform: translateX(4px); border-color: #4cc9f0; background: linear-gradient(135deg, #1b1f3a 0%, #252956 100%); box-shadow: 0 8px 16px rgba(76, 201, 240, 0.18); }
+        .session-time { position: absolute; left: 1rem; top: 1.25rem; width: 2.4rem; height: 2.4rem; border-radius: 8px; display: grid; place-items: center; font-weight: 800; font-size: 0.7rem; background: linear-gradient(180deg, #ff6a3d, #ffd166); color: #ffffff; }
+        .session-card strong { display: block; color: #e1e4ff; margin-bottom: 0.25rem; }
+        .session-card p { font-size: 0.92rem; color: #b9bdfc; }
+
+        /* Apply */
+        .apply-section { margin-bottom: 5rem; }
+        .apply-content { max-width: 640px; margin: 0 auto; text-align: center; }
+        .apply-intro { color: #d2d6ff; margin-bottom: 2rem; }
+        .contact-box { padding: 2rem; border-radius: 16px; border: 1px solid #2f335b; background: #1b1f3a; }
+        .contact-box a { color: #9ae6ff; text-decoration: none; }
+        .contact-box a:hover { text-decoration: underline; }
+
+        /* Misc */
+        .key-points { margin-bottom: 4rem; }
+        .key-points-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }
+        footer { text-align: center; font-size: 0.875rem; color: #aab0ff; padding: 2rem 1.5rem; border-top: 1px solid #2f335b; }
+        .back-to-top { position: fixed; bottom: 2rem; right: 2rem; width: 3rem; height: 3rem; border-radius: 50%; background: linear-gradient(135deg, #4cc9f0, #a06cd5); color: #121f36; border: none; font-size: 1.5rem; cursor: pointer; opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s, transform 0.3s; box-shadow: 0 4px 12px rgba(76, 201, 240, 0.35); z-index: 40; font-weight: 900; }
+        .back-to-top.visible { opacity: 1; visibility: visible; }
+        .back-to-top:hover, .back-to-top:focus { transform: translateY(-5px); }
+
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @media (max-width: 768px) {
+            .hero h2 { font-size: 2rem; }
+            .hero .subtitle { font-size: 1.1rem; }
+            .mobile-menu-btn { display: block; }
+            nav { display: none; position: absolute; top: 100%; left: 0; right: 0; background: rgba(27, 31, 58, 0.98); padding: 1rem; flex-direction: column; border-top: 1px solid #2f335b; }
+            nav.active { display: flex; }
+            .features-grid, .sessions-grid, .key-points-grid { grid-template-columns: 1fr; }
+            .back-to-top { bottom: 1rem; right: 1rem; width: 2.5rem; height: 2.5rem; font-size: 1.2rem; }
+        }
+        html { scroll-behavior: smooth; }
+        *:focus-visible { outline: 2px solid #6264a7; outline-offset: 2px; }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">본문으로 건너뛰기</a>
+
+    <header>
+        <div class="header-container">
+            <div class="logo-container">
+                <div class="logo" role="img" aria-label="Vibe Coding 로고"></div>
+                <h1 class="logo-text">Vibe Coding</h1>
+            </div>
+            <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="메뉴 열기">☰</button>
+            <nav id="mainNav">
+                <a href="#guide">안내</a>
+                <a href="#features">특징</a>
+                <a href="#curriculum">커리큘럼</a>
+                <a href="#apply">신청</a>
+            </nav>
+        </div>
+    </header>
+
+    <section id="main-content" class="hero">
+        <h2>GitHub Spark & VS Code 바이브코딩 원데이</h2>
+        <p class="subtitle">Universe 2025 핵심 요약 → Spark로 미니앱 → VS Code·Codespaces 고급 코딩 → AEO 대응 블로그까지 하루 완성</p>
+        <div class="date-badge">⏱️ 총 6시간 · 원데이 집중</div>
+        <p>
+            최신 <strong>GitHub Universe 2025</strong> 업데이트로 워밍업하고,<br>
+            <strong>GitHub Spark</strong>로 자연어 요구사항을 앱으로, <strong>VS Code/코드스페이스</strong>로 기능을 고도화합니다.<br>
+            마지막은 <strong>AEO/GEO</strong>에 강한 <strong>Next.js 블로그</strong>를 구축·배포해 실전까지 마무리합니다.
+        </p>
+        <div class="hero-buttons">
+            <a href="#apply" class="btn-primary">사전 등록 문의</a>
+            <a href="#curriculum" class="btn-secondary">커리큘럼 보기 →</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features container">
+        <h3 class="section-title">프로그램 특징</h3>
+        <div class="features-grid">
+            <div class="feature-card">
+                <h4>최신 GitHub Universe 2025 브리핑</h4>
+                <p>Agent HQ(오케스트레이션), 채널별 Copilot 할당, VS Code Plan Mode, <code>AGENTS.md</code>, MCP, Code Quality/메트릭스 핵심만 간결하게. 일부 기능은 실습 산출물 제작에 곧바로 활용.</p>
+            </div>
+            <div class="feature-card">
+                <h4>바이브코딩 ‘즉시 체감’</h4>
+                <p>GitHub Spark에서 요구사항 입력 → 미니앱 생성 → 미리보기 → 원클릭 Publish까지 실습. VS Code/코드스페이스 연동으로 기능 고도화.</p>
+            </div>
+            <div class="feature-card">
+                <h4>실전 산출물: AEO/GEO 블로그</h4>
+                <p>AEO(Answer Engine Optimization), GEO(Generative Engine Optimization) 개념 적용. JSON‑LD(Article/FAQPage) 삽입 + 자동배포(GitHub Pages/Azure SWA) 경험.</p>
+            </div>
+            <div class="feature-card">
+                <h4>공식 레퍼런스</h4>
+                <p><a href="https://www.youtube.com/watch?v=P6Va0_KILi4" target="_blank" rel="noopener">GitHub Universe 2025 Keynote(YouTube)</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guide Section -->
+    <section id="guide" class="guide-section container">
+        <h3 class="section-title">참가 안내</h3>
+        <div class="features-grid">
+            <div class="feature-card">
+                <h4>🎯 대상 & 난이도</h4>
+                <p>프론트엔드/백엔드 개발자, 테크 블로거, 스타트업/마케터(개발 친화), IT 컨설턴트 · 난이도: 초급~중급(기본 Git·JS 이해 권장)</p>
+            </div>
+            <div class="feature-card">
+                <h4>📅 일정/형식</h4>
+                <p>형식: 1일 집중 총 6시간(예: 09:30–16:30, 중간 휴식 포함) · 장소: 온·오프라인(고객사/메가존 교육장/온라인 라이브) 선택</p>
+            </div>
+            <div class="feature-card">
+                <h4>🧰 준비물(필수)</h4>
+                <p>GitHub 계정 + GitHub Copilot <strong>Pro+</strong> (Spark 필수, Enterprise로 대체 가능) · 최신 VS Code & VS Code Insider & 브라우저(Chrome/Edge) · GitHub Codespaces 사용 권한</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Curriculum Section -->
+    <section id="curriculum" class="curriculum container">
+        <h3 class="section-title">커리큘럼(6시간) — 타임테이블</h3>
+        <p class="curriculum-intro">오리엔테이션부터 쇼케이스까지, 실습 중심으로 빠르게 완성합니다.</p>
+
+        <div class="sessions-grid">
+            <div class="session-card">
+                <div class="session-time">00:00</div>
+                <strong>오리엔테이션 & 환경 점검 (00:00–00:20)</strong>
+                <p>Copilot 로그인, Spark 접근, Codespaces 체크</p>
+            </div>
+
+            <div class="session-card">
+                <div class="session-time">00:20</div>
+                <strong>Universe 2025 핵심 업데이트 요약 (00:20–00:50)</strong>
+                <p>Agent HQ, Plan Mode, AGENTS.md, MCP, Code Quality & 메트릭스 — “이제 개발은 에이전트 중심” 메시지 확립</p>
+            </div>
+
+            <div class="session-card">
+                <div class="session-time">00:50</div>
+                <strong>GitHub Spark 바이브코딩 맛보기 (00:50–01:50)</strong>
+                <p>자연어로 AEO 보조 미니앱 생성 → 미리보기 → 원클릭 Publish(기본 GitHub 인증). “VS Code/코드스페이스로 열기” 데모</p>
+            </div>
+
+            <div class="session-card">
+                <div class="session-time">01:50</div>
+                <strong>Break (01:50–02:00)</strong>
+                <p>휴식</p>
+            </div>
+
+            <div class="session-card">
+                <div class="session-time">02:00</div>
+                <strong>VS Code & Codespaces 고급 코딩 (02:00–03:20)</strong>
+                <p>Plan Mode로 작업 쪼개기 → AGENTS.md로 팀 규칙 주입 → MCP 서버 허용/연결 → Codespaces로 통일 환경</p>
+            </div>
+
+            <div class="session-card">
+                <div class="session-time">03:20</div>
+                <strong>Break (03:20–03:30)</strong>
+                <p>휴식</p>
+            </div>
+
+            <div class="session-card">
+                <div class="session-time">03:30</div>
+                <strong>AEO 대응 블로그 구축 & 배포 (03:30–05:30)</strong>
+                <p>Next.js/Markdown 템플릿 → TL;DR(직답)·Q&A 섹션 → FAQPage/Article JSON‑LD 삽입 → GitHub Pages(또는 Azure Static Web Apps) 자동배포</p>
+            </div>
+
+            <div class="session-card">
+                <div class="session-time">05:30</div>
+                <strong>쇼케이스 & 다음 단계 (05:30–06:00)</strong>
+                <p>데모 공유, Copilot Pro+/Enterprise, Codespaces, Azure SWA 도입 로드맵/견적 안내</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Points Section -->
+    <section class="key-points container">
+        <h3 class="section-title">핵심 포인트</h3>
+        <div class="key-points-grid">
+            <div class="feature-card"><h4>💡 에이전트 중심 개발</h4><p>Agent HQ·Plan Mode·AGENTS.md·MCP로 팀 생산성 극대화</p></div>
+            <div class="feature-card"><h4>⚡ 즉시 배포</h4><p>Spark 원클릭 Publish, Codespaces로 어디서나 동일 환경</p></div>
+            <div class="feature-card"><h4>📈 검색 최적화</h4><p>AEO/GEO 전략 + JSON‑LD 삽입으로 Answer Engine에 강한 콘텐츠 제작</p></div>
+            <div class="feature-card"><h4>🧱 실전 산출물</h4><p>Next.js 기반 기술 블로그 완성 및 자동배포 파이프라인</p></div>
+        </div>
+    </section>
+
+    <!-- Apply Section -->
+    <section id="apply" class="apply-section container">
+        <h3 class="section-title">신청 & 문의</h3>
+        <div class="apply-content">
+            <p class="apply-intro">원데이 6시간 실전 과정에 참여하고, 아이디어를 ‘오늘’ 제품과 콘텐츠로 전환하세요.</p>
+            <div class="contact-box">
+                <p><a class="btn-primary" href="#" aria-disabled="true">신청 링크(협의 중)</a></p>
+                <p>문의: 운영팀 (행사 일정/장소 협의 가능)</p>
+                <p><a href="https://www.youtube.com/watch?v=P6Va0_KILi4" target="_blank" rel="noopener">GitHub Universe 2025 Keynote 다시보기</a></p>
+            </div>
+        </div>
+    </section>
+
+    <footer>© 2025 Vibe Coding</footer>
+
+    <button id="backToTop" class="back-to-top" onclick="scrollToTop()" aria-label="맨 위로 가기">↑</button>
+
+    <script>
+        function toggleMenu() { const nav = document.getElementById('mainNav'); nav.classList.toggle('active'); }
+        document.querySelectorAll('nav a').forEach(link => { link.addEventListener('click', () => { document.getElementById('mainNav').classList.remove('active'); }); });
+        function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+        window.addEventListener('scroll', function() { const btn = document.getElementById('backToTop'); if (window.scrollY > 300) { btn.classList.add('visible'); } else { btn.classList.remove('visible'); } });
+        document.addEventListener('mousemove', (e) => { document.querySelectorAll('.feature-card').forEach(card => { const rect = card.getBoundingClientRect(); card.style.setProperty('--mx', `${e.clientX - rect.left}px`); card.style.setProperty('--my', `${e.clientY - rect.top}px`); }); });
+    </script>
+</body>
+</html>
