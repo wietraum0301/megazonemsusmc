@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microsoft 365 Copilot 교육 프로그램</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Malgun Gothic', sans-serif;
+            background: #1e293b;
+            padding: 20px;
+            line-height: 1.5;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes pulse {
+            0%, 100% { 
+                transform: scale(1) rotate(0deg); 
+                opacity: 0.3; 
+            }
+            50% { 
+                transform: scale(1.1) rotate(180deg); 
+                opacity: 0.6; 
+            }
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(236, 72, 153, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 70% 20%, rgba(6, 182, 212, 0.15) 0%, transparent 50%);
+            animation: floatBubbles 20s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes floatBubbles {
+            0%, 100% { 
+                transform: translate(0, 0) scale(1);
+                opacity: 1;
+            }
+            25% { 
+                transform: translate(10px, -20px) scale(1.1);
+                opacity: 0.8;
+            }
+            50% { 
+                transform: translate(-10px, 20px) scale(0.9);
+                opacity: 1;
+            }
+            75% { 
+                transform: translate(20px, 10px) scale(1.05);
+                opacity: 0.9;
+            }
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(
+                circle,
+                rgba(255, 255, 255, 0.05) 0%,
+                transparent 50%
+            );
+            animation: rotate 30s linear infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Floating particles effect */
+        .floating-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .shape:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, #4338CA, #6366F1);
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+            animation-duration: 25s;
+        }
+
+        .shape:nth-child(2) {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #6366F1, #8B5CF6);
+            top: 60%;
+            left: 80%;
+            animation-delay: 2s;
+            animation-duration: 20s;
+        }
+
+        .shape:nth-child(3) {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(45deg, #8B5CF6, #A855F7);
+            top: 80%;
+            left: 20%;
+            animation-delay: 4s;
+            animation-duration: 30s;
+        }
+
+        .shape:nth-child(4) {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(45deg, #7C3AED, #6366F1);
+            top: 30%;
+            left: 70%;
+            animation-delay: 6s;
+            animation-duration: 22s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            25% {
+                transform: translate(30px, -30px) rotate(90deg);
+            }
+            50% {
+                transform: translate(-20px, 40px) rotate(180deg);
+            }
+            75% {
+                transform: translate(40px, 20px) rotate(270deg);
+            }
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 35px 25px;
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            border-radius: 12px;
+            color: white;
+            margin: 30px 0 0 0;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        .cta-section h3 {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 12px;
+            font-size: 1.8em;
+        }
+
+        .cta-section p {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 25px;
+            opacity: 0.9;
+            font-size: 1.1em;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+            align-items: stretch;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            padding: 15px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.05em;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            width: 350px;
+            min-width: 350px;
+            max-width: 350px;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .cta-button-primary {
+            background: linear-gradient(45deg, #6366F1, #8B5CF6);
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
+        }
+
+        .cta-button-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(99, 102, 241, 0.5);
+        }
+
+        .cta-button-success {
+            background: linear-gradient(45deg, #8B5CF6, #A855F7);
+            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.3);
+        }
+
+        .cta-button-success:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(139, 92, 246, 0.5);
+        }
+
+        .footer {
+            background: #0f172a;
+            padding: 20px;
+            text-align: center;
+            color: #94A3B8;
+            border-top: 1px solid rgba(139, 92, 246, 0.3);
+        }
+
+        .footer a {
+            color: #A78BFA;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .footer a:hover {
+            color: #C4B5FD;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #0f172a;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            color: white;
+            padding: 35px 25px;
+            text-align: center;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .logo {
+            width: 180px;
+            height: 52px;
+            background: #ffffff;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+        }
+        
+        .copilot-logo {
+            background: linear-gradient(45deg, #6366F1, #8B5CF6, #A855F7, #7C3AED);
+            background-size: 300% 300%;
+            animation: gradient 3s ease infinite;
+        }
+        
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .header h1 {
+            font-size: 2.2em;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+
+        .content {
+            padding: 20px;
+            background: #0f172a;
+        }
+
+        .feature-box {
+            background: rgba(139, 92, 246, 0.1);
+            border-left: 5px solid #8B5CF6;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            padding: 17px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+        }
+
+        .feature-box h2 {
+            color: #A78BFA;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        .feature-box p {
+            color: #ffffff;
+            font-size: 1em;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .info-card {
+            background: rgba(30, 41, 59, 0.5);
+            padding: 18px;
+            border-radius: 12px;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(139, 92, 246, 0.2);
+            border-color: #8B5CF6;
+            background: rgba(139, 92, 246, 0.1);
+        }
+
+        .info-card h3 {
+            color: #A78BFA;
+            margin-bottom: 10px;
+            font-size: 1.05em;
+        }
+
+        .info-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .info-card li {
+            padding: 6px 0;
+            color: #ffffff;
+            position: relative;
+            padding-left: 22px;
+            font-size: 0.95em;
+        }
+
+        .info-card li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #8B5CF6;
+            font-weight: bold;
+        }
+
+        .course-section {
+            margin-bottom: 25px;
+            scroll-margin-top: 20px;
+        }
+
+        .course-section h2 {
+            color: #E2E8F0;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 3px solid #8B5CF6;
+        }
+
+        .time-divider {
+            text-align: center;
+            padding: 12px;
+            background: rgba(139, 92, 246, 0.1);
+            border-radius: 12px;
+            margin: 12px 0;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+        }
+
+        .time-divider h3 {
+            color: #A78BFA;
+            font-size: 1.1em;
+        }
+
+        .schedule-header {
+            color: #A78BFA;
+            margin: 15px 0 12px 0;
+            font-size: 1.35em;
+        }
+
+        .course-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 15px;
+            background: rgba(30, 41, 59, 0.5);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+        }
+
+        .course-table th {
+            background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
+            color: white;
+            padding: 13px 15px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.95em;
+        }
+
+        .course-table td {
+            padding: 11px 15px;
+            border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+            font-size: 0.95em;
+            color: #ffffff;
+        }
+
+        .course-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .course-table tr:hover {
+            background: rgba(139, 92, 246, 0.1);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.8em;
+            font-weight: 600;
+            margin: 2px;
+        }
+
+        .badge-pt {
+            background: rgba(99, 102, 241, 0.2);
+            color: #A78BFA;
+            border: 1px solid rgba(99, 102, 241, 0.3);
+        }
+
+        .badge-demo {
+            background: rgba(139, 92, 246, 0.2);
+            color: #C4B5FD;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+        }
+
+        .badge-lab {
+            background: rgba(168, 85, 247, 0.2);
+            color: #DDD6FE;
+            border: 1px solid rgba(168, 85, 247, 0.3);
+        }
+
+        .button-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 20px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            align-items: stretch;
+        }
+
+        .btn {
+            padding: 15px 20px;
+            font-size: 1.05em;
+            font-weight: 600;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 350px;
+            min-width: 350px;
+            max-width: 350px;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4);
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, #8B5CF6 0%, #A855F7 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+        }
+
+        .btn-success:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(139, 92, 246, 0.4);
+        }
+
+        .instructor-section {
+            background: rgba(30, 41, 59, 0.5);
+            padding: 17px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+        }
+
+        .instructor-section h2 {
+            color: #E2E8F0;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .instructor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .instructor-card {
+            background: rgba(15, 23, 42, 0.7);
+            padding: 17px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .instructor-card:hover {
+            border-color: #8B5CF6;
+            transform: translateY(-3px);
+        }
+
+        .instructor-card h4 {
+            color: #A78BFA;
+            margin-bottom: 8px;
+            font-size: 1.05em;
+        }
+
+        .instructor-card p {
+            color: #ffffff;
+            font-size: 0.9em;
+        }
+
+        .day-title {
+            background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
+            color: white;
+            padding: 12px;
+            border-radius: 12px;
+            margin: 15px 0 12px 0;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+        }
+
+        .day-title h3 {
+            font-size: 1.15em;
+            margin-bottom: 5px;
+        }
+
+        .day-title p {
+            font-size: 0.95em;
+        }
+
+        .day-title-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 15px 0 12px 0;
+        }
+
+        .day-title-container .day-title {
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.6em;
+            }
+            
+            .logo-section {
+                flex-direction: column;
+                gap: 12px;
+            }
+            
+            .logo {
+                width: 160px;
+                height: 48px;
+            }
+            
+            .content {
+                padding: 15px;
+            }
+            
+            .course-table {
+                font-size: 0.85em;
+            }
+            
+            .button-group {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                min-width: auto;
+                max-width: 350px;
+            }
+
+            .day-title-container {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-section {
+                padding: 25px 15px;
+            }
+
+            .cta-section h3 {
+                font-size: 1.4em;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cta-button {
+                width: 100%;
+                min-width: auto;
+                max-width: 350px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo-section">
+                <div class="logo">
+                    <a href="https://www.megazone.com"><img src="https://bit.ly/4mzYId0" alt="Megazone Cloud" width="160" height="28" style="border-radius: 8px; object-fit: contain;"/></a>
+                </div>
+                <div class="logo copilot-logo">
+                    <span style="color: white; font-weight: bold; font-size: 0.9em;">Agent driven Workspace</span>
+                </div>
+                <div class="logo">
+                    <a href="https://www.microsoft.com/ko-kr/microsoft-365-copilot?msockid=1f5970f7115a69b239a4666b10ae6882"><img src="https://bit.ly/41rh5bO" alt="Microsoft" width="160" height="60" style="border-radius: 8px; object-fit: contain;"/></a>
+                </div>
+            </div>
+            <h1>🚀 Microsoft 365 Copilot 교육 프로그램</h1>
+            <p>AI 기반 생산성 혁신을 위한 실무 중심 교육</p>
+        </div>
+
+        <div class="content">
+            <div class="feature-box">
+                <h2>🎯 프로그램 특징</h2>
+                <p>Microsoft 365 Copilot의 핵심 기능부터 실무 활용까지, 체계적인 단계별 학습을 통해 AI 기반 업무 생산성을 극대화합니다. 이론 강의(PT), 시연(Demo), 실습(LAB)을 통한 완전한 학습 경험을 제공합니다.</p>
+            </div>
+
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>📚 교육 방식</h3>
+                    <ul>
+                        <li>이론 강의 (PT)</li>
+                        <li>실시간 시연 (Demo)</li>
+                        <li>실습 랩 세션 (LAB)</li>
+                        <li>실무 케이스 스터디</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>⏰ 교육 시간</h3>
+                    <ul>
+                        <li>오전: 09:00-12:00 (3시간)</li>
+                        <li>점심: 12:00-13:00 (1시간)</li>
+                        <li>오후: 13:00-16:00 (3시간)</li>
+                        <li>일일 총 6시간 교육</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>👥 대상</h3>
+                    <ul>
+                        <li>Microsoft 365 사용자</li>
+                        <li>업무 생산성 향상 희망자</li>
+                        <li>AI 도구 활용 초보자</li>
+                        <li>기업 임직원 및 팀</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>🎓 준비 사항</h3>
+                    <ul>
+                        <li>Microsoft 365 계정</li>
+                        <li>Copilot 라이선스 권장</li>
+                        <li>노트북 또는 PC</li>
+                        <li>실습 환경 제공</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <a href="#day1-curriculum" class="btn btn-primary">📅 Copilot 1Day 과정 보기</a>
+                <a href="#day2-curriculum" class="btn btn-success">✅ Copilot 2Day 심화 과정 보기 🔥⭐</a>
+            </div>
+
+            <div class="cta-section">
+                <h3>🎉 지금 바로 교육 신청하세요!</h3>
+                <p>선착순 마감! Microsoft 365 Copilot로 업무 혁신을 시작하세요.</p>
+                <div class="cta-buttons">
+                    <a href="https://forms.microsoft.com/r/CcaL3Ga82A" class="cta-button cta-button-primary">📅 Copilot 1Day 교육 신청</a>
+                    <a href="https://forms.microsoft.com/r/dyVP2ZuX7U" class="cta-button cta-button-success">✅ Copilot 2Day 심화 교육 신청 🔥</a>
+                </div>
+            </div>
+
+            <div class="course-section" id="day1-curriculum">
+                <h2>📖 Microsoft 365 Copilot 1Day 커리큘럼</h2>
+                
+                <h3 class="schedule-header">🌅 오전 (09:00 - 12:00) - 3시간</h3>
+                <table class="course-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 15%;">시간</th>
+                            <th>과정명</th>
+                            <th style="width: 25%;">교육 형식</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>09:00-09:30</strong></td>
+                            <td>Microsoft Copilot Chat Overview</td>
+                            <td><span class="badge badge-pt">PT</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>09:30-10:30</strong></td>
+                            <td>Microsoft Copilot Chat How To</td>
+                            <td><span class="badge badge-pt">PT</span> <span class="badge badge-demo">Demo</span> <span class="badge badge-lab">LAB</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>10:30-11:00</strong></td>
+                            <td>Copilot 프롬프트 기술</td>
+                            <td><span class="badge badge-pt">PT</span> <span class="badge badge-demo">Demo</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>11:00-12:00</strong></td>
+                            <td>Microsoft 365 Copilot Chat How To<br><small>(정보검색, 컨텐츠 이해, 데이터분석, 발표준비, 컨텐츠 생성)</small></td>
+                            <td><span class="badge badge-pt">PT</span> <span class="badge badge-demo">Demo</span> <span class="badge badge-lab">LAB</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="time-divider">
+                    <h3>☕ 점심 시간 (12:00 - 13:00)</h3>
+                </div>
+
+                <h3 class="schedule-header">🌆 오후 (13:00 - 16:00) - 3시간</h3>
+                <table class="course-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 15%;">시간</th>
+                            <th>과정명</th>
+                            <th style="width: 25%;">교육 형식</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>13:00-13:30</strong></td>
+                            <td>Microsoft 365 Copilot Overview<br><small>(Word, PowerPoint, Excel, Outlook, Teams 등)</small></td>
+                            <td><span class="badge badge-pt">PT</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>13:30-14:10</strong></td>
+                            <td>Copilot in Word<br><small>(문서 초안 작성하기, 내용 요약하고 질문하기, 문서 비교)</small></td>
+                            <td><span class="badge badge-pt">PT</span> <span class="badge badge-demo">Demo</span> <span class="badge badge-lab">LAB</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>14:10-14:50</strong></td>
+                            <td>Copilot in PowerPoint<br><small>(기존 PDF, Word 문서에서 프레젠테이션 변환, 요약, 디자인)</small></td>
+                            <td><span class="badge badge-pt">PT</span> <span class="badge badge-demo">Demo</span> <span class="badge badge-lab">LAB</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>14:50-15:20</strong></td>
+                            <td>Copilot in Excel<br><small>(수식 열 추가, 하이라이트, 정렬 및 필터링, 차트)</small></td>
+                            <td><span class="badge badge-pt">PT</span> <span class="badge badge-demo">Demo</span> <span class="badge badge-lab">LAB</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>15:20-15:40</strong></td>
+                            <td>Copilot in Outlook<br><small>(메일 작성, 코칭, 요약, Copilot 일정 예약)</small></td>
+                            <td><span class="badge badge-pt">PT</span> <span class="badge badge-demo">Demo</span> <span class="badge badge-lab">LAB</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>15:40-16:00</strong></td>
+                            <td>Copilot in Teams & Others<br><small>(채팅, 채널, 회의에서의 활용 / OneDrive, Forms 등)</small></td>
+                            <td><span class="badge badge-pt">PT</span> <span class="badge badge-demo">Demo</span> <span class="badge badge-lab">LAB</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="course-section" id="day2-curriculum">
+                <h2>📖 Microsoft 365 Copilot 2Day 커리큘럼</h2>
+                
+                <div class="day-title-container">
+                    <a href="#day1-curriculum" style="text-decoration: none;">
+                        <div class="day-title" style="cursor: pointer;">
+                            <h3>📅 Day 1 - Microsoft 365 Copilot 기본 활용</h3>
+                            <p>위의 1Day 커리큘럼과 동일 (클릭하여 보기)</p>
+                        </div>
+                    </a>
+
+                    <div class="day-title">
+                        <h3>📅 Day 2 - 업무 시나리오 & Agent 활용</h3>
+                        <p>실무 케이스 스터디 및 Agent 실습</p>
+                    </div>
+                </div>
+
+                <h3 style="color: #E2E8F0; margin-top: 25px; font-size: 1.2em; text-align: center;">📋 Day 2 상세 일정</h3>
+
+                <h3 class="schedule-header">🌅 오전 (09:00 - 12:00) - 3시간</h3>
+                <table class="course-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 15%;">시간</th>
+                            <th>과정명</th>
+                            <th style="width: 25%;">교육 형식</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>09:00-09:30</strong></td>
+                            <td>전일 복습 및 Q&A</td>
+                            <td><span class="badge badge-pt">PT</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>09:30-12:00</strong></td>
+                            <td>Microsoft 365 Copilot 업무시나리오 Case How To<br><small>(실제 업무 환경에서의 통합 활용 사례)</small></td>
+                            <td><span class="badge badge-pt">PT</span> <span class="badge badge-demo">Demo</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="time-divider">
+                    <h3>☕ 점심 시간 (12:00 - 13:00)</h3>
+                </div>
+
+                <h3 class="schedule-header">🌆 오후 (13:00 - 16:00) - 3시간</h3>
+                <table class="course-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 15%;">시간</th>
+                            <th>과정명</th>
+                            <th style="width: 25%;">교육 형식</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>13:00-13:30</strong></td>
+                            <td>Agent Overview<br><small>(Copilot Agent의 개념과 활용 가능성)</small></td>
+                            <td><span class="badge badge-pt">PT</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>13:30-14:15</strong></td>
+                            <td>Agent How To - SharePoint 에이전트<br><small>(SharePoint 기반 에이전트 만들기)</small></td>
+                            <td><span class="badge badge-pt">PT</span> <span class="badge badge-demo">Demo</span> <span class="badge badge-lab">LAB</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>14:15-15:00</strong></td>
+                            <td>Agent How To - 에이전트 빌더 (템플릿)<br><small>(템플릿을 사용한 에이전트 생성)</small></td>
+                            <td><span class="badge badge-pt">PT</span> <span class="badge badge-demo">Demo</span> <span class="badge badge-lab">LAB</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>15:00-15:30</strong></td>
+                            <td>Agent How To - 에이전트 빌더 (URL기반)<br><small>(URL 기반 에이전트 생성)</small></td>
+                            <td><span class="badge badge-pt">PT</span> <span class="badge badge-demo">Demo</span> <span class="badge badge-lab">LAB</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>15:30-16:00</strong></td>
+                            <td>예제를 통한 에이전트 지침 How To<br><small>(효과적인 에이전트 지침 작성법)</small></td>
+                            <td><span class="badge badge-pt">PT</span> <span class="badge badge-demo">Demo</span> <span class="badge badge-lab">LAB</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="instructor-section">
+                <h2>👨‍🏫 교육 안내</h2>
+                <div class="instructor-grid">
+                    <div class="instructor-card">
+                        <h4>📍 교육 형태</h4>
+                        <p>실습 위주의 <br>기업 맞춤형 과정 제공<br>경험많은 마이크로소프트 MVP 직강</p>
+                    </div>
+                    <div class="instructor-card">
+                        <h4>💼 교육 대상</h4>
+                        <p>M365 코파일럿 보유 고객사<br>또는 M365 코파일럿 구매 예정인 기업</p>
+                    </div>
+                    <div class="instructor-card">
+                        <h4>인비저닝 워크샵</h4>
+                        <p>코파일럿 도입 예정인 기업에<br>인비저닝 워크샵을 제공해드립니다.<br>하단 신청 버튼으로 신청해주세요.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-section">
+                <h3>🎉 지금 바로 교육 신청하세요!</h3>
+                <p>선착순 마감! Microsoft 365 Copilot로 업무 혁신을 시작하세요.</p>
+                <div class="cta-buttons">
+                    <a href="https://forms.microsoft.com/r/CcaL3Ga82A" class="cta-button cta-button-primary">📅 Copilot 1Day 교육 신청</a>
+                    <a href="https://forms.microsoft.com/r/dyVP2ZuX7U" class="cta-button cta-button-success">✅ Copilot 2Day 심화 교육 신청 🔥</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div style="margin-bottom: 15px;">
+                <a href="https://www.megazone.com" style="text-decoration:none;">
+                    <strong style="color: #A78BFA; font-size: 1.1em;">메가존 클라우드</strong>
+                </a>
+            </div>
+            <div style="margin-bottom: 8px;">
+                <strong style="color: #CBD5E1;">교육 문의:</strong> 
+                <a href="mailto:mzc_mssales@megazone.com">mzc_mssales@megazone.com</a>
+            </div>
+            <div style="color: #64748B; font-size: 0.85em;">
+                <small>Microsoft 365 Copilot 공식 교육 파트너 | Megazone Cloud</small>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
