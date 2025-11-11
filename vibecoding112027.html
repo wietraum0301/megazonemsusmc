@@ -69,9 +69,11 @@
         .apply-section { margin-bottom: 5rem; }
         .apply-content { max-width: 640px; margin: 0 auto; text-align: center; }
         .apply-intro { color: #d2d6ff; margin-bottom: 2rem; }
-        .contact-box { display:flex; padding: 2rem; border-radius: 16px; border: 1px solid #2f335b; background: #1b1f3a; gap: .75rem;   }
+        .contact-box { display:flex; flex-direction: column;  align-items: center; padding: 2rem; border-radius: 16px; border: 1px solid #2f335b; background: #1b1f3a; gap: .75rem;   }
+        .contact-box p {margin: 0;}
         .contact-box a { color: #9ae6ff; text-decoration: none; }
-        .contact-box a:hover { text-decoration: underline; }
+        .contact-box a:hover { text-decoration: underline; overflow-wrap: anywhere;  }
+        .contact-box .btn-primary{  display: inline-block;  line-height: 1;           /* 캡슐 버튼 높이 안정화 */  padding: .9rem 1.6rem;}
 
         /* Misc */
         .key-points { margin-bottom: 4rem; }
