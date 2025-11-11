@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Agent 실전! M365 Copilot + Power Platform 실무 자동화">
-    <meta name="keywords" content="Copilot, Agentic AI, Microsoft 365, Power Platform, RPA, AI Workshop, Megazone">
+    <meta name="description" content="Copilot 에이전트 & 자동화 실무 워크샵 - 실전 자동화 시나리오로 배우는 M365 Copilot + Copilot Studio + Power Platform">
+    <meta name="keywords" content="Copilot, Copilot Studio, Microsoft 365, Power Platform, Power Automate, AI Agent, 업무 자동화, Megazone">
     <meta name="author" content="Megazone Cloud Corporation">
-    <meta property="og:title" content="Agentic AI with Copilot — Agent 실전!">
-    <meta property="og:description" content="M365 Copilot 중심의 Agentic AI Envisioning 워크샵">
+    <meta property="og:title" content="Copilot 에이전트 & 자동화 실무 워크샵">
+    <meta property="og:description" content="선언적 에이전트부터 Copilot Studio 고급 시나리오까지 2일 집중 과정">
     <meta property="og:type" content="website">
-    <title>Agentic AI with Copilot — Envisioning Workshop</title>
+    <title>Copilot 에이전트 & 자동화 실무 워크샵</title>
     <style>
         * {
             margin: 0;
@@ -126,11 +126,29 @@
             animation: fadeInUp 0.8s ease-out;
         }
 
+        .hero .subtitle {
+            font-size: 1.5rem;
+            color: #8a8cd9;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
         .hero p {
-            max-width: 42rem;
+            max-width: 48rem;
             margin: 0 auto 2rem;
             color: #d2d6ff;
             font-size: 1.125rem;
+        }
+
+        .date-badge {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: linear-gradient(135deg, #6264a7, #8a8cd9);
+            color: white;
+            border-radius: 24px;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            font-size: 1rem;
         }
 
         .hero-buttons {
@@ -259,14 +277,78 @@
         }
 
         .day-section {
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .day-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .day-badge {
+            padding: 0.5rem 1rem;
+            background: linear-gradient(135deg, #6264a7, #8a8cd9);
+            color: white;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.875rem;
         }
 
         .day-title {
             font-size: 1.25rem;
             font-weight: 600;
-            margin-bottom: 1rem;
             color: #ffffff;
+        }
+
+        .module-section {
+            margin-bottom: 2rem;
+        }
+
+        .module-header {
+            padding: 1rem 1.5rem;
+            background: linear-gradient(135deg, #1b1f3a 0%, #252956 100%);
+            border-left: 4px solid #6264a7;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+        }
+
+        .module-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #d2d6ff;
+            margin-bottom: 0.25rem;
+        }
+
+        .module-duration {
+            font-size: 0.875rem;
+            color: #8a8cd9;
+        }
+
+        .module-content {
+            padding-left: 1.5rem;
+        }
+
+        .module-content ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .module-content li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #b9bdfc;
+            font-size: 0.9rem;
+        }
+
+        .module-content li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #6264a7;
+            font-weight: bold;
         }
 
         .sessions-grid {
@@ -326,6 +408,17 @@
         .session-card p {
             font-size: 0.875rem;
             color: #b9bdfc;
+        }
+
+        /* Key Points Section */
+        .key-points {
+            margin-bottom: 4rem;
+        }
+
+        .key-points-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
         }
 
         /* Apply Section */
@@ -426,6 +519,10 @@
                 font-size: 2rem;
             }
 
+            .hero .subtitle {
+                font-size: 1.25rem;
+            }
+
             .mobile-menu-btn {
                 display: block;
             }
@@ -451,6 +548,10 @@
             }
 
             .sessions-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .key-points-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -483,8 +584,8 @@
     <header>
         <div class="header-container">
             <div class="logo-container">
-                <div class="logo" role="img" aria-label="Agentic AI with Copilot 로고"></div>
-                <h1 class="logo-text">Agentic AI with Copilot</h1>
+                <div class="logo" role="img" aria-label="Copilot Workshop 로고"></div>
+                <h1 class="logo-text">Copilot Workshop</h1>
             </div>
             <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="메뉴 열기">☰</button>
             <nav id="mainNav">
@@ -497,11 +598,13 @@
 
     <!-- Hero Section -->
     <section id="main-content" class="hero">
-        <h2>Agentic AI with Copilot — Envisioning Workshop</h2>
+        <h2>Copilot 에이전트 & 자동화 실무 워크샵</h2>
+        <p class="subtitle">선언적 에이전트부터 Copilot Studio 고급 시나리오까지</p>
+        <div class="date-badge">📅 2025년 12월 11일(목) ~ 12일(금)</div>
         <p>
-            M365 <strong>Copilot</strong> 중심의 <strong>Agentic AI Envisioning</strong> 워크샵으로,
-            Copilot 확장(Studio / Graph / Plugin) 및 Grounding(SharePoint / Dataverse)
-            를 통해 조직 맞춤형 Agentic AI 비전을 구체화합니다.
+            <strong>M365 Copilot</strong>과 <strong>Copilot Studio</strong>를 활용한 실전 자동화 워크샵입니다.<br>
+            선언적 에이전트 구축부터 Power Automate 연동, 재무/영업 도메인 실습까지<br>
+            코드 생성 자동화와 실무 시나리오로 조직의 업무 자동화를 직접 구현합니다.
         </p>
         <div class="hero-buttons">
             <a href="https://forms.microsoft.com/r/FvqJnyWEdf" class="btn-primary">사전 등록하기</a>
@@ -514,20 +617,28 @@
         <h3 class="section-title">프로그램 특징</h3>
         <div class="features-grid">
             <div class="feature-card">
-                <h4>Copilot 시나리오 설계</h4>
-                <p>업무 여정과 문제정의를 바탕으로 Copilot 사용 및 확장 시나리오를 설계합니다.</p>
+                <h4>선언적 에이전트 실습</h4>
+                <p>Copilot Chat에서 바로 활용 가능한 선언적 에이전트를 만들고 업무 생산성을 향상시킵니다.</p>
             </div>
             <div class="feature-card">
-                <h4>Copilot Studio & Graph</h4>
-                <p>Copilot Studio, Graph/Action/Plugin으로 조직 시스템과 연결합니다.</p>
+                <h4>Power Automate 자동화</h4>
+                <p>워드 템플릿 자동화, Teams/Excel 연동, AI Builder까지 실무 시나리오로 학습합니다.</p>
             </div>
             <div class="feature-card">
-                <h4>Prompt Engineering & Grounding</h4>
-                <p>SharePoint / Dataverse 기반 Grounding과 보안 컨텍스트를 실습합니다.</p>
+                <h4>코드 생성 자동화</h4>
+                <p>Copilot으로 VBA, Office Scripts를 생성하고 Power Automate에서 실행합니다.</p>
             </div>
             <div class="feature-card">
-                <h4>Teams & Power Platform 통합</h4>
-                <p>Teams, Power Automate, Adaptive Card로 업무 자동화 에이전트를 구현합니다.</p>
+                <h4>Copilot Studio 고급 과정</h4>
+                <p>재무/영업 도메인의 실전 시나리오로 엔터프라이즈급 에이전트를 구축합니다.</p>
+            </div>
+            <div class="feature-card">
+                <h4>Excel & Power BI 통합</h4>
+                <p>데이터 전처리부터 대시보드 구축까지 Copilot 기반 데이터 분석을 경험합니다.</p>
+            </div>
+            <div class="feature-card">
+                <h4>실전 프로젝트</h4>
+                <p>매출 보고서 자동화, 고객 데이터 처리 등 실무에 바로 적용 가능한 프로젝트를 진행합니다.</p>
             </div>
         </div>
     </section>
@@ -538,97 +649,201 @@
         <div class="features-grid">
             <div class="feature-card">
                 <h4>🎯 대상</h4>
-                <p>AI 전환을 고민하는 기업의 IT 리더, 개발자, 업무 혁신 담당자</p>
+                <p>AI 자동화를 도입하려는 기업의 IT 담당자, 개발자, 업무 혁신 담당자, 데이터 분석가</p>
             </div>
             <div class="feature-card">
                 <h4>📅 일정</h4>
-                <p>2일간 집중 워크샵 (09:30 - 17:00)</p>
+                <p>2025년 12월 11일(목) ~ 12일(금), 2일간 집중 워크샵 (09:00 - 17:00)</p>
             </div>
             <div class="feature-card">
                 <h4>💼 준비물</h4>
-                <p>노트북, Microsoft 365 계정 (권장)</p>
+                <p>노트북, Microsoft 365 계정 (Copilot 라이선스 권장)</p>
             </div>
             <div class="feature-card">
                 <h4>🎓 수료 혜택</h4>
-                <p>워크샵 수료증, 실습 자료 제공</p>
+                <p>워크샵 수료증, 실습 자료 및 템플릿, 커뮤니티 액세스</p>
             </div>
         </div>
     </section>
 
     <!-- Curriculum Section -->
     <section id="curriculum" class="curriculum container">
-        <h3 class="section-title">Agentic AI with Copilot — Envisioning Workshop (2 Days)</h3>
+        <h3 class="section-title">Copilot 에이전트 & 자동화 실무 워크샵 (2일 과정)</h3>
         <p class="curriculum-intro">
-            목표: <strong>Copilot Envisioning</strong>을 통해 조직의 Agentic AI 활용 비전을 수립 · 형식:
-            실습/사례 기반, Copilot과 Agentic Framework 체험
+            <strong>목표:</strong> M365 Copilot과 Copilot Studio를 활용한 실전 업무 자동화 역량 확보<br>
+            <strong>형식:</strong> 핸즈온 실습 중심, 재무/영업 도메인 실전 시나리오
         </p>
 
         <!-- Day 1 -->
         <div class="day-section">
-            <h4 class="day-title">Day 1 — Design Thinking & Copilot Foundations</h4>
+            <div class="day-header">
+                <div class="day-badge">Day 1</div>
+                <h4 class="day-title">Copilot 에이전트 & 기본 자동화 실습 (6시간)</h4>
+            </div>
+
+            <div class="module-section">
+                <div class="module-header">
+                    <div class="module-title">1. 선언적 에이전트 만들고 활용하기</div>
+                    <div class="module-duration">⏱️ 1.5시간 | 09:00 - 10:30</div>
+                </div>
+                <div class="module-content">
+                    <ul>
+                        <li>Copilot Chat & 선언적 에이전트 개념</li>
+                        <li>UI/UX 기본 소개 (5~10분)</li>
+                        <li>선언적 에이전트 만들기 실습 (초급/중급)</li>
+                        <li>업무 생산성 향상 시나리오</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="module-section">
+                <div class="module-header">
+                    <div class="module-title">2. Power Automate 기본 자동화</div>
+                    <div class="module-duration">⏱️ 2시간 | 10:30 - 12:30</div>
+                </div>
+                <div class="module-content">
+                    <ul>
+                        <li>Power Automate 소개 및 기본 개념 (5분)</li>
+                        <li>워드 템플릿에 데이터 자동 채우기 실습</li>
+                        <li>Teams, Excel 연동 자동화</li>
+                        <li>AI Builder 활용 간단 사례</li>
+                    </ul>
+                </div>
+            </div>
+
             <div class="sessions-grid">
-                <div class="session-card">
-                    <div class="session-time">09:30</div>
-                    <strong>오리엔테이션</strong>
-                    <p>목표 설정, 참가자 기대 공유</p>
-                </div>
-                <div class="session-card">
-                    <div class="session-time">10:00</div>
-                    <strong>Copilot & Agentic AI Overview</strong>
-                    <p>Copilot 아키텍처 및 Microsoft Agentic Framework 이해</p>
-                </div>
-                <div class="session-card">
-                    <div class="session-time">11:00</div>
-                    <strong>Design Thinking for Copilot</strong>
-                    <p>문제 정의, 사용자 여정 설계, 아이디어 워크샵</p>
-                </div>
                 <div class="session-card lunch-break">
                     <div class="session-time">12:30</div>
                     <strong>점심 시간</strong>
-                    <p>휴식 및 네트워킹</p>
+                    <p>휴식 및 네트워킹 (1시간)</p>
                 </div>
-                <div class="session-card">
-                    <div class="session-time">13:30</div>
-                    <strong>Prompt Engineering & Copilot Patterns</strong>
-                    <p>Copilot 대화 설계, Chain of Thought 적용</p>
+            </div>
+
+            <div class="module-section">
+                <div class="module-header">
+                    <div class="module-title">3. Copilot으로 코드 생성 자동화</div>
+                    <div class="module-duration">⏱️ 1.5시간 | 13:30 - 15:00</div>
                 </div>
-                <div class="session-card">
-                    <div class="session-time">15:00</div>
-                    <strong>Hands-on: Build a Mini-Copilot</strong>
-                    <p>Teams, Power Automate 연계 실습</p>
+                <div class="module-content">
+                    <ul>
+                        <li>Excel VBA를 Copilot으로 생성하기</li>
+                        <li>Office Scripts를 Copilot으로 생성하기</li>
+                        <li>Power Automate에서 Office Scripts 실행</li>
+                        <li>결과물을 메일/Teams로 자동 전송하는 시나리오 실습</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="module-section">
+                <div class="module-header">
+                    <div class="module-title">4. Excel & Power BI 데이터 처리</div>
+                    <div class="module-duration">⏱️ 1시간 | 15:00 - 16:00</div>
+                </div>
+                <div class="module-content">
+                    <ul>
+                        <li>Excel 데이터 전처리 자동화</li>
+                        <li>Power BI 대시보드 가이드라인 받아서 구축하기</li>
+                    </ul>
                 </div>
             </div>
         </div>
 
         <!-- Day 2 -->
         <div class="day-section">
-            <h4 class="day-title">Day 2 — Building & Integrating AI Agents</h4>
+            <div class="day-header">
+                <div class="day-badge">Day 2</div>
+                <h4 class="day-title">Copilot Studio 고급 에이전트 & 실전 시나리오 (6시간)</h4>
+            </div>
+
+            <div class="module-section">
+                <div class="module-header">
+                    <div class="module-title">1. Copilot Studio 소개 및 필요성</div>
+                    <div class="module-duration">⏱️ 1시간 | 09:00 - 10:00</div>
+                </div>
+                <div class="module-content">
+                    <ul>
+                        <li>Copilot Studio 개념 및 필요성</li>
+                        <li>왜 Studio가 필요한가? (트리거, 툴 호출, 워크플로우)</li>
+                        <li>Copilot Chat vs Copilot Studio 차이점</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="module-section">
+                <div class="module-header">
+                    <div class="module-title">2. 재무 시나리오: 매출 보고서 자동화 에이전트</div>
+                    <div class="module-duration">⏱️ 2.5시간 | 10:00 - 12:30</div>
+                </div>
+                <div class="module-content">
+                    <ul>
+                        <li>시나리오: "오늘 기준 매출 보고서를 Word 임원보고서 서식으로 작성 → Teams 채널에 요약 카드 알림"</li>
+                        <li>Copilot Studio에서 에이전트 구성</li>
+                        <li>Power Automate 연동 (Word 문서 생성)</li>
+                        <li>Teams 알림 자동화</li>
+                        <li>SharePoint 문서 저장 및 관리</li>
+                        <li>실습 진행</li>
+                    </ul>
+                </div>
+            </div>
+
             <div class="sessions-grid">
-                <div class="session-card">
-                    <div class="session-time">09:30</div>
-                    <strong>Recap & Discussion</strong>
-                    <p>1일차 복습 및 인사이트 공유</p>
-                </div>
-                <div class="session-card">
-                    <div class="session-time">10:00</div>
-                    <strong>Copilot Studio Hands-on</strong>
-                    <p>Conversation Flow, Topic, Power Automate Action 설정</p>
-                </div>
                 <div class="session-card lunch-break">
                     <div class="session-time">12:30</div>
                     <strong>점심 시간</strong>
-                    <p>휴식 및 네트워킹</p>
+                    <p>휴식 및 네트워킹 (1시간)</p>
                 </div>
-                <div class="session-card">
-                    <div class="session-time">13:30</div>
-                    <strong>Hackathon: Your First Copilot Agent</strong>
-                    <p>개인/팀별 프로젝트 구축 및 튜닝</p>
+            </div>
+
+            <div class="module-section">
+                <div class="module-header">
+                    <div class="module-title">3. 영업 시나리오: 고객 데이터 기반 자동화</div>
+                    <div class="module-duration">⏱️ 2시간 | 13:30 - 15:30</div>
                 </div>
-                <div class="session-card">
-                    <div class="session-time">16:00</div>
-                    <strong>Showcase & Feedback</strong>
-                    <p>데모 발표, 피드백, 향후 확장 방향 논의</p>
+                <div class="module-content">
+                    <ul>
+                        <li>영업/재무 데이터 처리 및 분석</li>
+                        <li>Copilot Studio로 업무 에이전트 만들기</li>
+                        <li>SharePoint, Teams를 오가는 통합 시나리오</li>
+                        <li>실습 및 커스터마이징</li>
+                    </ul>
                 </div>
+            </div>
+
+            <div class="module-section">
+                <div class="module-header">
+                    <div class="module-title">4. Q&A 및 향후 확장 방향</div>
+                    <div class="module-duration">⏱️ 0.5시간 | 15:30 - 16:00</div>
+                </div>
+                <div class="module-content">
+                    <ul>
+                        <li>배운 내용 정리</li>
+                        <li>실무 적용 팁</li>
+                        <li>향후 확장 방향 및 로드맵 논의</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Points Section -->
+    <section class="key-points container">
+        <h3 class="section-title">핵심 포인트</h3>
+        <div class="key-points-grid">
+            <div class="feature-card">
+                <h4>💡 Copilot Chat & Studio 중심</h4>
+                <p>기본부터 고급까지 체계적으로 학습하며, 실무에 바로 적용 가능한 기술을 습득합니다.</p>
+            </div>
+            <div class="feature-card">
+                <h4>🔄 자동화 시나리오</h4>
+                <p>재현 가능하고 실용적인 재무/영업 도메인 시나리오로 실습합니다.</p>
+            </div>
+            <div class="feature-card">
+                <h4>📈 단계적 학습</h4>
+                <p>Power Automate 기본을 탄탄히 한 후 Copilot으로 확장하는 단계적 접근 방식을 사용합니다.</p>
+            </div>
+            <div class="feature-card">
+                <h4>⚙️ 코드 생성 자동화</h4>
+                <p>VBA, Office Scripts를 Copilot으로 생성하여 개발 생산성을 극대화합니다.</p>
             </div>
         </div>
     </section>
@@ -638,18 +853,20 @@
         <h3 class="section-title">워크샵 신청</h3>
         <div class="apply-content">
             <p class="apply-intro">
-                참가를 원하시는 분은 아래 정보를 확인해주세요.
+                2025년 12월 11~12일, 2일간의 집중 워크샵에 참가하세요.<br>
+                실전 자동화 시나리오로 Copilot 활용 역량을 획기적으로 향상시킬 수 있습니다.
             </p>
-            <div class="contact-box" class="hero-buttons">
-                <p><a href="https://forms.microsoft.com/r/FvqJnyWEdf" class="btn-primary"> 신청하기</a></p> 
-                <p>📧 문의: <a href="mailto:celia@megazone.com">celiap@megazone.com</a></p>
+            <div class="contact-box">
+                <p><a href="https://forms.microsoft.com/r/FvqJnyWEdf" class="btn-primary">지금 신청하기</a></p> 
+                <p>📧 문의: <a href="mailto:celia@megazone.com">celia@megazone.com</a></p>
+                <p>📞 전화: 02-2108-9140 (메가존클라우드 Microsoft BU)</p>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        © 2025 Megazone Cloud Corporation Microsoft Business Unit SPF Project
+        © 2025 Megazone Cloud Corporation Microsoft Business Unit
     </footer>
 
     <!-- Back to Top Button -->
