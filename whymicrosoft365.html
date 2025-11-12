@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Microsoft 365가 답입니다 — Google Workspace와의 비교로 증명하는 엔터프라이즈급 협업 플랫폼의 우수성">
+    <meta name="keywords" content="Microsoft 365, Google Workspace 비교, 엔터프라이즈 협업툴, Office 365, Teams, 클라우드 오피스">
+    <meta name="author" content="Megazone Cloud">
+    <meta property="og:title" content="Microsoft 365가 답입니다 | 엔터프라이즈급 협업의 정석">
+    <meta property="og:description" content="Google Workspace와 비교해보면 확실합니다. Microsoft 365가 우리 회사에 필요한 이유">
+    <meta property="og:type" content="website">
+    <title>Microsoft 365가 답입니다 | 엔터프라이즈급 협업 플랫폼 | Megazone Cloud</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background-color: #121f36; color: #f3f2f1; line-height: 1.6; }
+
+        /* Skip Link */
+        .skip-link { position: absolute; top: -40px; left: 0; background: #6264a7; color: #fff; padding: 8px 16px; text-decoration: none; z-index: 100; border-radius: 4px; }
+        .skip-link:focus { top: 10px; left: 10px; }
+
+        /* Header */
+        header { position: sticky; top: 0; z-index: 50; background: rgba(27, 31, 58, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid #2f335b; }
+        .header-container { max-width: 1152px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 1rem; position: relative; }
+        .logo-container { display: flex; align-items: center; gap: 0.5rem; }
+        .logo { width: 28px; height: 28px; border-radius: 8px; background: conic-gradient(from 180deg, #EA4335, #4285F4, #34A853, #FBBC05); }
+        .logo-text { font-size: 1.125rem; font-weight: 800; }
+        .mobile-menu-btn { display: none; background: none; border: none; color: #f3f2f1; font-size: 1.5rem; cursor: pointer; padding: 0.5rem; }
+        nav { display: flex; gap: 1rem; font-size: 0.875rem; }
+        nav a { color: #f3f2f1; text-decoration: none; transition: color 0.3s; padding: 0.5rem; border-radius: 4px; }
+        nav a:hover, nav a:focus { color: #d1d5ff; outline: 2px solid #6264a7; }
+
+        /* Logo Section Styles */
+        .hero-logo-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+        
+        .hero-logo-box {
+            width: 200px;
+            height: 60px;
+            background: #ffffff;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .hero-logo-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+        }
+
+        .hero-logo-box img {
+            border-radius: 8px;
+            object-fit: contain;
+        }
+
+        .vs-badge {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #EA4335, #4285F4, #34A853, #FBBC05);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 900;
+            color: white;
+            box-shadow: 0 8px 24px rgba(66, 133, 244, 0.4);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        /* Hero */
+        .hero { padding: 6rem 1rem; text-align: center; }
+        .hero h2 { font-size: 3rem; font-weight: 800; background: linear-gradient(90deg, #EA4335, #4285F4, #34A853, #FBBC05); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 1rem; animation: fadeInUp 0.8s ease-out; }
+        .hero .subtitle { font-size: 1.25rem; color: #4285F4; font-weight: 600; margin-bottom: 1rem; }
+        .hero p { max-width: 50rem; margin: 0 auto 2rem; color: #d2d6ff; font-size: 1.125rem; }
+        .date-badge { display: inline-block; padding: 0.5rem 1.25rem; background: linear-gradient(135deg, #EA4335, #4285F4); color: #fff; font-weight: 800; border-radius: 999px; margin-bottom: 1.25rem; }
+        .hero-buttons { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+        .btn-primary { padding: 0.75rem 1.5rem; border-radius: 12px; font-weight: 700; background: linear-gradient(90deg, #EA4335, #FBBC05); color: #fff; text-decoration: none; transition: transform 0.3s, box-shadow 0.3s; border: none; cursor: pointer; }
+        .btn-primary:hover, .btn-primary:focus { transform: translateY(-2px); box-shadow: 0 8px 16px rgba(234, 67, 53, 0.35); outline: 2px solid #EA4335; }
+        .btn-secondary { padding: 0.75rem 1.5rem; border: 1px solid #3a3f74; border-radius: 12px; color: #f3f2f1; text-decoration: none; background: transparent; }
+        .btn-secondary:hover, .btn-secondary:focus { border-color: #7a7fe0; outline: 2px solid #6264a7; }
+
+        /* Containers */
+        .container { max-width: 1152px; margin: 0 auto; padding: 0 1rem; }
+        .section-title { font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: #fff; }
+
+        /* Platform Cards */
+        .platforms { margin-bottom: 4rem; }
+        .platform-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); gap: 2rem; }
+        
+        .platform-card { 
+            padding: 2rem; 
+            border-radius: 16px; 
+            border: 2px solid; 
+            background: #1b1f3a; 
+            transition: all 0.35s ease; 
+            position: relative; 
+            overflow: hidden; 
+        }
+
+        .google-card {
+            border-color: #4285F4;
+            background: linear-gradient(135deg, rgba(66, 133, 244, 0.05) 0%, #1b1f3a 100%);
+        }
+
+        .google-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(66, 133, 244, 0.3);
+            border-color: #34A853;
+        }
+
+        .microsoft-card {
+            border-color: #0078d4;
+            background: linear-gradient(135deg, rgba(0, 120, 212, 0.05) 0%, #1b1f3a 100%);
+        }
+
+        .microsoft-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0, 120, 212, 0.3);
+            border-color: #00bcf2;
+        }
+
+        .platform-card h3 { 
+            font-size: 1.8rem; 
+            margin-bottom: 1rem; 
+            display: flex; 
+            align-items: center; 
+            gap: 0.5rem; 
+        }
+
+        .platform-card .platform-logo {
+            width: 40px;
+            height: 40px;
+        }
+
+        .google-card h3 { color: #4285F4; }
+        .microsoft-card h3 { color: #0078d4; }
+
+        .platform-card p { 
+            color: #b9bdfc; 
+            margin-bottom: 1.5rem; 
+            font-size: 1rem;
+        }
+
+        .feature-list { 
+            list-style: none; 
+            padding: 0; 
+        }
+
+        .feature-list li { 
+            padding: 0.75rem 0; 
+            color: #e1e4ff; 
+            position: relative; 
+            padding-left: 2rem; 
+            font-size: 0.95rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+
+        .feature-list li:before { 
+            content: "✓"; 
+            position: absolute; 
+            left: 0; 
+            font-weight: bold; 
+            font-size: 1.2rem;
+        }
+
+        .google-card .feature-list li:before { color: #34A853; }
+        .microsoft-card .feature-list li:before { color: #00bcf2; }
+
+        /* Comparison Table */
+        .comparison { margin-bottom: 5rem; }
+        .comparison-intro { color: #b9bdfc; margin-bottom: 2rem; font-size: 1.1rem; text-align: center; }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #1b1f3a;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .comparison-table thead {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+        }
+
+        .comparison-table th {
+            padding: 1.25rem 1rem;
+            text-align: left;
+            font-weight: 700;
+            color: #fff;
+            font-size: 1rem;
+        }
+
+        .comparison-table th:first-child {
+            width: 25%;
+        }
+
+        .comparison-table td {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: #d2d6ff;
+            vertical-align: top;
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comparison-table tbody tr:hover {
+            background: rgba(66, 133, 244, 0.05);
+        }
+
+        .category-header {
+            background: linear-gradient(135deg, rgba(66, 133, 244, 0.1) 0%, rgba(0, 120, 212, 0.1) 100%);
+            font-weight: 700;
+            color: #4285F4 !important;
+            font-size: 1.05rem !important;
+        }
+
+        .highlight-google { color: #34A853; font-weight: 600; }
+        .highlight-microsoft { color: #00bcf2; font-weight: 600; }
+
+        /* Curriculum */
+        .curriculum { margin-bottom: 5rem; }
+        .curriculum-intro { color: #b9bdfc; margin-bottom: 1.5rem; }
+        .sessions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1rem; }
+        .session-card { position: relative; padding: 1.25rem 1.25rem 1.25rem 4.2rem; border-radius: 16px; border: 1px solid #2f335b; background: #1b1f3a; transition: all 0.3s ease; }
+        .session-card:hover { transform: translateX(4px); border-color: #4285F4; background: linear-gradient(135deg, #1b1f3a 0%, #252956 100%); box-shadow: 0 8px 16px rgba(66, 133, 244, 0.25); }
+        .session-time { position: absolute; left: 1rem; top: 1.25rem; width: 2.4rem; height: 2.4rem; border-radius: 8px; display: grid; place-items: center; font-weight: 800; font-size: 0.7rem; background: linear-gradient(180deg, #EA4335, #4285F4); color: #fff; }
+        .session-card strong { display: block; color: #e1e4ff; margin-bottom: 0.25rem; font-size: 1rem; }
+        .session-card p { font-size: 0.92rem; color: #b9bdfc; }
+        .session-card ul { margin-top: 0.5rem; padding-left: 1.25rem; color: #b9bdfc; font-size: 0.88rem; }
+        .session-card li { margin-bottom: 0.25rem; }
+
+        /* Cards & Grids */
+        .features { margin-bottom: 4rem; }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
+        .feature-card { padding: 1.25rem; border-radius: 16px; border: 1px solid #2f335b; background: #1b1f3a; transition: all 0.35s ease; position: relative; overflow: hidden; }
+        .feature-card::before { content: ''; position: absolute; inset: 0; background: radial-gradient(600px circle at var(--mx, 0) var(--my, 0), rgba(66, 133, 244, 0.1), transparent 40%); opacity: 0; transition: opacity 0.3s; }
+        .feature-card:hover { transform: translateY(-6px); border-color: #4285F4; box-shadow: 0 10px 20px rgba(66, 133, 244, 0.25); }
+        .feature-card:hover::before { opacity: 1; }
+        .feature-card h4 { font-size: 1.05rem; font-weight: 800; color: #d2d6ff; margin-bottom: 0.5rem; }
+        .feature-card p { font-size: 0.9rem; color: #b9bdfc; }
+
+        /* Apply */
+        .apply-section { margin-bottom: 5rem; }
+        .apply-content { max-width: 640px; margin: 0 auto; text-align: center; }
+        .apply-intro { color: #d2d6ff; margin-bottom: 2rem; }
+        .contact-box { padding: 2rem; border-radius: 16px; border: 1px solid #2f335b; background: #1b1f3a; }
+        .contact-box p { margin-bottom: 1.25rem; }
+        .contact-box p:last-child { margin-bottom: 0; }
+        .contact-box a { color: #4285F4; text-decoration: none; }
+        .contact-box a:hover { text-decoration: underline; }
+        .contact-box .btn-primary { display: block; width: 100%; margin-bottom: 1.5rem; text-align: center; }
+
+        /* Misc */
+        .key-points { margin-bottom: 4rem; }
+        .key-points-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }
+        footer { text-align: center; font-size: 0.875rem; color: #aab0ff; padding: 2rem 1.5rem; border-top: 1px solid #2f335b; }
+        .back-to-top { position: fixed; bottom: 2rem; right: 2rem; width: 3rem; height: 3rem; border-radius: 50%; background: linear-gradient(135deg, #EA4335, #4285F4); color: #fff; border: none; font-size: 1.5rem; cursor: pointer; opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s, transform 0.3s; box-shadow: 0 4px 12px rgba(234, 67, 53, 0.35); z-index: 40; font-weight: 900; }
+        .back-to-top.visible { opacity: 1; visibility: visible; }
+        .back-to-top:hover, .back-to-top:focus { transform: translateY(-5px); }
+
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @media (max-width: 968px) {
+            .platform-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 768px) {
+            .hero h2 { font-size: 2rem; }
+            .hero .subtitle { font-size: 1.1rem; }
+            .mobile-menu-btn { display: block; }
+            nav { display: none; position: absolute; top: 100%; left: 0; right: 0; background: rgba(27, 31, 58, 0.98); padding: 1rem; flex-direction: column; border-top: 1px solid #2f335b; }
+            nav.active { display: flex; }
+            .features-grid, .sessions-grid, .key-points-grid { grid-template-columns: 1fr; }
+            .back-to-top { bottom: 1rem; right: 1rem; width: 2.5rem; height: 2.5rem; font-size: 1.2rem; }
+            
+            .hero-logo-section {
+                flex-direction: column;
+                gap: 12px;
+            }
+            
+            .hero-logo-box {
+                width: 180px;
+                height: 55px;
+            }
+
+            .vs-badge {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+
+            .comparison-table {
+                font-size: 0.85rem;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 0.75rem 0.5rem;
+            }
+        }
+        html { scroll-behavior: smooth; }
+        *:focus-visible { outline: 2px solid #6264a7; outline-offset: 2px; }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">본문으로 건너뛰기</a>
+
+    <header>
+        <div class="header-container">
+            <div class="logo-container">
+                <div class="logo" role="img" aria-label="Google & Microsoft 로고"></div>
+                <h1 class="logo-text">Megazone Cloud</h1>
+            </div>
+            <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="메뉴 열기">☰</button>
+            <nav id="mainNav">
+                <a href="#guide">안내</a>
+                <a href="#platforms">플랫폼 소개</a>
+                <a href="#comparison">상세 비교</a>
+                <a href="#curriculum">커리큘럼</a>
+                <a href="#apply">신청</a>
+            </nav>
+        </div>
+    </header>
+
+    <section id="main-content" class="hero">
+        <div class="hero-logo-section">
+            <div class="hero-logo-box">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Google_Workspace_Logo.svg" alt="Google Workspace" width="180" height="50"/>
+            </div>
+            <div class="vs-badge">VS</div>
+            <div class="hero-logo-box">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft 365" width="180" height="40"/>
+            </div>
+        </div>
+        <h2>Why, Microsoft 365!</h2>
+        <p class="subtitle">🏆 Google Workspace와 비교하며 이해하는 Microsoft 365 모던 워크</p>
+        <div class="date-badge">⏰ 1DAY 집중 교육 · Microsoft 365의 우수성을 직접 확인하세요</div>
+        <p>
+            💡 <strong>"왜 글로벌 기업들은 Microsoft 365를 선택할까?"</strong><br>
+            <strong>20년 이상 검증된 생산성 도구</strong>와 <strong>엔터프라이즈급 보안</strong>,<br>
+            <strong>완벽한 통합 환경</strong>까지. Microsoft 365만의 압도적 장점을 확인하세요.
+        </p>
+        <div class="hero-buttons">
+            <a href="#apply" class="btn-primary">🎁 교육 신청하기</a>
+            <a href="#comparison" class="btn-secondary">📊 상세 비교표 보기 →</a>
+        </div>
+    </section>
+
+    <!-- Platforms Section -->
+    <section id="platforms" class="platforms container">
+        <h3 class="section-title">왜 Microsoft 365인가?</h3>
+        <div class="platform-grid">
+            <div class="platform-card microsoft-card">
+                <h3>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft" class="platform-logo"/>
+                    Microsoft 365 ⭐ 추천
+                </h3>
+                <p>🏢 <strong>20년 이상 검증된 엔터프라이즈급 생산성 솔루션.</strong> 전 세계 Fortune 500 기업의 95%가 선택한 플랫폼입니다.</p>
+                <ul class="feature-list">
+                    <li><strong>Outlook & Exchange:</strong> 업계 표준 전문 이메일 및 일정 관리</li>
+                    <li><strong>OneDrive:</strong> 1TB 클라우드 저장소 + 개인 Vault 보안 폴더</li>
+                    <li><strong>Word, Excel, PowerPoint:</strong> 전 세계 표준 오피스 앱 (데스크톱 + 웹)</li>
+                    <li><strong>Microsoft Teams:</strong> 통합 협업 허브 (채팅, 회의, 전화, 앱 통합)</li>
+                    <li><strong>SharePoint:</strong> 엔터프라이즈 문서 관리 및 고급 인트라넷</li>
+                    <li><strong>Power Platform:</strong> 로우코드 앱 개발 (앱, 자동화, BI, 챗봇)</li>
+                    <li><strong>Azure AD & Security:</strong> 엔터프라이즈급 보안 및 ID 관리</li>
+                    <li><strong>300+ 앱 통합:</strong> Dynamics 365, LinkedIn, GitHub 완벽 연동</li>
+                </ul>
+            </div>
+
+            <div class="platform-card google-card">
+                <h3>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Google_Workspace_Logo.svg" alt="Google" class="platform-logo"/>
+                    Google Workspace
+                </h3>
+                <p>🌐 클라우드 네이티브 협업 플랫폼. 간단한 사용성과 빠른 공유에 초점을 맞춘 솔루션입니다.</p>
+                <ul class="feature-list">
+                    <li><strong>Gmail:</strong> 웹 기반 이메일 (15GB 기본 용량)</li>
+                    <li><strong>Google Drive:</strong> 클라우드 저장소 (플랜별 상이)</li>
+                    <li><strong>Google Docs, Sheets, Slides:</strong> 웹 기반 오피스 앱</li>
+                    <li><strong>Google Meet:</strong> 화상회의 (최대 500명, Enterprise)</li>
+                    <li><strong>Google Chat:</strong> 팀 메시징</li>
+                    <li><strong>Google Calendar:</strong> 일정 관리</li>
+                    <li><strong>Google Forms:</strong> 설문조사 도구</li>
+                    <li><strong>Google Sites:</strong> 간단한 웹사이트 제작</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guide Section -->
+    <section id="guide" class="guide-section container">
+        <h3 class="section-title">교육 개요</h3>
+        <div class="features-grid">
+            <div class="feature-card">
+                <h4>🎯 이런 분들께 필수입니다</h4>
+                <p>• Microsoft 365 도입을 검토하는 의사결정권자<br>
+                • Google Workspace에서 전환을 고민하는 기업<br>
+                • IT 관리자 및 시스템 담당자<br>
+                • 엔터프라이즈급 솔루션이 필요한 조직</p>
+            </div>
+            <div class="feature-card">
+                <h4>📚 Microsoft 365 선택의 확신</h4>
+                <p>• ✅ 왜 Fortune 500의 95%가 선택했는지 이해<br>
+                • 📊 Google과의 실제 비교로 우위 확인<br>
+                • 💰 장기적 TCO 우수성 입증<br>
+                • 🔧 원활한 마이그레이션 전략<br>
+                • 🛡️ 엔터프라이즈급 보안의 중요성</p>
+            </div>
+            <div class="feature-card">
+                <h4>⚡ 교육 특징</h4>
+                <p>• 💯 Microsoft 전문가 직강<br>
+                • 🎁 Microsoft 365 완벽 가이드북<br>
+                • 👥 소규모 VIP 교육<br>
+                • 💬 도입 전략 컨설팅<br>
+                • 📋 ROI 계산 워크시트 제공</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Comparison Section -->
+    <section id="comparison" class="comparison container">
+        <h3 class="section-title">📊 Microsoft 365의 압도적 우위</h3>
+        <p class="comparison-intro">주요 항목별로 Microsoft 365가 더 우수한 이유를 확인하세요</p>
+
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>비교 항목</th>
+                    <th><span class="highlight-microsoft">Microsoft 365 ⭐</span></th>
+                    <th><span class="highlight-google">Google Workspace</span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="3" class="category-header">📧 이메일 & 일정 관리</td>
+                </tr>
+                <tr>
+                    <td><strong>이메일 시스템</strong></td>
+                    <td>Outlook & Exchange ⭐<br>• <strong>엔터프라이즈급 이메일 서버</strong><br>• 완벽한 오프라인 작업<br>• 고급 규칙 및 자동화<br>• PST 파일 로컬 백업<br>• 법적 보존 및 eDiscovery</td>
+                    <td>Gmail (웹 기반)<br>• 기본 검색 기능<br>• 제한적 오프라인 지원<br>• 간단한 필터링</td>
+                </tr>
+                <tr>
+                    <td><strong>일정 관리</strong></td>
+                    <td>Outlook Calendar ⭐<br>• <strong>Exchange 서버 통합</strong><br>• 고급 일정 권한 관리<br>• 여러 일정 오버레이<br>• 회의실 자동 예약<br>• 투표 및 응답 추적</td>
+                    <td>Google Calendar<br>• 기본 일정 기능<br>• 간단한 공유</td>
+                </tr>
+                <tr>
+                    <td><strong>저장 용량</strong></td>
+                    <td><strong>1TB/사용자 (모든 플랜) ⭐</strong><br>• 일관된 대용량 제공<br>• Personal Vault 보안<br>• 파일 온디맨드 기능</td>
+                    <td>30GB~5TB (플랜별 상이)<br>• 하위 플랜 용량 제한적<br>• 추가 비용 발생</td>
+                </tr>
+
+                <tr>
+                    <td colspan="3" class="category-header">📄 문서 작업 도구</td>
+                </tr>
+                <tr>
+                    <td><strong>오피스 앱</strong></td>
+                    <td>Word, Excel, PowerPoint ⭐<br>• <strong>업계 표준 = 호환성 100%</strong><br>• 데스크톱 + 웹 + 모바일 완벽 지원<br>• 고급 서식 및 기능<br>• 수십년 검증된 안정성<br>• VBA 매크로 지원</td>
+                    <td>Docs, Sheets, Slides<br>• 웹 기반만 완벽 지원<br>• 기본적인 기능만 제공<br>• MS Office 호환 제한적</td>
+                </tr>
+                <tr>
+                    <td><strong>협업 기능</strong></td>
+                    <td><strong>데스크톱 + 웹 동시 편집 ⭐</strong><br>• 실시간 공동 작성<br>• 변경 내용 추적 (Track Changes)<br>• OneDrive 완벽 통합<br>• 버전 기록 관리</td>
+                    <td>웹 기반 실시간 편집<br>• 댓글 및 제안<br>• 링크 공유<br>• 데스크톱 앱 부재</td>
+                </tr>
+                <tr>
+                    <td><strong>오프라인 작업</strong></td>
+                    <td><strong>완벽한 오프라인 지원 ⭐</strong><br>• 데스크톱 앱으로 언제든지<br>• 자동 동기화<br>• 모든 기능 사용 가능</td>
+                    <td>제한적 오프라인 지원<br>• Chrome 확장 필요<br>• 기능 제한</td>
+                </tr>
+                <tr>
+                    <td><strong>고급 기능</strong></td>
+                    <td><strong>Excel: 파워쿼리, 피벗, VBA ⭐</strong><br><strong>Word: 고급 서식, 목차, 참조</strong><br><strong>PowerPoint: 디자이너, 3D</strong><br>• AI 기반 Designer<br>• Copilot 통합</td>
+                    <td>Sheets/Docs: 기본 기능<br>• 복잡한 작업 제한<br>• 전문 기능 부족</td>
+                </tr>
+
+                <tr>
+                    <td colspan="3" class="category-header">💬 커뮤니케이션 & 협업</td>
+                </tr>
+                <tr>
+                    <td><strong>통합 협업 플랫폼</strong></td>
+                    <td>Microsoft Teams ⭐<br>• <strong>All-in-One 협업 허브</strong><br>• 채팅 + 회의 + 전화 + 앱 통합<br>• 최대 10,000명 (라이브 이벤트)<br>• AI 노이즈 제거, Together Mode<br>• <strong>300+ 앱 통합</strong><br>• SharePoint, Planner 통합<br>• 전화 시스템 (PSTN) 지원</td>
+                    <td>Meet + Chat (분리)<br>• 최대 500명 (Enterprise)<br>• 브라우저 기반만 최적화<br>• 제한적 앱 통합<br>• 전화 기능 별도 구매</td>
+                </tr>
+                <tr>
+                    <td><strong>회의 기능</strong></td>
+                    <td><strong>엔터프라이즈급 회의 ⭐</strong><br>• 회의 녹화 및 전사<br>• 분할 회의실 (Breakout Rooms)<br>• 라이브 캡션 및 번역<br>• 손들기, 투표, Q&A<br>• Whiteboard 통합</td>
+                    <td>기본 회의 기능<br>• 녹화 (유료)<br>• 실시간 자막<br>• 제한적 상호작용</td>
+                </tr>
+
+                <tr>
+                    <td colspan="3" class="category-header">📁 파일 저장 & 관리</td>
+                </tr>
+                <tr>
+                    <td><strong>클라우드 스토리지</strong></td>
+                    <td>OneDrive + SharePoint ⭐<br>• <strong>개인 1TB + 팀 무제한</strong><br>• Personal Vault (보안 폴더)<br>• 파일 온디맨드<br>• Office 앱 완벽 통합<br>• 버전 기록 (500개)<br>• 랜섬웨어 복구</td>
+                    <td>Google Drive<br>• 플랜별 용량 상이<br>• 기본 검색<br>• OCR 지원<br>• 버전 관리 제한적</td>
+                </tr>
+                <tr>
+                    <td><strong>엔터프라이즈 문서관리</strong></td>
+                    <td><strong>SharePoint ⭐</strong><br>• 고급 문서 라이브러리<br>• 메타데이터 및 분류<br>• 워크플로우 자동화<br>• 인트라넷 구축<br>• 규정 준수 센터</td>
+                    <td>Shared Drives<br>• 기본 공유 기능<br>• 제한적 관리 기능</td>
+                </tr>
+
+                <tr>
+                    <td colspan="3" class="category-header">🔒 보안 & 규정 준수</td>
+                </tr>
+                <tr>
+                    <td><strong>엔터프라이즈 보안</strong></td>
+                    <td><strong>최고 수준의 보안 ⭐</strong><br>• Azure AD 통합<br>• 다단계 인증 (MFA)<br>• <strong>조건부 액세스 정책</strong><br>• Microsoft Defender<br>• Intune (MDM/MAM)<br>• Information Protection<br>• Advanced Threat Protection</td>
+                    <td>기본 보안<br>• 2단계 인증<br>• 보안 키 지원<br>• Vault (eDiscovery)<br>• 제한적 장치 관리</td>
+                </tr>
+                <tr>
+                    <td><strong>규정 준수</strong></td>
+                    <td><strong>90+ 규정 준수 인증 ⭐</strong><br>• ISO 27001, SOC 1/2/3<br>• GDPR, HIPAA, FedRAMP<br>• <strong>업계별 규정 준수</strong><br>• 고급 감사 (E5)<br>• 법적 보존 및 eDiscovery<br>• 데이터 상주 보장</td>
+                    <td>기본 규정 준수<br>• ISO 27001, SOC 2/3<br>• GDPR, HIPAA<br>• 감사 로그</td>
+                </tr>
+
+                <tr>
+                    <td colspan="3" class="category-header">💰 가격 및 가치 비교</td>
+                </tr>
+                <tr>
+                    <td><strong>기본 플랜</strong></td>
+                    <td><strong>Business Basic: $6 ⭐</strong><br>• 웹/모바일 Office 앱<br>• <strong>1TB 저장공간</strong><br>• Teams (채팅, 회의)<br>• Exchange 이메일</td>
+                    <td>Business Starter: $6<br>• 웹 앱만 지원<br>• 30GB 저장공간만<br>• Meet, Chat</td>
+                </tr>
+                <tr>
+                    <td><strong>표준 플랜</strong></td>
+                    <td><strong>Business Standard: $12.50 ⭐</strong><br>• <strong>데스크톱 Office 앱</strong><br>• 1TB 저장공간<br>• Teams 전화 시스템<br>• SharePoint 고급 기능<br>• <strong>압도적 가성비!</strong></td>
+                    <td>Business Standard: $12<br>• 웹 앱 위주<br>• 2TB 저장공간<br>• 데스크톱 앱 없음<br>• 제한적 기능</td>
+                </tr>
+                <tr>
+                    <td><strong>프리미엄 플랜</strong></td>
+                    <td><strong>Business Premium: $22 ⭐</strong><br>• <strong>모든 보안 기능</strong><br>• Microsoft Defender<br>• Intune 장치 관리<br>• Azure AD Premium<br>• <strong>엔터프라이즈 필수!</strong></td>
+                    <td>Business Plus: $18<br>• 5TB 저장공간<br>• 기본 보안 기능<br>• 고급 보안 부족</td>
+                </tr>
+                <tr>
+                    <td><strong>추가 가치</strong></td>
+                    <td><strong>무료 제공 ⭐</strong><br>• Power Platform (앱, 자동화)<br>• Power BI (데이터 분석)<br>• Bookings, Forms, Sway<br>• Viva 직원 경험 플랫폼<br>• <strong>총 소유 비용(TCO) 우수</strong></td>
+                    <td>기본 앱만 제공<br>• 추가 기능 제한적<br>• 생태계 확장성 낮음</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Curriculum Section -->
+    <section id="curriculum" class="curriculum container">
+        <h3 class="section-title">커리큘럼 (6시간)</h3>
+        <p class="curriculum-intro">🎓 Microsoft 365의 우수성을 체계적으로 확인하는 교육 과정</p>
+
+        <div class="sessions-grid">
+            <div class="session-card">
+                <div class="session-time">1H</div>
+                <strong>왜 Microsoft 365인가?</strong>
+                <p>글로벌 기업들이 Microsoft 365를 선택하는 이유를 데이터로 확인합니다.</p>
+                <ul>
+                    <li>Fortune 500 기업의 95% 선택 이유</li>
+                    <li>Microsoft 365의 압도적 생태계</li>
+                    <li>20년 이상 검증된 안정성과 신뢰</li>
+                    <li>Google Workspace 대비 우위 요약</li>
+                </ul>
+            </div>
+
+            <div class="session-card">
+                <div class="session-time">1.5H</div>
+                <strong>Outlook의 압도적 우위</strong>
+                <p>Gmail과 비교하여 Outlook의 엔터프라이즈급 기능을 경험합니다.</p>
+                <ul>
+                    <li>Exchange Server의 강력함</li>
+                    <li>완벽한 오프라인 작업 vs 제한적 Gmail</li>
+                    <li>고급 규칙 및 자동화</li>
+                    <li>법적 보존 및 eDiscovery</li>
+                    <li>실습: Outlook으로 업무 효율 10배 높이기</li>
+                </ul>
+            </div>
+
+            <div class="session-card">
+                <div class="session-time">1.5H</div>
+                <strong>Office 앱의 절대 우위</strong>
+                <p>업계 표준 Office 앱과 Google 앱의 명확한 차이를 확인합니다.</p>
+                <ul>
+                    <li>Word vs Docs: 전문성의 차이</li>
+                    <li>Excel vs Sheets: 데이터 분석의 격차</li>
+                    <li>PowerPoint vs Slides: 프레젠테이션 품질</li>
+                    <li>데스크톱 + 웹의 완벽한 조화</li>
+                    <li>실습: 동일 작업으로 생산성 비교</li>
+                </ul>
+            </div>
+
+            <div class="session-card">
+                <div class="session-time">1H</div>
+                <strong>Teams: 진정한 협업 허브</strong>
+                <p>Meet + Chat을 압도하는 Teams의 통합 협업 환경을 체험합니다.</p>
+                <ul>
+                    <li>All-in-One vs 분리된 도구들</li>
+                    <li>300+ 앱 통합의 위력</li>
+                    <li>엔터프라이즈급 회의 기능</li>
+                    <li>전화 시스템까지 통합</li>
+                    <li>실습: Teams로 업무 허브 구축</li>
+                </ul>
+            </div>
+
+            <div class="session-card">
+                <div class="session-time">0.5H</div>
+                <strong>OneDrive & SharePoint의 우수성</strong>
+                <p>Google Drive를 넘어서는 엔터프라이즈 문서 관리를 경험합니다.</p>
+                <ul>
+                    <li>1TB + SharePoint 무제한</li>
+                    <li>Personal Vault 보안</li>
+                    <li>고급 문서 관리 및 메타데이터</li>
+                    <li>Office 앱 완벽 통합</li>
+                </ul>
+            </div>
+
+            <div class="session-card">
+                <div class="session-time">0.5H</div>
+                <strong>압도적 보안 & 규정 준수</strong>
+                <p>Google을 넘어서는 Microsoft의 엔터프라이즈 보안을 이해합니다.</p>
+                <ul>
+                    <li>Azure AD & 조건부 액세스</li>
+                    <li>Microsoft Defender 위협 방어</li>
+                    <li>90+ 규정 준수 인증</li>
+                    <li>Intune 통합 장치 관리</li>
+                </ul>
+            </div>
+
+            <div class="session-card">
+                <div class="session-time">1H</div>
+                <strong>Microsoft 365 도입 전략</strong>
+                <p>성공적인 Microsoft 365 도입을 위한 전략을 수립합니다.</p>
+                <ul>
+                    <li>Google에서 Microsoft로 마이그레이션</li>
+                    <li>ROI 계산 및 비용 최적화</li>
+                    <li>단계별 도입 로드맵</li>
+                    <li>사용자 교육 및 변화 관리</li>
+                    <li>Q&A 및 도입 컨설팅</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Points Section -->
+    <section class="key-points container">
+        <h3 class="section-title">💎 Microsoft 365를 선택해야 하는 이유</h3>
+        <div class="key-points-grid">
+            <div class="feature-card"><h4>🏆 업계 표준</h4><p>Fortune 500의 95%가 신뢰하는 플랫폼</p></div>
+            <div class="feature-card"><h4>🔐 최고 수준 보안</h4><p>90+ 규정 준수 인증과 엔터프라이즈급 보안</p></div>
+            <div class="feature-card"><h4>💪 압도적 기능</h4><p>데스크톱 Office 앱의 강력함과 완벽한 호환성</p></div>
+            <div class="feature-card"><h4>🤝 완벽한 통합</h4><p>Teams 중심의 All-in-One 협업 생태계</p></div>
+            <div class="feature-card"><h4>💰 뛰어난 TCO</h4><p>장기적으로 더 경제적인 총 소유 비용</p></div>
+            <div class="feature-card"><h4>🚀 확장성</h4><p>Power Platform으로 무한한 확장 가능성</p></div>
+        </div>
+    </section>
+
+    <!-- Apply Section -->
+    <section id="apply" class="apply-section container">
+        <h3 class="section-title">신청 & 문의</h3>
+        <div class="apply-content">
+            <p class="apply-intro">🎯 지금 신청하고, Microsoft 365의 우수성을 직접 확인하세요!</p>
+            <div class="contact-box">
+                <p>
+                    <a class="btn-primary" href="https://forms.microsoft.com/r/MYeFXsmsXC">📧 Microsoft 365 교육 신청하기</a>
+                </p>
+                <p><strong>📅 일정:</strong> 협의 후 1DAY 집중 교육 (6시간)</p>
+                <p><strong>📍 장소:</strong> 고객사 온사이트 또는 온라인 VIP 세션</p>
+                <p><strong>👥 인원:</strong> 5~20명 (의사결정권자 우선)</p>
+                <p><strong>🎁 특전:</strong> Microsoft 365 도입 컨설팅 1회 무료</p>
+                <p><strong>문의:</strong> 메가존클라우드 마이크로소프트 전략파트너팀</p>
+                <p><a href="mailto:celia@megazone.com">celia@megazone.com</a></p>
+            </div>
+        </div>
+    </section>
+
+    <footer>© 2025 Megazone Cloud. All rights reserved.<br><strong>Microsoft Strategic Partner Framework</strong> | Fortune 500 기업의 선택</footer>
+
+    <button id="backToTop" class="back-to-top" onclick="scrollToTop()" aria-label="맨 위로 가기">↑</button>
+
+    <script>
+        function toggleMenu() { const nav = document.getElementById('mainNav'); nav.classList.toggle('active'); }
+        document.querySelectorAll('nav a').forEach(link => { link.addEventListener('click', () => { document.getElementById('mainNav').classList.remove('active'); }); });
+        function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+        window.addEventListener('scroll', function() { const btn = document.getElementById('backToTop'); if (window.scrollY > 300) { btn.classList.add('visible'); } else { btn.classList.remove('visible'); } });
+        document.addEventListener('mousemove', (e) => { document.querySelectorAll('.feature-card').forEach(card => { const rect = card.getBoundingClientRect(); card.style.setProperty('--mx', `${e.clientX - rect.left}px`); card.style.setProperty('--my', `${e.clientY - rect.top}px`); }); });
+    </script>
+</body>
+</html>
