@@ -41,6 +41,59 @@
         .btn-secondary { padding: 0.75rem 1.5rem; border: 1px solid #3a3f74; border-radius: 12px; color: #f3f2f1; text-decoration: none; background: transparent; }
         .btn-secondary:hover, .btn-secondary:focus { border-color: #7a7fe0; outline: 2px solid #6264a7; }
 
+        /* Logo Section Styles */
+        .hero-logo-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+        
+        .hero-logo-box {
+            width: 180px;
+            height: 52px;
+            background: #ffffff;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+            border: 1px solid rgba(0, 188, 242, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .hero-logo-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0, 188, 242, 0.4);
+        }
+
+        .hero-logo-box img {
+            border-radius: 8px;
+            object-fit: contain;
+        }
+        
+        .aoai-logo-box {
+            background: linear-gradient(45deg, #0078d4, #00bcf2, #50e6ff, #0078d4);
+            background-size: 300% 300%;
+            animation: gradient 3s ease infinite;
+        }
+
+        .aoai-logo-box span {
+            color: white;
+            font-weight: bold;
+            font-size: 0.9em;
+            text-align: center;
+            padding: 0 10px;
+        }
+        
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
         /* Containers */
         .container { max-width: 1152px; margin: 0 auto; padding: 0 1rem; }
         .section-title { font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: #fff; }
@@ -95,6 +148,16 @@
             nav.active { display: flex; }
             .features-grid, .sessions-grid, .key-points-grid { grid-template-columns: 1fr; }
             .back-to-top { bottom: 1rem; right: 1rem; width: 2.5rem; height: 2.5rem; font-size: 1.2rem; }
+            
+            .hero-logo-section {
+                flex-direction: column;
+                gap: 12px;
+            }
+            
+            .hero-logo-box {
+                width: 160px;
+                height: 48px;
+            }
         }
         html { scroll-behavior: smooth; }
         *:focus-visible { outline: 2px solid #6264a7; outline-offset: 2px; }
@@ -120,6 +183,21 @@
     </header>
 
     <section id="main-content" class="hero">
+        <div class="hero-logo-section">
+            <div class="hero-logo-box">
+                <a href="https://www.megazone.com" target="_blank">
+                    <img src="https://bit.ly/4mzYId0" alt="Megazone Cloud" width="160" height="28"/>
+                </a>
+            </div>
+            <div class="hero-logo-box aoai-logo-box">
+                <span>Azure OpenAI Service</span>
+            </div>
+            <div class="hero-logo-box">
+                <a href="https://azure.microsoft.com/ko-kr/products/ai-services/openai-service" target="_blank">
+                    <img src="https://bit.ly/41rh5bO" alt="Microsoft Azure" width="160" height="60"/>
+                </a>
+            </div>
+        </div>
         <h2>AI Agent, 생성형 AI 설계 및 구현을 위한 AOAI</h2>
         <p class="subtitle">Azure OpenAI 서비스로 GPT-5를 포함한 생성형 AI 솔루션 설계부터 RAG 구현까지 하루 완성</p>
         <div class="date-badge">📅 2025년 12월 8일(월) 09:00~17:00 · 점심시간 제공</div>
@@ -269,9 +347,9 @@
                 <p>
                     <a class="btn-primary" href="https://forms.microsoft.com/r/JYiiwR8ZgP" aria-disabled="true">신청 링크</a>
                 </p>
-                <p><strong>📅 일정:</strong> 2025년 12월 8일(월) 09:00~17:00 (점심시간 제공)</p>
+                <p><strong>📅 일정:</strong> 2025년 12월 8일(월) 09:00~17:00</p>
                 <p><strong>📍 장소:</strong> 추후 공지</p>
-                <p><strong>문의:</strong> 메가존클라우드 마이크로소프트 전략파트너팀 </p>
+                <p><strong>문의:</strong> 메가존클라우드 마이크로소프트 전략파트너팀</p>
                 <p><a href="mailto:celia@megazone.com">celia@megazone.com</a></p>
             </div>
         </div>
