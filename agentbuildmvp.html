@@ -29,6 +29,53 @@
         nav a { color: #f3f2f1; text-decoration: none; transition: color 0.3s; padding: 0.5rem; border-radius: 4px; }
         nav a:hover, nav a:focus { color: #d1d5ff; outline: 2px solid #6264a7; }
 
+        /* Logo Section Styles */
+        .hero-logo-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+        
+        .hero-logo-box {
+            width: 180px;
+            height: 52px;
+            background: #ffffff;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+            border: 1px solid rgba(0, 188, 242, 0.3);
+        }
+
+        .hero-logo-box img {
+            border-radius: 8px;
+            object-fit: contain;
+        }
+        
+        .openai-logo-box {
+            background: linear-gradient(45deg, #0078d4, #00bcf2, #50e6ff, #0078d4);
+            background-size: 300% 300%;
+            animation: gradient 3s ease infinite;
+        }
+
+        .openai-logo-box span {
+            color: white;
+            font-weight: bold;
+            font-size: 0.9em;
+            text-align: center;
+            padding: 0 10px;
+        }
+        
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
         /* Hero */
         .hero { padding: 6rem 1rem; text-align: center; }
         .hero h2 { font-size: 3rem; font-weight: 800; background: linear-gradient(90deg, #0078d4, #00bcf2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 1rem; animation: fadeInUp 0.8s ease-out; }
@@ -105,6 +152,16 @@
             nav.active { display: flex; }
             .features-grid, .sessions-grid, .key-points-grid { grid-template-columns: 1fr; }
             .back-to-top { bottom: 1rem; right: 1rem; width: 2.5rem; height: 2.5rem; font-size: 1.2rem; }
+            
+            .hero-logo-section {
+                flex-direction: column;
+                gap: 12px;
+            }
+            
+            .hero-logo-box {
+                width: 160px;
+                height: 48px;
+            }
         }
         html { scroll-behavior: smooth; }
         *:focus-visible { outline: 2px solid #6264a7; outline-offset: 2px; }
@@ -130,16 +187,31 @@
     </header>
 
     <section id="main-content" class="hero">
+        <div class="hero-logo-section">
+            <div class="hero-logo-box">
+                <a href="https://www.megazone.com" target="_blank">
+                    <img src="https://bit.ly/4mzYId0" alt="Megazone Cloud" width="160" height="28"/>
+                </a>
+            </div>
+            <div class="hero-logo-box openai-logo-box">
+                <span>AI Agent Hands-on Lab</span>
+            </div>
+            <div class="hero-logo-box">
+                <a href="https://azure.microsoft.com/ko-kr/products/ai-services/openai-service" target="_blank">
+                    <img src="https://bit.ly/41rh5bO" alt="Microsoft Azure" width="160" height="60"/>
+                </a>
+            </div>
+        </div>
         <h2>하루 만에 만드는 나만의 AI 에이전트</h2>
         <p class="subtitle">🚀 Python부터 프로덕션까지, Azure OpenAI로 완성하는 실전 AI 개발</p>
-        <div class="date-badge">⏰ 단 하루로 끝내는 AI 마스터클래스 · 신청 고객과 일정 협의</div>
+        <div class="date-badge">⏰ 단 하루로 끝내는 AI 마스터클래스 · 일정 협의 중</div>
         <p>
             💡 <strong>"AI가 나를 도와줬으면..."</strong> 상상만 하셨나요?<br>
             이제 <strong>직접 만들어보세요!</strong> Python 기초부터 시작해서,<br>
             <strong>나만의 똑똑한 AI 비서</strong>를 하루 만에 완성하는 실전 교육입니다.
         </p>
         <div class="hero-buttons">
-            <a href="#apply" class="btn-primary">🎁 지금 먼저 신청하기</a>
+            <a href="#apply" class="btn-primary">🎁 지금 바로 신청하기</a>
             <a href="#curriculum" class="btn-secondary">📚 커리큘럼 먼저 보기 →</a>
         </div>
     </section>
@@ -325,11 +397,11 @@ AZURE_SEARCH_INDEX_NAME       = "company-policy-index"</code></pre>
             <p class="apply-intro">🎯 지금 신청하고, 내일부터 AI 전문가로 일하세요!</p>
             <div class="contact-box">
                 <p>
-                    <a class="btn-primary" href="https://forms.microsoft.com/r/bEfqzXfTuG" aria-disabled="true">신청 링크</a>
+                    <a class="btn-primary" href="#" aria-disabled="true">신청 링크(협의 중)</a>
                 </p>
-                <p><strong>📅 일정:</strong> 일정 협의 후 1DAY 집중 교육</p>
-                <p><strong>📍 장소:</strong> 고객사 온사이트</p>
-                <p><strong>문의:</strong> 메가존클라우드 마이크로소프트 전략파트너 프로그램 데스크</p>
+                <p><strong>📅 일정:</strong> 협의 중 (1DAY 집중 교육, 점심시간 제공)</p>
+                <p><strong>📍 장소:</strong> 추후 공지</p>
+                <p><strong>문의:</strong> 메가존클라우드 교육팀</p>
                 <p><a href="mailto:celia@megazone.com">celia@megazone.com</a></p>
             </div>
         </div>
