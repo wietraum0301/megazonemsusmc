@@ -147,8 +147,26 @@
             color: white;
             border-radius: 24px;
             font-weight: 600;
-            margin-bottom: 2rem;
+            margin-bottom: 0.5rem;
             font-size: 1rem;
+        }
+
+        .limited-badge {
+            display: inline-block;
+            color: #ff6b6b;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.7;
+            }
         }
 
         .hero-buttons {
@@ -259,6 +277,75 @@
         .feature-card p {
             font-size: 0.875rem;
             color: #b9bdfc;
+        }
+
+        /* Location Section */
+        .location-section {
+            margin-bottom: 4rem;
+        }
+
+        .location-card {
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid #2f335b;
+            background: #1b1f3a;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .location-info h4 {
+            font-size: 1.25rem;
+            color: #d2d6ff;
+            margin-bottom: 1rem;
+        }
+
+        .location-details {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .location-details p {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #b9bdfc;
+        }
+
+        .location-details strong {
+            color: #8a8cd9;
+            min-width: 80px;
+        }
+
+        .map-container {
+            border-radius: 12px;
+            overflow: hidden;
+            border: 2px solid #2f335b;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .map-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: linear-gradient(135deg, #6264a7, #8a8cd9);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: transform 0.3s;
+            margin-top: 1rem;
+        }
+
+        .map-link:hover, .map-link:focus {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(98, 100, 167, 0.4);
         }
 
         /* Guide Section */
@@ -547,6 +634,10 @@
                 grid-template-columns: 1fr;
             }
 
+            .location-card {
+                grid-template-columns: 1fr;
+            }
+
             .sessions-grid {
                 grid-template-columns: 1fr;
             }
@@ -589,6 +680,7 @@
             </div>
             <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="메뉴 열기">☰</button>
             <nav id="mainNav">
+                <a href="#location">장소</a>
                 <a href="#guide">안내</a>
                 <a href="#curriculum">커리큘럼</a>
                 <a href="https://forms.microsoft.com/r/FvqJnyWEdf">신청하기</a>
@@ -600,7 +692,8 @@
     <section id="main-content" class="hero">
         <h2>Copilot 에이전트 & 자동화 실무 워크샵</h2>
         <p class="subtitle">선언적 에이전트부터 Copilot Studio 고급 시나리오까지</p>
-        <div class="date-badge">📅 2025년 12월 11일(목) ~ 12일(금) <h2>장소 곧 공지합니다.</h2></div>
+        <div class="date-badge">📅 2025년 12월 11일(목) ~ 12일(금) | 📍 스킬서포트 (강남)</div>
+        <div class="limited-badge">⚡ 선착순 30명 한정 모집</div>
         <p>
             <strong>M365 Copilot</strong>과 <strong>Copilot Studio</strong>를 활용한 실전 자동화 워크샵입니다.<br>
             선언적 에이전트 구축부터 Power Automate 연동, 재무/영업 도메인 실습까지<br>
@@ -611,6 +704,35 @@
             <a href="#curriculum" class="btn-secondary">커리큘럼 보기 →</a>
         </div>
     </section>
+
+    <!-- Location Section -->
+    <section id="location" class="location-section container">
+        <h3 class="section-title">교육 장소</h3>
+        <div class="location-card">
+            <div class="location-info">
+                <h4>📍 스킬서포트 강남</h4>
+                <div class="location-details">
+                    <p><strong>주소:</strong> 서울특별시 강남구 삼성로95길 15</p>
+                    <p><strong>교통:</strong> 지하철 2호선 선릉역 도보 5분</p>
+                    <p><strong>시간:</strong> 09:00 - 17:00 (2일간)</p>
+                </div>
+                <a href="https://kko.kakao.com/jw9-DgfuRk" target="_blank" class="map-link">
+                    🗺️ 카카오맵으로 길찾기
+                </a>
+            </div>
+            <div class="map-container">
+                <iframe 
+                    src="https://map.kakao.com/?urlX=512865&urlY=1115966&urlLevel=3&map_type=TYPE_MAP&map_hybrid=false" 
+                    width="100%" 
+                    height="300" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
     <section id="guide"></section>
     <!-- Features Section -->
     <section class="features container">
@@ -662,6 +784,14 @@
             <div class="feature-card">
                 <h4>🎓 수료 혜택</h4>
                 <p>워크샵 수료증, 실습 자료 및 템플릿, 커뮤니티 액세스</p>
+            </div>
+            <div class="feature-card">
+                <h4>👥 모집 인원</h4>
+                <p>선착순 30명 (조기 마감될 수 있습니다)</p>
+            </div>
+            <div class="feature-card">
+                <h4>📍 위치</h4>
+                <p>스킬서포트 강남 (지하철 2호선 선릉역 도보 5분)</p>
             </div>
         </div>
     </section>
@@ -854,7 +984,8 @@
         <div class="apply-content">
             <p class="apply-intro">
                 2025년 12월 11~12일, 2일간의 집중 워크샵에 참가하세요.<br>
-                실전 자동화 시나리오로 Copilot 활용 역량을 획기적으로 향상시킬 수 있습니다.
+                실전 자동화 시나리오로 Copilot 활용 역량을 획기적으로 향상시킬 수 있습니다.<br>
+                <strong style="color: #ff6b6b;">⚡ 선착순 30명 모집 - 서둘러 신청하세요!</strong>
             </p>
             <div class="contact-box">
                 <p><a href="https://forms.microsoft.com/r/FvqJnyWEdf" class="btn-primary">지금 신청하기</a></p> 
