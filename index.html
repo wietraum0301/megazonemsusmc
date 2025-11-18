@@ -289,10 +289,6 @@
             border-radius: 16px;
             border: 1px solid #2f335b;
             background: #1b1f3a;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            align-items: start;
         }
 
         .location-info h4 {
@@ -317,16 +313,6 @@
         .location-details strong {
             color: #8a8cd9;
             min-width: 80px;
-        }
-
-        .map-container {
-            border-radius: 12px;
-            overflow: hidden;
-            border: 2px solid #2f335b;
-            min-height: 300px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
         .map-link {
@@ -634,10 +620,6 @@
                 grid-template-columns: 1fr;
             }
 
-            .location-card {
-                grid-template-columns: 1fr;
-            }
-
             .sessions-grid {
                 grid-template-columns: 1fr;
             }
@@ -719,16 +701,6 @@
                 <a href="https://kko.kakao.com/jw9-DgfuRk" target="_blank" class="map-link">
                     🗺️ 카카오맵으로 길찾기
                 </a>
-            </div>
-            <div class="map-container">
-                <iframe 
-                    src="https://map.kakao.com/?urlX=512865&urlY=1115966&urlLevel=3&map_type=TYPE_MAP&map_hybrid=false" 
-                    width="100%" 
-                    height="300" 
-                    style="border:0;" 
-                    allowfullscreen="" 
-                    loading="lazy">
-                </iframe>
             </div>
         </div>
     </section>
