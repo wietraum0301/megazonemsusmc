@@ -895,11 +895,12 @@
             font-weight: 800;
             font-size: 1.2em;
             margin-top: 25px;
-            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            transition: all 0.3s ease;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             position: relative;
             z-index: 1;
             border: 3px solid transparent;
+            cursor: pointer;
         }
         
         .cta-button:hover {
@@ -908,6 +909,15 @@
             background: linear-gradient(135deg, #ff006e, #00d4ff);
             color: white;
             border-color: white;
+        }
+        
+        .cta-button:focus {
+            outline: 3px solid #00d4ff;
+            outline-offset: 3px;
+        }
+        
+        .cta-button:active {
+            transform: translateY(-1px) scale(1.02);
         }
         
         .requirements {
@@ -1034,7 +1044,7 @@
             .header, .content {
                 padding: 30px 25px;
             }
-            backgro
+            
             .header h1 {
                 font-size: 1.6em;
             }
@@ -1108,24 +1118,29 @@
   				text-decoration: none;
   				font-weight: 800;
   				font-size: 1.15em;
-  				padding: 8px 26px;
+  				padding: 12px 30px;
   				border-radius: 40px;
   				background: linear-gradient(90deg, #00d4ff 0%, #8338ec 100%);
-  				box-shadow: 0 0 0 rgba(0,212,255,0.0);
-  				transition:
-    				color 0.3s,
-    				background 0.3s,
-    				box-shadow 0.3s,
-    				transform 0.2s;
+  				box-shadow: 0 4px 15px rgba(0,212,255,0.3);
+  				transition: all 0.3s ease;
   				display: inline-block;
-  				border: none;
+  				border: 2px solid transparent;
+  				cursor: pointer;
 			}
 			.trendy-link:hover {
   				color: #ffffff;
   				background: linear-gradient(90deg, #8338ec 0%, #00d4ff 100%);
-  				box-shadow: 0 0 20px 5px #00d4ff88, 0 0 40px 10px #8338ec55;
-  				transform: scale(1.08) rotate(-2deg);
+  				box-shadow: 0 0 20px 5px rgba(0,212,255,0.5), 0 0 40px 10px rgba(131,56,236,0.3);
+  				transform: translateY(-2px) scale(1.05);
   				text-decoration: none;
+  				border-color: rgba(255,255,255,0.3);
+			}
+			.trendy-link:focus {
+  				outline: 3px solid #00d4ff;
+  				outline-offset: 3px;
+			}
+			.trendy-link:active {
+  				transform: translateY(0) scale(1.02);
 			}
         }
     </style>
@@ -1285,12 +1300,10 @@
                 </ul>
             </div>
             <div style="text-align: center; margin: 30px 0;">
-  				<a href="https://github.com/github-copilot/pro" style="display: inline-block; padding: 18px 40px; background: linear-gradient(90deg, #00d4ff 0%, #8338ec 100%);
-            color: #fff; font-size: 1.3em; border-radius: 50px; text-decoration: none; font-weight: 800;box-shadow: 0 6px 20px rgba(0,212,255,0.2), 0 0 30px rgba(131,56,236,0.15);
-            transition: background 0.3s, color 0.3s;"> 🚨 중요 사전 준비물!! Copilot Pro 30일 무료 체험판을 미리 등록해주세요!</a>
-  					<p style="color: #ffffff; font-size: 1em; margin-top: 10px; margin-bottom: 20px;">
+  				<a href="https://github.com/github-copilot/pro" class="cta-button" style="margin-top: 0;"> 🚨 중요 사전 준비물!! Copilot Pro 30일 무료 체험판을 미리 등록해주세요!</a>
+  					<p style="color: #ffffff; font-size: 1em; margin-top: 20px; margin-bottom: 20px;">
     					<span style="color: #00d4ff; font-weight: 700;">30일 무료 체험!</span> <br></p><p>
-    					<a href="https://github.com/github-copilot/pro"   target="_blank"  class="trendy-link" style="color: #ffffff; text-decoration: none;">
+    					<a href="https://github.com/github-copilot/pro" target="_blank" class="trendy-link">
   Copilot Pro 가입 바로가기</a>
   					</p>
 			</div>
