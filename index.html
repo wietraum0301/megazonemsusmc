@@ -192,6 +192,10 @@
     background: linear-gradient(135deg, rgba(0,183,195,.12), rgba(0,229,255,.1));
     color: var(--accent-teal);
   }
+  .nav-dropdown-toggle.popup .toggle-icon {
+    background: linear-gradient(135deg, rgba(232,119,34,.12), rgba(255,152,0,.1));
+    color: #E87722;
+  }
   .nav-dropdown-toggle .chevron {
     transition: transform .3s ease;
     margin-left: 2px;
@@ -208,6 +212,10 @@
     border-color: var(--accent-teal);
     box-shadow: 0 4px 18px rgba(0,183,195,.12);
   }
+  .nav-dropdown-toggle.popup:hover {
+    border-color: #E87722;
+    box-shadow: 0 4px 18px rgba(232,119,34,.12);
+  }
 
   /* Active state */
   .nav-dropdown.active .nav-dropdown-toggle {
@@ -217,6 +225,10 @@
   .nav-dropdown.active .nav-dropdown-toggle.onsite {
     border-color: var(--accent-teal);
     box-shadow: 0 4px 20px rgba(0,183,195,.18);
+  }
+  .nav-dropdown.active .nav-dropdown-toggle.popup {
+    border-color: #E87722;
+    box-shadow: 0 4px 20px rgba(232,119,34,.18);
   }
   .nav-dropdown.active .nav-dropdown-toggle .chevron {
     transform: rotate(180deg);
@@ -266,6 +278,9 @@
   .dropdown-item.teal:hover {
     background: linear-gradient(135deg, rgba(0,183,195,.06), rgba(0,229,255,.04));
   }
+  .dropdown-item.popup-item:hover {
+    background: linear-gradient(135deg, rgba(232,119,34,.06), rgba(255,152,0,.04));
+  }
 
   .dropdown-item-icon {
     width: 38px; height: 38px;
@@ -285,6 +300,10 @@
   .dropdown-item-icon.purple {
     background: linear-gradient(135deg, rgba(106,90,205,.1), rgba(147,130,230,.08));
     color: #6A5ACD;
+  }
+  .dropdown-item-icon.orange {
+    background: linear-gradient(135deg, rgba(232,119,34,.1), rgba(255,152,0,.08));
+    color: #E87722;
   }
 
   .dropdown-item-text {
@@ -705,7 +724,7 @@
           <span class="chevron">▼</span>
         </div>
         <div class="nav-dropdown-menu">
-          <a href="https://agenthon-lab.com" class="dropdown-item teal" target="_blank">
+          <a href="https://spfaif.com/pastevents/agenthackathon1.html" class="dropdown-item teal" target="_blank">
             <div class="dropdown-item-icon teal">🏆</div>
             <div class="dropdown-item-text">
               <div class="dropdown-item-title">3월 27일 에이전트 해커톤</div>
@@ -714,7 +733,7 @@
             <span class="dropdown-item-arrow">→</span>
           </a>
           <div class="dropdown-divider"></div>
-          <a href="https://lipcoding.kr" class="dropdown-item teal" target="_blank">
+          <a href="https://spfaif.com/lipcoding.kr" class="dropdown-item teal" target="_blank">
             <div class="dropdown-item-icon teal">💻</div>
             <div class="dropdown-item-text">
               <div class="dropdown-item-title">6월 20일 입코딩</div>
@@ -728,6 +747,52 @@
             <div class="dropdown-item-text">
               <div class="dropdown-item-title">닷넷 유니버스와 함께</div>
               <div class="dropdown-item-sub">Monthly .NET 스터디</div>
+            </div>
+            <span class="dropdown-item-arrow">→</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- 팝업 제안. 찾아갑니다 Dropdown -->
+      <div class="nav-dropdown" id="dropdown-popup">
+        <div class="nav-dropdown-toggle popup">
+          <span class="toggle-icon">📦</span>
+          팝업 제안. 찾아갑니다
+          <span class="chevron">▼</span>
+        </div>
+        <div class="nav-dropdown-menu">
+          <a href="https://spfaif.com/vibecoding.html" class="dropdown-item popup-item" target="_blank">
+            <div class="dropdown-item-icon orange">🎸</div>
+            <div class="dropdown-item-text">
+              <div class="dropdown-item-title">깃헙 스파크 &amp; VS Code 바이브코딩 원데이</div>
+              <div class="dropdown-item-sub">Vibe Coding Workshop</div>
+            </div>
+            <span class="dropdown-item-arrow">→</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="https://spfaif.com/agnetbuildmvp.html" class="dropdown-item popup-item" target="_blank">
+            <div class="dropdown-item-icon orange">🛠️</div>
+            <div class="dropdown-item-text">
+              <div class="dropdown-item-title">하루 만에 만드는 나만의 AI 에이전트</div>
+              <div class="dropdown-item-sub">Agent Build MVP</div>
+            </div>
+            <span class="dropdown-item-arrow">→</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="https://spfaif.com/datavisualization.html" class="dropdown-item popup-item" target="_blank">
+            <div class="dropdown-item-icon orange">📊</div>
+            <div class="dropdown-item-text">
+              <div class="dropdown-item-title">AX 시대, 데이터 기반 조직을 위한 올인원 실무형 교육 — 데이터 시각화</div>
+              <div class="dropdown-item-sub">Data Visualization 실무 교육</div>
+            </div>
+            <span class="dropdown-item-arrow">→</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="https://spfaif.com/dataagent.html" class="dropdown-item popup-item" target="_blank">
+            <div class="dropdown-item-icon orange">🧩</div>
+            <div class="dropdown-item-text">
+              <div class="dropdown-item-title">Microsoft Fabric과 Microsoft Foundry로 만드는 데이터 에이전트</div>
+              <div class="dropdown-item-sub">Fabric &amp; Foundry Data Agent</div>
             </div>
             <span class="dropdown-item-arrow">→</span>
           </a>
