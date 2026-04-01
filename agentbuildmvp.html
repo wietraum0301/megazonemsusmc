@@ -1,420 +1,951 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="하루 만에 만드는 나만의 AI 에이전트 — Python부터 프로덕션까지, Azure OpenAI 실전 핸즈온 워크샵">
-    <meta name="keywords" content="AI 에이전트, Azure OpenAI, Python, AI 개발, Multi-Agent, 실전 워크샵, AI 비서">
-    <meta name="author" content="Megazone Cloud">
-    <meta property="og:title" content="하루 만에 만드는 나만의 AI 에이전트">
-    <meta property="og:description" content="🚀 Python부터 프로덕션까지, Azure OpenAI로 완성하는 실전 AI 개발 실전 핸즈온 워크샵">
-    <meta property="og:type" content="website">
-    <title>하루 만에 만드는 나만의 AI 에이전트 | Azure OpenAI 실전 핸즈온 워크샵</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background-color: #121f36; color: #f3f2f1; line-height: 1.6; }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="하루 만에 만드는 나만의 AI 에이전트 — Python부터 프로덕션까지, Azure OpenAI 실전 핸즈온 워크샵">
+<meta name="keywords" content="AI 에이전트, Azure OpenAI, Python, AI 개발, Multi-Agent, 실전 워크샵, AI 비서">
+<meta name="author" content="Megazone Cloud Microsoft Unit SPF Team">
+<meta property="og:title" content="하루 만에 만드는 나만의 AI 에이전트">
+<meta property="og:description" content="Python부터 프로덕션까지, Azure OpenAI로 완성하는 실전 AI 개발 핸즈온 워크샵">
+<meta property="og:type" content="website">
+<title>하루 만에 만드는 나만의 AI 에이전트 — Megazone Cloud SPF</title>
 
-        /* Skip Link */
-        .skip-link { position: absolute; top: -40px; left: 0; background: #6264a7; color: #fff; padding: 8px 16px; text-decoration: none; z-index: 100; border-radius: 4px; }
-        .skip-link:focus { top: 10px; left: 10px; }
+<style>
+  /* ── Microsoft Segoe UI Web Fonts ── */
+  @font-face {
+    font-family: 'Segoe UI Web';
+    src: local('Segoe UI Light'),
+         url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/light/latest.woff2) format('woff2'),
+         url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/light/latest.woff) format('woff');
+    font-weight: 300; font-style: normal;
+  }
+  @font-face {
+    font-family: 'Segoe UI Web';
+    src: local('Segoe UI'),
+         url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/normal/latest.woff2) format('woff2'),
+         url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/normal/latest.woff) format('woff');
+    font-weight: 400; font-style: normal;
+  }
+  @font-face {
+    font-family: 'Segoe UI Web';
+    src: local('Segoe UI Semibold'),
+         url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/semibold/latest.woff2) format('woff2'),
+         url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/semibold/latest.woff) format('woff');
+    font-weight: 600; font-style: normal;
+  }
+  @font-face {
+    font-family: 'Segoe UI Web';
+    src: local('Segoe UI Bold'),
+         url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/bold/latest.woff2) format('woff2'),
+         url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/bold/latest.woff) format('woff');
+    font-weight: 700; font-style: normal;
+  }
+  @font-face {
+    font-family: 'Segoe UI Web';
+    src: local('Segoe UI Black'),
+         url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/black/latest.woff2) format('woff2'),
+         url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/black/latest.woff) format('woff');
+    font-weight: 800; font-style: normal;
+  }
+  @font-face {
+    font-family: 'Segoe UI Web (Korean)';
+    src: url(//static2.sharepointonline.com/files/fabric/assets/fonts/segoeui-korean/segoeui-light.woff2) format('woff2'),
+         url(//static2.sharepointonline.com/files/fabric/assets/fonts/segoeui-korean/segoeui-light.woff) format('woff');
+    font-weight: 300; font-style: normal;
+  }
+  @font-face {
+    font-family: 'Segoe UI Web (Korean)';
+    src: url(//static2.sharepointonline.com/files/fabric/assets/fonts/segoeui-korean/segoeui-regular.woff2) format('woff2'),
+         url(//static2.sharepointonline.com/files/fabric/assets/fonts/segoeui-korean/segoeui-regular.woff) format('woff');
+    font-weight: 400; font-style: normal;
+  }
+  @font-face {
+    font-family: 'Segoe UI Web (Korean)';
+    src: url(//static2.sharepointonline.com/files/fabric/assets/fonts/segoeui-korean/segoeui-semibold.woff2) format('woff2'),
+         url(//static2.sharepointonline.com/files/fabric/assets/fonts/segoeui-korean/segoeui-semibold.woff) format('woff');
+    font-weight: 600; font-style: normal;
+  }
+  @font-face {
+    font-family: 'Segoe UI Web (Korean)';
+    src: url(//static2.sharepointonline.com/files/fabric/assets/fonts/segoeui-korean/segoeui-bold.woff2) format('woff2'),
+         url(//static2.sharepointonline.com/files/fabric/assets/fonts/segoeui-korean/segoeui-bold.woff) format('woff');
+    font-weight: 700; font-style: normal;
+  }
 
-        /* Header */
-        header { position: sticky; top: 0; z-index: 50; background: rgba(27, 31, 58, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid #2f335b; }
-        .header-container { max-width: 1152px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 1rem; position: relative; }
-        .logo-container { display: flex; align-items: center; gap: 0.5rem; }
-        .logo { width: 28px; height: 28px; border-radius: 8px; background: conic-gradient(from 180deg, #0078d4, #00bcf2, #50e6ff, #0078d4); }
-        .logo-text { font-size: 1.125rem; font-weight: 800; }
-        .mobile-menu-btn { display: none; background: none; border: none; color: #f3f2f1; font-size: 1.5rem; cursor: pointer; padding: 0.5rem; }
-        nav { display: flex; gap: 1rem; font-size: 0.875rem; }
-        nav a { color: #f3f2f1; text-decoration: none; transition: color 0.3s; padding: 0.5rem; border-radius: 4px; }
-        nav a:hover, nav a:focus { color: #d1d5ff; outline: 2px solid #6264a7; }
+  :root {
+    --primary:        #0D21A1;
+    --primary-light:  #3344C0;
+    --primary-dark:   #011638;
+    --accent:         #EEC643;
+    --accent-dark:    #D4AD2B;
+    --bg-start:       #EEF0F2;
+    --bg-end:         #E2E5E9;
+    --text-dark:      #141414;
+    --text-medium:    #3A3A3A;
+    --text-light:     #5E5E5E;
+    --white:          #FFFFFF;
+    --card-bg:        rgba(255,255,255,0.82);
+    --border-light:   rgba(1,22,56,0.12);
+    --navy:           #011638;
+  }
 
-        /* Logo Section Styles */
-        .hero-logo-section {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 25px;
-            flex-wrap: wrap;
-        }
-        
-        .hero-logo-box {
-            width: 180px;
-            height: 52px;
-            background: #ffffff;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.2);
-            border: 1px solid rgba(0, 188, 242, 0.3);
-        }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
 
-        .hero-logo-box img {
-            border-radius: 8px;
-            object-fit: contain;
-        }
-        
-        .openai-logo-box {
-            background: linear-gradient(45deg, #0078d4, #00bcf2, #50e6ff, #0078d4);
-            background-size: 300% 300%;
-            animation: gradient 3s ease infinite;
-        }
+  body {
+    font-family:'Segoe UI Web (Korean)','Segoe UI Web','Segoe UI','Malgun Gothic',sans-serif;
+    background:linear-gradient(180deg,var(--bg-start) 0%,var(--bg-end) 100%);
+    color:var(--text-dark);
+    line-height:1.7;
+    overflow-x:hidden;
+  }
 
-        .openai-logo-box span {
-            color: white;
-            font-weight: bold;
-            font-size: 0.9em;
-            text-align: center;
-            padding: 0 10px;
-        }
-        
-        @keyframes gradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
+  /* ── Animated Background ── */
+  .bg-animation {
+    position:fixed; top:0; left:0;
+    width:100%; height:100%;
+    z-index:-1; overflow:hidden;
+  }
+  .bg-circle {
+    position:absolute; border-radius:50%;
+    filter:blur(100px); opacity:.28;
+    animation:floatCircle 25s ease-in-out infinite;
+  }
+  .bg-circle:nth-child(1){
+    width:700px; height:700px;
+    background:linear-gradient(135deg,rgba(13,33,161,.3),rgba(238,198,67,.15));
+    top:-250px; right:-150px; animation-delay:0s;
+  }
+  .bg-circle:nth-child(2){
+    width:500px; height:500px;
+    background:linear-gradient(135deg,rgba(1,22,56,.25),rgba(13,33,161,.15));
+    bottom:15%; left:-200px; animation-delay:-7s;
+  }
+  .bg-circle:nth-child(3){
+    width:450px; height:450px;
+    background:linear-gradient(135deg,rgba(238,198,67,.2),rgba(13,33,161,.12));
+    top:45%; right:5%; animation-delay:-12s;
+  }
+  .bg-circle:nth-child(4){
+    width:350px; height:350px;
+    background:linear-gradient(135deg,rgba(1,22,56,.18),rgba(238,198,67,.15));
+    bottom:-100px; left:25%; animation-delay:-18s;
+  }
+  @keyframes floatCircle {
+    0%,100%{ transform:translate(0,0) scale(1) rotate(0deg); }
+    25%    { transform:translate(40px,-40px) scale(1.08) rotate(2deg); }
+    50%    { transform:translate(-30px,30px) scale(.95) rotate(-1deg); }
+    75%    { transform:translate(-40px,-25px) scale(1.03) rotate(1deg); }
+  }
 
-        /* Hero */
-        .hero { padding: 6rem 1rem; text-align: center; }
-        .hero h2 { font-size: 3rem; font-weight: 800; background: linear-gradient(90deg, #0078d4, #00bcf2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 1rem; animation: fadeInUp 0.8s ease-out; }
-        .hero .subtitle { font-size: 1.25rem; color: #50e6ff; font-weight: 600; margin-bottom: 1rem; }
-        .hero p { max-width: 48rem; margin: 0 auto 2rem; color: #d2d6ff; font-size: 1.125rem; }
-        .date-badge { display: inline-block; padding: 0.5rem 1.25rem; background: linear-gradient(135deg, #0078d4, #50e6ff); color: #fff; font-weight: 800; border-radius: 999px; margin-bottom: 1.25rem; }
-        .hero-buttons { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
-        .btn-primary { padding: 0.75rem 1.5rem; border-radius: 12px; font-weight: 700; background: linear-gradient(90deg, #0078d4, #00bcf2); color: #fff; text-decoration: none; transition: transform 0.3s, box-shadow 0.3s; border: none; cursor: pointer; }
-        .btn-primary:hover, .btn-primary:focus { transform: translateY(-2px); box-shadow: 0 8px 16px rgba(0, 120, 212, 0.35); outline: 2px solid #00bcf2; }
-        .btn-secondary { padding: 0.75rem 1.5rem; border: 1px solid #3a3f74; border-radius: 12px; color: #f3f2f1; text-decoration: none; background: transparent; }
-        .btn-secondary:hover, .btn-secondary:focus { border-color: #7a7fe0; outline: 2px solid #6264a7; }
+  /* ── Grid Pattern ── */
+  .grid-pattern {
+    position:fixed; top:0; left:0;
+    width:100%; height:100%; z-index:-1;
+    background-image:
+      linear-gradient(rgba(13,33,161,.03) 1px, transparent 1px),
+      linear-gradient(90deg,rgba(13,33,161,.03) 1px, transparent 1px);
+    background-size:80px 80px;
+    animation:gridMove 40s linear infinite;
+  }
+  @keyframes gridMove {
+    0%  { transform:translate(0,0); }
+    100%{ transform:translate(80px,80px); }
+  }
 
-        /* Containers */
-        .container { max-width: 1152px; margin: 0 auto; padding: 0 1rem; }
-        .section-title { font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: #fff; }
+  /* ── Particles ── */
+  .particle { position:fixed; pointer-events:none; opacity:.5; z-index:-1; border-radius:50%; }
+  .particle-1{ width:10px;height:10px;background:var(--primary-light);top:18%;left:8%;  animation:particleFloat 18s ease-in-out infinite; }
+  .particle-2{ width:7px; height:7px; background:var(--accent);        top:55%;right:12%;animation:particleFloat 22s ease-in-out infinite reverse; }
+  .particle-3{ width:12px;height:12px;background:var(--primary);       bottom:25%;left:18%;animation:particleFloat 25s ease-in-out infinite;animation-delay:-8s; }
+  .particle-4{ width:6px; height:6px; background:var(--accent-dark);   top:35%;left:75%;  animation:particleFloat 20s ease-in-out infinite;animation-delay:-4s; }
+  @keyframes particleFloat {
+    0%,100%{ transform:translate(0,0) rotate(0deg); }
+    25%    { transform:translate(60px,-60px) rotate(90deg); }
+    50%    { transform:translate(0,-120px) rotate(180deg); }
+    75%    { transform:translate(-60px,-60px) rotate(270deg); }
+  }
 
-        /* Cards & Grids */
-        .features { margin-bottom: 4rem; }
-        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
-        .feature-card { padding: 1.25rem; border-radius: 16px; border: 1px solid #2f335b; background: #1b1f3a; transition: all 0.35s ease; position: relative; overflow: hidden; }
-        .feature-card::before { content: ''; position: absolute; inset: 0; background: radial-gradient(600px circle at var(--mx, 0) var(--my, 0), rgba(0,188,242,0.1), transparent 40%); opacity: 0; transition: opacity 0.3s; }
-        .feature-card:hover { transform: translateY(-6px); border-color: #00bcf2; box-shadow: 0 10px 20px rgba(0, 188, 242, 0.25); }
-        .feature-card:hover::before { opacity: 1; }
-        .feature-card h4 { font-size: 1.05rem; font-weight: 800; color: #d2d6ff; margin-bottom: 0.5rem; }
-        .feature-card p { font-size: 0.9rem; color: #b9bdfc; }
+  /* ── Container ── */
+  .container { max-width:720px; margin:0 auto; padding:0 24px; }
 
-        /* Curriculum */
-        .curriculum { margin-bottom: 5rem; }
-        .curriculum-intro { color: #b9bdfc; margin-bottom: 1.5rem; }
-        .sessions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1rem; }
-        .session-card { position: relative; padding: 1.25rem 1.25rem 1.25rem 4.2rem; border-radius: 16px; border: 1px solid #2f335b; background: #1b1f3a; transition: all 0.3s ease; }
-        .session-card:hover { transform: translateX(4px); border-color: #00bcf2; background: linear-gradient(135deg, #1b1f3a 0%, #252956 100%); box-shadow: 0 8px 16px rgba(0, 188, 242, 0.18); }
-        .session-time { position: absolute; left: 1rem; top: 1.25rem; width: 2.4rem; height: 2.4rem; border-radius: 8px; display: grid; place-items: center; font-weight: 800; font-size: 0.7rem; background: linear-gradient(180deg, #0078d4, #00bcf2); color: #fff; }
-        .session-card strong { display: block; color: #e1e4ff; margin-bottom: 0.25rem; font-size: 1rem; }
-        .session-card p { font-size: 0.92rem; color: #b9bdfc; }
-        .session-card ul { margin-top: 0.5rem; padding-left: 1.25rem; color: #b9bdfc; font-size: 0.88rem; }
-        .session-card li { margin-bottom: 0.25rem; }
+  /* ── Header ── */
+  header {
+    padding:20px 0;
+    position:sticky; top:0; z-index:100;
+    backdrop-filter:blur(20px);
+    background:rgba(238,240,242,.88);
+    border-bottom:1px solid var(--border-light);
+  }
+  .header-content { display:flex; justify-content:space-between; align-items:center; }
+  .logo {
+    display:flex; align-items:center; gap:10px;
+    font-family:'Segoe UI Web','Segoe UI',sans-serif; font-weight:700; font-size:13px;
+    color:var(--text-medium); text-decoration:none;
+  }
+  .logo-icon {
+    width:34px; height:34px;
+    background:linear-gradient(135deg,var(--primary),var(--accent));
+    border-radius:9px; display:flex; align-items:center;
+    justify-content:center; color:white; font-size:16px;
+  }
+  .header-nav { display:flex; align-items:center; gap:8px; }
+  .header-nav a {
+    display:inline-flex; align-items:center; gap:6px;
+    padding:9px 18px;
+    font-size:13px; font-weight:600;
+    text-decoration:none; border-radius:50px;
+    transition:all .3s ease;
+  }
+  .nav-link-ghost {
+    color:var(--text-medium);
+    border:1px solid var(--border-light);
+    background:var(--white);
+  }
+  .nav-link-ghost:hover { background:var(--bg-end); border-color:var(--primary-light); }
+  .nav-btn {
+    background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+    color:white;
+    box-shadow:0 4px 20px rgba(13,33,161,.3);
+  }
+  .nav-btn:hover { transform:translateY(-2px); box-shadow:0 8px 30px rgba(13,33,161,.45); }
 
-        /* Prerequisites */
-        .prereq-section { margin-bottom: 4rem; }
-        .prereq-card { padding: 1.5rem; border-radius: 16px; border: 1px solid #2f335b; background: #1b1f3a; margin-bottom: 1rem; }
-        .prereq-card h4 { color: #50e6ff; margin-bottom: 1rem; font-size: 1.1rem; }
-        .prereq-list { padding-left: 1.25rem; color: #d2d6ff; }
-        .prereq-list li { margin-bottom: 0.75rem; }
-        .code-block { background: #0d1117; border: 1px solid #30363d; border-radius: 8px; padding: 1rem; margin-top: 1rem; overflow-x: auto; }
-        .code-block pre { color: #c9d1d9; font-family: 'Consolas', 'Monaco', monospace; font-size: 0.875rem; line-height: 1.6; white-space: pre-wrap; word-break: break-all; }
-        .code-block code { color: #79c0ff; }
+  /* ── Hero ── */
+  .hero { padding:80px 0 60px; text-align:center; }
 
-        /* Apply */
-        .apply-section { margin-bottom: 5rem; }
-        .apply-content { max-width: 640px; margin: 0 auto; text-align: center; }
-        .apply-intro { color: #d2d6ff; margin-bottom: 2rem; }
-        .contact-box { padding: 2rem; border-radius: 16px; border: 1px solid #2f335b; background: #1b1f3a; }
-        .contact-box p { margin-bottom: 1.25rem; }
-        .contact-box p:last-child { margin-bottom: 0; }
-        .contact-box a { color: #50e6ff; text-decoration: none; }
-        .contact-box a:hover { text-decoration: underline; }
-        .contact-box .btn-primary { display: block; width: 100%; margin-bottom: 1.5rem; text-align: center; }
+  .hero-badge {
+    display:inline-flex; align-items:center; gap:8px;
+    padding:9px 20px;
+    background:var(--card-bg);
+    border:1px solid var(--border-light);
+    border-radius:50px; font-size:13px; color:var(--text-medium);
+    margin-bottom:28px;
+    backdrop-filter:blur(10px);
+    animation:fadeInUp .8s ease-out .05s backwards;
+  }
+  .hero-badge span { color:var(--primary); font-weight:600; }
 
-        /* Misc */
-        .key-points { margin-bottom: 4rem; }
-        .key-points-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }
-        footer { text-align: center; font-size: 0.875rem; color: #aab0ff; padding: 2rem 1.5rem; border-top: 1px solid #2f335b; }
-        .back-to-top { position: fixed; bottom: 2rem; right: 2rem; width: 3rem; height: 3rem; border-radius: 50%; background: linear-gradient(135deg, #0078d4, #50e6ff); color: #fff; border: none; font-size: 1.5rem; cursor: pointer; opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s, transform 0.3s; box-shadow: 0 4px 12px rgba(0, 120, 212, 0.35); z-index: 40; font-weight: 900; }
-        .back-to-top.visible { opacity: 1; visibility: visible; }
-        .back-to-top:hover, .back-to-top:focus { transform: translateY(-5px); }
+  .hero h1 {
+    font-family:'Segoe UI Web','Segoe UI Web (Korean)','Segoe UI',sans-serif;
+    font-size:clamp(30px,5vw,52px);
+    font-weight:800; line-height:1.18;
+    margin-bottom:20px;
+    animation:fadeInUp .8s ease-out .1s backwards;
+  }
+  .hero h1 .highlight {
+    background:linear-gradient(135deg,var(--primary),var(--accent));
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
+  }
 
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        @media (max-width: 768px) {
-            .hero h2 { font-size: 2rem; }
-            .hero .subtitle { font-size: 1.1rem; }
-            .mobile-menu-btn { display: block; }
-            nav { display: none; position: absolute; top: 100%; left: 0; right: 0; background: rgba(27, 31, 58, 0.98); padding: 1rem; flex-direction: column; border-top: 1px solid #2f335b; }
-            nav.active { display: flex; }
-            .features-grid, .sessions-grid, .key-points-grid { grid-template-columns: 1fr; }
-            .back-to-top { bottom: 1rem; right: 1rem; width: 2.5rem; height: 2.5rem; font-size: 1.2rem; }
-            
-            .hero-logo-section {
-                flex-direction: column;
-                gap: 12px;
-            }
-            
-            .hero-logo-box {
-                width: 160px;
-                height: 48px;
-            }
-        }
-        html { scroll-behavior: smooth; }
-        *:focus-visible { outline: 2px solid #6264a7; outline-offset: 2px; }
-    </style>
+  .hero-sub {
+    font-size:15px; color:var(--text-medium);
+    max-width:560px; margin:0 auto 24px;
+    animation:fadeInUp .8s ease-out .2s backwards;
+  }
+
+  .hero-detail {
+    font-size:14px; color:var(--text-light);
+    max-width:540px; margin:0 auto 36px;
+    animation:fadeInUp .8s ease-out .25s backwards;
+    line-height:1.8;
+  }
+  .hero-detail strong { color:var(--text-dark); }
+
+  .hero-meta {
+    display:flex; justify-content:center;
+    gap:16px; flex-wrap:wrap;
+    animation:fadeInUp .8s ease-out .3s backwards;
+    margin-bottom:36px;
+  }
+  .hero-meta-chip {
+    display:flex; align-items:center; gap:8px;
+    padding:8px 16px;
+    background:var(--card-bg);
+    border:1px solid var(--border-light);
+    border-radius:50px; font-size:13px; color:var(--text-medium);
+    backdrop-filter:blur(10px);
+  }
+
+  .hero-cta {
+    display:flex; gap:14px; justify-content:center;
+    flex-wrap:wrap;
+    animation:fadeInUp .8s ease-out .35s backwards;
+  }
+  .btn-primary {
+    display:inline-flex; align-items:center; gap:9px;
+    padding:14px 32px;
+    background:linear-gradient(135deg,var(--accent),var(--accent-dark));
+    color:var(--navy); text-decoration:none; border-radius:50px;
+    font-weight:700; font-size:15px;
+    transition:all .3s ease;
+    box-shadow:0 6px 25px rgba(238,198,67,.4);
+  }
+  .btn-primary:hover { transform:translateY(-3px); box-shadow:0 10px 35px rgba(238,198,67,.55); }
+  .btn-secondary {
+    display:inline-flex; align-items:center; gap:9px;
+    padding:14px 32px;
+    background:var(--white); color:var(--text-dark);
+    text-decoration:none; border-radius:50px;
+    font-weight:600; font-size:15px;
+    transition:all .3s ease;
+    border:1px solid var(--border-light);
+  }
+  .btn-secondary:hover { background:var(--bg-end); border-color:var(--primary-light); }
+
+  @keyframes fadeInUp {
+    from { opacity:0; transform:translateY(28px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
+
+  /* ── Section Commons ── */
+  section { padding:70px 0; }
+  .section-header { text-align:center; margin-bottom:48px; }
+  .section-tag {
+    display:inline-block; padding:7px 16px;
+    background:linear-gradient(135deg,rgba(13,33,161,.08),rgba(238,198,67,.12));
+    border-radius:50px; font-size:12px; font-weight:600;
+    color:var(--primary); margin-bottom:14px;
+    text-transform:uppercase; letter-spacing:.5px;
+  }
+  .section-tag.gold {
+    background:linear-gradient(135deg,rgba(238,198,67,.15),rgba(212,173,43,.1));
+    color:var(--accent-dark);
+  }
+  .section-title {
+    font-family:'Segoe UI Web','Segoe UI Web (Korean)','Segoe UI',sans-serif;
+    font-size:clamp(24px,3.5vw,38px);
+    font-weight:700; margin-bottom:12px;
+  }
+  .section-desc {
+    font-size:15px; color:var(--text-medium);
+    max-width:520px; margin:0 auto;
+  }
+
+  /* ── Card Grid ── */
+  .cards-grid {
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+  }
+  .cards-grid.three-col {
+    grid-template-columns:repeat(3,1fr);
+  }
+  @media(max-width:680px){
+    .cards-grid, .cards-grid.three-col { grid-template-columns:1fr; }
+  }
+
+  /* ── Feature Card ── */
+  .feature-card {
+    background:var(--card-bg);
+    backdrop-filter:blur(20px);
+    border:1px solid var(--border-light);
+    border-radius:22px;
+    padding:28px 24px;
+    transition:all .4s ease;
+    position:relative;
+    overflow:hidden;
+  }
+  .feature-card::before {
+    content:'';
+    position:absolute; top:0; left:0;
+    width:100%; height:4px;
+    background:linear-gradient(90deg,var(--primary),var(--accent));
+    transform:scaleX(0); transform-origin:left;
+    transition:transform .4s ease;
+  }
+  .feature-card:hover {
+    transform:translateY(-8px);
+    box-shadow:0 24px 56px rgba(13,33,161,.12);
+    border-color:var(--primary-light);
+  }
+  .feature-card:hover::before { transform:scaleX(1); }
+
+  .feature-card-icon {
+    width:44px; height:44px;
+    border-radius:12px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:20px; margin-bottom:16px;
+  }
+  .feature-card-icon.blue {
+    background:linear-gradient(135deg,rgba(13,33,161,.1),rgba(51,68,192,.08));
+    color:var(--primary);
+  }
+  .feature-card-icon.gold {
+    background:linear-gradient(135deg,rgba(238,198,67,.15),rgba(212,173,43,.1));
+    color:var(--accent-dark);
+  }
+  .feature-card-icon.navy {
+    background:linear-gradient(135deg,rgba(1,22,56,.1),rgba(13,33,161,.08));
+    color:var(--navy);
+  }
+
+  .feature-card h4 {
+    font-size:16px; font-weight:700;
+    color:var(--text-dark); line-height:1.45;
+    margin-bottom:8px;
+  }
+  .feature-card p {
+    font-size:13.5px; color:var(--text-medium);
+    line-height:1.7;
+  }
+
+  /* ── Curriculum Timeline ── */
+  .timeline { position:relative; padding-left:32px; }
+  .timeline::before {
+    content:'';
+    position:absolute; left:13px; top:0;
+    width:2px; height:100%;
+    background:linear-gradient(180deg,var(--primary),var(--accent),var(--primary-dark));
+    border-radius:2px;
+  }
+  .timeline-item {
+    position:relative;
+    margin-bottom:24px;
+    padding:22px 24px;
+    background:var(--card-bg);
+    backdrop-filter:blur(20px);
+    border:1px solid var(--border-light);
+    border-radius:18px;
+    transition:all .35s ease;
+  }
+  .timeline-item:hover {
+    transform:translateX(6px);
+    box-shadow:0 12px 36px rgba(13,33,161,.1);
+    border-color:var(--primary-light);
+  }
+  .timeline-item::before {
+    content:'';
+    position:absolute;
+    left:-25px; top:28px;
+    width:12px; height:12px;
+    border-radius:50%;
+    background:linear-gradient(135deg,var(--primary),var(--accent));
+    border:3px solid var(--bg-start);
+    box-shadow:0 0 0 2px var(--primary-light);
+  }
+
+  .timeline-badge {
+    display:inline-flex; align-items:center;
+    padding:4px 12px;
+    background:linear-gradient(135deg,rgba(13,33,161,.08),rgba(238,198,67,.1));
+    border-radius:8px;
+    font-size:11px; font-weight:700;
+    color:var(--primary);
+    margin-bottom:10px;
+  }
+  .timeline-item-title {
+    font-size:15px; font-weight:700;
+    color:var(--text-dark); margin-bottom:6px;
+    line-height:1.45;
+  }
+  .timeline-item-desc {
+    font-size:13px; color:var(--text-medium);
+    line-height:1.7; margin-bottom:8px;
+  }
+  .timeline-item-list {
+    list-style:none; padding:0;
+  }
+  .timeline-item-list li {
+    font-size:12.5px; color:var(--text-light);
+    padding:3px 0 3px 18px;
+    position:relative;
+  }
+  .timeline-item-list li::before {
+    content:'→';
+    position:absolute; left:0;
+    color:var(--accent-dark); font-weight:600;
+  }
+
+  /* ── Prerequisites Section ── */
+  .prereq-card {
+    background:var(--card-bg);
+    backdrop-filter:blur(20px);
+    border:1px solid var(--border-light);
+    border-radius:22px;
+    padding:28px 24px;
+    margin-bottom:20px;
+    transition:all .35s ease;
+  }
+  .prereq-card:hover {
+    box-shadow:0 12px 36px rgba(13,33,161,.08);
+    border-color:var(--primary-light);
+  }
+  .prereq-card h4 {
+    font-size:15px; font-weight:700;
+    color:var(--primary); margin-bottom:14px;
+  }
+  .prereq-list {
+    list-style:none; padding:0;
+  }
+  .prereq-list li {
+    font-size:13.5px; color:var(--text-medium);
+    padding:6px 0 6px 20px;
+    position:relative; line-height:1.7;
+  }
+  .prereq-list li::before {
+    content:'•';
+    position:absolute; left:4px;
+    color:var(--accent-dark); font-weight:700;
+  }
+  .prereq-list a {
+    color:var(--primary); text-decoration:underline;
+  }
+
+  .code-block {
+    background:var(--navy);
+    border:1px solid rgba(13,33,161,.2);
+    border-radius:14px;
+    padding:18px 20px;
+    margin-top:12px;
+    overflow-x:auto;
+  }
+  .code-block pre {
+    color:#CDD1C4;
+    font-family:'Consolas','Monaco',monospace;
+    font-size:12.5px; line-height:1.7;
+    white-space:pre-wrap; word-break:break-all;
+    margin:0;
+  }
+  .code-block code { color:var(--accent); }
+
+  /* ── Key Points Grid ── */
+  .key-grid {
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:16px;
+  }
+  @media(max-width:680px){
+    .key-grid { grid-template-columns:1fr; }
+  }
+  .key-card {
+    background:var(--card-bg);
+    backdrop-filter:blur(20px);
+    border:1px solid var(--border-light);
+    border-radius:18px;
+    padding:22px 20px;
+    text-align:center;
+    transition:all .35s ease;
+  }
+  .key-card:hover {
+    transform:translateY(-4px);
+    box-shadow:0 16px 40px rgba(13,33,161,.1);
+    border-color:var(--primary-light);
+  }
+  .key-card-icon { font-size:26px; margin-bottom:10px; }
+  .key-card h4 {
+    font-size:14px; font-weight:700;
+    color:var(--text-dark); margin-bottom:4px;
+  }
+  .key-card p {
+    font-size:12.5px; color:var(--text-medium);
+    line-height:1.6;
+  }
+
+  /* ── CTA Section ── */
+  .cta-section {
+    background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+    border-radius:28px; padding:72px 36px;
+    text-align:center; color:white;
+    position:relative; overflow:hidden;
+    margin-bottom:70px;
+  }
+  .cta-section::before {
+    content:''; position:absolute;
+    top:-100px; left:-100px;
+    width:280px; height:280px;
+    background:rgba(238,198,67,.12); border-radius:50%;
+  }
+  .cta-section::after {
+    content:''; position:absolute;
+    bottom:-140px; right:-140px;
+    width:380px; height:380px;
+    background:rgba(255,255,255,.04); border-radius:50%;
+  }
+  .cta-title {
+    font-family:'Segoe UI Web','Segoe UI Web (Korean)','Segoe UI',sans-serif;
+    font-size:clamp(24px,3.5vw,38px); font-weight:700;
+    margin-bottom:14px; position:relative; z-index:1;
+  }
+  .cta-desc {
+    font-size:15px; opacity:.92;
+    margin-bottom:30px;
+    max-width:480px; margin-left:auto; margin-right:auto;
+    position:relative; z-index:1;
+  }
+  .cta-btn {
+    display:inline-flex; align-items:center; gap:9px;
+    padding:16px 36px;
+    background:var(--accent); color:var(--navy);
+    text-decoration:none; border-radius:50px;
+    font-weight:700; font-size:15px;
+    transition:all .3s ease;
+    box-shadow:0 6px 24px rgba(0,0,0,.2);
+    position:relative; z-index:1;
+  }
+  .cta-btn:hover { transform:translateY(-3px) scale(1.02); box-shadow:0 10px 34px rgba(0,0,0,.3); }
+  .cta-info {
+    margin-top:24px; font-size:13px; opacity:.88;
+    position:relative; z-index:1; line-height:2;
+  }
+  .cta-info a { color:var(--accent); text-decoration:underline; }
+
+  /* ── Footer ── */
+  footer {
+    padding:44px 0; text-align:center;
+    border-top:1px solid var(--border-light);
+  }
+  .footer-logo {
+    display:inline-flex; align-items:center; gap:10px;
+    margin-bottom:12px;
+  }
+  .footer-logo-icon {
+    width:40px; height:40px;
+    background:linear-gradient(135deg,var(--primary),var(--accent));
+    border-radius:11px; display:flex; align-items:center;
+    justify-content:center; color:white; font-size:18px;
+  }
+  .footer-logo-text {
+    font-family:'Segoe UI Web','Segoe UI',sans-serif; font-weight:700;
+    font-size:16px; color:var(--text-dark);
+  }
+  .footer-team { font-size:13px; color:var(--text-light); margin-bottom:8px; }
+  .footer-note {
+    font-size:12px; color:var(--text-light);
+    max-width:520px; margin:0 auto; line-height:1.8;
+  }
+
+  /* ── Back to Top ── */
+  .back-to-top {
+    position:fixed; bottom:2rem; right:2rem;
+    width:48px; height:48px; border-radius:50%;
+    background:linear-gradient(135deg,var(--primary),var(--accent));
+    color:white; border:none; font-size:20px; font-weight:700;
+    cursor:pointer; display:flex; align-items:center; justify-content:center;
+    opacity:0; visibility:hidden;
+    transition:all .3s ease;
+    box-shadow:0 6px 20px rgba(13,33,161,.3);
+    z-index:40;
+  }
+  .back-to-top.visible { opacity:1; visibility:visible; }
+  .back-to-top:hover { transform:translateY(-4px); box-shadow:0 10px 30px rgba(13,33,161,.45); }
+
+  /* ── Responsive ── */
+  @media(max-width:600px){
+    .hero { padding:56px 0 44px; }
+    .hero-meta { flex-direction:column; align-items:center; }
+    .cta-section { padding:44px 20px; }
+    .header-nav .nav-link-ghost { display:none; }
+  }
+</style>
 </head>
 <body>
-    <a href="#main-content" class="skip-link">본문으로 건너뛰기</a>
 
-    <header>
-        <div class="header-container">
-            <div class="logo-container">
-                <div class="logo" role="img" aria-label="Azure OpenAI 로고"></div>
-                <h1 class="logo-text">Microsoft Strategic Partner Framework Program</h1>
-            </div>
-            <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="메뉴 열기">☰</button>
-            <nav id="mainNav">
-                <a href="#guide">안내</a>
-                <a href="#curriculum">커리큘럼</a>
-                <a href="#prerequisites">선행작업</a>
-                <a href="#apply">신청</a>
-            </nav>
-        </div>
-    </header>
+<!-- Animated Background -->
+<div class="bg-animation">
+  <div class="bg-circle"></div>
+  <div class="bg-circle"></div>
+  <div class="bg-circle"></div>
+  <div class="bg-circle"></div>
+</div>
+<div class="grid-pattern"></div>
+<div class="particle particle-1"></div>
+<div class="particle particle-2"></div>
+<div class="particle particle-3"></div>
+<div class="particle particle-4"></div>
 
-    <section id="main-content" class="hero">
-        <div class="hero-logo-section">
-            <div class="hero-logo-box">
-                <a href="https://www.megazone.com" target="_blank">
-                    <img src="https://bit.ly/4mzYId0" alt="Megazone Cloud" width="160" height="28"/>
-                </a>
-            </div>
-            <div class="hero-logo-box openai-logo-box">
-                <span>AI Agent Hands-on Lab</span>
-            </div>
-            <div class="hero-logo-box">
-                <a href="https://azure.microsoft.com/ko-kr/products/ai-services/openai-service" target="_blank">
-                    <img src="https://bit.ly/41rh5bO" alt="Microsoft Azure" width="160" height="60"/>
-                </a>
-            </div>
-        </div>
-        <h2>하루 만에 만드는 나만의 AI 에이전트</h2>
-        <p class="subtitle">🚀 Python부터 프로덕션까지, Azure OpenAI로 완성하는 실전 AI 개발</p>
-        <div class="date-badge">⏰ 단 하루로 끝내는 AI 마스터클래스 </div>
-        <p>
-            💡 <strong>"AI가 나를 도와줬으면..."</strong> 상상만 하셨나요?<br>
-            이제 <strong>직접 만들어보세요!</strong> Python 기초부터 시작해서,<br>
-            <strong>나만의 똑똑한 AI 비서</strong>를 하루 만에 완성하는 실전 교육입니다.
-        </p>
-        <div class="hero-buttons">
-            <a href="#apply" class="btn-primary">🎁 지금 먼저 신청하기</a>
-            <a href="#curriculum" class="btn-secondary">📚 커리큘럼 먼저 보기 →</a>
-        </div>
-    </section>
+<!-- Header -->
+<header>
+  <div class="container">
+    <div class="header-content">
+      <a href="https://spfaif.com" class="logo">
+        <div class="logo-icon">⚡</div>
+        <span>Hosted by MEGAZONE CLOUD</span>
+      </a>
+      <div class="header-nav">
+        <a href="#curriculum" class="nav-link-ghost">📅 커리큘럼</a>
+        <a href="#apply" class="nav-btn">🎁 교육 신청하기</a>
+      </div>
+    </div>
+  </div>
+</header>
 
-    <!-- Guide Section -->
-    <section id="guide" class="guide-section container">
-        <h3 class="section-title">교육 개요</h3>
-        <div class="features-grid">
-            <div class="feature-card">
-                <h4>🎯 이런 분들께 추천합니다</h4>
-                <p>• Python으로 "Hello World" 찍어본 적 있다면 OK!<br>
-                • "우리 회사도 AI 좀 써봤으면..." 하는 실무자<br>
-                • ChatGPT는 써봤는데, 직접 만들고 싶은 개발자<br>
-                • AI로 업무 자동화를 꿈꾸는 당신!</p>
-            </div>
-            <div class="feature-card">
-                <h4>📚 이것만큼은 꼭 가져가세요!</h4>
-                <p>• ✅ 내일부터 Azure OpenAI 능숙하게 쓰기<br>
-                • 🤖 혼자서도 AI 에이전트 뚝딱 만들기<br>
-                • 👥 여러 AI가 협업하는 시스템 구축<br>
-                • 🏢 회사에서 바로 쓸 수 있는 실전 노하우<br>
-                • 🚀 안전하게 프로덕션 배포하는 법</p>
-            </div>
-            <div class="feature-card">
-                <h4>⚡ 교육 특징</h4>
-                <p>• 💯 실습위주주! 이론과 Yes, 코딩을 YES 함께!<br>
-                • 🎁 바로 쓰는 예제 코드 풀 패키지<br>
-                • ☁️ Azure OpenAI 리소스 직접 체험<br>
-                • 🔥 최신 AI 트렌드 올인원<br>
-                • ⚖️ 안전하고 윤리적인 AI 개발법</p>
-            </div>
-        </div>
-    </section>
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
 
-    <!-- Curriculum Section -->
-    <section id="curriculum" class="curriculum container">
-        <h3 class="section-title">커리큘럼</h3>
-        <p class="curriculum-intro">🎓 입문자도 OK! 7단계로 완성하는 AI 에이전트 마스터 여정</p>
+    <div class="hero-badge">📦 <span>팝업 제안. 찾아갑니다</span></div>
+    <h1>
+      하루 만에 만드는<br>
+      <span class="highlight">나만의 AI 에이전트</span>
+    </h1>
+    <p class="hero-sub">
+      Python부터 프로덕션까지, Azure OpenAI로 완성하는 실전 AI 개발 핸즈온 워크샵
+    </p>
+    <p class="hero-detail">
+      💡 <strong>"AI가 나를 도와줬으면..."</strong> 상상만 하셨나요?<br>
+      이제 <strong>직접 만들어보세요!</strong> Python 기초부터 시작해서,<br>
+      <strong>나만의 똑똑한 AI 비서</strong>를 하루 만에 완성하는 실전 교육입니다.
+    </p>
+    <div class="hero-meta">
+      <div class="hero-meta-chip">
+        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <rect x="3" y="4" width="18" height="18" rx="2" stroke-width="2"/>
+          <line x1="16" y1="2" x2="16" y2="6" stroke-width="2"/>
+          <line x1="8" y1="2" x2="8" y2="6" stroke-width="2"/>
+          <line x1="3" y1="10" x2="21" y2="10" stroke-width="2"/>
+        </svg>
+        단 하루 · 집중 교육
+      </div>
+      <div class="hero-meta-chip">
+        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" stroke-width="2"/>
+          <circle cx="12" cy="10" r="3" stroke-width="2"/>
+        </svg>
+        고객사 방문 · 온사이트
+      </div>
+    </div>
+    <div class="hero-cta">
+      <a href="#apply" class="btn-primary">🎁 지금 먼저 신청하기</a>
+      <a href="#curriculum" class="btn-secondary">📚 커리큘럼 먼저 보기</a>
+    </div>
+  </div>
+</section>
 
-        <div class="sessions-grid">
-            <div class="session-card">
-                <div class="session-time">CH1</div>
-                <strong>첫걸음: "안녕, AI야!" Python으로 시작하기</strong>
-                <p>AI와 처음 대화해보세요. Python으로 첫 AI 앱을 만들고, 내가 원하는 대로 움직이게 만드는 법을 배웁니다.</p>
-                <ul>
-                    <li>Azure OpenAI 서비스 세팅 완료!</li>
-                    <li>Python으로 AI와 대화하기</li>
-                    <li>AI한테 잘 부탁하는 법 (프롬프트 엔지니어링)</li>
-                    <li>나만의 챗봇 뚝딱 만들기</li>
-                </ul>
-            </div>
+<!-- Guide Section -->
+<section id="guide">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">📋 교육 개요</div>
+      <h2 class="section-title">이런 분들께 추천합니다</h2>
+    </div>
+    <div class="cards-grid three-col">
+      <div class="feature-card">
+        <div class="feature-card-icon blue">🎯</div>
+        <h4>이런 분들께 추천</h4>
+        <p>Python "Hello World" 경험자, "우리 회사도 AI 좀..." 하는 실무자, ChatGPT는 써봤는데 직접 만들고 싶은 개발자, AI로 업무 자동화를 꿈꾸는 분</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card-icon gold">📚</div>
+        <h4>이것만큼은 꼭 가져가세요</h4>
+        <p>Azure OpenAI 능숙하게 쓰기, AI 에이전트 뚝딱 만들기, 여러 AI가 협업하는 시스템 구축, 회사에서 바로 쓸 수 있는 실전 노하우</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card-icon navy">⚡</div>
+        <h4>교육 특징</h4>
+        <p>실습 위주! 이론과 코딩을 함께, 바로 쓰는 예제 코드 풀 패키지, Azure OpenAI 리소스 직접 체험, 안전하고 윤리적인 AI 개발법</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-            <div class="session-card">
-                <div class="session-time">CH3</div>
-                <strong>AI 에이전트가 뭐길래? 기초부터 탄탄하게</strong>
-                <p>AI가 혼자 생각하고 행동한다고? 어떻게 가능한지 알아보고, 직접 똑똑한 AI 에이전트를 만들어봅니다.</p>
-                <ul>
-                    <li>AI 에이전트의 뇌 구조 이해하기</li>
-                    <li>생각하는 AI 만들기 (ReAct, Chain-of-Thought)</li>
-                    <li>AI한테 도구 사용법 가르치기</li>
-                    <li>AI가 기억하게 만들기</li>
-                </ul>
-            </div>
+<!-- Curriculum Section -->
+<section id="curriculum">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag gold">🎓 커리큘럼</div>
+      <h2 class="section-title">7단계로 완성하는 AI 에이전트</h2>
+      <p class="section-desc">입문자도 OK! Python 기초부터 프로덕션까지 한번에</p>
+    </div>
 
-            <div class="session-card">
-                <div class="session-time">CH4</div>
-                <strong>프로들이 쓰는 AI 설계 비법 대공개</strong>
-                <p>실무에서 검증된 AI 에이전트 패턴들을 배우고, 내 프로젝트에 바로 적용해봅니다.</p>
-                <ul>
-                    <li>정보를 찾아주는 똑똑이 AI (RAG)</li>
-                    <li>계획 세우고 실행하는 AI</li>
-                    <li>스스로 반성하는 AI (Self-Reflection)</li>
-                    <li>도구를 효율적으로 쓰는 법</li>
-                </ul>
-            </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-badge">CH 1</div>
+        <div class="timeline-item-title">첫걸음: "안녕, AI야!" Python으로 시작하기</div>
+        <div class="timeline-item-desc">AI와 처음 대화해보세요. Python으로 첫 AI 앱을 만들고, 내가 원하는 대로 움직이게 만드는 법을 배웁니다.</div>
+        <ul class="timeline-item-list">
+          <li>Azure OpenAI 서비스 세팅 완료!</li>
+          <li>Python으로 AI와 대화하기</li>
+          <li>AI한테 잘 부탁하는 법 (프롬프트 엔지니어링)</li>
+          <li>나만의 챗봇 뚝딱 만들기</li>
+        </ul>
+      </div>
 
-            <div class="session-card">
-                <div class="session-time">CH5</div>
-                <strong>AI들의 드림팀 만들기: 협업의 기술</strong>
-                <p>AI 한 명보다 여러 명이 낫죠! 각자 역할을 나눠서 협력하는 AI 팀을 만들어봅니다.</p>
-                <ul>
-                    <li>AI 팀 구조 설계하기</li>
-                    <li>AI들끼리 대화하게 만들기</li>
-                    <li>역할별 전문 AI 배치하기</li>
-                    <li>팀워크 최적화의 기술</li>
-                </ul>
-            </div>
+      <div class="timeline-item">
+        <div class="timeline-badge">CH 3</div>
+        <div class="timeline-item-title">AI 에이전트가 뭐길래? 기초부터 탄탄하게</div>
+        <div class="timeline-item-desc">AI가 혼자 생각하고 행동한다고? 어떻게 가능한지 알아보고, 직접 똑똑한 AI 에이전트를 만들어봅니다.</div>
+        <ul class="timeline-item-list">
+          <li>AI 에이전트의 뇌 구조 이해하기</li>
+          <li>생각하는 AI 만들기 (ReAct, Chain-of-Thought)</li>
+          <li>AI한테 도구 사용법 가르치기</li>
+          <li>AI가 기억하게 만들기</li>
+        </ul>
+      </div>
 
-            <div class="session-card">
-                <div class="session-time">CH6</div>
-                <strong>무한 확장의 비밀: MCP 마스터하기</strong>
-                <p>작게 시작해서 크게 키우는 법! 나중에 더 많은 기능을 쉽게 추가할 수 있는 확장형 AI를 만듭니다.</p>
-                <ul>
-                    <li>MCP가 뭐길래? 쉽게 이해하기</li>
-                    <li>확장 가능한 AI 서버 만들기</li>
-                    <li>AI 기억력 10배 높이기</li>
-                    <li>커질수록 강해지는 구조 설계</li>
-                </ul>
-            </div>
+      <div class="timeline-item">
+        <div class="timeline-badge">CH 4</div>
+        <div class="timeline-item-title">프로들이 쓰는 AI 설계 비법 대공개</div>
+        <div class="timeline-item-desc">실무에서 검증된 AI 에이전트 패턴들을 배우고, 내 프로젝트에 바로 적용해봅니다.</div>
+        <ul class="timeline-item-list">
+          <li>정보를 찾아주는 똑똒이 AI (RAG)</li>
+          <li>계획 세우고 실행하는 AI</li>
+          <li>스스로 반성하는 AI (Self-Reflection)</li>
+          <li>도구를 효율적으로 쓰는 법</li>
+        </ul>
+      </div>
 
-            <div class="session-card">
-                <div class="session-time">MY AGENT</div>
-                <strong></strong>
-                <p></p>
-                <ul>
-                    <li></li>
-                </ul>
-            </div>
-            
-        </div>
-    </section>
+      <div class="timeline-item">
+        <div class="timeline-badge">CH 5</div>
+        <div class="timeline-item-title">AI들의 드림팀 만들기: 협업의 기술</div>
+        <div class="timeline-item-desc">AI 한 명보다 여러 명이 낫죠! 각자 역할을 나눠서 협력하는 AI 팀을 만들어봅니다.</div>
+        <ul class="timeline-item-list">
+          <li>AI 팀 구조 설계하기</li>
+          <li>AI들끼리 대화하게 만들기</li>
+          <li>역할별 전문 AI 배치하기</li>
+          <li>팀워크 최적화의 기술</li>
+        </ul>
+      </div>
 
-    <!-- Prerequisites Section -->
-    <section id="prerequisites" class="prereq-section container">
-        <h3 class="section-title">선행작업 (필수)</h3>
-        <p class="curriculum-intro">교육 시작 전 아래 항목을 반드시 준비해 주세요.</p>
+      <div class="timeline-item">
+        <div class="timeline-badge">CH 6</div>
+        <div class="timeline-item-title">무한 확장의 비밀: MCP 마스터하기</div>
+        <div class="timeline-item-desc">작게 시작해서 크게 키우는 법! 더 많은 기능을 쉽게 추가할 수 있는 확장형 AI를 만듭니다.</div>
+        <ul class="timeline-item-list">
+          <li>MCP가 뭐길래? 쉽게 이해하기</li>
+          <li>확장 가능한 AI 서버 만들기</li>
+          <li>AI 기억력 10배 높이기</li>
+          <li>커질수록 강해지는 구조 설계</li>
+        </ul>
+      </div>
 
-        <div class="prereq-card">
-            <h4>☁️ Azure 리소스 준비</h4>
-            <ul class="prereq-list">
-                <li><strong>Microsoft Azure 계정</strong> 및 <strong>Azure OpenAI 서비스 리소스</strong></li>
-                <li><strong>GPT-4.1</strong> 모델 배포</li>
-                <li><strong>text-embedding-3-small</strong> 모델 배포</li>
-                <li><strong>Document Intelligence</strong> 배포</li>
-                <li><strong>AI Search</strong> 배포</li>
-            </ul>
-        </div>
+      <div class="timeline-item">
+        <div class="timeline-badge">MY AGENT</div>
+        <div class="timeline-item-title">나만의 AI 에이전트 프로젝트</div>
+        <div class="timeline-item-desc">배운 모든 것을 종합하여 나만의 AI 에이전트를 완성합니다.</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <div class="prereq-card">
-            <h4>💻 개발 환경 설정</h4>
-            <ul class="prereq-list">
-                <li><strong>Python 3.11.9 설치 (필수)</strong><br>
-                    다운로드: <a href="https://www.python.org/downloads/windows/" target="_blank" style="color: #50e6ff;">https://www.python.org/downloads/windows/</a></li>
-                <li><strong>VS Code 설치</strong><br>
-                    다운로드: <a href="https://code.visualstudio.com/" target="_blank" style="color: #50e6ff;">https://code.visualstudio.com/</a></li>
-            </ul>
-        </div>
+<!-- Prerequisites Section -->
+<section id="prerequisites">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">⚙️ 선행작업</div>
+      <h2 class="section-title">교육 전 필수 준비 사항</h2>
+      <p class="section-desc">교육 시작 전 아래 항목을 반드시 준비해 주세요</p>
+    </div>
 
-        <div class="prereq-card">
-            <h4>📦 Python 패키지 설치</h4>
-            <div class="code-block">
-                <pre>pip install -r requirements.txt</pre>
-            </div>
-        </div>
+    <div class="prereq-card">
+      <h4>☁️ Azure 리소스 준비</h4>
+      <ul class="prereq-list">
+        <li><strong>Microsoft Azure 계정</strong> 및 <strong>Azure OpenAI 서비스 리소스</strong></li>
+        <li><strong>GPT-4.1</strong> 모델 배포</li>
+        <li><strong>text-embedding-3-small</strong> 모델 배포</li>
+        <li><strong>Document Intelligence</strong> 배포</li>
+        <li><strong>AI Search</strong> 배포</li>
+      </ul>
+    </div>
 
-        <div class="prereq-card">
-            <h4>⚙️ 환경 변수 설정 (.env 파일)</h4>
-            <p style="color: #b9bdfc; margin-bottom: 1rem;">프로젝트 루트에 .env 파일을 생성하고 아래 내용을 입력하세요:</p>
-            <div class="code-block">
-                <pre><code>AZURE_OPENAI_API_VERSION      = '2024-12-01-preview'
+    <div class="prereq-card">
+      <h4>💻 개발 환경 설정</h4>
+      <ul class="prereq-list">
+        <li><strong>Python 3.11.9 설치 (필수)</strong> — <a href="https://www.python.org/downloads/windows/" target="_blank">다운로드</a></li>
+        <li><strong>VS Code 설치</strong> — <a href="https://code.visualstudio.com/" target="_blank">다운로드</a></li>
+      </ul>
+    </div>
+
+    <div class="prereq-card">
+      <h4>📦 Python 패키지 설치</h4>
+      <div class="code-block">
+        <pre>pip install -r requirements.txt</pre>
+      </div>
+    </div>
+
+    <div class="prereq-card">
+      <h4>⚙️ 환경 변수 설정 (.env 파일)</h4>
+      <p style="font-size:13px;color:var(--text-light);margin-bottom:10px;">프로젝트 루트에 .env 파일을 생성하고 아래 내용을 입력하세요:</p>
+      <div class="code-block">
+        <pre><code>AZURE_OPENAI_API_VERSION      = '2024-12-01-preview'
 AZURE_OPENAI_DEPLOYMENT_NAME  = "gpt-4.1"
-AZURE_OPENAI_API_KEY          = ""       # GPT-4.1, text-embedding-3-small  
-AZURE_OPENAI_ENDPOINT         = ""  
+AZURE_OPENAI_API_KEY          = ""
+AZURE_OPENAI_ENDPOINT         = ""
 AZURE_TEXT_EMBEDDING_MODEL    = "text-embedding-3-small"
 AZURE_DOCUMENT_INTELLIGENCE_ENDPOINT = ""
 AZURE_DOCUMENT_INTELLIGENCE_KEY      = ""
 AZURE_SEARCH_ENDPOINT         = ""
 AZURE_SEARCH_API_KEY          = ""
 AZURE_SEARCH_INDEX_NAME       = "company-policy-index"</code></pre>
-            </div>
-        </div>
-    </section>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Key Points Section -->
-    <section class="key-points container">
-        <h3 class="section-title">💎 하루만에 얻어가는 것들</h3>
-        <div class="key-points-grid">
-            <div class="feature-card"><h4>🤖 나만의 AI 비서</h4><p>ChatGPT 말고 내 맘대로 만드는 AI 에이전트</p></div>
-            <div class="feature-card"><h4>👥 팀워크의 진화</h4><p>여러 AI가 협력해서 일하는 시스템</p></div>
-            <div class="feature-card"><h4>🔧 확장의 마법</h4><p>작게 시작해서 크게 키우는 설계법</p></div>
-            <div class="feature-card"><h4>🚀 진짜 배포</h4><p>만들기만 하면 뭐해요, 실전 배포까지!</p></div>
-            <div class="feature-card"><h4>💪 손에 익히기</h4><p>이론은 그만, 직접 코딩하며 체득</p></div>
-            <div class="feature-card"><h4>⚖️ 책임감 있는 AI</h4><p>안전하고 윤리적인 AI 개발의 기술</p></div>
-        </div>
-    </section>
+<!-- Key Points Section -->
+<section>
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag gold">💎 핵심 포인트</div>
+      <h2 class="section-title">하루만에 얻어가는 것들</h2>
+    </div>
+    <div class="key-grid">
+      <div class="key-card">
+        <div class="key-card-icon">🤖</div>
+        <h4>나만의 AI 비서</h4>
+        <p>내 맘대로 만드는 AI 에이전트</p>
+      </div>
+      <div class="key-card">
+        <div class="key-card-icon">👥</div>
+        <h4>팀워크의 진화</h4>
+        <p>여러 AI가 협력하는 시스템</p>
+      </div>
+      <div class="key-card">
+        <div class="key-card-icon">🔧</div>
+        <h4>확장의 마법</h4>
+        <p>작게 시작, 크게 키우는 설계</p>
+      </div>
+      <div class="key-card">
+        <div class="key-card-icon">🚀</div>
+        <h4>진짜 배포</h4>
+        <p>실전 프로덕션 배포까지</p>
+      </div>
+      <div class="key-card">
+        <div class="key-card-icon">💪</div>
+        <h4>손에 익히기</h4>
+        <p>직접 코딩하며 체득</p>
+      </div>
+      <div class="key-card">
+        <div class="key-card-icon">⚖️</div>
+        <h4>책임감 있는 AI</h4>
+        <p>안전·윤리적 AI 개발</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Apply Section -->
-    <section id="apply" class="apply-section container">
-        <h3 class="section-title">신청 & 문의</h3>
-        <div class="apply-content">
-            <p class="apply-intro">🎯 지금 신청하고, 내일부터 AI 전문가로 일하세요!</p>
-            <div class="contact-box">
-                <p>
-                    <a class="btn-primary" href="https://forms.microsoft.com/r/bEfqzXfTuG" aria-disabled="true">신청 링크</a>
-                </p>
-                <p><strong>📅 일정:</strong> 신청 고객과 협의, 1DAY 집중 교육</p>
-                <p><strong>📍 장소:</strong> 신청 고객사에서 온사이트, 외부 교육요청시 외부 강의실 </p>
-                <p><strong>문의:</strong> 메가존클라우드 마이크로소프트 전략파트너팀</p>
-                <p><a href="mailto:celia@megazone.com">celia@megazone.com</a></p>
-            </div>
-        </div>
-    </section>
+<!-- CTA / Apply Section -->
+<section id="apply">
+  <div class="container">
+    <div class="cta-section">
+      <h2 class="cta-title">지금 신청하고, 내일부터 AI 전문가로</h2>
+      <p class="cta-desc">Python 기초부터 프로덕션 배포까지, 하루 만에 나만의 AI 에이전트를 완성하세요.</p>
+      <a href="https://forms.microsoft.com/r/bEfqzXfTuG" class="cta-btn" target="_blank">🎁 지금 먼저 신청하기</a>
+      <div class="cta-info">
+        📅 일정: 신청 고객과 협의, 1DAY 집중 교육<br>
+        📍 장소: 고객사 온사이트 또는 외부 교육장<br>
+        문의: 메가존클라우드 마이크로소프트 전략파트너팀 — <a href="/cdn-cgi/l/email-protection#345751585d5574595153554e5b5a511a575b59"><span class="__cf_email__" data-cfemail="7a191f16131b3a171f1d1b0015141f54191517">[email&#160;protected]</span></a>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <footer>© 2025 Megazone Cloud. All rights reserved.</footer>
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="footer-logo">
+      <div class="footer-logo-icon">⚡</div>
+      <div class="footer-logo-text">MEGAZONE CLOUD</div>
+    </div>
+    <p class="footer-team">마이크로소프트 유닛 SPF 팀 · Microsoft Cloud SPF 2026</p>
+    <p class="footer-note">© 2025 Megazone Cloud. All rights reserved.</p>
+  </div>
+</footer>
 
-    <button id="backToTop" class="back-to-top" onclick="scrollToTop()" aria-label="맨 위로 가기">↑</button>
+<!-- Back to Top -->
+<button id="backToTop" class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="맨 위로 가기">↑</button>
 
-    <script>
-        function toggleMenu() { const nav = document.getElementById('mainNav'); nav.classList.toggle('active'); }
-        document.querySelectorAll('nav a').forEach(link => { link.addEventListener('click', () => { document.getElementById('mainNav').classList.remove('active'); }); });
-        function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
-        window.addEventListener('scroll', function() { const btn = document.getElementById('backToTop'); if (window.scrollY > 300) { btn.classList.add('visible'); } else { btn.classList.remove('visible'); } });
-        document.addEventListener('mousemove', (e) => { document.querySelectorAll('.feature-card').forEach(card => { const rect = card.getBoundingClientRect(); card.style.setProperty('--mx', `${e.clientX - rect.left}px`); card.style.setProperty('--my', `${e.clientY - rect.top}px`); }); });
-    </script>
-</body>
-</html>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  w
