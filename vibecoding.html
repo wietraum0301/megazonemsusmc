@@ -1,269 +1,883 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="GitHub Spark & VS Code 바이브코딩 원데이(6h) — Universe 2025 핵심 업데이트 요약부터 Spark 바이브코딩, VS Code·Codespaces 고급 개발, AEO 대응 블로그까지 하루 완성">
-    <meta name="keywords" content="GitHub Spark, VS Code, Codespaces, Copilot, AGENTS.md, Agent HQ, Plan Mode, MCP, AEO, GEO, JSON-LD, Next.js, 바이브코딩">
-    <meta name="author" content="Vibe Coding">
-    <meta property="og:title" content="GitHub Spark & VS Code 바이브코딩 원데이">
-    <meta property="og:description" content="아이디어를 앱으로, 그리고 AEO 대응 블로그까지 원데이로 완성하는 6시간 실전 과정">
-    <meta property="og:type" content="website">
-    <title>GitHub Spark & VS Code 바이브코딩 원데이</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background-color: #121f36; color: #f3f2f1; line-height: 1.6; }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="GitHub Spark & VS Code 바이브코딩 원데이(6h) — Universe 2025 핵심 업데이트 요약부터 Spark 바이브코딩, VS Code·Codespaces 고급 개발, AEO 대응 블로그까지 하루 완성">
+<meta name="keywords" content="GitHub Spark, VS Code, Codespaces, Copilot, AGENTS.md, Agent HQ, Plan Mode, MCP, AEO, GEO, JSON-LD, Next.js, 바이브코딩">
+<meta name="author" content="Megazone Cloud Microsoft Unit SPF Team">
+<meta property="og:title" content="GitHub Spark & VS Code 바이브코딩 원데이">
+<meta property="og:description" content="아이디어를 앱으로, 그리고 AEO 대응 블로그까지 원데이로 완성하는 6시간 실전 과정">
+<meta property="og:type" content="website">
+<title>GitHub Spark &amp; VS Code 바이브코딩 원데이 — Megazone Cloud SPF</title>
 
-        /* Skip Link */
-        .skip-link { position: absolute; top: -40px; left: 0; background: #6264a7; color: #fff; padding: 8px 16px; text-decoration: none; z-index: 100; border-radius: 4px; }
-        .skip-link:focus { top: 10px; left: 10px; }
+<style>
+  /* ── Microsoft Segoe UI Web Fonts ── */
+  @font-face {
+    font-family: 'Segoe UI Web';
+    src: local('Segoe UI Light'),
+         url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/light/latest.woff2) format('woff2'),
+         url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/light/latest.woff) format('woff');
+    font-weight: 300; font-style: normal;
+  }
+  @font-face {
+    font-family: 'Segoe UI Web';
+    src: local('Segoe UI'),
+         url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/normal/latest.woff2) format('woff2'),
+         url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/normal/latest.woff) format('woff');
+    font-weight: 400; font-style: normal;
+  }
+  @font-face {
+    font-family: 'Segoe UI Web';
+    src: local('Segoe UI Semibold'),
+         url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/semibold/latest.woff2) format('woff2'),
+         url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/semibold/latest.woff) format('woff');
+    font-weight: 600; font-style: normal;
+  }
+  @font-face {
+    font-family: 'Segoe UI Web';
+    src: local('Segoe UI Bold'),
+         url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/bold/latest.woff2) format('woff2'),
+         url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/bold/latest.woff) format('woff');
+    font-weight: 700; font-style: normal;
+  }
+  @font-face {
+    font-family: 'Segoe UI Web';
+    src: local('Segoe UI Black'),
+         url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/black/latest.woff2) format('woff2'),
+         url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/black/latest.woff) format('woff');
+    font-weight: 800; font-style: normal;
+  }
+  @font-face {
+    font-family: 'Segoe UI Web (Korean)';
+    src: url(//static2.sharepointonline.com/files/fabric/assets/fonts/segoeui-korean/segoeui-light.woff2) format('woff2'),
+         url(//static2.sharepointonline.com/files/fabric/assets/fonts/segoeui-korean/segoeui-light.woff) format('woff');
+    font-weight: 300; font-style: normal;
+  }
+  @font-face {
+    font-family: 'Segoe UI Web (Korean)';
+    src: url(//static2.sharepointonline.com/files/fabric/assets/fonts/segoeui-korean/segoeui-regular.woff2) format('woff2'),
+         url(//static2.sharepointonline.com/files/fabric/assets/fonts/segoeui-korean/segoeui-regular.woff) format('woff');
+    font-weight: 400; font-style: normal;
+  }
+  @font-face {
+    font-family: 'Segoe UI Web (Korean)';
+    src: url(//static2.sharepointonline.com/files/fabric/assets/fonts/segoeui-korean/segoeui-semibold.woff2) format('woff2'),
+         url(//static2.sharepointonline.com/files/fabric/assets/fonts/segoeui-korean/segoeui-semibold.woff) format('woff');
+    font-weight: 600; font-style: normal;
+  }
+  @font-face {
+    font-family: 'Segoe UI Web (Korean)';
+    src: url(//static2.sharepointonline.com/files/fabric/assets/fonts/segoeui-korean/segoeui-bold.woff2) format('woff2'),
+         url(//static2.sharepointonline.com/files/fabric/assets/fonts/segoeui-korean/segoeui-bold.woff) format('woff');
+    font-weight: 700; font-style: normal;
+  }
 
-        /* Header */
-        header { position: sticky; top: 0; z-index: 50; background: rgba(27, 31, 58, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid #2f335b; }
-        .header-container { max-width: 1152px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 1rem; position: relative; }
-        .logo-container { display: flex; align-items: center; gap: 0.5rem; }
-        .logo { width: 28px; height: 28px; border-radius: 8px; background: conic-gradient(from 180deg, #ff6a3d, #ffd166, #4cc9f0, #a06cd5); }
-        .logo-text { font-size: 1.125rem; font-weight: 800; }
-        .mobile-menu-btn { display: none; background: none; border: none; color: #f3f2f1; font-size: 1.5rem; cursor: pointer; padding: 0.5rem; }
-        nav { display: flex; gap: 1rem; font-size: 0.875rem; }
-        nav a { color: #f3f2f1; text-decoration: none; transition: color 0.3s; padding: 0.5rem; border-radius: 4px; }
-        nav a:hover, nav a:focus { color: #d1d5ff; outline: 2px solid #6264a7; }
+  :root {
+    --primary:        #00CECB;
+    --primary-light:  #33DDD9;
+    --primary-dark:   #00A8A6;
+    --accent:         #FF5E5B;
+    --accent-teal:    #00CECB;
+    --bg-start:       #FFFFEA;
+    --bg-end:         #FFF8D6;
+    --text-dark:      #2A2A2A;
+    --text-medium:    #4A4A4A;
+    --text-light:     #6E6E6E;
+    --white:          #FFFFFF;
+    --card-bg:        rgba(255,255,234,0.72);
+    --border-light:   rgba(216,216,216,0.6);
+    --coral:          #FF5E5B;
+    --yellow:         #FFED66;
+    --cream:          #FFFFEA;
+    --gray:           #D8D8D8;
+  }
 
-        /* Hero */
-        .hero { padding: 6rem 1rem; text-align: center; }
-        .hero h2 { font-size: 3rem; font-weight: 800; background: linear-gradient(90deg, #ff6a3d, #ffd166); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 1rem; animation: fadeInUp 0.8s ease-out; }
-        .hero .subtitle { font-size: 1.25rem; color: #9ae6ff; font-weight: 600; margin-bottom: 1rem; }
-        .hero p { max-width: 48rem; margin: 0 auto 2rem; color: #d2d6ff; font-size: 1.125rem; }
-        .date-badge { display: inline-block; padding: 0.5rem 1.25rem; background: linear-gradient(135deg, #4cc9f0, #a06cd5); color: #121f36; font-weight: 800; border-radius: 999px; margin-bottom: 1.25rem; }
-        .hero-buttons { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
-        .btn-primary { padding: 0.75rem 1.5rem; border-radius: 12px; font-weight: 700; background: linear-gradient(90deg, #ff6a3d, #ffd166); color: #121f36; text-decoration: none; transition: transform 0.3s, box-shadow 0.3s; border: none; cursor: pointer; }
-        .btn-primary:hover, .btn-primary:focus { transform: translateY(-2px); box-shadow: 0 8px 16px rgba(255, 165, 0, 0.25); outline: 2px solid #ffd166; }
-        .btn-secondary { padding: 0.75rem 1.5rem; border: 1px solid #3a3f74; border-radius: 12px; color: #f3f2f1; text-decoration: none; background: transparent; }
-        .btn-secondary:hover, .btn-secondary:focus { border-color: #7a7fe0; outline: 2px solid #6264a7; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
 
-        /* Containers */
-        .container { max-width: 1152px; margin: 0 auto; padding: 0 1rem; }
-        .section-title { font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: #fff; }
+  body {
+    font-family:'Segoe UI Web (Korean)','Segoe UI Web','Segoe UI','Malgun Gothic',sans-serif;
+    background:linear-gradient(180deg,var(--bg-start) 0%,var(--bg-end) 100%);
+    color:var(--text-dark);
+    line-height:1.7;
+    overflow-x:hidden;
+  }
 
-        /* Cards & Grids */
-        .features { margin-bottom: 4rem; }
-        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
-        .feature-card { padding: 1.25rem; border-radius: 16px; border: 1px solid #2f335b; background: #1b1f3a; transition: all 0.35s ease; position: relative; overflow: hidden; }
-        .feature-card::before { content: ''; position: absolute; inset: 0; background: radial-gradient(600px circle at var(--mx, 0) var(--my, 0), rgba(255,255,255,0.06), transparent 40%); opacity: 0; transition: opacity 0.3s; }
-        .feature-card:hover { transform: translateY(-6px); border-color: #4cc9f0; box-shadow: 0 10px 20px rgba(76, 201, 240, 0.15); }
-        .feature-card:hover::before { opacity: 1; }
-        .feature-card h4 { font-size: 1.05rem; font-weight: 800; color: #d2d6ff; margin-bottom: 0.5rem; }
-        .feature-card p { font-size: 0.9rem; color: #b9bdfc; }
+  /* ── Animated Background ── */
+  .bg-animation {
+    position:fixed; top:0; left:0;
+    width:100%; height:100%;
+    z-index:-1; overflow:hidden;
+  }
+  .bg-circle {
+    position:absolute; border-radius:50%;
+    filter:blur(100px); opacity:.32;
+    animation:floatCircle 25s ease-in-out infinite;
+  }
+  .bg-circle:nth-child(1){
+    width:700px; height:700px;
+    background:linear-gradient(135deg,rgba(0,206,203,.35),rgba(255,237,102,.2));
+    top:-250px; right:-150px; animation-delay:0s;
+  }
+  .bg-circle:nth-child(2){
+    width:500px; height:500px;
+    background:linear-gradient(135deg,rgba(51,221,217,.28),rgba(0,206,203,.2));
+    bottom:15%; left:-200px; animation-delay:-7s;
+  }
+  .bg-circle:nth-child(3){
+    width:450px; height:450px;
+    background:linear-gradient(135deg,rgba(255,237,102,.22),rgba(0,206,203,.18));
+    top:45%; right:5%; animation-delay:-12s;
+  }
+  .bg-circle:nth-child(4){
+    width:350px; height:350px;
+    background:linear-gradient(135deg,rgba(0,206,203,.2),rgba(51,221,217,.25));
+    bottom:-100px; left:25%; animation-delay:-18s;
+  }
+  @keyframes floatCircle {
+    0%,100%{ transform:translate(0,0) scale(1) rotate(0deg); }
+    25%    { transform:translate(40px,-40px) scale(1.08) rotate(2deg); }
+    50%    { transform:translate(-30px,30px) scale(.95) rotate(-1deg); }
+    75%    { transform:translate(-40px,-25px) scale(1.03) rotate(1deg); }
+  }
 
-        /* Curriculum */
-        .curriculum { margin-bottom: 5rem; }
-        .curriculum-intro { color: #b9bdfc; margin-bottom: 1.5rem; }
-        .sessions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1rem; }
-        .session-card { position: relative; padding: 1.25rem 1.25rem 1.25rem 4.2rem; border-radius: 16px; border: 1px solid #2f335b; background: #1b1f3a; transition: all 0.3s ease; }
-        .session-card:hover { transform: translateX(4px); border-color: #4cc9f0; background: linear-gradient(135deg, #1b1f3a 0%, #252956 100%); box-shadow: 0 8px 16px rgba(76, 201, 240, 0.18); }
-        .session-time { position: absolute; left: 1rem; top: 1.25rem; width: 2.4rem; height: 2.4rem; border-radius: 8px; display: grid; place-items: center; font-weight: 800; font-size: 0.7rem; background: linear-gradient(180deg, #ff6a3d, #ffd166); color: #121f36; }
-        .session-card strong { display: block; color: #e1e4ff; margin-bottom: 0.25rem; }
-        .session-card p { font-size: 0.92rem; color: #b9bdfc; }
+  /* ── Grid Pattern ── */
+  .grid-pattern {
+    position:fixed; top:0; left:0;
+    width:100%; height:100%; z-index:-1;
+    background-image:
+      linear-gradient(rgba(0,206,203,.03) 1px, transparent 1px),
+      linear-gradient(90deg,rgba(0,206,203,.03) 1px, transparent 1px);
+    background-size:80px 80px;
+    animation:gridMove 40s linear infinite;
+  }
+  @keyframes gridMove {
+    0%  { transform:translate(0,0); }
+    100%{ transform:translate(80px,80px); }
+  }
 
-        /* Apply */
-        .apply-section { margin-bottom: 5rem; }
-        .apply-content { max-width: 640px; margin: 0 auto; text-align: center; }
-        .apply-intro { color: #d2d6ff; margin-bottom: 2rem; }
-        .contact-box { display:flex; flex-direction: column;  align-items: center; padding: 2rem; border-radius: 16px; border: 1px solid #2f335b; background: #1b1f3a; gap: .75rem;   }
-        .contact-box p {margin: 0;}
-        .contact-box a { color: #9ae6ff; text-decoration: none; }
-        .contact-box a:hover { text-decoration: underline; overflow-wrap: anywhere;  }
-        .contact-box .btn-primary{  display: inline-block;  line-height: 1;           /* 캡슐 버튼 높이 안정화 */  padding: .9rem 1.6rem;}
+  /* ── Particles ── */
+  .particle { position:fixed; pointer-events:none; opacity:.55; z-index:-1; border-radius:50%; }
+  .particle-1{ width:10px;height:10px;background:var(--primary-light);top:18%;left:8%;  animation:particleFloat 18s ease-in-out infinite; }
+  .particle-2{ width:7px; height:7px; background:var(--accent);        top:55%;right:12%;animation:particleFloat 22s ease-in-out infinite reverse; }
+  .particle-3{ width:12px;height:12px;background:var(--accent-teal);   bottom:25%;left:18%;animation:particleFloat 25s ease-in-out infinite;animation-delay:-8s; }
+  .particle-4{ width:6px; height:6px; background:var(--primary);       top:35%;left:75%;  animation:particleFloat 20s ease-in-out infinite;animation-delay:-4s; }
+  @keyframes particleFloat {
+    0%,100%{ transform:translate(0,0) rotate(0deg); }
+    25%    { transform:translate(60px,-60px) rotate(90deg); }
+    50%    { transform:translate(0,-120px) rotate(180deg); }
+    75%    { transform:translate(-60px,-60px) rotate(270deg); }
+  }
 
-        /* Misc */
-        .key-points { margin-bottom: 4rem; }
-        .key-points-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }
-        footer { text-align: center; font-size: 0.875rem; color: #aab0ff; padding: 2rem 1.5rem; border-top: 1px solid #2f335b; }
-        .back-to-top { position: fixed; bottom: 2rem; right: 2rem; width: 3rem; height: 3rem; border-radius: 50%; background: linear-gradient(135deg, #4cc9f0, #a06cd5); color: #121f36; border: none; font-size: 1.5rem; cursor: pointer; opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s, transform 0.3s; box-shadow: 0 4px 12px rgba(76, 201, 240, 0.35); z-index: 40; font-weight: 900; }
-        .back-to-top.visible { opacity: 1; visibility: visible; }
-        .back-to-top:hover, .back-to-top:focus { transform: translateY(-5px); }
+  /* ── Container ── */
+  .container { max-width:720px; margin:0 auto; padding:0 24px; }
 
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        @media (max-width: 768px) {
-            .hero h2 { font-size: 2rem; }
-            .hero .subtitle { font-size: 1.1rem; }
-            .mobile-menu-btn { display: block; }
-            nav { display: none; position: absolute; top: 100%; left: 0; right: 0; background: rgba(27, 31, 58, 0.98); padding: 1rem; flex-direction: column; border-top: 1px solid #2f335b; }
-            nav.active { display: flex; }
-            .features-grid, .sessions-grid, .key-points-grid { grid-template-columns: 1fr; }
-            .back-to-top { bottom: 1rem; right: 1rem; width: 2.5rem; height: 2.5rem; font-size: 1.2rem; }
-        }
-        html { scroll-behavior: smooth; }
-        *:focus-visible { outline: 2px solid #6264a7; outline-offset: 2px; }
-    </style>
+  /* ── Header ── */
+  header {
+    padding:20px 0;
+    position:sticky; top:0; z-index:100;
+    backdrop-filter:blur(20px);
+    background:rgba(255,255,234,.88);
+    border-bottom:1px solid var(--border-light);
+  }
+  .header-content { display:flex; justify-content:space-between; align-items:center; }
+  .logo {
+    display:flex; align-items:center; gap:10px;
+    font-family:'Segoe UI Web','Segoe UI',sans-serif; font-weight:700; font-size:13px;
+    color:var(--text-medium); text-decoration:none;
+  }
+  .logo-icon {
+    width:34px; height:34px;
+    background:linear-gradient(135deg,var(--primary),var(--accent));
+    border-radius:9px; display:flex; align-items:center;
+    justify-content:center; color:white; font-size:16px;
+  }
+  .header-nav { display:flex; align-items:center; gap:8px; }
+  .header-nav a {
+    display:inline-flex; align-items:center; gap:6px;
+    padding:9px 18px;
+    font-size:13px; font-weight:600;
+    text-decoration:none; border-radius:50px;
+    transition:all .3s ease;
+  }
+  .nav-link-ghost {
+    color:var(--text-medium);
+    border:1px solid var(--border-light);
+    background:var(--white);
+  }
+  .nav-link-ghost:hover { background:var(--bg-end); border-color:var(--primary-light); }
+  .nav-btn {
+    background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+    color:white;
+    box-shadow:0 4px 20px rgba(0,206,203,.3);
+  }
+  .nav-btn:hover { transform:translateY(-2px); box-shadow:0 8px 30px rgba(0,206,203,.45); }
+
+  /* ── Hero ── */
+  .hero { padding:80px 0 60px; text-align:center; }
+
+  .hero-badge {
+    display:inline-flex; align-items:center; gap:8px;
+    padding:9px 20px;
+    background:var(--card-bg);
+    border:1px solid var(--border-light);
+    border-radius:50px; font-size:13px; color:var(--text-medium);
+    margin-bottom:28px;
+    backdrop-filter:blur(10px);
+    animation:fadeInUp .8s ease-out;
+  }
+  .hero-badge span { color:var(--coral); font-weight:600; }
+
+  .hero h1 {
+    font-family:'Segoe UI Web','Segoe UI Web (Korean)','Segoe UI',sans-serif;
+    font-size:clamp(30px,5vw,52px);
+    font-weight:800; line-height:1.18;
+    margin-bottom:20px;
+    animation:fadeInUp .8s ease-out .1s backwards;
+  }
+  .hero h1 .highlight {
+    background:linear-gradient(135deg,var(--coral),#FFED66);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
+  }
+
+  .hero-sub {
+    font-size:15px; color:var(--text-medium);
+    max-width:560px; margin:0 auto 28px;
+    animation:fadeInUp .8s ease-out .2s backwards;
+  }
+
+  .hero-detail {
+    font-size:14px; color:var(--text-light);
+    max-width:560px; margin:0 auto 36px;
+    animation:fadeInUp .8s ease-out .25s backwards;
+    line-height:1.8;
+  }
+  .hero-detail strong { color:var(--text-dark); }
+
+  .hero-meta {
+    display:flex; justify-content:center;
+    gap:16px; flex-wrap:wrap;
+    animation:fadeInUp .8s ease-out .3s backwards;
+    margin-bottom:36px;
+  }
+  .hero-meta-chip {
+    display:flex; align-items:center; gap:8px;
+    padding:8px 16px;
+    background:var(--card-bg);
+    border:1px solid var(--border-light);
+    border-radius:50px; font-size:13px; color:var(--text-medium);
+    backdrop-filter:blur(10px);
+  }
+  .hero-meta-chip.orange { border-color:rgba(255,94,91,.2); }
+
+  .hero-cta {
+    display:flex; gap:14px; justify-content:center;
+    flex-wrap:wrap;
+    animation:fadeInUp .8s ease-out .35s backwards;
+  }
+  .btn-primary {
+    display:inline-flex; align-items:center; gap:9px;
+    padding:14px 32px;
+    background:linear-gradient(135deg,var(--coral),#D94745);
+    color:white; text-decoration:none; border-radius:50px;
+    font-weight:600; font-size:15px;
+    transition:all .3s ease;
+    box-shadow:0 6px 25px rgba(255,94,91,.35);
+  }
+  .btn-primary:hover { transform:translateY(-3px); box-shadow:0 10px 35px rgba(255,94,91,.5); }
+  .btn-secondary {
+    display:inline-flex; align-items:center; gap:9px;
+    padding:14px 32px;
+    background:var(--white); color:var(--text-dark);
+    text-decoration:none; border-radius:50px;
+    font-weight:600; font-size:15px;
+    transition:all .3s ease;
+    border:1px solid var(--border-light);
+  }
+  .btn-secondary:hover { background:var(--bg-end); border-color:var(--primary-light); }
+
+  @keyframes fadeInUp {
+    from { opacity:0; transform:translateY(28px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
+
+  /* ── Section Commons ── */
+  section { padding:70px 0; }
+  .section-header { text-align:center; margin-bottom:48px; }
+  .section-tag {
+    display:inline-block; padding:7px 16px;
+    background:linear-gradient(135deg,rgba(0,206,203,.1),rgba(255,237,102,.12));
+    border-radius:50px; font-size:12px; font-weight:600;
+    color:var(--primary); margin-bottom:14px;
+    text-transform:uppercase; letter-spacing:.5px;
+  }
+  .section-tag.orange {
+    background:linear-gradient(135deg,rgba(255,94,91,.1),rgba(255,237,102,.12));
+    color:var(--coral);
+  }
+  .section-title {
+    font-family:'Segoe UI Web','Segoe UI Web (Korean)','Segoe UI',sans-serif;
+    font-size:clamp(24px,3.5vw,38px);
+    font-weight:700; margin-bottom:12px;
+  }
+  .section-desc {
+    font-size:15px; color:var(--text-medium);
+    max-width:520px; margin:0 auto;
+  }
+
+  /* ── Card Grid ── */
+  .cards-grid {
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+  }
+  @media(max-width:680px){
+    .cards-grid { grid-template-columns:1fr; }
+  }
+
+  /* ── Feature Card (glass-morphism) ── */
+  .feature-card {
+    background:var(--card-bg);
+    backdrop-filter:blur(20px);
+    border:1px solid var(--border-light);
+    border-radius:22px;
+    padding:28px 24px;
+    transition:all .4s ease;
+    position:relative;
+    overflow:hidden;
+  }
+  .feature-card::before {
+    content:'';
+    position:absolute; top:0; left:0;
+    width:100%; height:4px;
+    background:linear-gradient(90deg,var(--primary),var(--accent));
+    transform:scaleX(0); transform-origin:left;
+    transition:transform .4s ease;
+  }
+  .feature-card:hover {
+    transform:translateY(-8px);
+    box-shadow:0 24px 56px rgba(0,206,203,.16);
+    border-color:var(--primary-light);
+  }
+  .feature-card:hover::before { transform:scaleX(1); }
+
+  .feature-card-icon {
+    width:44px; height:44px;
+    border-radius:12px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:20px; margin-bottom:16px;
+    background:linear-gradient(135deg,rgba(0,206,203,.1),rgba(255,237,102,.08));
+    color:var(--primary);
+  }
+  .feature-card-icon.orange {
+    background:linear-gradient(135deg,rgba(255,94,91,.1),rgba(255,237,102,.08));
+    color:var(--coral);
+  }
+  .feature-card-icon.teal {
+    background:linear-gradient(135deg,rgba(0,206,203,.1),rgba(255,237,102,.08));
+    color:var(--accent-teal);
+  }
+
+  .feature-card h4 {
+    font-size:16px; font-weight:700;
+    color:var(--text-dark); line-height:1.45;
+    margin-bottom:8px;
+  }
+  .feature-card p {
+    font-size:13.5px; color:var(--text-medium);
+    line-height:1.7;
+  }
+  .feature-card a {
+    color:var(--primary); text-decoration:underline;
+  }
+
+  /* ── Curriculum Timeline ── */
+  .timeline { position:relative; padding-left:32px; }
+  .timeline::before {
+    content:'';
+    position:absolute; left:13px; top:0;
+    width:2px; height:100%;
+    background:linear-gradient(180deg,var(--primary),var(--accent-teal),var(--coral));
+    border-radius:2px;
+  }
+  .timeline-item {
+    position:relative;
+    margin-bottom:24px;
+    padding:20px 24px;
+    background:var(--card-bg);
+    backdrop-filter:blur(20px);
+    border:1px solid var(--border-light);
+    border-radius:18px;
+    transition:all .35s ease;
+  }
+  .timeline-item:hover {
+    transform:translateX(6px);
+    box-shadow:0 12px 36px rgba(0,206,203,.12);
+    border-color:var(--primary-light);
+  }
+  .timeline-item::before {
+    content:'';
+    position:absolute;
+    left:-25px; top:26px;
+    width:12px; height:12px;
+    border-radius:50%;
+    background:linear-gradient(135deg,var(--primary),var(--accent));
+    border:3px solid var(--bg-start);
+    box-shadow:0 0 0 2px var(--primary-light);
+  }
+  .timeline-item.break-item {
+    background:rgba(255,255,255,.4);
+    padding:12px 24px;
+  }
+  .timeline-item.break-item::before {
+    background:var(--border-light);
+    box-shadow:0 0 0 2px var(--border-light);
+  }
+
+  .timeline-time {
+    display:inline-flex; align-items:center;
+    padding:4px 12px;
+    background:linear-gradient(135deg,rgba(255,94,91,.1),rgba(255,237,102,.08));
+    border-radius:8px;
+    font-size:11px; font-weight:700;
+    color:var(--coral);
+    margin-bottom:8px;
+  }
+  .timeline-item-title {
+    font-size:15px; font-weight:700;
+    color:var(--text-dark); margin-bottom:4px;
+    line-height:1.45;
+  }
+  .timeline-item-desc {
+    font-size:13px; color:var(--text-medium);
+    line-height:1.7;
+  }
+
+  /* ── Guide Section ── */
+  .guide-grid {
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+  }
+  @media(max-width:680px){
+    .guide-grid { grid-template-columns:1fr; }
+  }
+  .guide-card {
+    background:var(--card-bg);
+    backdrop-filter:blur(20px);
+    border:1px solid var(--border-light);
+    border-radius:22px;
+    padding:28px 22px;
+    text-align:center;
+    transition:all .4s ease;
+  }
+  .guide-card:hover {
+    transform:translateY(-6px);
+    box-shadow:0 20px 48px rgba(0,206,203,.14);
+    border-color:var(--primary-light);
+  }
+  .guide-card-icon {
+    font-size:28px; margin-bottom:14px;
+  }
+  .guide-card h4 {
+    font-size:14px; font-weight:700;
+    color:var(--text-dark); margin-bottom:8px;
+  }
+  .guide-card p {
+    font-size:12.5px; color:var(--text-medium);
+    line-height:1.7;
+  }
+
+  /* ── Key Points Grid ── */
+  .key-grid {
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:16px;
+  }
+  @media(max-width:680px){
+    .key-grid { grid-template-columns:1fr; }
+  }
+  .key-card {
+    background:var(--card-bg);
+    backdrop-filter:blur(20px);
+    border:1px solid var(--border-light);
+    border-radius:18px;
+    padding:22px 20px;
+    display:flex; align-items:flex-start; gap:14px;
+    transition:all .35s ease;
+  }
+  .key-card:hover {
+    transform:translateY(-4px);
+    box-shadow:0 16px 40px rgba(0,206,203,.12);
+    border-color:var(--primary-light);
+  }
+  .key-card-icon {
+    font-size:22px; flex-shrink:0;
+    margin-top:2px;
+  }
+  .key-card h4 {
+    font-size:14px; font-weight:700;
+    color:var(--text-dark); margin-bottom:4px;
+  }
+  .key-card p {
+    font-size:12.5px; color:var(--text-medium);
+    line-height:1.6;
+  }
+
+  /* ── CTA Section ── */
+  .cta-section {
+    background:linear-gradient(135deg,var(--coral),#D94745);
+    border-radius:28px; padding:72px 36px;
+    text-align:center; color:white;
+    position:relative; overflow:hidden;
+    margin-bottom:70px;
+  }
+  .cta-section::before {
+    content:''; position:absolute;
+    top:-100px; left:-100px;
+    width:280px; height:280px;
+    background:rgba(255,237,102,.18); border-radius:50%;
+  }
+  .cta-section::after {
+    content:''; position:absolute;
+    bottom:-140px; right:-140px;
+    width:380px; height:380px;
+    background:rgba(255,255,255,.06); border-radius:50%;
+  }
+  .cta-title {
+    font-family:'Segoe UI Web','Segoe UI Web (Korean)','Segoe UI',sans-serif;
+    font-size:clamp(24px,3.5vw,38px); font-weight:700;
+    margin-bottom:14px; position:relative; z-index:1;
+  }
+  .cta-desc {
+    font-size:15px; opacity:.95;
+    margin-bottom:30px;
+    max-width:480px; margin-left:auto; margin-right:auto;
+    position:relative; z-index:1;
+  }
+  .cta-btn {
+    display:inline-flex; align-items:center; gap:9px;
+    padding:16px 36px; background:white; color:var(--coral);
+    text-decoration:none; border-radius:50px;
+    font-weight:700; font-size:15px;
+    transition:all .3s ease;
+    box-shadow:0 6px 24px rgba(0,0,0,.15);
+    position:relative; z-index:1;
+  }
+  .cta-btn:hover { transform:translateY(-3px) scale(1.02); box-shadow:0 10px 34px rgba(0,0,0,.22); }
+  .cta-contact {
+    margin-top:20px; font-size:13px; opacity:.9;
+    position:relative; z-index:1;
+  }
+  .cta-contact a { color:white; text-decoration:underline; }
+
+  /* ── Footer ── */
+  footer {
+    padding:44px 0; text-align:center;
+    border-top:1px solid var(--border-light);
+  }
+  .footer-logo {
+    display:inline-flex; align-items:center; gap:10px;
+    margin-bottom:12px;
+  }
+  .footer-logo-icon {
+    width:40px; height:40px;
+    background:linear-gradient(135deg,var(--primary),var(--accent));
+    border-radius:11px; display:flex; align-items:center;
+    justify-content:center; color:white; font-size:18px;
+  }
+  .footer-logo-text {
+    font-family:'Segoe UI Web','Segoe UI',sans-serif; font-weight:700;
+    font-size:16px; color:var(--text-dark);
+  }
+  .footer-team { font-size:13px; color:var(--text-light); margin-bottom:8px; }
+  .footer-note {
+    font-size:12px; color:var(--text-light);
+    max-width:520px; margin:0 auto; line-height:1.8;
+  }
+
+  /* ── Back to Top ── */
+  .back-to-top {
+    position:fixed; bottom:2rem; right:2rem;
+    width:48px; height:48px; border-radius:50%;
+    background:linear-gradient(135deg,var(--primary),var(--accent));
+    color:white; border:none; font-size:20px; font-weight:700;
+    cursor:pointer; display:flex; align-items:center; justify-content:center;
+    opacity:0; visibility:hidden;
+    transition:all .3s ease;
+    box-shadow:0 6px 20px rgba(0,206,203,.3);
+    z-index:40;
+  }
+  .back-to-top.visible { opacity:1; visibility:visible; }
+  .back-to-top:hover { transform:translateY(-4px); box-shadow:0 10px 30px rgba(0,206,203,.45); }
+
+  /* ── Responsive ── */
+  @media(max-width:600px){
+    .hero { padding:56px 0 44px; }
+    .hero-meta { flex-direction:column; align-items:center; }
+    .cta-section { padding:44px 20px; }
+    .header-nav .nav-link-ghost { display:none; }
+  }
+</style>
 </head>
 <body>
-    <a href="#main-content" class="skip-link">본문으로 건너뛰기</a>
 
-    <header>
-        <div class="header-container">
-            <div class="logo-container">
-                <div class="logo" role="img" aria-label="Vibe Coding 로고"></div>
-                <h1 class="logo-text">Vibe Coding</h1>
-            </div>
-            <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="메뉴 열기">☰</button>
-            <nav id="mainNav">
-                <a href="#guide">안내</a>
-                <a href="#features">특징</a>
-                <a href="#curriculum">커리큘럼</a>
-                <a href="#apply">우리가 먼저 신청</a>
-            </nav>
+<!-- Animated Background -->
+<div class="bg-animation">
+  <div class="bg-circle"></div>
+  <div class="bg-circle"></div>
+  <div class="bg-circle"></div>
+  <div class="bg-circle"></div>
+</div>
+<div class="grid-pattern"></div>
+<div class="particle particle-1"></div>
+<div class="particle particle-2"></div>
+<div class="particle particle-3"></div>
+<div class="particle particle-4"></div>
+
+<!-- Header -->
+<header>
+  <div class="container">
+    <div class="header-content">
+      <a href="https://spfaif.com" class="logo">
+        <div class="logo-icon">⚡</div>
+        <span>Hosted by MEGAZONE CLOUD</span>
+      </a>
+      <div class="header-nav">
+        <a href="#curriculum" class="nav-link-ghost">📅 커리큘럼</a>
+        <a href="#apply" class="nav-btn">🚀 교육 신청하기</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-badge">📦 <span>팝업 제안. 찾아갑니다</span></div>
+    <h1>
+      GitHub Spark &amp;<br>
+      VS Code<br>
+      <span class="highlight">바이브코딩 원데이</span>
+    </h1>
+    <p class="hero-sub">
+      Universe 2025 핵심 요약 → Spark로 미니앱 → VS Code·Codespaces 고급 코딩 → AEO 대응 블로그까지 하루 완성
+    </p>
+    <p class="hero-detail">
+      최신 <strong>GitHub Universe 2025</strong> 업데이트로 워밍업하고,
+      <strong>GitHub Spark</strong>로 자연어 요구사항을 앱으로,
+      <strong>VS Code/코드스페이스</strong>로 기능을 고도화합니다.<br>
+      마지막은 <strong>AEO/GEO</strong>에 강한 <strong>Next.js 블로그</strong>를 구축·배포해 실전까지 마무리합니다.
+    </p>
+    <div class="hero-meta">
+      <div class="hero-meta-chip orange">
+        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <rect x="3" y="4" width="18" height="18" rx="2" stroke-width="2"/>
+          <line x1="16" y1="2" x2="16" y2="6" stroke-width="2"/>
+          <line x1="8" y1="2" x2="8" y2="6" stroke-width="2"/>
+          <line x1="3" y1="10" x2="21" y2="10" stroke-width="2"/>
+        </svg>
+        일정 조율 후 방문 · 6시간
+      </div>
+      <div class="hero-meta-chip orange">
+        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" stroke-width="2"/>
+          <circle cx="12" cy="10" r="3" stroke-width="2"/>
+        </svg>
+        먼저 신청하시는 고객에 찾아갑니다!
+      </div>
+    </div>
+    <div class="hero-cta">
+      <a href="#apply" class="btn-primary">🚀 교육 신청하기</a>
+      <a href="#curriculum" class="btn-secondary">📅 커리큘럼 보기</a>
+    </div>
+  </div>
+</section>
+
+<!-- Features Section -->
+<section id="features">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag orange">✨ 프로그램 특징</div>
+      <h2 class="section-title">왜 이 원데이인가요?</h2>
+      <p class="section-desc">최신 GitHub 기술을 직접 체험하고 실전 산출물까지 가져가는 6시간</p>
+    </div>
+    <div class="cards-grid">
+      <div class="feature-card">
+        <div class="feature-card-icon">🎯</div>
+        <h4>최신 GitHub Universe 2025 브리핑</h4>
+        <p>Agent HQ(오케스트레이션), 채널별 Copilot 할당, VS Code Plan Mode, AGENTS.md, MCP, Code Quality/메트릭스 핵심만 간결하게. 일부 기능은 실습 산출물 제작에 곧바로 활용.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card-icon orange">🎸</div>
+        <h4>바이브코딩 '즉시 체감'</h4>
+        <p>GitHub Spark에서 요구사항 입력 → 미니앱 생성 → 미리보기 → 원클릭 Publish까지 실습. VS Code/코드스페이스 연동으로 기능 고도화.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card-icon teal">📈</div>
+        <h4>실전 산출물: AEO/GEO 블로그</h4>
+        <p>AEO(Answer Engine Optimization), GEO(Generative Engine Optimization) 개념 적용. JSON‑LD(Article/FAQPage) 삽입 + 자동배포(GitHub Pages/Azure SWA) 경험.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card-icon">🎬</div>
+        <h4>공식 레퍼런스</h4>
+        <p><a href="https://www.youtube.com/watch?v=P6Va0_KILi4" target="_blank" rel="noopener">GitHub Universe 2025 Keynote (YouTube)</a>를 참조하여 최신 내용을 반영합니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Guide Section -->
+<section id="guide">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">📋 참가 안내</div>
+      <h2 class="section-title">참가 전 체크리스트</h2>
+    </div>
+    <div class="guide-grid">
+      <div class="guide-card">
+        <div class="guide-card-icon">🎯</div>
+        <h4>대상 &amp; 난이도</h4>
+        <p>프론트엔드/백엔드 개발자, 테크 블로거, 스타트업/마케터(개발 친화), IT 컨설턴트<br>초급~중급(기본 Git·JS 이해 권장)</p>
+      </div>
+      <div class="guide-card">
+        <div class="guide-card-icon">📅</div>
+        <h4>일정 / 형식</h4>
+        <p>1일 집중 총 6시간<br>(예: 09:30–16:30, 중간 휴식 포함)<br>온·오프라인 선택 가능</p>
+      </div>
+      <div class="guide-card">
+        <div class="guide-card-icon">🧰</div>
+        <h4>준비물 (필수)</h4>
+        <p>GitHub 계정 + Copilot <strong>Pro+</strong><br>최신 VS Code &amp; Insider &amp; Chrome/Edge<br>GitHub Codespaces 사용 권한</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Curriculum Section -->
+<section id="curriculum">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag orange">📅 커리큘럼</div>
+      <h2 class="section-title">6시간 타임테이블</h2>
+      <p class="section-desc">오리엔테이션부터 쇼케이스까지, 실습 중심으로 빠르게 완성합니다</p>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-time">00:00 – 00:20</div>
+        <div class="timeline-item-title">오리엔테이션 &amp; 환경 점검</div>
+        <div class="timeline-item-desc">Copilot 로그인, Spark 접근, Codespaces 체크</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">00:20 – 00:50</div>
+        <div class="timeline-item-title">Universe 2025 핵심 업데이트 요약</div>
+        <div class="timeline-item-desc">Agent HQ, Plan Mode, AGENTS.md, MCP, Code Quality &amp; 메트릭스 — "이제 개발은 에이전트 중심" 메시지 확립</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">00:50 – 01:50</div>
+        <div class="timeline-item-title">GitHub Spark 바이브코딩 맛보기</div>
+        <div class="timeline-item-desc">자연어로 AEO 보조 미니앱 생성 → 미리보기 → 원클릭 Publish(기본 GitHub 인증). "VS Code/코드스페이스로 열기" 데모</div>
+      </div>
+      <div class="timeline-item break-item">
+        <div class="timeline-time">01:50 – 02:00</div>
+        <div class="timeline-item-title">☕ Break</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">02:00 – 03:20</div>
+        <div class="timeline-item-title">VS Code &amp; Codespaces 고급 코딩</div>
+        <div class="timeline-item-desc">Plan Mode로 작업 쪼개기 → AGENTS.md로 팀 규칙 주입 → MCP 서버 허용/연결 → Codespaces로 통일 환경</div>
+      </div>
+      <div class="timeline-item break-item">
+        <div class="timeline-time">03:20 – 03:30</div>
+        <div class="timeline-item-title">☕ Break</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">03:30 – 05:30</div>
+        <div class="timeline-item-title">AEO 대응 블로그 구축 &amp; 배포</div>
+        <div class="timeline-item-desc">Next.js/Markdown 템플릿 → TL;DR(직답)·Q&amp;A 섹션 → FAQPage/Article JSON‑LD 삽입 → GitHub Pages(또는 Azure Static Web Apps) 자동배포</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">05:30 – 06:00</div>
+        <div class="timeline-item-title">쇼케이스 &amp; 다음 단계</div>
+        <div class="timeline-item-desc">데모 공유, Copilot Pro+/Enterprise, Codespaces, Azure SWA 도입 로드맵/견적 안내</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Key Points Section -->
+<section>
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">💡 핵심 포인트</div>
+      <h2 class="section-title">이 과정에서 얻어가는 것</h2>
+    </div>
+    <div class="key-grid">
+      <div class="key-card">
+        <div class="key-card-icon">💡</div>
+        <div>
+          <h4>에이전트 중심 개발</h4>
+          <p>Agent HQ·Plan Mode·AGENTS.md·MCP로 팀 생산성 극대화</p>
         </div>
-    </header>
-
-    <section id="main-content" class="hero">
-        <h2>GitHub Spark & VS Code 바이브코딩 원데이</h2>
-        <p class="subtitle">Universe 2025 핵심 요약 → Spark로 미니앱 → VS Code·Codespaces 고급 코딩 → AEO 대응 블로그까지 하루 완성</p>
-        <p>📅 일정 조율해서 찾아갑니다. · 오전 9시 – 오후 4시 ·<h1>장소: 먼저 신청하시는 고객에 찾아갑니다!</h1></p>
-        <p>
-            최신 <strong>GitHub Universe 2025</strong> 업데이트로 워밍업하고,<br>
-            <strong>GitHub Spark</strong>로 자연어 요구사항을 앱으로, <strong>VS Code/코드스페이스</strong>로 기능을 고도화합니다.<br>
-            마지막은 <strong>AEO/GEO</strong>에 강한 <strong>Next.js 블로그</strong>를 구축·배포해 실전까지 마무리합니다.
-        </p>
-        <div class="hero-buttons">
-            <a href="#apply" class="btn-primary">교육 신청하기</a>
-            <a href="#curriculum" class="btn-secondary">커리큘럼 보기 →</a>
+      </div>
+      <div class="key-card">
+        <div class="key-card-icon">⚡</div>
+        <div>
+          <h4>즉시 배포</h4>
+          <p>Spark 원클릭 Publish, Codespaces로 어디서나 동일 환경</p>
         </div>
-    </section>
-
-    <!-- Features Section -->
-    <section id="features" class="features container">
-        <h3 class="section-title">프로그램 특징</h3>
-        <div class="features-grid">
-            <div class="feature-card">
-                <h4>최신 GitHub Universe 2025 브리핑</h4>
-                <p>Agent HQ(오케스트레이션), 채널별 Copilot 할당, VS Code Plan Mode, <code>AGENTS.md</code>, MCP, Code Quality/메트릭스 핵심만 간결하게. 일부 기능은 실습 산출물 제작에 곧바로 활용.</p>
-            </div>
-            <div class="feature-card">
-                <h4>바이브코딩 ‘즉시 체감’</h4>
-                <p>GitHub Spark에서 요구사항 입력 → 미니앱 생성 → 미리보기 → 원클릭 Publish까지 실습. VS Code/코드스페이스 연동으로 기능 고도화.</p>
-            </div>
-            <div class="feature-card">
-                <h4>실전 산출물: AEO/GEO 블로그</h4>
-                <p>AEO(Answer Engine Optimization), GEO(Generative Engine Optimization) 개념 적용. JSON‑LD(Article/FAQPage) 삽입 + 자동배포(GitHub Pages/Azure SWA) 경험.</p>
-            </div>
-            <div class="feature-card">
-                <h4>공식 레퍼런스</h4>
-                <p><a href="https://www.youtube.com/watch?v=P6Va0_KILi4" target="_blank" rel="noopener">GitHub Universe 2025 Keynote(YouTube)</a></p>
-            </div>
+      </div>
+      <div class="key-card">
+        <div class="key-card-icon">📈</div>
+        <div>
+          <h4>검색 최적화</h4>
+          <p>AEO/GEO 전략 + JSON‑LD 삽입으로 Answer Engine에 강한 콘텐츠 제작</p>
         </div>
-    </section>
-
-    <!-- Guide Section -->
-    <section id="guide" class="guide-section container">
-        <h3 class="section-title">참가 안내</h3>
-        <div class="features-grid">
-            <div class="feature-card">
-                <h4>🎯 대상 & 난이도</h4>
-                <p>프론트엔드/백엔드 개발자, 테크 블로거, 스타트업/마케터(개발 친화), IT 컨설턴트 · 난이도: 초급~중급(기본 Git·JS 이해 권장)</p>
-            </div>
-            <div class="feature-card">
-                <h4>📅 일정/형식</h4>
-                <p>형식: 1일 집중 총 6시간(예: 09:30–16:30, 중간 휴식 포함) · 장소: 온·오프라인(고객사/메가존 교육장/온라인 라이브) 선택</p>
-            </div>
-            <div class="feature-card">
-                <h4>🧰 준비물(필수)</h4>
-                <p>GitHub 계정 + GitHub Copilot <strong>Pro+</strong> (Spark 필수, Enterprise로 대체 가능) · 최신 VS Code & VS Code Insider & 브라우저(Chrome/Edge) · GitHub Codespaces 사용 권한</p>
-            </div>
+      </div>
+      <div class="key-card">
+        <div class="key-card-icon">🧱</div>
+        <div>
+          <h4>실전 산출물</h4>
+          <p>Next.js 기반 기술 블로그 완성 및 자동배포 파이프라인</p>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Curriculum Section -->
-    <section id="curriculum" class="curriculum container">
-        <h3 class="section-title">커리큘럼(6시간) — 타임테이블</h3>
-        <p class="curriculum-intro">오리엔테이션부터 쇼케이스까지, 실습 중심으로 빠르게 완성합니다.</p>
+<!-- CTA / Apply Section -->
+<section id="apply">
+  <div class="container">
+    <div class="cta-section">
+      <h2 class="cta-title">아이디어를 '오늘' 제품으로 전환하세요</h2>
+      <p class="cta-desc">원데이 6시간 실전 과정에 참여하고, GitHub Spark와 VS Code로 바이브코딩의 가능성을 직접 경험하세요.</p>
+      <a href="https://forms.microsoft.com/r/cmj3UhuMGU" class="cta-btn" target="_blank">🚀 교육 신청하기</a>
+      <p class="cta-contact">
+        문의: Microsoft Strategic Partner Program — <a href="/cdn-cgi/l/email-protection#294a4c45404869444c4e485346474c074a4644"><span class="__cf_email__" data-cfemail="ea898f86838baa878f8d8b9085848fc4898587">[email&#160;protected]</span></a><br>
+        <a href="https://www.youtube.com/watch?v=P6Va0_KILi4" target="_blank" rel="noopener">GitHub Universe 2025 Keynote 다시보기 →</a>
+      </p>
+    </div>
+  </div>
+</section>
 
-        <div class="sessions-grid">
-            <div class="session-card">
-                <div class="session-time">00:00</div>
-                <strong>오리엔테이션 & 환경 점검 (00:00–00:20)</strong>
-                <p>Copilot 로그인, Spark 접근, Codespaces 체크</p>
-            </div>
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="footer-logo">
+      <div class="footer-logo-icon">⚡</div>
+      <div class="footer-logo-text">MEGAZONE CLOUD</div>
+    </div>
+    <p class="footer-team">마이크로소프트 유닛 SPF 팀 · Microsoft Cloud SPF 2026</p>
+    <p class="footer-note">© 2025 Megazone Cloud Microsoft Business Unit</p>
+  </div>
+</footer>
 
-            <div class="session-card">
-                <div class="session-time">00:20</div>
-                <strong>Universe 2025 핵심 업데이트 요약 (00:20–00:50)</strong>
-                <p>Agent HQ, Plan Mode, AGENTS.md, MCP, Code Quality & 메트릭스 — “이제 개발은 에이전트 중심” 메시지 확립</p>
-            </div>
+<!-- Back to Top -->
+<button id="backToTop" class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="맨 위로 가기">↑</button>
 
-            <div class="session-card">
-                <div class="session-time">00:50</div>
-                <strong>GitHub Spark 바이브코딩 맛보기 (00:50–01:50)</strong>
-                <p>자연어로 AEO 보조 미니앱 생성 → 미리보기 → 원클릭 Publish(기본 GitHub 인증). “VS Code/코드스페이스로 열기” 데모</p>
-            </div>
-
-            <div class="session-card">
-                <div class="session-time">01:50</div>
-                <strong>Break (01:50–02:00)</strong>
-                <p>휴식</p>
-            </div>
-
-            <div class="session-card">
-                <div class="session-time">02:00</div>
-                <strong>VS Code & Codespaces 고급 코딩 (02:00–03:20)</strong>
-                <p>Plan Mode로 작업 쪼개기 → AGENTS.md로 팀 규칙 주입 → MCP 서버 허용/연결 → Codespaces로 통일 환경</p>
-            </div>
-
-            <div class="session-card">
-                <div class="session-time">03:20</div>
-                <strong>Break (03:20–03:30)</strong>
-                <p>휴식</p>
-            </div>
-
-            <div class="session-card">
-                <div class="session-time">03:30</div>
-                <strong>AEO 대응 블로그 구축 & 배포 (03:30–05:30)</strong>
-                <p>Next.js/Markdown 템플릿 → TL;DR(직답)·Q&A 섹션 → FAQPage/Article JSON‑LD 삽입 → GitHub Pages(또는 Azure Static Web Apps) 자동배포</p>
-            </div>
-
-            <div class="session-card">
-                <div class="session-time">05:30</div>
-                <strong>쇼케이스 & 다음 단계 (05:30–06:00)</strong>
-                <p>데모 공유, Copilot Pro+/Enterprise, Codespaces, Azure SWA 도입 로드맵/견적 안내</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Key Points Section -->
-    <section class="key-points container">
-        <h3 class="section-title">핵심 포인트</h3>
-        <div class="key-points-grid">
-            <div class="feature-card"><h4>💡 에이전트 중심 개발</h4><p>Agent HQ·Plan Mode·AGENTS.md·MCP로 팀 생산성 극대화</p></div>
-            <div class="feature-card"><h4>⚡ 즉시 배포</h4><p>Spark 원클릭 Publish, Codespaces로 어디서나 동일 환경</p></div>
-            <div class="feature-card"><h4>📈 검색 최적화</h4><p>AEO/GEO 전략 + JSON‑LD 삽입으로 Answer Engine에 강한 콘텐츠 제작</p></div>
-            <div class="feature-card"><h4>🧱 실전 산출물</h4><p>Next.js 기반 기술 블로그 완성 및 자동배포 파이프라인</p></div>
-        </div>
-    </section>
-
-    <!-- Apply Section -->
-    <section id="apply" class="apply-section container">
-        <h3 class="section-title">신청 & 문의</h3>
-        <div class="apply-content">
-            <p class="apply-intro">원데이 6시간 실전 과정에 참여하고, 아이디어를 ‘오늘’ 제품과 콘텐츠로 전환하세요.</p>
-            <div class="contact-box">
-                <p><a class="btn-primary" href="https://forms.microsoft.com/r/cmj3UhuMGU" aria-disabled="true">신청 링크</a></p>
-                <p>문의: Microsoft Strategic Partner Program –  <a href="mailto:celia@megazone.com">celia@megazone.com</a>
-                </p>
-                <p><a href="https://www.youtube.com/watch?v=P6Va0_KILi4" target="_blank" rel="noopener">GitHub Universe 2025 Keynote 다시보기</a></p>
-            </div>
-        </div>
-    </section>
-
-    <footer>© 2025 Megazone Cloud Microsoft Business Unit</footer>
-
-    <button id="backToTop" class="back-to-top" onclick="scrollToTop()" aria-label="맨 위로 가기">↑</button>
-
-    <script>
-        function toggleMenu() { const nav = document.getElementById('mainNav'); nav.classList.toggle('active'); }
-        document.querySelectorAll('nav a').forEach(link => { link.addEventListener('click', () => { document.getElementById('mainNav').classList.remove('active'); }); });
-        function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
-        window.addEventListener('scroll', function() { const btn = document.getElementById('backToTop'); if (window.scrollY > 300) { btn.classList.add('visible'); } else { btn.classList.remove('visible'); } });
-        document.addEventListener('mousemove', (e) => { document.querySelectorAll('.feature-card').forEach(card => { const rect = card.getBoundingClientRect(); card.style.setProperty('--mx', `${e.clientX - rect.left}px`); card.style.setProperty('--my', `${e.clientY - rect.top}px`); }); });
-    </script>
-</body>
-</html>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  w
