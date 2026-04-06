@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="에이전틱 AI 시대, M365 코파일럿 비즈니스 에이전트 수업 시리즈 — 매주 수요일 오후 4시, 5주 완성 온라인 웨비나">
+<meta name="keywords" content="M365 Copilot, 에이전트, SharePoint, Copilot Chat, 웨비나, 메가존클라우드, Microsoft 365">
+<meta name="author" content="Megazone Cloud Microsoft Unit SPF Team">
+<title>M365 코파일럿 에이전트 수업 시리즈 — Megazone Cloud SPF</title>
+
+<style>
+  /* ── Microsoft Segoe UI Web Fonts ── */
+  @font-face { font-family:'Segoe UI Web'; src:local('Segoe UI'),url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/normal/latest.woff2) format('woff2'); font-weight:400; }
+  @font-face { font-family:'Segoe UI Web'; src:local('Segoe UI Semibold'),url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/semibold/latest.woff2) format('woff2'); font-weight:600; }
+  @font-face { font-family:'Segoe UI Web'; src:local('Segoe UI Bold'),url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/bold/latest.woff2) format('woff2'); font-weight:700; }
+  @font-face { font-family:'Segoe UI Web'; src:local('Segoe UI Black'),url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/black/latest.woff2) format('woff2'); font-weight:800; }
+  @font-face { font-family:'Segoe UI Web (Korean)'; src:url(//static2.sharepointonline.com/files/fabric/assets/fonts/segoeui-korean/segoeui-regular.woff2) format('woff2'); font-weight:400; }
+  @font-face { font-family:'Segoe UI Web (Korean)'; src:url(//static2.sharepointonline.com/files/fabric/assets/fonts/segoeui-korean/segoeui-semibold.woff2) format('woff2'); font-weight:600; }
+  @font-face { font-family:'Segoe UI Web (Korean)'; src:url(//static2.sharepointonline.com/files/fabric/assets/fonts/segoeui-korean/segoeui-bold.woff2) format('woff2'); font-weight:700; }
+
+  :root {
+    --primary:        #0078D4;
+    --primary-light:  #00A4EF;
+    --primary-dark:   #005A9E;
+    --accent:         #00E5FF;
+    --accent-teal:    #00B7C3;
+    --bg-start:       #F0F8FF;
+    --bg-end:         #E0F4FF;
+    --text-dark:      #0A1628;
+    --text-medium:    #2D4A6A;
+    --text-light:     #4A6A8A;
+    --white:          #FFFFFF;
+    --card-bg:        rgba(255,255,255,0.82);
+    --border-light:   rgba(0,120,212,0.14);
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Segoe UI Web (Korean)','Segoe UI Web','Segoe UI','Malgun Gothic',sans-serif;background:linear-gradient(180deg,var(--bg-start),var(--bg-end));color:var(--text-dark);line-height:1.7;overflow-x:hidden;}
+
+  /* ── Background ── */
+  .bg-animation{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;overflow:hidden;}
+  .bg-circle{position:absolute;border-radius:50%;filter:blur(100px);opacity:.3;animation:floatCircle 25s ease-in-out infinite;}
+  .bg-circle:nth-child(1){width:700px;height:700px;background:linear-gradient(135deg,rgba(0,120,212,.35),rgba(0,229,255,.2));top:-250px;right:-150px;}
+  .bg-circle:nth-child(2){width:500px;height:500px;background:linear-gradient(135deg,rgba(0,164,239,.28),rgba(0,183,195,.2));bottom:15%;left:-200px;animation-delay:-7s;}
+  .bg-circle:nth-child(3){width:450px;height:450px;background:linear-gradient(135deg,rgba(0,229,255,.22),rgba(0,120,212,.18));top:45%;right:5%;animation-delay:-12s;}
+  @keyframes floatCircle{0%,100%{transform:translate(0,0) scale(1)}25%{transform:translate(40px,-40px) scale(1.08)}50%{transform:translate(-30px,30px) scale(.95)}75%{transform:translate(-40px,-25px) scale(1.03)}}
+  .grid-pattern{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;background-image:linear-gradient(rgba(0,120,212,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,120,212,.03) 1px,transparent 1px);background-size:80px 80px;}
+
+  /* ── Container ── */
+  .container{max-width:960px;margin:0 auto;padding:0 24px;}
+
+  /* ── Header ── */
+  header{padding:20px 0;position:sticky;top:0;z-index:100;backdrop-filter:blur(20px);background:rgba(240,248,255,.88);border-bottom:1px solid var(--border-light);}
+  .header-content{display:flex;justify-content:space-between;align-items:center;}
+  .logo{display:flex;align-items:center;gap:10px;font-family:'Segoe UI Web','Segoe UI',sans-serif;font-weight:700;font-size:13px;color:var(--text-medium);text-decoration:none;}
+  .logo-icon{width:34px;height:34px;background:linear-gradient(135deg,var(--primary),var(--accent));border-radius:9px;display:flex;align-items:center;justify-content:center;color:white;font-size:16px;}
+  .header-nav{display:flex;align-items:center;gap:8px;}
+  .header-nav a{display:inline-flex;align-items:center;gap:6px;padding:9px 18px;font-size:13px;font-weight:600;text-decoration:none;border-radius:50px;transition:all .3s ease;}
+  .nav-link-ghost{color:var(--text-medium);border:1px solid var(--border-light);background:var(--white);}
+  .nav-link-ghost:hover{background:var(--bg-end);border-color:var(--primary-light);}
+  .nav-btn{background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:white;box-shadow:0 4px 20px rgba(0,120,212,.3);}
+  .nav-btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,120,212,.45);}
+
+  /* ── Hero ── */
+  .hero{padding:80px 0 60px;text-align:center;}
+  .hero-badge{display:inline-flex;align-items:center;gap:8px;padding:9px 20px;background:var(--card-bg);border:1px solid var(--border-light);border-radius:50px;font-size:13px;color:var(--text-medium);margin-bottom:28px;backdrop-filter:blur(10px);animation:fadeInUp .8s ease-out;}
+  .hero-badge span{color:var(--primary);font-weight:600;}
+  .hero h1{font-family:'Segoe UI Web','Segoe UI Web (Korean)','Segoe UI',sans-serif;font-size:clamp(28px,5vw,48px);font-weight:800;line-height:1.2;margin-bottom:20px;animation:fadeInUp .8s ease-out .1s backwards;}
+  .hero h1 .highlight{background:linear-gradient(135deg,var(--primary),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+  .hero-sub{font-size:15px;color:var(--text-medium);max-width:560px;margin:0 auto 28px;animation:fadeInUp .8s ease-out .2s backwards;}
+  .hero-meta{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;animation:fadeInUp .8s ease-out .3s backwards;margin-bottom:36px;}
+  .hero-meta-chip{display:flex;align-items:center;gap:8px;padding:8px 16px;background:var(--card-bg);border:1px solid var(--border-light);border-radius:50px;font-size:13px;color:var(--text-medium);backdrop-filter:blur(10px);}
+  .hero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;animation:fadeInUp .8s ease-out .35s backwards;}
+  .btn-primary{display:inline-flex;align-items:center;gap:9px;padding:14px 32px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:white;text-decoration:none;border-radius:50px;font-weight:600;font-size:15px;transition:all .3s ease;box-shadow:0 6px 25px rgba(0,120,212,.35);}
+  .btn-primary:hover{transform:translateY(-3px);box-shadow:0 10px 35px rgba(0,120,212,.5);}
+  .btn-secondary{display:inline-flex;align-items:center;gap:9px;padding:14px 32px;background:var(--white);color:var(--text-dark);text-decoration:none;border-radius:50px;font-weight:600;font-size:15px;transition:all .3s ease;border:1px solid var(--border-light);}
+  .btn-secondary:hover{background:var(--bg-end);border-color:var(--primary-light);}
+  @keyframes fadeInUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+
+  /* ── Section ── */
+  section{padding:70px 0;}
+  .section-header{text-align:center;margin-bottom:48px;}
+  .section-tag{display:inline-block;padding:7px 16px;background:linear-gradient(135deg,rgba(0,120,212,.1),rgba(0,229,255,.12));border-radius:50px;font-size:12px;font-weight:600;color:var(--primary);margin-bottom:14px;text-transform:uppercase;letter-spacing:.5px;}
+  .section-title{font-family:'Segoe UI Web','Segoe UI Web (Korean)','Segoe UI',sans-serif;font-size:clamp(24px,3.5vw,38px);font-weight:700;margin-bottom:12px;}
+  .section-desc{font-size:15px;color:var(--text-medium);max-width:520px;margin:0 auto;}
+
+  /* ── Session Grid (3x2) ── */
+  .session-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  @media(max-width:900px){.session-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:600px){.session-grid{grid-template-columns:1fr;}}
+
+  .session-card{background:var(--card-bg);backdrop-filter:blur(20px);border:1px solid var(--border-light);border-radius:22px;overflow:hidden;transition:all .4s ease;display:flex;flex-direction:column;}
+  .session-card:hover{transform:translateY(-8px);box-shadow:0 24px 56px rgba(0,120,212,.16);border-color:var(--primary-light);}
+
+  .session-card-bar{height:5px;background:linear-gradient(90deg,var(--primary),var(--accent));}
+  .session-card-body{padding:20px 18px 18px;display:flex;flex-direction:column;flex:1;}
+
+  .session-week{display:inline-flex;align-items:center;gap:6px;margin-bottom:12px;}
+  .session-week-badge{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 3px 10px rgba(0,120,212,.2);}
+  .session-week-num{font-size:15px;font-weight:800;color:white;line-height:1;}
+  .session-week-label{font-size:6.5px;font-weight:600;color:rgba(255,255,255,.7);text-transform:uppercase;letter-spacing:.3px;}
+  .session-date{font-size:11px;font-weight:600;color:var(--primary);}
+
+  .session-title{font-size:13.5px;font-weight:700;color:var(--text-dark);line-height:1.45;margin-bottom:8px;}
+  .session-format{display:inline-flex;align-items:center;gap:4px;padding:3px 10px;background:linear-gradient(135deg,rgba(0,183,195,.1),rgba(0,229,255,.08));border-radius:6px;font-size:9px;font-weight:600;color:var(--accent-teal);margin-bottom:10px;align-self:flex-start;}
+
+  .session-desc{font-size:11.5px;color:var(--text-medium);margin-bottom:12px;line-height:1.65;}
+
+  .session-agenda-title{font-size:9px;font-weight:700;color:var(--primary);margin-bottom:4px;text-transform:uppercase;letter-spacing:.5px;}
+  .session-agenda-list{list-style:none;padding:0;margin:0;}
+  .session-agenda-list li{font-size:10.5px;color:var(--text-light);padding:2px 0 2px 14px;position:relative;line-height:1.45;}
+  .session-agenda-list li::before{content:'→';position:absolute;left:0;color:var(--accent-teal);font-weight:600;font-size:10px;}
+
+  /* ── Wave Card (6th slot) ── */
+  .wave-card{background:linear-gradient(135deg,var(--primary),var(--primary-dark));border-radius:22px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center;min-height:320px;border:1px solid rgba(0,120,212,.2);}
+  .wave-card svg{position:absolute;bottom:0;left:0;width:100%;opacity:.25;}
+  .wave-card-content{position:relative;z-index:1;text-align:center;padding:24px;}
+  .wave-card-icon{font-size:48px;margin-bottom:12px;filter:drop-shadow(0 4px 12px rgba(0,0,0,.15));}
+  .wave-card-content h3{font-size:16px;font-weight:700;color:white;margin-bottom:6px;line-height:1.4;}
+  .wave-card-content p{font-size:11px;color:rgba(255,255,255,.7);line-height:1.5;}
+  .wave-card .copilot-sparkle{position:absolute;width:8px;height:8px;border-radius:50%;background:var(--accent);opacity:.5;animation:sparkle 4s ease-in-out infinite;}
+  .wave-card .copilot-sparkle:nth-child(1){top:15%;left:20%;animation-delay:0s;}
+  .wave-card .copilot-sparkle:nth-child(2){top:30%;right:15%;animation-delay:-1.5s;width:6px;height:6px;background:rgba(0,229,255,.6);}
+  .wave-card .copilot-sparkle:nth-child(3){bottom:35%;left:12%;animation-delay:-2.8s;width:10px;height:10px;background:rgba(0,164,239,.4);}
+  .wave-card .copilot-sparkle:nth-child(4){top:20%;right:30%;animation-delay:-0.8s;width:5px;height:5px;}
+  @keyframes sparkle{0%,100%{opacity:.3;transform:scale(1)}50%{opacity:.7;transform:scale(1.5)}}
+
+  /* ── Info Cards Grid ── */
+  .info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  @media(max-width:680px){.info-grid{grid-template-columns:1fr;}}
+  .info-card{background:var(--card-bg);backdrop-filter:blur(20px);border:1px solid var(--border-light);border-radius:18px;padding:24px 20px;text-align:center;transition:all .35s ease;}
+  .info-card:hover{transform:translateY(-6px);box-shadow:0 20px 48px rgba(0,120,212,.12);border-color:var(--primary-light);}
+  .info-card-icon{font-size:28px;margin-bottom:12px;}
+  .info-card h4{font-size:14px;font-weight:700;color:var(--text-dark);margin-bottom:6px;}
+  .info-card p{font-size:12.5px;color:var(--text-medium);line-height:1.6;}
+
+  /* ── CTA ── */
+  .cta-section{background:linear-gradient(135deg,var(--primary),var(--primary-dark));border-radius:28px;padding:72px 36px;text-align:center;color:white;position:relative;overflow:hidden;margin-bottom:70px;}
+  .cta-section::before{content:'';position:absolute;top:-100px;left:-100px;width:280px;height:280px;background:rgba(0,229,255,.12);border-radius:50%;}
+  .cta-section::after{content:'';position:absolute;bottom:-140px;right:-140px;width:380px;height:380px;background:rgba(255,255,255,.04);border-radius:50%;}
+  .cta-title{font-family:'Segoe UI Web','Segoe UI Web (Korean)','Segoe UI',sans-serif;font-size:clamp(24px,3.5vw,38px);font-weight:700;margin-bottom:14px;position:relative;z-index:1;}
+  .cta-desc{font-size:15px;opacity:.92;margin-bottom:30px;max-width:480px;margin-left:auto;margin-right:auto;position:relative;z-index:1;}
+  .cta-btn{display:inline-flex;align-items:center;gap:9px;padding:16px 36px;background:white;color:var(--primary);text-decoration:none;border-radius:50px;font-weight:700;font-size:15px;transition:all .3s ease;box-shadow:0 6px 24px rgba(0,0,0,.15);position:relative;z-index:1;}
+  .cta-btn:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 10px 34px rgba(0,0,0,.22);}
+  .cta-note{margin-top:20px;font-size:13px;opacity:.85;position:relative;z-index:1;}
+
+  /* ── Footer ── */
+  footer{padding:44px 0;text-align:center;border-top:1px solid var(--border-light);}
+  .footer-logo{display:inline-flex;align-items:center;gap:10px;margin-bottom:12px;}
+  .footer-logo-icon{width:40px;height:40px;background:linear-gradient(135deg,var(--primary),var(--accent));border-radius:11px;display:flex;align-items:center;justify-content:center;color:white;font-size:18px;}
+  .footer-logo-text{font-family:'Segoe UI Web','Segoe UI',sans-serif;font-weight:700;font-size:16px;color:var(--text-dark);}
+  .footer-team{font-size:13px;color:var(--text-light);margin-bottom:8px;}
+  .footer-note{font-size:12px;color:var(--text-light);max-width:520px;margin:0 auto;line-height:1.8;}
+
+  .back-to-top{position:fixed;bottom:2rem;right:2rem;width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--accent));color:white;border:none;font-size:20px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:all .3s ease;box-shadow:0 6px 20px rgba(0,120,212,.3);z-index:40;}
+  .back-to-top.visible{opacity:1;visibility:visible;}
+  .back-to-top:hover{transform:translateY(-4px);box-shadow:0 10px 30px rgba(0,120,212,.45);}
+
+  @media(max-width:600px){
+    .hero{padding:56px 0 44px;}
+    .hero-meta{flex-direction:column;align-items:center;}
+    .cta-section{padding:44px 20px;}
+    .header-nav .nav-link-ghost{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<div class="bg-animation"><div class="bg-circle"></div><div class="bg-circle"></div><div class="bg-circle"></div></div>
+<div class="grid-pattern"></div>
+
+<!-- Header -->
+<header>
+  <div class="container">
+    <div class="header-content">
+      <a href="https://spfaif.com" class="logo">
+        <div class="logo-icon">⚡</div>
+        <span>Hosted by MEGAZONE CLOUD</span>
+      </a>
+      <div class="header-nav">
+        <a href="https://spfaif.com" class="nav-link-ghost">🏠 홈</a>
+        <a href="#sessions" class="nav-link-ghost">📅 세션</a>
+        <a href="#register" class="nav-btn">🚀 등록하기</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-badge">🎙️ <span>온라인 웨비나 시리즈 · 5주 완성</span></div>
+    <h1>
+      에이전틱 AI 시대,<br>
+      M365 코파일럿<br>
+      <span class="highlight">비즈니스 에이전트 수업</span>
+    </h1>
+    <p class="hero-sub">
+      매주 수요일 오후 4시~5시, PT+Demo 중심의 실전 웨비나로<br>
+      M365 에이전트를 처음부터 끝까지 마스터합니다
+    </p>
+    <div class="hero-meta">
+      <div class="hero-meta-chip">
+        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" stroke-width="2"/><line x1="16" y1="2" x2="16" y2="6" stroke-width="2"/><line x1="8" y1="2" x2="8" y2="6" stroke-width="2"/><line x1="3" y1="10" x2="21" y2="10" stroke-width="2"/></svg>
+        매주 수요일 · 4월 8일~5월 6일
+      </div>
+      <div class="hero-meta-chip">
+        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke-width="2"/><path d="M12 6v6l4 2" stroke-width="2"/></svg>
+        오후 4시~5시 · 1시간
+      </div>
+      <div class="hero-meta-chip">
+        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" stroke-width="2"/><circle cx="12" cy="10" r="3" stroke-width="2"/></svg>
+        온라인 · Microsoft Teams
+      </div>
+    </div>
+    <div class="hero-cta">
+      <a href="#register" class="btn-primary">🚀 웨비나 등록하기</a>
+      <a href="#sessions" class="btn-secondary">📅 세션 살펴보기</a>
+    </div>
+  </div>
+</section>
+
+<!-- Overview -->
+<section>
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">✨ 시리즈 개요</div>
+      <h2 class="section-title">5주 만에 에이전트 전문가로</h2>
+      <p class="section-desc">무료 vs 유료 차이부터 에이전트 설계 지침까지, 단계별로 완성합니다</p>
+    </div>
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="info-card-icon">🎯</div>
+        <h4>이런 분께 추천</h4>
+        <p>M365 Copilot 도입 예정/초기 기업 실무자, IT 관리자, 업무 자동화에 관심 있는 비즈니스 유저</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-icon">🎬</div>
+        <h4>PT + Demo 실전</h4>
+        <p>매 세션 라이브 데모와 함께 진행. 실제 사용 경험 중심으로 체감하고 바로 적용할 수 있습니다</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-icon">📈</div>
+        <h4>5주 연속 설계</h4>
+        <p>기본 활용 → SharePoint 에이전트 → 새 에이전트 → 업무 자동화 → 설계 지침까지 점진적 심화</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sessions Timeline -->
+<section id="sessions">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">📅 세션 상세</div>
+      <h2 class="section-title">5주 커리큘럼</h2>
+      <p class="section-desc">매주 수요일 오후 4시~5시, Microsoft Teams에서 진행됩니다</p>
+    </div>
+
+    <div class="session-grid">
+
+      <!-- Week 1 -->
+      <div class="session-card">
+        <div class="session-card-bar"></div>
+        <div class="session-card-body">
+          <div class="session-week">
+            <div class="session-week-badge"><span class="session-week-num">1</span><span class="session-week-label">WEEK</span></div>
+            <span class="session-date">4월 8일 (수) 4시~5시</span>
+          </div>
+          <div class="session-title">만들지 않아도 바로 쓰는 미리 빌드된 M365 에이전트 활용</div>
+          <div class="session-format">🎬 PT + Demo</div>
+          <div class="session-desc">M365 기본 제공 에이전트 이해. "에이전트란 무엇인가?"를 실제 사용 경험 중심으로 체감하고 무료 버전과의 결정적 차이점을 명확화합니다.</div>
+          <div class="session-agenda-title">진행 아젠다</div>
+          <ul class="session-agenda-list">
+            <li>무료 Copilot Chat vs 유료 Copilot 차이 정리</li>
+            <li>미리 빌드된 M365 에이전트 종류 소개</li>
+            <li>리서치 도구 vs 분석가 에이전트 Demo</li>
+            <li>Copilot Chat vs M365 에이전트 결과 비교</li>
+            <li>실무 적용 포인트 · 핵심 정리</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Week 2 -->
+      <div class="session-card">
+        <div class="session-card-bar"></div>
+        <div class="session-card-body">
+          <div class="session-week">
+            <div class="session-week-badge"><span class="session-week-num">2</span><span class="session-week-label">WEEK</span></div>
+            <span class="session-date">4월 15일 (수) 4시~5시</span>
+          </div>
+          <div class="session-title">우리 회사 문서를 이해하게 만드는 SharePoint 기본 지식 에이전트</div>
+          <div class="session-format">🎬 PT + Demo</div>
+          <div class="session-desc">SharePoint를 지식 베이스로 활용하는 에이전트 설계. "파일을 던지는 Copilot" → "조직 맥락을 이해하는 에이전트"로 진화.</div>
+          <div class="session-agenda-title">진행 아젠다</div>
+          <ul class="session-agenda-list">
+            <li>SharePoint 에이전트의 역할과 한계</li>
+            <li>에이전트 생성 흐름 전체 구조</li>
+            <li>프로젝트 사이트 기반 에이전트 생성 (Demo)</li>
+            <li>정책/가이드/보고서 질의응답</li>
+            <li>문서 정리 체크리스트 · Best Practice</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Week 3 -->
+      <div class="session-card">
+        <div class="session-card-bar"></div>
+        <div class="session-card-body">
+          <div class="session-week">
+            <div class="session-week-badge"><span class="session-week-num">3</span><span class="session-week-label">WEEK</span></div>
+            <span class="session-date">4월 22일 (수) 4시~5시</span>
+          </div>
+          <div class="session-title">[새 에이전트]로 만드는 에이전트 세상</div>
+          <div class="session-format">🎬 PT + Demo</div>
+          <div class="session-desc">m365.cloud.microsoft.com/chat → [새 에이전트] 기반 생성. "프롬프트"가 아닌 에이전트 설계 관점으로 전환합니다.</div>
+          <div class="session-agenda-title">진행 아젠다</div>
+          <ul class="session-agenda-list">
+            <li>새 에이전트 메뉴 구조 이해</li>
+            <li>에이전트 설계의 요소</li>
+            <li>에이전트 생성 (Demo)</li>
+            <li>As-Is / To-Be 비교</li>
+            <li>핵심 정리 &amp; 다음 회차 안내</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Week 4 -->
+      <div class="session-card">
+        <div class="session-card-bar"></div>
+        <div class="session-card-body">
+          <div class="session-week">
+            <div class="session-week-badge"><span class="session-week-num">4</span><span class="session-week-label">WEEK</span></div>
+            <span class="session-date">4월 29일 (수) 4시~5시</span>
+          </div>
+          <div class="session-title">판단·정리·보고를 대신하는 에이전트 활용</div>
+          <div class="session-format">🎬 PT + Demo</div>
+          <div class="session-desc">단순 Q&amp;A가 아닌 업무 흐름을 대신 처리하는 에이전트. 여러 직무에 확장 가능한 구조를 이해합니다.</div>
+          <div class="session-agenda-title">진행 아젠다</div>
+          <ul class="session-agenda-list">
+            <li>반복 업무 패턴 재 정리</li>
+            <li>시나리오 Demo</li>
+            <li>여러 직무 확장 예시</li>
+            <li>에이전트를 여러 개로 나눠야 하는 이유</li>
+            <li>핵심 정리 &amp; 다음 회차 안내</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Week 5 -->
+      <div class="session-card">
+        <div class="session-card-bar"></div>
+        <div class="session-card-body">
+          <div class="session-week">
+            <div class="session-week-badge"><span class="session-week-num">5</span><span class="session-week-label">WEEK</span></div>
+            <span class="session-date">5월 6일 (수) 4시~5시</span>
+          </div>
+          <div class="session-title">같은 에이전트인데, 왜 결과가 다를까? 설계의 모든 것!</div>
+          <div class="session-format">🎬 PT + Demo</div>
+          <div class="session-desc">에이전트 품질을 좌우하는 지침(Guidelines) 설계법. 실전 꿀 팁으로 시리즈를 마무리합니다.</div>
+          <div class="session-agenda-title">진행 아젠다</div>
+          <ul class="session-agenda-list">
+            <li>잘 안 되는 에이전트의 공통점</li>
+            <li>좋은 에이전트 지침의 구조</li>
+            <li>실전 꿀팁!</li>
+            <li>전체 과정 정리 &amp; 다음 단계 제안</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Wave Card (6th) -->
+      <div class="wave-card">
+        <div class="copilot-sparkle"></div>
+        <div class="copilot-sparkle"></div>
+        <div class="copilot-sparkle"></div>
+        <div class="copilot-sparkle"></div>
+        <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0,120 C60,80 120,160 200,100 C280,40 340,140 400,90 L400,200 L0,200 Z" fill="rgba(0,229,255,.2)"/>
+          <path d="M0,150 C80,110 160,180 240,130 C320,80 360,160 400,120 L400,200 L0,200 Z" fill="rgba(0,164,239,.15)"/>
+          <path d="M0,170 C100,140 200,190 300,155 C350,140 380,175 400,160 L400,200 L0,200 Z" fill="rgba(0,120,212,.12)"/>
+        </svg>
+        <div class="wave-card-content">
+          <div class="wave-card-icon">✨</div>
+          <h3>5주 완성 후<br>당신의 조직은</h3>
+          <p>에이전트를 직접 만들고<br>업무에 바로 적용하는<br>AI-Native 팀으로 진화합니다</p>
+        </div>
+      </div>
+
+    </div><!-- /session-grid -->
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="register">
+  <div class="container">
+    <div class="cta-section">
+      <h2 class="cta-title">5주 만에 M365 에이전트를<br>완전히 마스터하세요</h2>
+      <p class="cta-desc">매주 수요일 오후 4시, 1시간 투자로 에이전트 설계부터 실전 활용까지. 무료 온라인 웨비나입니다.</p>
+      <a href="https://megazone.agenthon-lab.com" class="cta-btn" target="_blank">🚀 지금 등록하기</a>
+      <p class="cta-note">📌 각 세션은 개별 등록이 가능합니다. 관심 있는 회차만 골라 참여하세요!</p>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="footer-logo">
+      <div class="footer-logo-icon">⚡</div>
+      <div class="footer-logo-text">MEGAZONE CLOUD</div>
+    </div>
+    <p class="footer-team">마이크로소프트 유닛 SPF 팀 · Microsoft Cloud SPF 2026</p>
+    <p class="footer-note">문의: Microsoft Unit SPF Team · <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e58680898c84a5888082849f8a8b80cb868a88">[email&#160;protected]</a></p>
+  </div>
+</footer>
+
+<button id="backToTop" class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="맨 위로 가기">↑</button>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><
