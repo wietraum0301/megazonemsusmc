@@ -63,7 +63,7 @@
   .nav-btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,120,212,.45);}
 
   /* ── Hero ── */
-  .hero{padding:80px 0 60px;text-align:center;}
+  .hero{padding:80px 0 90px;text-align:center;position:relative;}
   .hero-badge{display:inline-flex;align-items:center;gap:8px;padding:9px 20px;background:var(--card-bg);border:1px solid var(--border-light);border-radius:50px;font-size:13px;color:var(--text-medium);margin-bottom:28px;backdrop-filter:blur(10px);animation:fadeInUp .8s ease-out;}
   .hero-badge span{color:var(--primary);font-weight:600;}
   .hero h1{font-family:'Segoe UI Web','Segoe UI Web (Korean)','Segoe UI',sans-serif;font-size:clamp(28px,5vw,48px);font-weight:800;line-height:1.2;margin-bottom:20px;animation:fadeInUp .8s ease-out .1s backwards;}
@@ -157,8 +157,70 @@
   .back-to-top.visible{opacity:1;visibility:visible;}
   .back-to-top:hover{transform:translateY(-4px);box-shadow:0 10px 30px rgba(0,120,212,.45);}
 
+  /* ============================================ */
+  /* Floating Scroll Down Button (Circle)         */
+  /* ============================================ */
+  .scroll-down-btn{
+    position:absolute;
+    right:40px;
+    bottom:30px;
+    width:64px;
+    height:64px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+    border:2px solid rgba(255,255,255,0.6);
+    border-radius:50%;
+    text-decoration:none;
+    box-shadow:0 10px 32px rgba(0,120,212,.38),0 0 0 6px rgba(0,120,212,0.08);
+    animation:floatBounceCircle 2.4s ease-in-out infinite;
+    transition:background .3s ease,box-shadow .3s ease,border-color .3s ease;
+    z-index:10;
+    cursor:pointer;
+  }
+  .scroll-down-btn::before{
+    content:'';
+    position:absolute;
+    inset:-6px;
+    border-radius:50%;
+    border:1.5px solid rgba(0,120,212,0.25);
+    animation:pulseRing 2.4s ease-out infinite;
+  }
+  .scroll-down-btn:hover{
+    background:linear-gradient(135deg,var(--primary-dark),var(--primary));
+    box-shadow:0 14px 40px rgba(0,120,212,.55),0 0 0 8px rgba(0,120,212,0.12);
+    border-color:rgba(255,255,255,0.9);
+    animation-play-state:paused;
+  }
+  .scroll-down-btn .scroll-triangle{
+    width:0;
+    height:0;
+    border-left:10px solid transparent;
+    border-right:10px solid transparent;
+    border-top:14px solid #fff;
+    margin-top:3px;
+    filter:drop-shadow(0 2px 3px rgba(0,0,0,0.15));
+    transition:transform .3s ease;
+  }
+  .scroll-down-btn:hover .scroll-triangle{
+    transform:translateY(2px);
+  }
+  @keyframes floatBounceCircle{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-10px)}
+  }
+  @keyframes pulseRing{
+    0%{transform:scale(1);opacity:.7}
+    100%{transform:scale(1.35);opacity:0}
+  }
   @media(max-width:600px){
-    .hero{padding:56px 0 44px;}
+    .scroll-down-btn{right:20px;bottom:24px;width:54px;height:54px}
+    .scroll-down-btn .scroll-triangle{border-left-width:8px;border-right-width:8px;border-top-width:12px}
+  }
+
+  @media(max-width:600px){
+    .hero{padding:56px 0 100px;}
     .hero-meta{flex-direction:column;align-items:center;}
     .cta-section{padding:44px 20px;}
     .header-nav .nav-link-ghost{display:none;}
@@ -219,6 +281,11 @@
       <a href="#sessions" class="btn-secondary">📅 세션 살펴보기</a>
     </div>
   </div>
+
+  <!-- Floating Scroll Down Button -->
+  <a href="#sessions" class="scroll-down-btn" aria-label="세션 상세 내용으로 이동" title="상세 내용 보기">
+    <span class="scroll-triangle"></span>
+  </a>
 </section>
 
 <!-- Overview -->
@@ -416,4 +483,17 @@
 </footer>
 
 <button id="backToTop" class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="맨 위로 가기">↑</button>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script>
+  // Show back-to-top button after scrolling
+  const backToTop = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 400) {
+      backToTop.classList.add('visible');
+    } else {
+      backToTop.classList.remove('visible');
+    }
+  });
+</script>
+</body>
+</html>
