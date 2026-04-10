@@ -66,13 +66,127 @@
   }
 </script>
 <style>
-  body { font-family: 'Inter', sans-serif; background-color: #f9f9ff; color: #101c2e; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(180deg, #f0f8ff 0%, #e0f4ff 100%);
+    color: #101c2e;
+    overflow-x: hidden;
+  }
   .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; }
   .gradient-primary { background: linear-gradient(135deg, #005faa 0%, #00e3fd 100%); }
   .gradient-teal { background: linear-gradient(135deg, #006875 0%, #00daf3 100%); }
   .gradient-orange { background: linear-gradient(135deg, #E87722 0%, #FFB74D 100%); }
   .hero-mesh { background: radial-gradient(at 0% 0%, rgba(0, 95, 170, 0.15) 0%, transparent 50%), radial-gradient(at 100% 100%, rgba(0, 227, 253, 0.1) 0%, transparent 50%); }
   .ambient-shadow { box-shadow: 0 12px 40px rgba(16, 28, 46, 0.06); }
+
+  /* ============================================ */
+  /* Animated Background — Floating Water Drops   */
+  /* ============================================ */
+  .bg-animation {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  .bg-circle {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.35;
+    animation: floatCircle 25s ease-in-out infinite;
+  }
+  .bg-circle:nth-child(1) {
+    width: 700px; height: 700px;
+    background: linear-gradient(135deg, rgba(0, 95, 170, 0.40), rgba(0, 227, 253, 0.22));
+    top: -250px; right: -150px;
+    animation-delay: 0s;
+  }
+  .bg-circle:nth-child(2) {
+    width: 500px; height: 500px;
+    background: linear-gradient(135deg, rgba(0, 120, 212, 0.32), rgba(0, 104, 117, 0.22));
+    bottom: 15%; left: -200px;
+    animation-delay: -7s;
+  }
+  .bg-circle:nth-child(3) {
+    width: 450px; height: 450px;
+    background: linear-gradient(135deg, rgba(0, 227, 253, 0.24), rgba(0, 95, 170, 0.20));
+    top: 45%; right: 5%;
+    animation-delay: -12s;
+  }
+  .bg-circle:nth-child(4) {
+    width: 350px; height: 350px;
+    background: linear-gradient(135deg, rgba(0, 104, 117, 0.22), rgba(0, 164, 239, 0.26));
+    bottom: -100px; left: 25%;
+    animation-delay: -18s;
+  }
+  @keyframes floatCircle {
+    0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+    25%      { transform: translate(40px, -40px) scale(1.08) rotate(2deg); }
+    50%      { transform: translate(-30px, 30px) scale(0.95) rotate(-1deg); }
+    75%      { transform: translate(-40px, -25px) scale(1.03) rotate(1deg); }
+  }
+
+  /* Subtle grid pattern */
+  .grid-pattern {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(rgba(0, 95, 170, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 95, 170, 0.035) 1px, transparent 1px);
+    background-size: 80px 80px;
+    animation: gridMove 40s linear infinite;
+  }
+  @keyframes gridMove {
+    0%   { transform: translate(0, 0); }
+    100% { transform: translate(80px, 80px); }
+  }
+
+  /* Floating particles (water droplets) */
+  .particle {
+    position: fixed;
+    pointer-events: none;
+    opacity: 0.55;
+    z-index: 0;
+    border-radius: 50%;
+  }
+  .particle-1 {
+    width: 10px; height: 10px;
+    background: #00a4ef;
+    top: 18%; left: 8%;
+    animation: particleFloat 18s ease-in-out infinite;
+  }
+  .particle-2 {
+    width: 7px; height: 7px;
+    background: #00e3fd;
+    top: 55%; right: 12%;
+    animation: particleFloat 22s ease-in-out infinite reverse;
+  }
+  .particle-3 {
+    width: 12px; height: 12px;
+    background: #00b7c3;
+    bottom: 25%; left: 18%;
+    animation: particleFloat 25s ease-in-out infinite;
+    animation-delay: -8s;
+  }
+  .particle-4 {
+    width: 6px; height: 6px;
+    background: #005faa;
+    top: 35%; left: 75%;
+    animation: particleFloat 20s ease-in-out infinite;
+    animation-delay: -4s;
+  }
+  @keyframes particleFloat {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    25%      { transform: translate(60px, -60px) rotate(90deg); }
+    50%      { transform: translate(0, -120px) rotate(180deg); }
+    75%      { transform: translate(-60px, -60px) rotate(270deg); }
+  }
+
   .dropdown-shadow {
     box-shadow:
       0 24px 60px -12px rgba(0, 95, 170, 0.25),
@@ -163,6 +277,19 @@
 </style>
 </head>
 <body class="bg-surface text-on-surface selection:bg-primary/20">
+
+<!-- Animated Background — Floating Water Drops -->
+<div class="bg-animation" aria-hidden="true">
+  <div class="bg-circle"></div>
+  <div class="bg-circle"></div>
+  <div class="bg-circle"></div>
+  <div class="bg-circle"></div>
+</div>
+<div class="grid-pattern" aria-hidden="true"></div>
+<div class="particle particle-1" aria-hidden="true"></div>
+<div class="particle particle-2" aria-hidden="true"></div>
+<div class="particle particle-3" aria-hidden="true"></div>
+<div class="particle particle-4" aria-hidden="true"></div>
 
 <!-- TopNavBar -->
 <nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl shadow-sm transition-all duration-300">
@@ -376,7 +503,7 @@
   </div>
 </nav>
 
-<main class="pt-36">
+<main class="relative z-10 pt-36">
   <!-- Hero Section -->
   <section class="relative pt-24 pb-24 lg:pt-32 lg:pb-32 overflow-hidden hero-mesh" id="home">
     <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
@@ -420,7 +547,7 @@
   </section>
 
   <!-- Events Section -->
-  <section class="py-24 bg-surface-container-low" id="events">
+  <section class="py-24 relative" id="events" style="background: rgba(240, 243, 255, 0.55); backdrop-filter: blur(2px);">
     <div class="max-w-7xl mx-auto px-6">
       <div class="text-center max-w-2xl mx-auto mb-16">
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-high text-primary font-semibold text-xs tracking-wider uppercase mb-6">
@@ -588,7 +715,7 @@
 </main>
 
 <!-- Footer -->
-<footer class="bg-slate-50 w-full py-12 px-6 border-t border-slate-200/30">
+<footer class="relative w-full py-12 px-6 border-t border-slate-200/30" style="background: rgba(248, 250, 252, 0.75); backdrop-filter: blur(4px);">
   <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-center text-center md:text-left">
     <div>
       <div class="flex items-center gap-3 mb-2 justify-center md:justify-start">
