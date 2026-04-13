@@ -1,499 +1,381 @@
 <!DOCTYPE html>
-<html lang="ko">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="에이전틱 AI 시대, M365 코파일럿 비즈니스 에이전트 수업 시리즈 — 매주 수요일 오후 4시, 5주 완성 온라인 웨비나">
-<meta name="keywords" content="M365 Copilot, 에이전트, SharePoint, Copilot Chat, 웨비나, 메가존클라우드, Microsoft 365">
-<meta name="author" content="Megazone Cloud Microsoft Unit SPF Team">
-<title>M365 코파일럿 에이전트 수업 시리즈 — Megazone Cloud SPF</title>
 
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary": "#006875",
+                      "surface-container-high": "#dfe8ff",
+                      "primary": "#005faa",
+                      "secondary-fixed-dim": "#00daf3",
+                      "tertiary-fixed": "#d7e3fc",
+                      "on-error-container": "#93000a",
+                      "on-tertiary": "#ffffff",
+                      "on-error": "#ffffff",
+                      "on-tertiary-fixed": "#101c2e",
+                      "tertiary-container": "#6c778d",
+                      "on-secondary-container": "#00616d",
+                      "error": "#ba1a1a",
+                      "surface-container": "#e7eeff",
+                      "surface-container-highest": "#d7e3fc",
+                      "outline": "#717783",
+                      "background": "#f9f9ff",
+                      "tertiary-fixed-dim": "#bbc7df",
+                      "on-primary-container": "#ffffff",
+                      "inverse-primary": "#a3c9ff",
+                      "on-surface": "#101c2e",
+                      "surface-container-low": "#f0f3ff",
+                      "primary-fixed-dim": "#a3c9ff",
+                      "inverse-on-surface": "#ecf0ff",
+                      "surface-bright": "#f9f9ff",
+                      "on-primary": "#ffffff",
+                      "secondary-fixed": "#9cf0ff",
+                      "primary-fixed": "#d3e3ff",
+                      "on-secondary-fixed": "#001f24",
+                      "surface-variant": "#d7e3fc",
+                      "on-primary-fixed": "#001c39",
+                      "on-background": "#101c2e",
+                      "secondary-container": "#00e3fd",
+                      "outline-variant": "#c0c7d4",
+                      "surface-dim": "#cfdaf3",
+                      "on-tertiary-container": "#ffffff",
+                      "tertiary": "#535e73",
+                      "on-secondary": "#ffffff",
+                      "surface": "#f9f9ff",
+                      "error-container": "#ffdad6",
+                      "primary-container": "#0078d4",
+                      "inverse-surface": "#253144",
+                      "on-primary-fixed-variant": "#004883",
+                      "on-tertiary-fixed-variant": "#3c475b",
+                      "on-surface-variant": "#404752",
+                      "surface-tint": "#0060ab",
+                      "surface-container-lowest": "#ffffff",
+                      "on-secondary-fixed-variant": "#004f58"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "fontFamily": {
+                      "headline": ["Plus Jakarta Sans"],
+                      "body": ["Inter"],
+                      "label": ["Inter"]
+              }
+            },
+          },
+        }
+    </script>
 <style>
-  /* ── Microsoft Segoe UI Web Fonts ── */
-  @font-face { font-family:'Segoe UI Web'; src:local('Segoe UI'),url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/normal/latest.woff2) format('woff2'); font-weight:400; }
-  @font-face { font-family:'Segoe UI Web'; src:local('Segoe UI Semibold'),url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/semibold/latest.woff2) format('woff2'); font-weight:600; }
-  @font-face { font-family:'Segoe UI Web'; src:local('Segoe UI Bold'),url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/bold/latest.woff2) format('woff2'); font-weight:700; }
-  @font-face { font-family:'Segoe UI Web'; src:local('Segoe UI Black'),url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/black/latest.woff2) format('woff2'); font-weight:800; }
-  @font-face { font-family:'Segoe UI Web (Korean)'; src:url(//static2.sharepointonline.com/files/fabric/assets/fonts/segoeui-korean/segoeui-regular.woff2) format('woff2'); font-weight:400; }
-  @font-face { font-family:'Segoe UI Web (Korean)'; src:url(//static2.sharepointonline.com/files/fabric/assets/fonts/segoeui-korean/segoeui-semibold.woff2) format('woff2'); font-weight:600; }
-  @font-face { font-family:'Segoe UI Web (Korean)'; src:url(//static2.sharepointonline.com/files/fabric/assets/fonts/segoeui-korean/segoeui-bold.woff2) format('woff2'); font-weight:700; }
-
-  :root {
-    --primary:        #0078D4;
-    --primary-light:  #00A4EF;
-    --primary-dark:   #005A9E;
-    --accent:         #00E5FF;
-    --accent-teal:    #00B7C3;
-    --bg-start:       #F0F8FF;
-    --bg-end:         #E0F4FF;
-    --text-dark:      #0A1628;
-    --text-medium:    #2D4A6A;
-    --text-light:     #4A6A8A;
-    --white:          #FFFFFF;
-    --card-bg:        rgba(255,255,255,0.82);
-    --border-light:   rgba(0,120,212,0.14);
-  }
-
-  *{margin:0;padding:0;box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{font-family:'Segoe UI Web (Korean)','Segoe UI Web','Segoe UI','Malgun Gothic',sans-serif;background:linear-gradient(180deg,var(--bg-start),var(--bg-end));color:var(--text-dark);line-height:1.7;overflow-x:hidden;}
-
-  /* ── Background ── */
-  .bg-animation{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;overflow:hidden;}
-  .bg-circle{position:absolute;border-radius:50%;filter:blur(100px);opacity:.3;animation:floatCircle 25s ease-in-out infinite;}
-  .bg-circle:nth-child(1){width:700px;height:700px;background:linear-gradient(135deg,rgba(0,120,212,.35),rgba(0,229,255,.2));top:-250px;right:-150px;}
-  .bg-circle:nth-child(2){width:500px;height:500px;background:linear-gradient(135deg,rgba(0,164,239,.28),rgba(0,183,195,.2));bottom:15%;left:-200px;animation-delay:-7s;}
-  .bg-circle:nth-child(3){width:450px;height:450px;background:linear-gradient(135deg,rgba(0,229,255,.22),rgba(0,120,212,.18));top:45%;right:5%;animation-delay:-12s;}
-  @keyframes floatCircle{0%,100%{transform:translate(0,0) scale(1)}25%{transform:translate(40px,-40px) scale(1.08)}50%{transform:translate(-30px,30px) scale(.95)}75%{transform:translate(-40px,-25px) scale(1.03)}}
-  .grid-pattern{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;background-image:linear-gradient(rgba(0,120,212,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,120,212,.03) 1px,transparent 1px);background-size:80px 80px;}
-
-  /* ── Container ── */
-  .container{max-width:960px;margin:0 auto;padding:0 24px;}
-
-  /* ── Header ── */
-  header{padding:20px 0;position:sticky;top:0;z-index:100;backdrop-filter:blur(20px);background:rgba(240,248,255,.88);border-bottom:1px solid var(--border-light);}
-  .header-content{display:flex;justify-content:space-between;align-items:center;}
-  .logo{display:flex;align-items:center;gap:10px;font-family:'Segoe UI Web','Segoe UI',sans-serif;font-weight:700;font-size:13px;color:var(--text-medium);text-decoration:none;}
-  .logo-icon{width:34px;height:34px;background:linear-gradient(135deg,var(--primary),var(--accent));border-radius:9px;display:flex;align-items:center;justify-content:center;color:white;font-size:16px;}
-  .header-nav{display:flex;align-items:center;gap:8px;}
-  .header-nav a{display:inline-flex;align-items:center;gap:6px;padding:9px 18px;font-size:13px;font-weight:600;text-decoration:none;border-radius:50px;transition:all .3s ease;}
-  .nav-link-ghost{color:var(--text-medium);border:1px solid var(--border-light);background:var(--white);}
-  .nav-link-ghost:hover{background:var(--bg-end);border-color:var(--primary-light);}
-  .nav-btn{background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:white;box-shadow:0 4px 20px rgba(0,120,212,.3);}
-  .nav-btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,120,212,.45);}
-
-  /* ── Hero ── */
-  .hero{padding:80px 0 90px;text-align:center;position:relative;}
-  .hero-badge{display:inline-flex;align-items:center;gap:8px;padding:9px 20px;background:var(--card-bg);border:1px solid var(--border-light);border-radius:50px;font-size:13px;color:var(--text-medium);margin-bottom:28px;backdrop-filter:blur(10px);animation:fadeInUp .8s ease-out;}
-  .hero-badge span{color:var(--primary);font-weight:600;}
-  .hero h1{font-family:'Segoe UI Web','Segoe UI Web (Korean)','Segoe UI',sans-serif;font-size:clamp(28px,5vw,48px);font-weight:800;line-height:1.2;margin-bottom:20px;animation:fadeInUp .8s ease-out .1s backwards;}
-  .hero h1 .highlight{background:linear-gradient(135deg,var(--primary),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-  .hero-sub{font-size:15px;color:var(--text-medium);max-width:560px;margin:0 auto 28px;animation:fadeInUp .8s ease-out .2s backwards;}
-  .hero-meta{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;animation:fadeInUp .8s ease-out .3s backwards;margin-bottom:36px;}
-  .hero-meta-chip{display:flex;align-items:center;gap:8px;padding:8px 16px;background:var(--card-bg);border:1px solid var(--border-light);border-radius:50px;font-size:13px;color:var(--text-medium);backdrop-filter:blur(10px);}
-  .hero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;animation:fadeInUp .8s ease-out .35s backwards;}
-  .btn-primary{display:inline-flex;align-items:center;gap:9px;padding:14px 32px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:white;text-decoration:none;border-radius:50px;font-weight:600;font-size:15px;transition:all .3s ease;box-shadow:0 6px 25px rgba(0,120,212,.35);}
-  .btn-primary:hover{transform:translateY(-3px);box-shadow:0 10px 35px rgba(0,120,212,.5);}
-  .btn-secondary{display:inline-flex;align-items:center;gap:9px;padding:14px 32px;background:var(--white);color:var(--text-dark);text-decoration:none;border-radius:50px;font-weight:600;font-size:15px;transition:all .3s ease;border:1px solid var(--border-light);}
-  .btn-secondary:hover{background:var(--bg-end);border-color:var(--primary-light);}
-  @keyframes fadeInUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
-
-  /* ── Section ── */
-  section{padding:70px 0;}
-  .section-header{text-align:center;margin-bottom:48px;}
-  .section-tag{display:inline-block;padding:7px 16px;background:linear-gradient(135deg,rgba(0,120,212,.1),rgba(0,229,255,.12));border-radius:50px;font-size:12px;font-weight:600;color:var(--primary);margin-bottom:14px;text-transform:uppercase;letter-spacing:.5px;}
-  .section-title{font-family:'Segoe UI Web','Segoe UI Web (Korean)','Segoe UI',sans-serif;font-size:clamp(24px,3.5vw,38px);font-weight:700;margin-bottom:12px;}
-  .section-desc{font-size:15px;color:var(--text-medium);max-width:520px;margin:0 auto;}
-
-  /* ── Session Grid (3x2) ── */
-  .session-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
-  @media(max-width:900px){.session-grid{grid-template-columns:repeat(2,1fr);}}
-  @media(max-width:600px){.session-grid{grid-template-columns:1fr;}}
-
-  .session-card{background:var(--card-bg);backdrop-filter:blur(20px);border:1px solid var(--border-light);border-radius:22px;overflow:hidden;transition:all .4s ease;display:flex;flex-direction:column;}
-  .session-card:hover{transform:translateY(-8px);box-shadow:0 24px 56px rgba(0,120,212,.16);border-color:var(--primary-light);}
-
-  .session-card-bar{height:5px;background:linear-gradient(90deg,var(--primary),var(--accent));}
-  .session-card-body{padding:20px 18px 18px;display:flex;flex-direction:column;flex:1;}
-
-  .session-week{display:inline-flex;align-items:center;gap:6px;margin-bottom:12px;}
-  .session-week-badge{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 3px 10px rgba(0,120,212,.2);}
-  .session-week-num{font-size:15px;font-weight:800;color:white;line-height:1;}
-  .session-week-label{font-size:6.5px;font-weight:600;color:rgba(255,255,255,.7);text-transform:uppercase;letter-spacing:.3px;}
-  .session-date{font-size:11px;font-weight:600;color:var(--primary);}
-
-  .session-title{font-size:13.5px;font-weight:700;color:var(--text-dark);line-height:1.45;margin-bottom:8px;}
-  .session-format{display:inline-flex;align-items:center;gap:4px;padding:3px 10px;background:linear-gradient(135deg,rgba(0,183,195,.1),rgba(0,229,255,.08));border-radius:6px;font-size:9px;font-weight:600;color:var(--accent-teal);margin-bottom:10px;align-self:flex-start;}
-
-  .session-desc{font-size:11.5px;color:var(--text-medium);margin-bottom:12px;line-height:1.65;}
-
-  .session-agenda-title{font-size:9px;font-weight:700;color:var(--primary);margin-bottom:4px;text-transform:uppercase;letter-spacing:.5px;}
-  .session-agenda-list{list-style:none;padding:0;margin:0;}
-  .session-agenda-list li{font-size:10.5px;color:var(--text-light);padding:2px 0 2px 14px;position:relative;line-height:1.45;}
-  .session-agenda-list li::before{content:'→';position:absolute;left:0;color:var(--accent-teal);font-weight:600;font-size:10px;}
-
-  /* ── Wave Card (6th slot) ── */
-  .wave-card{background:linear-gradient(135deg,var(--primary),var(--primary-dark));border-radius:22px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center;min-height:320px;border:1px solid rgba(0,120,212,.2);}
-  .wave-card svg{position:absolute;bottom:0;left:0;width:100%;opacity:.25;}
-  .wave-card-content{position:relative;z-index:1;text-align:center;padding:24px;}
-  .wave-card-icon{font-size:48px;margin-bottom:12px;filter:drop-shadow(0 4px 12px rgba(0,0,0,.15));}
-  .wave-card-content h3{font-size:16px;font-weight:700;color:white;margin-bottom:6px;line-height:1.4;}
-  .wave-card-content p{font-size:11px;color:rgba(255,255,255,.7);line-height:1.5;}
-  .wave-card .copilot-sparkle{position:absolute;width:8px;height:8px;border-radius:50%;background:var(--accent);opacity:.5;animation:sparkle 4s ease-in-out infinite;}
-  .wave-card .copilot-sparkle:nth-child(1){top:15%;left:20%;animation-delay:0s;}
-  .wave-card .copilot-sparkle:nth-child(2){top:30%;right:15%;animation-delay:-1.5s;width:6px;height:6px;background:rgba(0,229,255,.6);}
-  .wave-card .copilot-sparkle:nth-child(3){bottom:35%;left:12%;animation-delay:-2.8s;width:10px;height:10px;background:rgba(0,164,239,.4);}
-  .wave-card .copilot-sparkle:nth-child(4){top:20%;right:30%;animation-delay:-0.8s;width:5px;height:5px;}
-  @keyframes sparkle{0%,100%{opacity:.3;transform:scale(1)}50%{opacity:.7;transform:scale(1.5)}}
-
-  /* ── Info Cards Grid ── */
-  .info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
-  @media(max-width:680px){.info-grid{grid-template-columns:1fr;}}
-  .info-card{background:var(--card-bg);backdrop-filter:blur(20px);border:1px solid var(--border-light);border-radius:18px;padding:24px 20px;text-align:center;transition:all .35s ease;}
-  .info-card:hover{transform:translateY(-6px);box-shadow:0 20px 48px rgba(0,120,212,.12);border-color:var(--primary-light);}
-  .info-card-icon{font-size:28px;margin-bottom:12px;}
-  .info-card h4{font-size:14px;font-weight:700;color:var(--text-dark);margin-bottom:6px;}
-  .info-card p{font-size:12.5px;color:var(--text-medium);line-height:1.6;}
-
-  /* ── CTA ── */
-  .cta-section{background:linear-gradient(135deg,var(--primary),var(--primary-dark));border-radius:28px;padding:72px 36px;text-align:center;color:white;position:relative;overflow:hidden;margin-bottom:70px;}
-  .cta-section::before{content:'';position:absolute;top:-100px;left:-100px;width:280px;height:280px;background:rgba(0,229,255,.12);border-radius:50%;}
-  .cta-section::after{content:'';position:absolute;bottom:-140px;right:-140px;width:380px;height:380px;background:rgba(255,255,255,.04);border-radius:50%;}
-  .cta-title{font-family:'Segoe UI Web','Segoe UI Web (Korean)','Segoe UI',sans-serif;font-size:clamp(24px,3.5vw,38px);font-weight:700;margin-bottom:14px;position:relative;z-index:1;}
-  .cta-desc{font-size:15px;opacity:.92;margin-bottom:30px;max-width:480px;margin-left:auto;margin-right:auto;position:relative;z-index:1;}
-  .cta-btn{display:inline-flex;align-items:center;gap:9px;padding:16px 36px;background:white;color:var(--primary);text-decoration:none;border-radius:50px;font-weight:700;font-size:15px;transition:all .3s ease;box-shadow:0 6px 24px rgba(0,0,0,.15);position:relative;z-index:1;}
-  .cta-btn:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 10px 34px rgba(0,0,0,.22);}
-  .cta-note{margin-top:20px;font-size:13px;opacity:.85;position:relative;z-index:1;}
-
-  /* ── Footer ── */
-  footer{padding:44px 0;text-align:center;border-top:1px solid var(--border-light);}
-  .footer-logo{display:inline-flex;align-items:center;gap:10px;margin-bottom:12px;}
-  .footer-logo-icon{width:40px;height:40px;background:linear-gradient(135deg,var(--primary),var(--accent));border-radius:11px;display:flex;align-items:center;justify-content:center;color:white;font-size:18px;}
-  .footer-logo-text{font-family:'Segoe UI Web','Segoe UI',sans-serif;font-weight:700;font-size:16px;color:var(--text-dark);}
-  .footer-team{font-size:13px;color:var(--text-light);margin-bottom:8px;}
-  .footer-note{font-size:12px;color:var(--text-light);max-width:520px;margin:0 auto;line-height:1.8;}
-
-  .back-to-top{position:fixed;bottom:2rem;right:2rem;width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--accent));color:white;border:none;font-size:20px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:all .3s ease;box-shadow:0 6px 20px rgba(0,120,212,.3);z-index:40;}
-  .back-to-top.visible{opacity:1;visibility:visible;}
-  .back-to-top:hover{transform:translateY(-4px);box-shadow:0 10px 30px rgba(0,120,212,.45);}
-
-  /* ============================================ */
-  /* Floating Scroll Down Button (Circle)         */
-  /* ============================================ */
-  .scroll-down-btn{
-    position:absolute;
-    right:40px;
-    bottom:30px;
-    width:64px;
-    height:64px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:linear-gradient(135deg,var(--primary),var(--primary-dark));
-    border:2px solid rgba(255,255,255,0.6);
-    border-radius:50%;
-    text-decoration:none;
-    box-shadow:0 10px 32px rgba(0,120,212,.38),0 0 0 6px rgba(0,120,212,0.08);
-    animation:floatBounceCircle 2.4s ease-in-out infinite;
-    transition:background .3s ease,box-shadow .3s ease,border-color .3s ease;
-    z-index:10;
-    cursor:pointer;
-  }
-  .scroll-down-btn::before{
-    content:'';
-    position:absolute;
-    inset:-6px;
-    border-radius:50%;
-    border:1.5px solid rgba(0,120,212,0.25);
-    animation:pulseRing 2.4s ease-out infinite;
-  }
-  .scroll-down-btn:hover{
-    background:linear-gradient(135deg,var(--primary-dark),var(--primary));
-    box-shadow:0 14px 40px rgba(0,120,212,.55),0 0 0 8px rgba(0,120,212,0.12);
-    border-color:rgba(255,255,255,0.9);
-    animation-play-state:paused;
-  }
-  .scroll-down-btn .scroll-triangle{
-    width:0;
-    height:0;
-    border-left:10px solid transparent;
-    border-right:10px solid transparent;
-    border-top:14px solid #fff;
-    margin-top:3px;
-    filter:drop-shadow(0 2px 3px rgba(0,0,0,0.15));
-    transition:transform .3s ease;
-  }
-  .scroll-down-btn:hover .scroll-triangle{
-    transform:translateY(2px);
-  }
-  @keyframes floatBounceCircle{
-    0%,100%{transform:translateY(0)}
-    50%{transform:translateY(-10px)}
-  }
-  @keyframes pulseRing{
-    0%{transform:scale(1);opacity:.7}
-    100%{transform:scale(1.35);opacity:0}
-  }
-  @media(max-width:600px){
-    .scroll-down-btn{right:20px;bottom:24px;width:54px;height:54px}
-    .scroll-down-btn .scroll-triangle{border-left-width:8px;border-right-width:8px;border-top-width:12px}
-  }
-
-  @media(max-width:600px){
-    .hero{padding:56px 0 100px;}
-    .hero-meta{flex-direction:column;align-items:center;}
-    .cta-section{padding:44px 20px;}
-    .header-nav .nav-link-ghost{display:none;}
-  }
-</style>
+        body { font-family: 'Inter', sans-serif; background-color: #f9f9ff; color: #101c2e; }
+        .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .glass-nav { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+        .gradient-primary { background: linear-gradient(135deg, #005faa 0%, #00e3fd 100%); }
+        .hero-mesh { background: radial-gradient(at 0% 0%, rgba(0, 95, 170, 0.15) 0%, transparent 50%), radial-gradient(at 100% 100%, rgba(0, 227, 253, 0.1) 0%, transparent 50%); }
+        .curriculum-card:hover { transform: translateY(-4px); }
+        .ambient-shadow { box-shadow: 0 12px 40px rgba(16, 28, 46, 0.06); }
+    </style>
 </head>
-<body>
-
-<div class="bg-animation"><div class="bg-circle"></div><div class="bg-circle"></div><div class="bg-circle"></div></div>
-<div class="grid-pattern"></div>
-
-<!-- Header -->
-<header>
-  <div class="container">
-    <div class="header-content">
-      <a href="https://spfaif.com" class="logo">
-        <div class="logo-icon">⚡</div>
-        <span>Hosted by MEGAZONE CLOUD</span>
-      </a>
-      <div class="header-nav">
-        <a href="https://spfaif.com" class="nav-link-ghost">🏠 홈</a>
-        <a href="#sessions" class="nav-link-ghost">📅 세션</a>
-        <a href="https://events.teams.microsoft.com/event/5970cad7-30a7-4c74-ae1f-7cb5b753df21@97f42f55-f1db-4804-b1eb-08db083efd4f" class="nav-btn">🚀 등록하기</a>
-      </div>
-    </div>
-  </div>
-</header>
-
-<!-- Hero -->
-<section class="hero">
-  <div class="container">
-    <div class="hero-badge">🎙️ <span>온라인 웨비나 시리즈 · 5주 완성</span></div>
-    <h1>
-      에이전틱 AI 시대,<br>
-      M365 코파일럿<br>
-      <span class="highlight">비즈니스 에이전트 수업</span>
-    </h1>
-    <p class="hero-sub">
-      매주 수요일 오후 4시~5시, PT+Demo 중심의 실전 웨비나로<br>
-      M365 에이전트를 처음부터 끝까지 마스터합니다
-    </p>
-    <div class="hero-meta">
-      <div class="hero-meta-chip">
-        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" stroke-width="2"/><line x1="16" y1="2" x2="16" y2="6" stroke-width="2"/><line x1="8" y1="2" x2="8" y2="6" stroke-width="2"/><line x1="3" y1="10" x2="21" y2="10" stroke-width="2"/></svg>
-        매주 수요일 · 4월 8일~5월 6일
-      </div>
-      <div class="hero-meta-chip">
-        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke-width="2"/><path d="M12 6v6l4 2" stroke-width="2"/></svg>
-        오후 4시~5시 · 1시간
-      </div>
-      <div class="hero-meta-chip">
-        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" stroke-width="2"/><circle cx="12" cy="10" r="3" stroke-width="2"/></svg>
-        온라인 · Microsoft Teams
-      </div>
-    </div>
-    <div class="hero-cta">
-      <a href="https://events.teams.microsoft.com/event/5970cad7-30a7-4c74-ae1f-7cb5b753df21@97f42f55-f1db-4804-b1eb-08db083efd4f" class="btn-primary">🚀 웨비나 등록하기</a>
-      <a href="#sessions" class="btn-secondary">📅 세션 살펴보기</a>
-    </div>
-  </div>
-
-  <!-- Floating Scroll Down Button -->
-  <a href="#sessions" class="scroll-down-btn" aria-label="세션 상세 내용으로 이동" title="상세 내용 보기">
-    <span class="scroll-triangle"></span>
-  </a>
+<body class="bg-surface text-on-surface selection:bg-primary/20">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl shadow-sm dark:shadow-none transition-all duration-300">
+<div class="flex justify-between items-center max-w-7xl mx-auto px-6 h-20">
+<div class="text-xl font-bold tracking-tight text-slate-900 dark:text-slate-50 font-headline">
+                Hosted by MEGAZONE CLOUD
+            </div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-blue-700 dark:text-cyan-400 font-semibold border-b-2 border-blue-700 dark:border-cyan-400 pb-1 font-body" href="#home">Home</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-cyan-300 transition-colors font-body" href="#sessions">Sessions</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-cyan-300 transition-colors font-body" href="#curriculum">Curriculum</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="gradient-primary text-white font-semibold px-6 py-2.5 rounded-full hover:opacity-90 active:scale-[0.98] transition-all font-body">Register Now</button>
+</div>
+</div>
+</nav>
+<main>
+<!-- Hero Section -->
+<section class="relative pt-32 pb-24 lg:pt-48 lg:pb-40 overflow-hidden hero-mesh" id="home">
+<div class="max-w-7xl mx-auto px-6 relative z-10">
+<div class="max-w-3xl">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-high text-primary font-semibold text-xs tracking-wider uppercase mb-6">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+                        온라인 웨비나 시리즈 · 5주 완성
+                    </div>
+<h1 class="font-headline text-5xl lg:text-7xl font-extrabold tracking-tight text-on-surface leading-[1.1] mb-8">
+                        AI Agent Era, <br/><span class="text-primary">M365 Copilot</span> Business Agent Lessons
+                    </h1>
+<p class="text-on-surface-variant text-xl mb-10 leading-relaxed font-body">
+                        매주 수요일 오후 4시~5시, PT+Demo 중심의 실전 웨비나로 M365 에이전트를 처음부터 끝까지 마스터합니다
+                    </p>
+<div class="flex flex-wrap gap-4">
+<button class="gradient-primary text-white font-bold px-8 py-4 rounded-full text-lg ambient-shadow hover:opacity-95 transition-all font-body">웨비나 등록하기</button>
+<button class="bg-surface-container-highest text-on-surface font-bold px-8 py-4 rounded-full text-lg hover:bg-surface-container-high transition-all font-body">세션 살펴보기</button>
+</div>
+</div>
+</div>
+<!-- Abstract Hero Image Element -->
+<div class="absolute right-0 top-1/2 -translate-y-1/2 w-1/2 h-full hidden lg:block">
+<div class="relative w-full h-full">
+<img alt="Futuristic AI interface" class="w-full h-full object-cover rounded-l-[4rem] opacity-90" data-alt="Abstract 3D visualization of glowing neural network nodes with blue and cyan light streaks on a deep navy background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-Olr8W8L4K9eNlHvjKDV-PdHdGf6h98qLWZxrEbQPrbvevhkBpLomJsEF3KvOAE6TUA0yjVqOciFvlttmHEvmVPWWkA42DJIK4hQekJWiJS5CzmlEwvAGdYZv4qoVm0qq7MUwHimGlaggM8vippRGJbF772UcK98k1p-aDkoGkMeUB5lXWmshFmydjwDT13T6JY5TW6uCrp7ih7bR9AUIoeDQyrMB6f8OyXwOoVS305Y2kKgAmcGurVH0LaPyA8wb6x9LaZKdI1OP"/>
+<div class="absolute inset-0 bg-gradient-to-r from-surface via-transparent to-transparent"></div>
+</div>
+</div>
 </section>
-
-<!-- Overview -->
-<section>
-  <div class="container">
-    <div class="section-header">
-      <div class="section-tag">✨ 시리즈 개요</div>
-      <h2 class="section-title">5주 만에 에이전트 전문가로</h2>
-      <p class="section-desc">무료 vs 유료 차이부터 에이전트 설계 지침까지, 단계별로 완성합니다</p>
-    </div>
-    <div class="info-grid">
-      <div class="info-card">
-        <div class="info-card-icon">🎯</div>
-        <h4>이런 분께 추천</h4>
-        <p>M365 Copilot 도입 예정/초기 기업 실무자, IT 관리자, 업무 자동화에 관심 있는 비즈니스 유저</p>
-      </div>
-      <div class="info-card">
-        <div class="info-card-icon">🎬</div>
-        <h4>PT + Demo 실전</h4>
-        <p>매 세션 라이브 데모와 함께 진행. 실제 사용 경험 중심으로 체감하고 바로 적용할 수 있습니다</p>
-      </div>
-      <div class="info-card">
-        <div class="info-card-icon">📈</div>
-        <h4>5주 연속 설계</h4>
-        <p>기본 활용 → SharePoint 에이전트 → 새 에이전트 → 업무 자동화 → 설계 지침까지 점진적 심화</p>
-      </div>
-    </div>
-  </div>
+<!-- Key Benefits -->
+<section class="py-24 bg-surface" id="sessions">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<div class="p-10 rounded-[2rem] bg-surface-container-lowest border border-outline-variant/15 hover:border-primary/40 transition-all duration-300 group">
+<div class="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-8 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">groups</span>
+</div>
+<h3 class="font-headline text-2xl font-bold mb-4">이런 분께 추천</h3>
+<p class="text-on-surface-variant leading-relaxed font-body">M365 Copilot 도입 예정/초기 기업 실무자, IT 관리자, 업무 자동화에 관심 있는 비즈니스 유저</p>
+</div>
+<!-- Card 2 -->
+<div class="p-10 rounded-[2rem] bg-surface-container-lowest border border-outline-variant/15 hover:border-primary/40 transition-all duration-300 group">
+<div class="w-14 h-14 rounded-2xl bg-secondary/10 flex items-center justify-center text-secondary mb-8 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">rocket_launch</span>
+</div>
+<h3 class="font-headline text-2xl font-bold mb-4">PT + Demo 실전</h3>
+<p class="text-on-surface-variant leading-relaxed font-body">매 세션 라이브 데모와 함께 진행. 실제 사용 경험 중심으로 체감하고 바로 적용할 수 있습니다</p>
+</div>
+<!-- Card 3 -->
+<div class="p-10 rounded-[2rem] bg-surface-container-lowest border border-outline-variant/15 hover:border-primary/40 transition-all duration-300 group">
+<div class="w-14 h-14 rounded-2xl bg-secondary-fixed-dim/20 flex items-center justify-center text-secondary-fixed-dim mb-8 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">calendar_view_week</span>
+</div>
+<h3 class="font-headline text-2xl font-bold mb-4">5주 연속 설계</h3>
+<p class="text-on-surface-variant leading-relaxed font-body">기본 활용 → SharePoint 에이전트 → 새 에이전트 → 업무 자동화 → 설계 지침까지 점진적 심화</p>
+</div>
+</div>
+</div>
 </section>
+<!-- Curriculum Section -->
+<section class="py-32 bg-surface-container-low" id="curriculum">
+<div class="max-w-7xl mx-auto px-6">
+<div class="text-center max-w-2xl mx-auto mb-20">
+<h2 class="font-headline text-4xl lg:text-5xl font-extrabold text-on-surface mb-6 tracking-tight">5주 커리큘럼</h2>
+매주 수요일 오후 4시~5시, Microsoft Teams에서 진행됩니다
 
-<!-- Sessions Timeline -->
-<section id="sessions">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-tag">📅 세션 상세</div>
-      <h2 class="section-title">5주 커리큘럼</h2>
-      <p class="section-desc">매주 수요일 오후 4시~5시, Microsoft Teams에서 진행됩니다</p>
-    </div>
-
-    <div class="session-grid">
-
-      <!-- Week 1 -->
-      <div class="session-card">
-        <div class="session-card-bar"></div>
-        <div class="session-card-body">
-          <div class="session-week">
-            <div class="session-week-badge"><span class="session-week-num">1</span><span class="session-week-label">WEEK</span></div>
-            <span class="session-date">4월 8일 (수) 4시~5시</span>
-          </div>
-          <div class="session-title">만들지 않아도 바로 쓰는 미리 빌드된 M365 에이전트 활용</div>
-          <div class="session-format">🎬 PT + Demo</div>
-          <div class="session-desc">M365 기본 제공 에이전트 이해. "에이전트란 무엇인가?"를 실제 사용 경험 중심으로 체감하고 무료 버전과의 결정적 차이점을 명확화합니다.</div>
-          <div class="session-agenda-title">진행 아젠다</div>
-          <ul class="session-agenda-list">
-            <li>무료 Copilot Chat vs 유료 Copilot 차이 정리</li>
-            <li>미리 빌드된 M365 에이전트 종류 소개</li>
-            <li>리서치 도구 vs 분석가 에이전트 Demo</li>
-            <li>Copilot Chat vs M365 에이전트 결과 비교</li>
-            <li>실무 적용 포인트 · 핵심 정리</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Week 2 -->
-      <div class="session-card">
-        <div class="session-card-bar"></div>
-        <div class="session-card-body">
-          <div class="session-week">
-            <div class="session-week-badge"><span class="session-week-num">2</span><span class="session-week-label">WEEK</span></div>
-            <span class="session-date">4월 15일 (수) 4시~5시</span>
-          </div>
-          <div class="session-title">우리 회사 문서를 이해하게 만드는 SharePoint 기본 지식 에이전트</div>
-          <div class="session-format">🎬 PT + Demo</div>
-          <div class="session-desc">SharePoint를 지식 베이스로 활용하는 에이전트 설계. "파일을 던지는 Copilot" → "조직 맥락을 이해하는 에이전트"로 진화.</div>
-          <div class="session-agenda-title">진행 아젠다</div>
-          <ul class="session-agenda-list">
-            <li>SharePoint 에이전트의 역할과 한계</li>
-            <li>에이전트 생성 흐름 전체 구조</li>
-            <li>프로젝트 사이트 기반 에이전트 생성 (Demo)</li>
-            <li>정책/가이드/보고서 질의응답</li>
-            <li>문서 정리 체크리스트 · Best Practice</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Week 3 -->
-      <div class="session-card">
-        <div class="session-card-bar"></div>
-        <div class="session-card-body">
-          <div class="session-week">
-            <div class="session-week-badge"><span class="session-week-num">3</span><span class="session-week-label">WEEK</span></div>
-            <span class="session-date">4월 22일 (수) 4시~5시</span>
-          </div>
-          <div class="session-title">[새 에이전트]로 만드는 에이전트 세상</div>
-          <div class="session-format">🎬 PT + Demo</div>
-          <div class="session-desc">m365.cloud.microsoft.com/chat → [새 에이전트] 기반 생성. "프롬프트"가 아닌 에이전트 설계 관점으로 전환합니다.</div>
-          <div class="session-agenda-title">진행 아젠다</div>
-          <ul class="session-agenda-list">
-            <li>새 에이전트 메뉴 구조 이해</li>
-            <li>에이전트 설계의 요소</li>
-            <li>에이전트 생성 (Demo)</li>
-            <li>As-Is / To-Be 비교</li>
-            <li>핵심 정리 &amp; 다음 회차 안내</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Week 4 -->
-      <div class="session-card">
-        <div class="session-card-bar"></div>
-        <div class="session-card-body">
-          <div class="session-week">
-            <div class="session-week-badge"><span class="session-week-num">4</span><span class="session-week-label">WEEK</span></div>
-            <span class="session-date">4월 29일 (수) 4시~5시</span>
-          </div>
-          <div class="session-title">판단·정리·보고를 대신하는 에이전트 활용</div>
-          <div class="session-format">🎬 PT + Demo</div>
-          <div class="session-desc">단순 Q&amp;A가 아닌 업무 흐름을 대신 처리하는 에이전트. 여러 직무에 확장 가능한 구조를 이해합니다.</div>
-          <div class="session-agenda-title">진행 아젠다</div>
-          <ul class="session-agenda-list">
-            <li>반복 업무 패턴 재 정리</li>
-            <li>시나리오 Demo</li>
-            <li>여러 직무 확장 예시</li>
-            <li>에이전트를 여러 개로 나눠야 하는 이유</li>
-            <li>핵심 정리 &amp; 다음 회차 안내</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Week 5 -->
-      <div class="session-card">
-        <div class="session-card-bar"></div>
-        <div class="session-card-body">
-          <div class="session-week">
-            <div class="session-week-badge"><span class="session-week-num">5</span><span class="session-week-label">WEEK</span></div>
-            <span class="session-date">5월 6일 (수) 4시~5시</span>
-          </div>
-          <div class="session-title">같은 에이전트인데, 왜 결과가 다를까? 설계의 모든 것!</div>
-          <div class="session-format">🎬 PT + Demo</div>
-          <div class="session-desc">에이전트 품질을 좌우하는 지침(Guidelines) 설계법. 실전 꿀 팁으로 시리즈를 마무리합니다.</div>
-          <div class="session-agenda-title">진행 아젠다</div>
-          <ul class="session-agenda-list">
-            <li>잘 안 되는 에이전트의 공통점</li>
-            <li>좋은 에이전트 지침의 구조</li>
-            <li>실전 꿀팁!</li>
-            <li>전체 과정 정리 &amp; 다음 단계 제안</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Wave Card (6th) -->
-      <div class="wave-card">
-        <div class="copilot-sparkle"></div>
-        <div class="copilot-sparkle"></div>
-        <div class="copilot-sparkle"></div>
-        <div class="copilot-sparkle"></div>
-        <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0,120 C60,80 120,160 200,100 C280,40 340,140 400,90 L400,200 L0,200 Z" fill="rgba(0,229,255,.2)"/>
-          <path d="M0,150 C80,110 160,180 240,130 C320,80 360,160 400,120 L400,200 L0,200 Z" fill="rgba(0,164,239,.15)"/>
-          <path d="M0,170 C100,140 200,190 300,155 C350,140 380,175 400,160 L400,200 L0,200 Z" fill="rgba(0,120,212,.12)"/>
-        </svg>
-        <div class="wave-card-content">
-          <div class="wave-card-icon">✨</div>
-          <h3>5주 완성 후<br>당신의 조직은</h3>
-          <p>에이전트를 직접 만들고<br>업무에 바로 적용하는<br>AI-Native 팀으로 진화합니다</p>
-        </div>
-      </div>
-
-    </div><!-- /session-grid -->
-  </div>
+</div>
+<div class="space-y-8">
+<!-- Week 1 -->
+<div class="curriculum-card bg-surface-container-lowest p-8 lg:p-12 rounded-[2rem] flex flex-col lg:flex-row gap-8 items-start transition-all duration-500 hover:shadow-2xl hover:shadow-primary/5">
+<div class="flex-shrink-0">
+<span class="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary font-bold text-sm mb-4 font-headline">WEEK 01</span>
+<div class="text-on-surface-variant font-body text-sm font-semibold">4월 8일 (수) 4시~5시</div>
+</div>
+<div class="flex-grow">
+<h3 class="font-headline text-2xl lg:text-3xl font-bold text-on-surface mb-6">만들지 않아도 바로 쓰는 미리 빌드된 M365 에이전트 활용</h3>
+<ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary-fixed-dim mt-1">check_circle</span>
+<span class="text-on-surface-variant font-body">무료 Copilot Chat vs 유료 Copilot 차이 정리</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary-fixed-dim mt-1">check_circle</span>
+<span class="text-on-surface-variant font-body">미리 빌드된 M365 에이전트 종류 소개</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary-fixed-dim mt-1">check_circle</span>
+<span class="text-on-surface-variant font-body">리서치 도구 vs 분석가 에이전트 Demo</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary-fixed-dim mt-1">check_circle</span>
+<span class="text-on-surface-variant font-body">Copilot Chat vs M365 에이전트 결과 비교</span>
+</li>
+</ul>
+</div>
+<div class="hidden lg:block w-32 h-32 rounded-2xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-500">
+<img class="w-full h-full object-cover" data-alt="Office workspace with modern laptop displaying cloud technology dashboard" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsbFd-1GoMezHQQDjE_3j2ZAshbkHzsaapYZ-cEblXvv-GQa7lrsHXqPpgP4XbPHm-3nASyQOMjW64VRGEbSifFA1HlHIRhqk_uQtsHI8AU13ke6ckG7wIDlyK4W6S-QIXU6IDPRBMrQyAF2uc5-4OP-SwaqSxNz9cePYU6x-IrQjjAI8EEw0ee2YGL3Oz7bRaaP2DD6JgxOuxj35L0PuZTo9ZXx2sJ3kDuM1PnS9QQp5ODTf7n1qGxjsuKb6vrHyo68pUvtzIbjJ9"/>
+</div>
+</div>
+<!-- Week 2 -->
+<div class="curriculum-card bg-surface-container-lowest p-8 lg:p-12 rounded-[2rem] flex flex-col lg:flex-row gap-8 items-start transition-all duration-500 hover:shadow-2xl hover:shadow-primary/5">
+<div class="flex-shrink-0">
+<span class="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary font-bold text-sm mb-4 font-headline">WEEK 02</span>
+<div class="text-on-surface-variant font-body text-sm font-semibold">4월 15일 (수) 4시~5시</div>
+</div>
+<div class="flex-grow">
+<h3 class="font-headline text-2xl lg:text-3xl font-bold text-on-surface mb-6">우리 회사 문서를 이해하게 만드는 SharePoint 기본 지식 <span class="whitespace-nowrap">에이전트</span></h3>
+<ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary-fixed-dim mt-1">check_circle</span>
+<span class="text-on-surface-variant font-body">SharePoint 에이전트의 역할과 한계</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary-fixed-dim mt-1">check_circle</span>
+<span class="text-on-surface-variant font-body">에이전트 생성 흐름 전체 구조</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary-fixed-dim mt-1">check_circle</span>
+<span class="text-on-surface-variant font-body">프로젝트 사이트 기반 에이전트 생성 (Demo)</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary-fixed-dim mt-1">check_circle</span>
+<span class="text-on-surface-variant font-body">정책/가이드/보고서 질의응답</span>
+</li>
+</ul>
+</div>
+<div class="hidden lg:block w-32 h-32 rounded-2xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-500">
+<img class="w-full h-full object-cover" data-alt="Data server room with blinking blue lights representing digital knowledge base" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjtBusIGnuNxdIwB2hRn_yURriH8FPHHytFjQhAZTo3lOzR_2LKn1j0y9mWYu1mpLLD5nxXSyj7qM34f7JAHrCHeVwjTrJ9H-vN5kDEmXAFVI9Ts6Nmle00hbC4_XfZWNPEwrBVxNmsRDWWUHI7KfIupDT4A2hao6qBEqdgTzCq4sHdzEanExV0xLlt4seTiD4bmQ13tsK3tYRMOoG3PcfYMU9DE6ALOknW6GIw01GqH7BO1klPOKcWPkOOeD3epWoQ4FZZza4cc4I"/>
+</div>
+</div>
+<!-- Week 3 -->
+<div class="curriculum-card bg-surface-container-lowest p-8 lg:p-12 rounded-[2rem] flex flex-col lg:flex-row gap-8 items-start transition-all duration-500 hover:shadow-2xl hover:shadow-primary/5">
+<div class="flex-shrink-0">
+<span class="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary font-bold text-sm mb-4 font-headline">WEEK 03</span>
+<div class="text-on-surface-variant font-body text-sm font-semibold">4월 22일 (수) 4시~5시</div>
+</div>
+<div class="flex-grow">
+<h3 class="font-headline text-2xl lg:text-3xl font-bold text-on-surface mb-6">[새 에이전트]로 만드는 에이전트 세상
+</h3>
+<ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary-fixed-dim mt-1">check_circle</span>
+<span class="text-on-surface-variant font-body">새 에이전트 메뉴 구조 이해</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary-fixed-dim mt-1">check_circle</span>
+<span class="text-on-surface-variant font-body">에이전트 설계의 요소</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary-fixed-dim mt-1">check_circle</span>
+<span class="text-on-surface-variant font-body">에이전트 생성 (Demo)</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary-fixed-dim mt-1">check_circle</span>
+<span class="text-on-surface-variant font-body">As-Is / To-Be 비교</span>
+</li>
+</ul>
+</div>
+<div class="hidden lg:block w-32 h-32 rounded-2xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-500">
+<img class="w-full h-full object-cover" data-alt="Close up of robotic hand interacting with digital screen interface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuACdShiJCB3vo5ji5K0z6KIVRkcurY1yvYrMMlX68-gl-z5MrAvg0h_sgHrqM26trerbIxofwPFZF7ITYUFlfrf675BSPkyNeQLDPfXQPq12EK07YMAmxLnheUNSdal8II3K_rTAulQQx5QyK0xmlucNi_3IAEJUn7KYqzUy6nMP0H7Z7wyXR2KFm_DMfvSrJmlEzQpAGCufrFIMbjZDHFQHhCLy3DnCoobaDpk3FliZXDzYShL7OHSCesmpyuMCELkIgpWCI4gj9YW"/>
+</div>
+</div>
+<!-- Week 4 -->
+<div class="curriculum-card bg-surface-container-lowest p-8 lg:p-12 rounded-[2rem] flex flex-col lg:flex-row gap-8 items-start transition-all duration-500 hover:shadow-2xl hover:shadow-primary/5">
+<div class="flex-shrink-0">
+<span class="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary font-bold text-sm mb-4 font-headline">WEEK 04</span>
+<div class="text-on-surface-variant font-body text-sm font-semibold">4월 29일 (수) 4시~5시</div>
+</div>
+<div class="flex-grow">
+<h3 class="font-headline text-2xl lg:text-3xl font-bold text-on-surface mb-6">판단·정리·보고를 대신하는 에이전트 활용</h3>
+<ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary-fixed-dim mt-1">check_circle</span>
+<span class="text-on-surface-variant font-body">반복 업무 패턴 재 정리</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary-fixed-dim mt-1">check_circle</span>
+<span class="text-on-surface-variant font-body">시나리오 Demo</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary-fixed-dim mt-1">check_circle</span>
+<span class="text-on-surface-variant font-body">여러 직무 확장 예시</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary-fixed-dim mt-1">check_circle</span>
+<span class="text-on-surface-variant font-body">에이전트를 여러 개로 나눠야 하는 이유
+</span>
+</li>
+</ul>
+</div>
+<div class="hidden lg:block w-32 h-32 rounded-2xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-500">
+<img class="w-full h-full object-cover" data-alt="Dynamic data analytics dashboard with colorful charts and financial graphs" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDruqCT4Y0IJvJ3PuocMQiE1IhBvQCVAWi5CsMT0W-pC2SEJhSsmFPo86hf19TJABP2O918lPJcmn9a5t2HWBzmKTeOnhOziizmKkpHvM8ZzIwGhOj74unVhKH49UZNIWSHjQatrOfzohOm-17mK7VOQFM4YJhSlvuhg1J0ZnbUgLoWO15Ob12wwezb1QWMcJNyNrY8DN-mORhIEA-EwEPcoXcs5H_KjhMwxcFD6C_fnM9H9Rl7Oof242a_GxtTC097QMqEA7PVQ0Wo"/>
+</div>
+</div>
+<!-- Week 5 -->
+<div class="curriculum-card bg-surface-container-lowest p-8 lg:p-12 rounded-[2rem] flex flex-col lg:flex-row gap-8 items-start transition-all duration-500 hover:shadow-2xl hover:shadow-primary/5">
+<div class="flex-shrink-0">
+<span class="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary font-bold text-sm mb-4 font-headline">WEEK 05</span>
+<div class="text-on-surface-variant font-body text-sm font-semibold">5월 6일 (수) 4시~5시</div>
+</div>
+<div class="flex-grow">
+<h3 class="font-headline text-2xl lg:text-3xl font-bold text-on-surface mb-6">같은 에이전트인데, 왜 결과가 다를까? 설계의 모든 것!</h3>
+<ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary-fixed-dim mt-1">check_circle</span>
+<span class="text-on-surface-variant font-body">잘 안 되는 에이전트의 공통점</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary-fixed-dim mt-1">check_circle</span>
+<span class="text-on-surface-variant font-body">좋은 에이전트 지침의 구조
+</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary-fixed-dim mt-1">check_circle</span>
+<span class="text-on-surface-variant font-body">실전 꿀팁!
+</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary-fixed-dim mt-1">check_circle</span>
+<span class="text-on-surface-variant font-body">전체 과정 정리 & 다음 단계 제안
+</span>
+</li>
+</ul>
+</div>
+<div class="hidden lg:block w-32 h-32 rounded-2xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-500">
+<img class="w-full h-full object-cover" data-alt="Close up of developer coding on high resolution monitor in dark workspace" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDu4VhXesZsJN3BaeBAxdj-Q9PznRxgY6aTqwudOud2l9QhuuS7jgPnrgnah1mEly8F_7mHtuY3jOy_o_PKG9UC4u3xzPdIWm3orA3Bwum5ojlU8QLetMB-IiGiqZsw-A2hp26_EXLZD0-hMIsrkv11MWpkGWiO74rLZ_mGsWs0KHdQrs-110AnB1IgL6CurPgY6HCx6cs-8DELVWmUqaFmBj7ctbrDew7bWirYrGS_DZBz695wm72Bl2DhrU9b62e08gmSRMnPWlPZ"/>
+</div>
+</div>
+</div>
+</div>
 </section>
-
-<!-- CTA -->
-<section id="register">
-  <div class="container">
-    <div class="cta-section">
-      <h2 class="cta-title">5주 만에 M365 에이전트를<br>완전히 마스터하세요</h2>
-      <p class="cta-desc">매주 수요일 오후 4시, 1시간 투자로 에이전트 설계부터 실전 활용까지. 무료 온라인 웨비나입니다.</p>
-      <a href="https://events.teams.microsoft.com/event/5970cad7-30a7-4c74-ae1f-7cb5b753df21@97f42f55-f1db-4804-b1eb-08db083efd4f" class="cta-btn" target="_blank">🚀 지금 등록하기</a>
-      <p class="cta-note">📌 각 세션은 개별 등록이 가능합니다. 관심 있는 회차만 골라 참여하세요!</p>
-    </div>
-  </div>
+<!-- CTA Banner -->
+<section class="py-24 px-6">
+<div class="max-w-7xl mx-auto gradient-primary rounded-[3rem] p-12 lg:p-20 text-center relative overflow-hidden ambient-shadow">
+<div class="relative z-10">
+<h2 class="font-headline text-4xl lg:text-6xl font-extrabold text-white mb-8 tracking-tight">Master M365 Agent in 5 Weeks!</h2>
+<p class="text-white/80 font-body text-lg mb-12 max-w-2xl mx-auto">매주 수요일 오후 4시, 1시간 투자로 에이전트 설계부터 실전 활용까지. <br />무료 온라인 웨비나입니다.</p>
+<button class="bg-white text-primary font-bold px-12 py-5 rounded-full text-xl hover:bg-surface-container-low transition-all active:scale-95 font-body">지금 등록하기</button>
+</div>
+<!-- Decorative Circle -->
+<div class="absolute -right-20 -bottom-20 w-80 h-80 rounded-full bg-white/10 blur-3xl"></div>
+<div class="absolute -left-20 -top-20 w-80 h-80 rounded-full bg-secondary-fixed-dim/20 blur-3xl"></div>
+</div>
 </section>
-
+<!-- Partners -->
+<section class="pb-24 pt-12">
+<div class="max-w-7xl mx-auto px-6 text-center">
+<p class="text-on-surface-variant font-semibold text-sm uppercase tracking-widest mb-12"> </p>
+<div class="flex flex-wrap justify-center items-center gap-16 opacity-60 grayscale hover:grayscale-0 transition-all duration-700">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-4xl text-slate-700">cloud</span>
+<span class="font-headline text-2xl font-extrabold tracking-tight text-slate-900">MEGAZONE CLOUD</span>
+</div>
+</div>
+</div>
+</section>
+</main>
 <!-- Footer -->
-<footer>
-  <div class="container">
-    <div class="footer-logo">
-      <div class="footer-logo-icon">⚡</div>
-      <div class="footer-logo-text">MEGAZONE CLOUD</div>
-    </div>
-    <p class="footer-team">마이크로소프트 유닛 SPF 팀 · Microsoft Cloud SPF 2026</p>
-    <p class="footer-note">문의: Microsoft Unit SPF Team · <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e58680898c84a5888082849f8a8b80cb868a88">[email&#160;protected]</a></p>
-  </div>
+<footer class="bg-slate-50 dark:bg-slate-900 w-full py-12 px-6 border-t border-slate-200/15 dark:border-slate-800/15">
+<div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-center text-center md:text-left">
+<div>
+<div class="text-lg font-bold text-slate-900 dark:text-white font-headline mb-2">M365 Copilot Editorial</div>
+<p class="text-slate-500 dark:text-slate-400 font-body text-sm">© 2026 M365 Copilot Editorial. Powered by Megazone Cloud &amp; Microsoft.</p>
+</div>
+<div class="flex justify-center gap-8">
+<a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-cyan-300 transition-all font-body text-sm" href="#">Privacy Policy</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-cyan-300 transition-all font-body text-sm" href="#">Terms of Service</a>
+</div>
+<div class="flex justify-center md:justify-end gap-8">
+<a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-cyan-300 transition-all font-body text-sm" href="#">Sponsorship</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-cyan-300 transition-all font-body text-sm" href="#">Contact Support</a>
+</div>
+</div>
 </footer>
-
-<button id="backToTop" class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="맨 위로 가기">↑</button>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-<script>
-  // Show back-to-top button after scrolling
-  const backToTop = document.getElementById('backToTop');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 400) {
-      backToTop.classList.add('visible');
-    } else {
-      backToTop.classList.remove('visible');
-    }
-  });
-</script>
-</body>
-</html>
+</body></html>
