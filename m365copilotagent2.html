@@ -84,22 +84,50 @@
         .hero-mesh { background: radial-gradient(at 0% 0%, rgba(0, 95, 170, 0.15) 0%, transparent 50%), radial-gradient(at 100% 100%, rgba(0, 227, 253, 0.1) 0%, transparent 50%); }
         .curriculum-card:hover { transform: translateY(-4px); }
         .ambient-shadow { box-shadow: 0 12px 40px rgba(16, 28, 46, 0.06); }
+    .nav-link {
+      position: relative;
+      color: #475569;
+      padding-bottom: 0.25rem;
+      transition: color 0.2s ease;
+    }
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #005faa;
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 0.2s ease;
+    }
+    .nav-link:hover {
+      color: #005faa;
+    }
+    .nav-link.is-active {
+      color: #005faa;
+      font-weight: 600;
+    }
+    .nav-link.is-active::after {
+      transform: scaleX(1);
+    }
     </style>
 </head>
 <body class="bg-surface text-on-surface selection:bg-primary/20">
 <!-- TopNavBar -->
 <nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl shadow-sm dark:shadow-none transition-all duration-300">
 <div class="flex justify-between items-center max-w-7xl mx-auto px-6 h-20">
-<div class="text-xl font-bold tracking-tight text-slate-900 dark:text-slate-50 font-headline">
-                Hosted by MEGAZONE CLOUD
-            </div>
+<a class="text-xl font-bold tracking-tight text-slate-900 dark:text-slate-50 font-headline hover:text-blue-700 transition-colors" href="index.html">
+        Hosted by MEGAZONE CLOUD
+      </a>
 <div class="hidden md:flex items-center gap-8">
-<a class="text-blue-700 dark:text-cyan-400 font-semibold border-b-2 border-blue-700 dark:border-cyan-400 pb-1 font-body" href="index.html">Home</a>
-<a class="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-cyan-300 transition-colors font-body" href="#sessions">Sessions</a>
-<a class="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-cyan-300 transition-colors font-body" href="#curriculum">Curriculum</a>
+<a class="nav-link is-active font-body" data-target="home" href="#home">Home</a>
+<a class="nav-link font-body" data-target="sessions" href="#sessions">Sessions</a>
+<a class="nav-link font-body" data-target="curriculum" href="#curriculum">Curriculum</a>
 </div>
 <div class="flex items-center gap-4">
-<button class="gradient-primary text-white font-semibold px-6 py-2.5 rounded-full hover:opacity-90 active:scale-[0.98] transition-all font-body" onclick="window.open('https://events.teams.microsoft.com/event/2b24402d-ff59-4b6b-8ae1-9d1d6f5d3805@97f42f55-f1db-4804-b1eb-08db083efd4f', '_blank', 'noopener,noreferrer')">Register Now</button>
+<button class="gradient-primary text-white font-semibold px-6 py-2.5 rounded-full hover:opacity-90 active:scale-[0.98] transition-all font-body" onclick="window.open('https://events.teams.microsoft.com/event/2b24402d-ff59-4b6b-8ae1-9d1d6f5d3805@97f42f55-f1db-4804-b1eb-08db083efd4f', '_blank', 'noopener,noreferrer')">지금 등록하기</button>
 </div>
 </div>
 </nav>
@@ -378,4 +406,32 @@
 </div>
 </div>
 </footer>
+<script>
+  const navLinks = document.querySelectorAll('.nav-link[data-target]');
+
+  function setActiveNav(targetId) {
+    navLinks.forEach((link) => {
+      const isActive = link.dataset.target === targetId;
+      link.classList.toggle('is-active', isActive);
+    });
+  }
+
+  navLinks.forEach((link) => {
+    link.addEventListener('click', (event) => {
+      event.preventDefault();
+      const targetId = link.dataset.target;
+
+      if (targetId === 'home') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        const section = document.getElementById(targetId);
+        if (section) {
+          section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+
+      setActiveNav(targetId);
+    });
+  });
+</script>
 </body></html>
