@@ -66,18 +66,59 @@
   }
 </script>
 <style>
+  :root {
+    --ui-ink: #0f2138;
+    --ui-deep: #004c8f;
+    --ui-cyan: #12d6f2;
+    --ui-glass: rgba(255, 255, 255, 0.82);
+    --ui-stroke: rgba(0, 95, 170, 0.1);
+  }
+
   body {
     font-family: 'Inter', sans-serif;
-    background: linear-gradient(180deg, #f0f8ff 0%, #e0f4ff 100%);
-    color: #101c2e;
+    background:
+      radial-gradient(1200px 600px at 90% -10%, rgba(0, 149, 255, 0.1), transparent 55%),
+      radial-gradient(900px 520px at -10% 25%, rgba(0, 198, 255, 0.08), transparent 60%),
+      linear-gradient(180deg, #f5faff 0%, #e8f4ff 100%);
+    color: var(--ui-ink);
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
   .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; }
-  .gradient-primary { background: linear-gradient(135deg, #005faa 0%, #00e3fd 100%); }
+  .gradient-primary { background: linear-gradient(135deg, #00579f 0%, #0dd2ef 100%); }
   .gradient-teal { background: linear-gradient(135deg, #006875 0%, #00daf3 100%); }
   .gradient-orange { background: linear-gradient(135deg, #E87722 0%, #FFB74D 100%); }
-  .hero-mesh { background: radial-gradient(at 0% 0%, rgba(0, 95, 170, 0.15) 0%, transparent 50%), radial-gradient(at 100% 100%, rgba(0, 227, 253, 0.1) 0%, transparent 50%); }
-  .ambient-shadow { box-shadow: 0 12px 40px rgba(16, 28, 46, 0.06); }
+  .hero-mesh {
+    background:
+      radial-gradient(at 0% 0%, rgba(0, 95, 170, 0.12) 0%, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(0, 227, 253, 0.08) 0%, transparent 50%);
+  }
+  .ambient-shadow { box-shadow: 0 10px 28px rgba(8, 29, 53, 0.08); }
+
+  nav {
+    background: var(--ui-glass) !important;
+    border-bottom: 1px solid var(--ui-stroke);
+    box-shadow: 0 6px 20px rgba(7, 31, 58, 0.05);
+  }
+
+  a.gradient-primary {
+    box-shadow: 0 6px 18px rgba(0, 95, 170, 0.16), inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+    position: relative;
+    overflow: hidden;
+  }
+  a.gradient-primary::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, transparent 20%, rgba(255, 255, 255, 0.12) 50%, transparent 80%);
+    transform: none;
+    transition: none;
+    pointer-events: none;
+  }
+  a.gradient-primary:hover::after {
+    transform: none;
+  }
 
   /* ============================================ */
   /* Animated Background — Floating Water Drops   */
@@ -189,12 +230,22 @@
 
   .dropdown-shadow {
     box-shadow:
-      0 24px 60px -12px rgba(0, 95, 170, 0.25),
-      0 12px 32px -8px rgba(16, 28, 46, 0.18),
-      0 4px 12px rgba(16, 28, 46, 0.08),
+      0 18px 42px -12px rgba(0, 95, 170, 0.12),
+      0 8px 20px -8px rgba(16, 28, 46, 0.1),
+      0 3px 8px rgba(16, 28, 46, 0.05),
       0 0 0 1px rgba(0, 95, 170, 0.08);
   }
-  .event-card:hover { transform: translateY(-6px); }
+  .event-card {
+    border-color: rgba(0, 95, 170, 0.12) !important;
+    box-shadow: 0 6px 16px rgba(8, 35, 66, 0.06);
+    backdrop-filter: blur(2px);
+    transition: transform 0.45s cubic-bezier(.22,1,.36,1), box-shadow 0.45s cubic-bezier(.22,1,.36,1), border-color 0.45s ease;
+  }
+  .event-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 26px rgba(0, 76, 143, 0.1);
+    border-color: rgba(0, 95, 170, 0.2) !important;
+  }
 
   /* Dropdown */
   .nav-dropdown-menu {
@@ -204,6 +255,9 @@
     transition: all 0.3s cubic-bezier(.22,1,.36,1);
     max-height: 70vh;
     overflow-y: auto;
+    background: rgba(255, 255, 255, 0.94) !important;
+    border-color: rgba(0, 95, 170, 0.12) !important;
+    backdrop-filter: blur(12px);
   }
   .nav-dropdown.active .nav-dropdown-menu {
     opacity: 1;
@@ -301,7 +355,7 @@
       Hosted by MEGAZONE CLOUD
     </a>
     <div class="flex items-center gap-4">
-      <a href="https://events.teams.microsoft.com/event/2b24402d-ff59-4b6b-8ae1-9d1d6f5d3805@97f42f55-f1db-4804-b1eb-08db083efd4f" target="_blank" class="gradient-primary text-white font-semibold px-6 py-2.5 rounded-full hover:opacity-90 active:scale-[0.98] transition-all font-body inline-flex items-center gap-2">
+      <a href="https://events.teams.microsoft.com/event/45ac3750-6713-4e2a-b140-2a813917bb24@97f42f55-f1db-4804-b1eb-08db083efd4f" target="_blank" class="gradient-primary text-white font-semibold px-6 py-2.5 rounded-full hover:opacity-90 active:scale-[0.98] transition-all font-body inline-flex items-center gap-2">
         <span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">rocket_launch</span>
         지금 등록하기
       </a>
@@ -368,7 +422,7 @@
             <div class="flex-1 min-w-0">
               <div class="font-semibold text-sm text-on-surface flex items-center gap-2">
                 Azure Foundry과 깃헙 코파일럿으로 AX
-                <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-amber-100 text-amber-700">준비중</span>
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-amber-100 text-amber-700 inline-flex items-center whitespace-nowrap shrink-0 ml-auto self-start -translate-y-0.5">준비중</span>
               </div>
               <div class="text-xs text-on-surface-variant">Azure &amp; GitHub Copilot 시리즈</div>
             </div>
@@ -544,7 +598,7 @@
 
       <!-- CTA -->
       <div class="flex flex-wrap gap-4 justify-center mb-8">
-        <a href="https://events.teams.microsoft.com/event/d369d2cb-6c4b-4d26-b6ce-ffe8c86cba02@97f42f55-f1db-4804-b1eb-08db083efd4f" target="_blank" class="gradient-primary text-white font-bold px-8 py-4 rounded-full text-lg ambient-shadow hover:opacity-95 transition-all font-body inline-flex items-center gap-2">
+        <a href="https://events.teams.microsoft.com/event/45ac3750-6713-4e2a-b140-2a813917bb24@97f42f55-f1db-4804-b1eb-08db083efd4f" target="_blank" class="gradient-primary text-white font-bold px-8 py-4 rounded-full text-lg ambient-shadow hover:opacity-95 transition-all font-body inline-flex items-center gap-2">
           <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">rocket_launch</span>
           곧 시작되는 이벤트 등록하기
         </a>
@@ -570,62 +624,6 @@
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 
-        <!-- Event 1: 04.15 14:00 Power Automate -->
-        <div class="event-card bg-surface-container-lowest rounded-[2rem] overflow-hidden border border-outline-variant/15 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 flex flex-col">
-          <div class="h-1.5 gradient-primary"></div>
-          <div class="p-8 flex flex-col flex-grow">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary font-bold text-xs self-start mb-4 font-body">
-              <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">mic</span>
-              온라인 웨비나
-            </div>
-            <div class="text-primary font-bold text-sm mb-3 font-body flex items-center gap-2">
-              <span class="w-2 h-2 rounded-full bg-primary"></span>
-              2026.04.15 (수) 14:00
-            </div>
-            <p class="text-on-surface-variant text-sm mb-2 font-body">에이전틱 AI 시대, M365 파워플랫폼에 킥을 더한다!</p>
-            <h3 class="font-headline text-xl font-bold text-on-surface mb-3 leading-snug flex-grow">
-              Power Automate — 입금결의서 자동 생성
-            </h3>
-            <div class="text-on-surface-variant text-sm mb-5 font-body flex items-center gap-2">
-              <span class="material-symbols-outlined text-base">description</span>
-              <a href="https://spfaif.com/powerplatform1.html" target="_blank" class="text-primary underline hover:opacity-80">상세내용 보러가기</a>
-            </div>
-            <div class="h-px bg-outline-variant/30 mb-5"></div>
-            <a href="https://events.teams.microsoft.com/event/d369d2cb-6c4b-4d26-b6ce-ffe8c86cba02@97f42f55-f1db-4804-b1eb-08db083efd4f" target="_blank" class="gradient-primary text-white font-bold py-3.5 rounded-xl text-center hover:opacity-95 transition-all font-body inline-flex items-center justify-center gap-2">
-              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">link</span>
-              지금 등록하기
-            </a>
-          </div>
-        </div>
-
-        <!-- Event 2: 04.15 16:00 M365 Copilot 4월 2회차 -->
-        <div class="event-card bg-surface-container-lowest rounded-[2rem] overflow-hidden border border-outline-variant/15 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 flex flex-col">
-          <div class="h-1.5 gradient-primary"></div>
-          <div class="p-8 flex flex-col flex-grow">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary font-bold text-xs self-start mb-4 font-body">
-              <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">mic</span>
-              온라인 웨비나
-            </div>
-            <div class="text-primary font-bold text-sm mb-3 font-body flex items-center gap-2">
-              <span class="w-2 h-2 rounded-full bg-primary"></span>
-              2026.04.15 (수) 16:00
-            </div>
-            <p class="text-on-surface-variant text-sm mb-2 font-body">M365 코파일럿 파워시리즈 4월 2회차 · 5주 만에 에이전트 전문가로!</p>
-            <h3 class="font-headline text-xl font-bold text-on-surface mb-3 leading-snug flex-grow">
-              SharePoint 기본 지식 에이전트
-            </h3>
-            <div class="text-on-surface-variant text-sm mb-5 font-body flex items-center gap-2">
-              <span class="material-symbols-outlined text-base">description</span>
-              <a href="https://spfaif.com/m365copilotagent2.html" target="_blank" class="text-primary underline hover:opacity-80">상세내용 보러가기</a>
-            </div>
-            <div class="h-px bg-outline-variant/30 mb-5"></div>
-            <a href="https://events.teams.microsoft.com/event/2b24402d-ff59-4b6b-8ae1-9d1d6f5d3805@97f42f55-f1db-4804-b1eb-08db083efd4f" target="_blank" class="gradient-primary text-white font-bold py-3.5 rounded-xl text-center hover:opacity-95 transition-all font-body inline-flex items-center justify-center gap-2">
-              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">link</span>
-              지금 등록하기
-            </a>
-          </div>
-        </div>
-
         <!-- Event 3: 04.22 16:00 M365 Copilot 4월 3회차 -->
         <div class="event-card bg-surface-container-lowest rounded-[2rem] overflow-hidden border border-outline-variant/15 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 flex flex-col">
           <div class="h-1.5 gradient-primary"></div>
@@ -636,7 +634,7 @@
             </div>
             <div class="text-primary font-bold text-sm mb-3 font-body flex items-center gap-2">
               <span class="w-2 h-2 rounded-full bg-primary"></span>
-              2026.04.22 (수) 16:00
+              2026.04.22 (수) 16:00-17:00
             </div>
             <p class="text-on-surface-variant text-sm mb-2 font-body">M365 코파일럿 파워시리즈 4월 3회차 · 5주 만에 에이전트 전문가로!</p>
             <h3 class="font-headline text-xl font-bold text-on-surface mb-3 leading-snug flex-grow">
@@ -664,7 +662,7 @@
             </div>
             <div class="text-primary font-bold text-sm mb-3 font-body flex items-center gap-2">
               <span class="w-2 h-2 rounded-full bg-primary"></span>
-              2026.04.29 (수) 16:00~17:00
+              2026.04.29 (수) 16:00-17:00
             </div>
             <p class="text-on-surface-variant text-sm mb-2 font-body">M365 코파일럿 파워시리즈 4월 4회차 · 5주 만에 에이전트 전문가로!</p>
             <h3 class="font-headline text-xl font-bold text-on-surface mb-3 leading-snug flex-grow">
@@ -692,7 +690,7 @@
             </div>
             <div class="text-primary font-bold text-sm mb-3 font-body flex items-center gap-2">
               <span class="w-2 h-2 rounded-full bg-primary"></span>
-              2026.05.06 (금) 16:00~17:00
+              2026.05.06 (수) 16:00-17:00
             </div>
             <p class="text-on-surface-variant text-sm mb-2 font-body">M365 코파일럿 파워시리즈 4월 5회차 · 5주 만에 에이전트 전문가로!</p>
             <h3 class="font-headline text-xl font-bold text-on-surface mb-3 leading-snug flex-grow">
@@ -720,7 +718,7 @@
             </div>
             <div class="text-primary font-bold text-sm mb-3 font-body flex items-center gap-2">
               <span class="w-2 h-2 rounded-full bg-primary"></span>
-              2026.05.14 · 13:00-14:30
+              2026.05.14 (목) 13:00-14:30
             </div>
             <p class="text-on-surface-variant text-sm mb-2 font-body">AI &amp; Data Modernization Training Series</p>
             <h3 class="font-headline text-xl font-bold text-on-surface mb-3 leading-snug flex-grow">
@@ -748,7 +746,7 @@
             </div>
             <div class="text-primary font-bold text-sm mb-3 font-body flex items-center gap-2">
               <span class="w-2 h-2 rounded-full bg-primary"></span>
-              2026.05.14 · 15:00-16:30
+              2026.05.14 (목) 15:00-16:30
             </div>
             <p class="text-on-surface-variant text-sm mb-2 font-body">AI &amp; Data Modernization Training Series</p>
             <h3 class="font-headline text-xl font-bold text-on-surface mb-3 leading-snug flex-grow">
@@ -776,7 +774,7 @@
             </div>
             <div class="text-primary font-bold text-sm mb-3 font-body flex items-center gap-2">
               <span class="w-2 h-2 rounded-full bg-primary"></span>
-              2026.05.29 · 13:00-14:30
+              2026.05.29 (금) 13:00-14:30
             </div>
             <p class="text-on-surface-variant text-sm mb-2 font-body">AI &amp; Data Modernization Training Series</p>
             <h3 class="font-headline text-xl font-bold text-on-surface mb-3 leading-snug flex-grow">
@@ -804,7 +802,7 @@
             </div>
             <div class="text-primary font-bold text-sm mb-3 font-body flex items-center gap-2">
               <span class="w-2 h-2 rounded-full bg-primary"></span>
-              2026.05.29 · 15:00-16:30
+              2026.05.29 (금) 15:00-16:30
             </div>
             <p class="text-on-surface-variant text-sm mb-2 font-body">AI &amp; Data Modernization Training Series</p>
             <h3 class="font-headline text-xl font-bold text-on-surface mb-3 leading-snug flex-grow">
@@ -832,7 +830,7 @@
             </div>
             <div class="text-primary font-bold text-sm mb-3 font-body flex items-center gap-2">
               <span class="w-2 h-2 rounded-full bg-primary"></span>
-              2026.06.05 · 13:00-14:30
+              2026.06.05 (금) 13:00-14:30
             </div>
             <p class="text-on-surface-variant text-sm mb-2 font-body">AI &amp; Data Modernization Training Series</p>
             <h3 class="font-headline text-xl font-bold text-on-surface mb-3 leading-snug flex-grow">
@@ -860,7 +858,7 @@
             </div>
             <div class="text-primary font-bold text-sm mb-3 font-body flex items-center gap-2">
               <span class="w-2 h-2 rounded-full bg-primary"></span>
-              2026.06.05 · 15:00-16:30
+              2026.06.05 (금) 15:00-16:30
             </div>
             <p class="text-on-surface-variant text-sm mb-2 font-body">AI &amp; Data Modernization Training Series</p>
             <h3 class="font-headline text-xl font-bold text-on-surface mb-3 leading-snug flex-grow">
@@ -888,7 +886,7 @@
             </div>
             <div class="text-primary font-bold text-sm mb-3 font-body flex items-center gap-2">
               <span class="w-2 h-2 rounded-full bg-primary"></span>
-              2026.06.19 · 13:00-14:30
+              2026.06.19 (금) 13:00-14:30
             </div>
             <p class="text-on-surface-variant text-sm mb-2 font-body">AI &amp; Data Modernization Training Series</p>
             <h3 class="font-headline text-xl font-bold text-on-surface mb-3 leading-snug flex-grow">
@@ -916,7 +914,7 @@
             </div>
             <div class="text-primary font-bold text-sm mb-3 font-body flex items-center gap-2">
               <span class="w-2 h-2 rounded-full bg-primary"></span>
-              2026.06.19 · 15:00-16:30
+              2026.06.19 (금) 15:00-16:30
             </div>
             <p class="text-on-surface-variant text-sm mb-2 font-body">AI &amp; Data Modernization Training Series</p>
             <h3 class="font-headline text-xl font-bold text-on-surface mb-3 leading-snug flex-grow">
