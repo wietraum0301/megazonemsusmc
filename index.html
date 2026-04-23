@@ -328,6 +328,31 @@
     opacity: 1;
     transform: translateX(0);
   }
+
+  .nav-dropdown-toggle {
+    position: relative;
+    padding-bottom: 0.4rem;
+  }
+  .nav-dropdown-toggle::after {
+    content: '';
+    position: absolute;
+    left: 0.7rem;
+    right: 0.7rem;
+    bottom: 0.1rem;
+    height: 2px;
+    background: #0b0b0b;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.25s ease;
+    border-radius: 999px;
+  }
+  .nav-dropdown-toggle:hover::after,
+  .nav-dropdown.active .nav-dropdown-toggle::after {
+    transform: scaleX(1);
+  }
+  .nav-dropdown-menu .dropdown-arrow {
+    display: none !important;
+  }
 </style>
 </head>
 <body class="bg-surface text-on-surface selection:bg-primary/20">
@@ -346,33 +371,17 @@
 <div class="particle particle-4" aria-hidden="true"></div>
 
 <!-- TopNavBar -->
-<nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl shadow-sm transition-all duration-300">
-  <div class="flex justify-between items-center max-w-7xl mx-auto px-6 h-20">
+<nav class="fixed top-0 w-full z-50 bg-white shadow-sm transition-all duration-300">
+  <div class="flex items-center max-w-7xl mx-auto px-6 h-20 gap-6">
     <a href="https://spfaif.com" class="flex items-center gap-3 text-xl font-bold tracking-tight text-slate-900 font-headline">
-      <span class="w-9 h-9 rounded-xl gradient-primary flex items-center justify-center text-white">
-        <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">bolt</span>
-      </span>
       Hosted by MEGAZONE CLOUD
     </a>
-    <div class="flex items-center gap-4">
-      <a href="https://events.teams.microsoft.com/event/30505be9-f383-4af9-801c-b94404f0454c@97f42f55-f1db-4804-b1eb-08db083efd4f" target="_blank" class="gradient-primary text-white font-semibold px-6 py-2.5 rounded-full hover:opacity-90 active:scale-[0.98] transition-all font-body inline-flex items-center gap-2">
-        <span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">rocket_launch</span>
-        지금 등록하기
-      </a>
-    </div>
-  </div>
-
-  <!-- Program Category Nav -->
-  <div class="border-t border-outline-variant/20 bg-white/60 backdrop-blur-xl">
-    <div class="max-w-7xl mx-auto px-6 py-3 flex flex-wrap gap-3 justify-center">
+    <div class="flex-1 min-w-0 flex items-center justify-center">
+      <div class="flex flex-nowrap gap-6 justify-center mr-8">
       <!-- 온라인 웨비나 -->
       <div class="nav-dropdown relative">
-        <button class="nav-dropdown-toggle inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white border border-outline-variant/40 hover:border-primary/50 hover:shadow-md transition-all font-body font-semibold text-sm text-on-surface">
-          <span class="w-7 h-7 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
-            <span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">mic</span>
-          </span>
+        <button class="nav-dropdown-toggle inline-flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-white transition-all font-body font-semibold text-sm text-on-surface">
           온라인 웨비나
-          <span class="chevron material-symbols-outlined text-base opacity-50">expand_more</span>
         </button>
         <div class="nav-dropdown-menu absolute top-full left-1/2 mt-2 w-80 bg-white/95 backdrop-blur-xl border border-outline-variant/20 rounded-2xl p-2 dropdown-shadow z-10">
           <a href="m365copilotagent2.html" target="_blank" rel="noopener noreferrer" class="dropdown-item flex items-center gap-3 p-3 rounded-xl">
@@ -438,24 +447,10 @@
 
       <!-- 온사이트 행사 -->
       <div class="nav-dropdown relative">
-        <button class="nav-dropdown-toggle inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white border border-outline-variant/40 hover:border-secondary/50 hover:shadow-md transition-all font-body font-semibold text-sm text-on-surface">
-          <span class="w-7 h-7 rounded-lg bg-secondary/10 flex items-center justify-center text-secondary">
-            <span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">corporate_fare</span>
-          </span>
+        <button class="nav-dropdown-toggle inline-flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-white transition-all font-body font-semibold text-sm text-on-surface">
           온사이트 행사
-          <span class="chevron material-symbols-outlined text-base opacity-50">expand_more</span>
         </button>
-        <div class="nav-dropdown-menu absolute top-full left-1/2 mt-2 w-80 bg-white/95 backdrop-blur-xl border border-outline-variant/20 rounded-2xl p-2 dropdown-shadow z-10">
-          <a href="https://spfaif.com/pastevents/agenthackathon1.html" target="_blank" class="dropdown-item teal flex items-center gap-3 p-3 rounded-xl">
-            <div class="w-10 h-10 rounded-xl dropdown-icon bg-secondary/10 flex items-center justify-center text-secondary shrink-0">
-              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">trophy</span>
-            </div>
-            <div class="flex-1 min-w-0">
-              <div class="font-semibold text-sm text-on-surface">3월 27일 에이전트 해커톤</div>
-              <div class="text-xs text-on-surface-variant">Azure Agent Hackathon</div>
-            </div>
-          <span class="dropdown-arrow material-symbols-outlined text-lg">arrow_forward</span></a>
-          <div class="h-px bg-outline-variant/30 my-1 mx-3"></div>
+        <div class="nav-dropdown-menu absolute top-full left-1/2 mt-2 w-80 bg-white/100 backdrop-blur-xl border border-outline-variant/20 rounded-2xl p-2 dropdown-shadow z-10">
           <a href="https://lipcoding.kr" target="_blank" class="dropdown-item teal flex items-center gap-3 p-3 rounded-xl">
             <div class="w-10 h-10 rounded-xl dropdown-icon bg-secondary/10 flex items-center justify-center text-secondary shrink-0">
               <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">code</span>
@@ -463,6 +458,19 @@
             <div class="flex-1 min-w-0">
               <div class="font-semibold text-sm text-on-surface">6월 20일 입코딩</div>
               <div class="text-xs text-on-surface-variant">Lip Coding 현장 이벤트</div>
+            </div>
+          <span class="dropdown-arrow material-symbols-outlined text-lg">arrow_forward</span></a>
+          <div class="h-px bg-outline-variant/30 my-1 mx-3"></div>
+          <a href="https://spfaif.com/pastevents/agenthackathon1.html" target="_blank" class="dropdown-item teal flex items-center gap-3 p-3 rounded-xl">
+            <div class="w-10 h-10 rounded-xl dropdown-icon bg-slate-200 flex items-center justify-center text-slate-500 shrink-0">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">trophy</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="font-semibold text-sm text-on-surface flex items-center gap-2">
+                3월 27일 에이전트 해커톤
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-slate-200 text-slate-600 inline-flex items-center whitespace-nowrap shrink-0 ml-auto self-start -translate-y-0.5">종료</span>
+              </div>
+              <div class="text-xs text-on-surface-variant">Azure Agent Hackathon</div>
             </div>
           <span class="dropdown-arrow material-symbols-outlined text-lg">arrow_forward</span></a>
           <div class="h-px bg-outline-variant/30 my-1 mx-3"></div>
@@ -480,12 +488,8 @@
 
       <!-- 팝업 제안 -->
       <div class="nav-dropdown relative">
-        <button class="nav-dropdown-toggle inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white border border-outline-variant/40 hover:border-popup-orange/60 hover:shadow-md transition-all font-body font-semibold text-sm text-on-surface">
-          <span class="w-7 h-7 rounded-lg bg-popup-orange/10 flex items-center justify-center text-popup-orange">
-            <span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
-          </span>
+        <button class="nav-dropdown-toggle inline-flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-white transition-all font-body font-semibold text-sm text-on-surface">
           팝업 제안. 찾아갑니다
-          <span class="chevron material-symbols-outlined text-base opacity-50">expand_more</span>
         </button>
         <div class="nav-dropdown-menu absolute top-full left-1/2 mt-2 w-80 bg-white/95 backdrop-blur-xl border border-outline-variant/20 rounded-2xl p-2 dropdown-shadow z-10">
           <a href="https://spfaif.com/vibecoding.html" target="_blank" class="dropdown-item orange flex items-center gap-3 p-3 rounded-xl">
@@ -570,10 +574,16 @@
         </div>
       </div>
     </div>
+    <div class="flex items-center gap-4 ml-20">
+      <a href="https://events.teams.microsoft.com/event/30505be9-f383-4af9-801c-b94404f0454c@97f42f55-f1db-4804-b1eb-08db083efd4f" target="_blank" class="gradient-primary text-white font-semibold px-6 py-2.5 rounded-full hover:opacity-90 active:scale-[0.98] transition-all font-body inline-flex items-center gap-2">
+        <span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">rocket_launch</span>
+        지금 등록하기
+      </a>
+    </div>
   </div>
 </nav>
 
-<main class="relative z-10 pt-36">
+<main class="relative z-10 pt-20">
   <!-- Hero Section -->
   <section class="relative pt-24 pb-24 lg:pt-32 lg:pb-32 overflow-hidden hero-mesh" id="home">
     <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
