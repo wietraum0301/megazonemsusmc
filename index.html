@@ -340,7 +340,7 @@
     right: 0.7rem;
     bottom: 0.1rem;
     height: 2px;
-    background: #0b0b0b;
+    background: linear-gradient(90deg, #005faa, #00e3fd);
     transform: scaleX(0);
     transform-origin: left center;
     transition: transform 0.25s ease;
@@ -569,6 +569,24 @@
             <div class="flex-1 min-w-0">
               <div class="font-semibold text-sm text-on-surface">에이전트 시대, 달라지는 데이터 에이전트</div>
               <div class="text-xs text-on-surface-variant">Next-Gen Data Agent</div>
+            </div>
+          <span class="dropdown-arrow material-symbols-outlined text-lg">arrow_forward</span></a>
+        </div>
+      </div>
+
+      <!-- 다시보기 -->
+      <div class="nav-dropdown relative">
+        <button class="nav-dropdown-toggle inline-flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-white transition-all font-body font-semibold text-sm text-on-surface">
+          다시보기
+        </button>
+        <div class="nav-dropdown-menu absolute top-full left-1/2 mt-2 w-80 bg-white/95 backdrop-blur-xl border border-outline-variant/20 rounded-2xl p-2 dropdown-shadow z-10">
+          <a href="watchagain.html" class="dropdown-item flex items-center gap-3 p-3 rounded-xl">
+            <div class="w-10 h-10 rounded-xl dropdown-icon bg-primary/10 flex items-center justify-center text-primary shrink-0">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">video_library</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="font-semibold text-sm text-on-surface">웨비나 다시보기</div>
+              <div class="text-xs text-on-surface-variant">16개 웨비나 · Copilot, Power Platform, SPF</div>
             </div>
           <span class="dropdown-arrow material-symbols-outlined text-lg">arrow_forward</span></a>
         </div>
@@ -985,27 +1003,21 @@
 </footer>
 
 <script>
-  // Dropdown toggle
-  document.querySelectorAll('.nav-dropdown').forEach(dropdown => {
-    let timeout = null;
-    const open = () => {
-      clearTimeout(timeout);
-      document.querySelectorAll('.nav-dropdown').forEach(d => { if (d !== dropdown) d.classList.remove('active'); });
-      dropdown.classList.add('active');
-    };
-    const close = () => { timeout = setTimeout(() => dropdown.classList.remove('active'), 250); };
-    dropdown.addEventListener('mouseenter', open);
-    dropdown.addEventListener('mouseleave', close);
-    dropdown.querySelector('.nav-dropdown-toggle').addEventListener('click', (e) => {
-      e.stopPropagation();
-      if (dropdown.classList.contains('active')) dropdown.classList.remove('active');
-      else open();
+  // Navigation dropdown - hover based
+  const dropdowns = document.querySelectorAll('.nav-dropdown');
+  
+  dropdowns.forEach(dropdown => {
+    dropdown.addEventListener('mouseenter', function() {
+      // Close all other dropdowns
+      dropdowns.forEach(d => d.classList.remove('active'));
+      // Open this dropdown
+      this.classList.add('active');
     });
-  });
-  document.addEventListener('click', (e) => {
-    if (!e.target.closest('.nav-dropdown')) {
-      document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('active'));
-    }
+    
+    dropdown.addEventListener('mouseleave', function() {
+      // Close this dropdown
+      this.classList.remove('active');
+    });
   });
 </script>
 </body>

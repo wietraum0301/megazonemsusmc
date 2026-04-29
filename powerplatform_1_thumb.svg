@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="225" viewBox="0 0 400 225">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1">
+      <stop offset="0" stop-color="#0078d4"/>
+      <stop offset="1" stop-color="#00e3fd"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g)"/>
+  <g fill="#ffffff" font-family="Inter, Arial, sans-serif" font-weight="700">
+    <text x="50%" y="48%" font-size="20" text-anchor="middle">Power Platform</text>
+    <text x="50%" y="66%" font-size="16" text-anchor="middle">웨비나 1회차 (임시 썸네일)</text>
+  </g>
+  <circle cx="200" cy="112.5" r="28" fill="rgba(0,0,0,0.18)"/>
+  <path d="M190 105 L210 112.5 L190 120 Z" fill="#fff" transform="translate(-3, -2)"/>
+</svg>
