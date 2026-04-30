@@ -87,25 +87,12 @@
         h1, h2, h3, h4 { font-family: 'Plus Jakarta Sans', sans-serif; }
         .glass-nav { backdrop-filter: blur(24px); }
       </style>
+<link rel="stylesheet" href="global-header.css"/>
+<script defer src="global-header-loader.js"></script>
 </head>
 <body class="bg-background text-on-surface selection:bg-primary-container selection:text-on-primary-container" id="top">
-<!-- TopNavBar (Shared Component) -->
-<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-sm shadow-blue-900/5 transition-all duration-300">
-<div class="flex justify-between items-center max-w-7xl mx-auto px-6 h-20">
-      <a class="text-xl font-bold tracking-tight text-blue-900 dark:text-white font-headline hover:text-blue-700 transition-colors" href="index.html">Hosted by MEGAZONE CLOUD</a>
-<div class="hidden md:flex items-center gap-8">
-<a class="nav-link text-blue-700 dark:text-cyan-400 font-semibold border-b-2 border-blue-700 dark:border-cyan-400 pb-1 transition-all duration-300 font-body" href="#top">Home</a>
-<a class="nav-link text-slate-600 dark:text-slate-400 hover:text-blue-700 dark:hover:text-cyan-400 border-b-2 border-transparent pb-1 transition-all duration-300 font-body" href="#sessions">Sessions</a>
-<a class="nav-link text-slate-600 dark:text-slate-400 hover:text-blue-700 dark:hover:text-cyan-400 border-b-2 border-transparent pb-1 transition-all duration-300 font-body" href="#courses">Courses</a>
-<a class="nav-link text-slate-600 dark:text-slate-400 hover:text-blue-700 dark:hover:text-cyan-400 border-b-2 border-transparent pb-1 transition-all duration-300 font-body" href="#curriculum">Curriculum</a>
-</div>
-<div class="flex items-center gap-4">
-<a class="bg-gradient-to-br from-primary to-primary-container text-white font-semibold px-6 py-2.5 rounded-full hover:opacity-90 active:scale-[0.98] transition-all font-body inline-block" href="https://events.teams.microsoft.com/event/404087dc-cf1a-46ba-9ac6-3fac963ab91b@97f42f55-f1db-4804-b1eb-08db083efd4f" target="_blank" rel="noopener noreferrer">
-        지금 등록하기
-      </a>
-</div>
-</div>
-</nav>
+<div data-global-header></div>
+
 <!-- Hero Section -->
 <header class="relative overflow-hidden pt-32 lg:pt-40 pb-32">
 <div class="absolute inset-0 z-0 bg-gradient-to-br from-primary via-primary-container to-secondary opacity-5"></div>
@@ -113,23 +100,23 @@
 <div class="space-y-8">
 <div class="inline-flex items-center gap-2 px-3 py-1 bg-surface-container-high rounded-full border border-outline-variant/20">
 <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
-<span class="text-xs font-bold text-primary uppercase tracking-widest">2026 교육 시리즈</span>
+<span class="text-xs font-bold text-primary uppercase tracking-widest">2026 교육 ?�리�?/span>
 </div>
 <h1 class="text-5xl lg:text-7xl font-extrabold text-on-surface tracking-tight leading-[1.1]">
                     AI &amp; Data <span class="text-primary">Modernization</span> Training Series
                 </h1>
 <p class="text-xl text-on-surface-variant max-w-xl leading-relaxed font-body">
-                    메가존클라우드와 마이크로소프트가 제안하는 엔터프라이즈 AI 및 <br />데이터 지능화를 위한 실무 교육 세션에 초대합니다.
+                    메�?존클?�우?��? 마이?�로?�프?��? ?�안?�는 ?�터?�라?�즈 AI �?<br />?�이??지?�화�??�한 ?�무 교육 ?�션??초�??�니??
                 </p>
 <div class="flex flex-wrap gap-6 items-center">
 <a class="bg-gradient-to-br from-primary to-primary-container text-white font-bold px-8 py-4 rounded-full text-lg shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all active:scale-[0.98] font-body inline-block" href="https://events.teams.microsoft.com/event/404087dc-cf1a-46ba-9ac6-3fac963ab91b@97f42f55-f1db-4804-b1eb-08db083efd4f" target="_blank" rel="noopener noreferrer">
-            웨비나 등록하기
+            ?�비???�록?�기
           </a>
 <div class="flex items-center gap-3 text-on-surface">
 <span class="material-symbols-outlined text-primary">calendar_month</span>
 <div class="text-sm">
-<span class="block font-bold">5월 14일 - 6월 19일</span>
-<span class="text-xs text-on-surface-variant">실시간 대화형 세션</span>
+<span class="block font-bold">5??14??- 6??19??/span>
+<span class="text-xs text-on-surface-variant">?�시�??�?�형 ?�션</span>
 </div>
 </div>
 </div>
@@ -145,8 +132,8 @@
 <div class="max-w-7xl mx-auto px-6">
 <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
 <div class="max-w-2xl">
-<h2 class="text-4xl font-bold mb-4">교육 일정</h2>
-<p class="text-on-surface-variant">데이터 시각화부터 자율형 AI 에이전트까지, 조직의 역량을 변화시키기 위해 설계된 4일간의 <br />집중 교육입니다.</p>
+<h2 class="text-4xl font-bold mb-4">교육 ?�정</h2>
+<p class="text-on-surface-variant">?�이???�각?��????�율??AI ?�이?�트까�?, 조직????��??변?�시?�기 ?�해 ?�계??4?�간??<br />집중 교육?�니??</p>
 </div>
 <div class="text-primary font-bold flex items-center gap-2">
 <span class="material-symbols-outlined">schedule</span>
@@ -157,7 +144,7 @@
 <!-- Day 1 -->
 <div class="bg-surface-container-lowest p-8 rounded-xl border border-outline-variant/10 hover:shadow-xl transition-all group">
 <div class="text-primary font-extrabold text-3xl mb-1 group-hover:translate-x-2 transition-transform">14</div>
-<div class="text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-6">5월, 목요일</div>
+<div class="text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-6">5?? 목요??/div>
 <div class="space-y-6">
 <div class="relative pl-4 border-l-2 border-primary-container">
 <div class="text-xs text-primary font-bold mb-1">13:00-14:30</div>
@@ -172,7 +159,7 @@
 <!-- Day 2 -->
 <div class="bg-surface-container-lowest p-8 rounded-xl border border-outline-variant/10 hover:shadow-xl transition-all group">
 <div class="text-primary font-extrabold text-3xl mb-1 group-hover:translate-x-2 transition-transform">29</div>
-<div class="text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-6">5월, 금요일</div>
+<div class="text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-6">5?? 금요??/div>
 <div class="space-y-6">
 <div class="relative pl-4 border-l-2 border-primary-container">
 <div class="text-xs text-primary font-bold mb-1">13:00-14:30</div>
@@ -187,7 +174,7 @@
 <!-- Day 3 -->
 <div class="bg-surface-container-lowest p-8 rounded-xl border border-outline-variant/10 hover:shadow-xl transition-all group">
 <div class="text-primary font-extrabold text-3xl mb-1 group-hover:translate-x-2 transition-transform">05</div>
-<div class="text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-6">6월, 금요일</div>
+<div class="text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-6">6?? 금요??/div>
 <div class="space-y-6">
 <div class="relative pl-4 border-l-2 border-primary-container">
 <div class="text-xs text-primary font-bold mb-1">13:00-14:30</div>
@@ -202,7 +189,7 @@
 <!-- Day 4 -->
 <div class="bg-surface-container-lowest p-8 rounded-xl border border-outline-variant/10 hover:shadow-xl transition-all group">
 <div class="text-primary font-extrabold text-3xl mb-1 group-hover:translate-x-2 transition-transform">19</div>
-<div class="text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-6">6월, 금요일</div>
+<div class="text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-6">6?? 금요??/div>
 <div class="space-y-6">
 <div class="relative pl-4 border-l-2 border-primary-container">
 <div class="text-xs text-primary font-bold mb-1">13:00-14:30</div>
@@ -222,8 +209,8 @@
 <div class="max-w-7xl mx-auto px-6">
 <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
 <div class="max-w-2xl">
-<h2 class="text-4xl font-bold mb-4">강좌 등록</h2>
-<p class="text-on-surface-variant">아래 8개 강좌 중 원하는 세션을 골라 등록할 수 있습니다.</p>
+<h2 class="text-4xl font-bold mb-4">강좌 ?�록</h2>
+<p class="text-on-surface-variant">?�래 8�?강좌 �??�하???�션??골라 ?�록?????�습?�다.</p>
 </div>
 <div class="text-primary font-bold flex items-center gap-2">
 <span class="material-symbols-outlined">dashboard</span>
@@ -236,10 +223,10 @@
 <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary font-bold">01</span>
 </div>
 <h3 class="text-2xl font-bold mb-3">Power BI</h3>
-<div class="flex items-center gap-2 text-sm md:text-base font-semibold text-on-surface-variant mb-4"><span class="material-symbols-outlined text-primary text-base">event</span><span>5월 14일 · 13:00-14:30</span></div>
+<div class="flex items-center gap-2 text-sm md:text-base font-semibold text-on-surface-variant mb-4"><span class="material-symbols-outlined text-primary text-base">event</span><span>5??14??· 13:00-14:30</span></div>
 <div class="mt-auto">
 <div class="flex items-center gap-2 text-sm text-on-surface-variant mb-4"><span class="material-symbols-outlined text-primary text-base">schedule</span><span>90 min · Live</span></div>
-<a class="inline-flex items-center justify-center w-full bg-gradient-to-br from-primary to-primary-container text-white font-semibold px-4 py-3 rounded-full hover:opacity-95 transition-all" href="https://events.teams.microsoft.com/event/404087dc-cf1a-46ba-9ac6-3fac963ab91b@97f42f55-f1db-4804-b1eb-08db083efd4f" target="_blank" rel="noopener noreferrer">등록하기</a>
+<a class="inline-flex items-center justify-center w-full bg-gradient-to-br from-primary to-primary-container text-white font-semibold px-4 py-3 rounded-full hover:opacity-95 transition-all" href="https://events.teams.microsoft.com/event/404087dc-cf1a-46ba-9ac6-3fac963ab91b@97f42f55-f1db-4804-b1eb-08db083efd4f" target="_blank" rel="noopener noreferrer">?�록?�기</a>
 </div>
 </article>
 <article class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/10 shadow-sm hover:shadow-xl transition-all group flex flex-col h-full">
@@ -247,10 +234,10 @@
 <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-secondary/10 text-secondary font-bold">02</span>
 </div>
 <h3 class="text-2xl font-bold mb-3">Microsoft Foundry</h3>
-<div class="flex items-center gap-2 text-sm md:text-base font-semibold text-on-surface-variant mb-4"><span class="material-symbols-outlined text-secondary text-base">event</span><span>5월 14일 · 15:00-16:30</span></div>
+<div class="flex items-center gap-2 text-sm md:text-base font-semibold text-on-surface-variant mb-4"><span class="material-symbols-outlined text-secondary text-base">event</span><span>5??14??· 15:00-16:30</span></div>
 <div class="mt-auto">
 <div class="flex items-center gap-2 text-sm text-on-surface-variant mb-4"><span class="material-symbols-outlined text-secondary text-base">schedule</span><span>90 min · Live</span></div>
-<a class="inline-flex items-center justify-center w-full bg-gradient-to-br from-primary to-primary-container text-white font-semibold px-4 py-3 rounded-full hover:opacity-95 transition-all" href="https://events.teams.microsoft.com/event/9d1680c1-5ceb-4004-b7fd-d9997eee93a2@97f42f55-f1db-4804-b1eb-08db083efd4f" target="_blank" rel="noopener noreferrer">등록하기</a>
+<a class="inline-flex items-center justify-center w-full bg-gradient-to-br from-primary to-primary-container text-white font-semibold px-4 py-3 rounded-full hover:opacity-95 transition-all" href="https://events.teams.microsoft.com/event/9d1680c1-5ceb-4004-b7fd-d9997eee93a2@97f42f55-f1db-4804-b1eb-08db083efd4f" target="_blank" rel="noopener noreferrer">?�록?�기</a>
 </div>
 </article>
 <article class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/10 shadow-sm hover:shadow-xl transition-all group flex flex-col h-full">
@@ -258,10 +245,10 @@
 <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary font-bold">03</span>
 </div>
 <h3 class="text-2xl font-bold mb-3">Power Automate</h3>
-<div class="flex items-center gap-2 text-sm md:text-base font-semibold text-on-surface-variant mb-4"><span class="material-symbols-outlined text-primary text-base">event</span><span>5월 29일 · 13:00-14:30</span></div>
+<div class="flex items-center gap-2 text-sm md:text-base font-semibold text-on-surface-variant mb-4"><span class="material-symbols-outlined text-primary text-base">event</span><span>5??29??· 13:00-14:30</span></div>
 <div class="mt-auto">
 <div class="flex items-center gap-2 text-sm text-on-surface-variant mb-4"><span class="material-symbols-outlined text-primary text-base">schedule</span><span>90 min · Live</span></div>
-<a class="inline-flex items-center justify-center w-full bg-gradient-to-br from-primary to-primary-container text-white font-semibold px-4 py-3 rounded-full hover:opacity-95 transition-all" href="https://events.teams.microsoft.com/event/8e44e9e9-577b-4005-b8d6-dcc1e3973f7b@97f42f55-f1db-4804-b1eb-08db083efd4f" target="_blank" rel="noopener noreferrer">등록하기</a>
+<a class="inline-flex items-center justify-center w-full bg-gradient-to-br from-primary to-primary-container text-white font-semibold px-4 py-3 rounded-full hover:opacity-95 transition-all" href="https://events.teams.microsoft.com/event/8e44e9e9-577b-4005-b8d6-dcc1e3973f7b@97f42f55-f1db-4804-b1eb-08db083efd4f" target="_blank" rel="noopener noreferrer">?�록?�기</a>
 </div>
 </article>
 <article class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/10 shadow-sm hover:shadow-xl transition-all group flex flex-col h-full">
@@ -269,10 +256,10 @@
 <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-secondary/10 text-secondary font-bold">04</span>
 </div>
 <h3 class="text-2xl font-bold mb-3">Copilot Studio</h3>
-<div class="flex items-center gap-2 text-sm md:text-base font-semibold text-on-surface-variant mb-4"><span class="material-symbols-outlined text-secondary text-base">event</span><span>5월 29일 · 15:00-16:30</span></div>
+<div class="flex items-center gap-2 text-sm md:text-base font-semibold text-on-surface-variant mb-4"><span class="material-symbols-outlined text-secondary text-base">event</span><span>5??29??· 15:00-16:30</span></div>
 <div class="mt-auto">
 <div class="flex items-center gap-2 text-sm text-on-surface-variant mb-4"><span class="material-symbols-outlined text-secondary text-base">schedule</span><span>90 min · Live</span></div>
-<a class="inline-flex items-center justify-center w-full bg-gradient-to-br from-primary to-primary-container text-white font-semibold px-4 py-3 rounded-full hover:opacity-95 transition-all" href="https://events.teams.microsoft.com/event/caa37795-08ee-482b-ba42-842a5cb24999@97f42f55-f1db-4804-b1eb-08db083efd4f" target="_blank" rel="noopener noreferrer">등록하기</a>
+<a class="inline-flex items-center justify-center w-full bg-gradient-to-br from-primary to-primary-container text-white font-semibold px-4 py-3 rounded-full hover:opacity-95 transition-all" href="https://events.teams.microsoft.com/event/caa37795-08ee-482b-ba42-842a5cb24999@97f42f55-f1db-4804-b1eb-08db083efd4f" target="_blank" rel="noopener noreferrer">?�록?�기</a>
 </div>
 </article>
 <article class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/10 shadow-sm hover:shadow-xl transition-all group flex flex-col h-full">
@@ -280,10 +267,10 @@
 <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary font-bold">05</span>
 </div>
 <h3 class="text-2xl font-bold mb-3">Power BI</h3>
-<div class="flex items-center gap-2 text-sm md:text-base font-semibold text-on-surface-variant mb-4"><span class="material-symbols-outlined text-primary text-base">event</span><span>6월 5일 · 13:00-14:30</span></div>
+<div class="flex items-center gap-2 text-sm md:text-base font-semibold text-on-surface-variant mb-4"><span class="material-symbols-outlined text-primary text-base">event</span><span>6??5??· 13:00-14:30</span></div>
 <div class="mt-auto">
 <div class="flex items-center gap-2 text-sm text-on-surface-variant mb-4"><span class="material-symbols-outlined text-primary text-base">schedule</span><span>90 min · Live</span></div>
-<a class="inline-flex items-center justify-center w-full bg-gradient-to-br from-primary to-primary-container text-white font-semibold px-4 py-3 rounded-full hover:opacity-95 transition-all" href="https://events.teams.microsoft.com/event/bd473010-d85b-43ed-b4c9-384a17f0cc7e@97f42f55-f1db-4804-b1eb-08db083efd4f" target="_blank" rel="noopener noreferrer">등록하기</a>
+<a class="inline-flex items-center justify-center w-full bg-gradient-to-br from-primary to-primary-container text-white font-semibold px-4 py-3 rounded-full hover:opacity-95 transition-all" href="https://events.teams.microsoft.com/event/bd473010-d85b-43ed-b4c9-384a17f0cc7e@97f42f55-f1db-4804-b1eb-08db083efd4f" target="_blank" rel="noopener noreferrer">?�록?�기</a>
 </div>
 </article>
 <article class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/10 shadow-sm hover:shadow-xl transition-all group flex flex-col h-full">
@@ -291,10 +278,10 @@
 <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-secondary/10 text-secondary font-bold">06</span>
 </div>
 <h3 class="text-2xl font-bold mb-3">Microsoft Foundry</h3>
-<div class="flex items-center gap-2 text-sm md:text-base font-semibold text-on-surface-variant mb-4"><span class="material-symbols-outlined text-secondary text-base">event</span><span>6월 5일 · 15:00-16:30</span></div>
+<div class="flex items-center gap-2 text-sm md:text-base font-semibold text-on-surface-variant mb-4"><span class="material-symbols-outlined text-secondary text-base">event</span><span>6??5??· 15:00-16:30</span></div>
 <div class="mt-auto">
 <div class="flex items-center gap-2 text-sm text-on-surface-variant mb-4"><span class="material-symbols-outlined text-secondary text-base">schedule</span><span>90 min · Live</span></div>
-<a class="inline-flex items-center justify-center w-full bg-gradient-to-br from-primary to-primary-container text-white font-semibold px-4 py-3 rounded-full hover:opacity-95 transition-all" href="https://events.teams.microsoft.com/event/3580b0c5-b0a2-476d-8845-4e49c00de360@97f42f55-f1db-4804-b1eb-08db083efd4f" target="_blank" rel="noopener noreferrer">등록하기</a>
+<a class="inline-flex items-center justify-center w-full bg-gradient-to-br from-primary to-primary-container text-white font-semibold px-4 py-3 rounded-full hover:opacity-95 transition-all" href="https://events.teams.microsoft.com/event/3580b0c5-b0a2-476d-8845-4e49c00de360@97f42f55-f1db-4804-b1eb-08db083efd4f" target="_blank" rel="noopener noreferrer">?�록?�기</a>
 </div>
 </article>
 <article class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/10 shadow-sm hover:shadow-xl transition-all group flex flex-col h-full">
@@ -302,10 +289,10 @@
 <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary font-bold">07</span>
 </div>
 <h3 class="text-2xl font-bold mb-3">Power Automate</h3>
-<div class="flex items-center gap-2 text-sm md:text-base font-semibold text-on-surface-variant mb-4"><span class="material-symbols-outlined text-primary text-base">event</span><span>6월 19일 · 13:00-14:30</span></div>
+<div class="flex items-center gap-2 text-sm md:text-base font-semibold text-on-surface-variant mb-4"><span class="material-symbols-outlined text-primary text-base">event</span><span>6??19??· 13:00-14:30</span></div>
 <div class="mt-auto">
 <div class="flex items-center gap-2 text-sm text-on-surface-variant mb-4"><span class="material-symbols-outlined text-primary text-base">schedule</span><span>90 min · Live</span></div>
-<a class="inline-flex items-center justify-center w-full bg-gradient-to-br from-primary to-primary-container text-white font-semibold px-4 py-3 rounded-full hover:opacity-95 transition-all" href="https://events.teams.microsoft.com/event/6964c729-812b-4798-b5e9-e9932788675f@97f42f55-f1db-4804-b1eb-08db083efd4f" target="_blank" rel="noopener noreferrer">등록하기</a>
+<a class="inline-flex items-center justify-center w-full bg-gradient-to-br from-primary to-primary-container text-white font-semibold px-4 py-3 rounded-full hover:opacity-95 transition-all" href="https://events.teams.microsoft.com/event/6964c729-812b-4798-b5e9-e9932788675f@97f42f55-f1db-4804-b1eb-08db083efd4f" target="_blank" rel="noopener noreferrer">?�록?�기</a>
 </div>
 </article>
 <article class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/10 shadow-sm hover:shadow-xl transition-all group flex flex-col h-full">
@@ -313,10 +300,10 @@
 <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-secondary/10 text-secondary font-bold">08</span>
 </div>
 <h3 class="text-2xl font-bold mb-3">Copilot Studio</h3>
-<div class="flex items-center gap-2 text-sm md:text-base font-semibold text-on-surface-variant mb-4"><span class="material-symbols-outlined text-secondary text-base">event</span><span>6월 19일 · 15:00-16:30</span></div>
+<div class="flex items-center gap-2 text-sm md:text-base font-semibold text-on-surface-variant mb-4"><span class="material-symbols-outlined text-secondary text-base">event</span><span>6??19??· 15:00-16:30</span></div>
 <div class="mt-auto">
 <div class="flex items-center gap-2 text-sm text-on-surface-variant mb-4"><span class="material-symbols-outlined text-secondary text-base">schedule</span><span>90 min · Live</span></div>
-<a class="inline-flex items-center justify-center w-full bg-gradient-to-br from-primary to-primary-container text-white font-semibold px-4 py-3 rounded-full hover:opacity-95 transition-all" href="https://events.teams.microsoft.com/event/57d97aa5-7350-4d22-8c1f-715ed594a491@97f42f55-f1db-4804-b1eb-08db083efd4f" target="_blank" rel="noopener noreferrer">등록하기</a>
+<a class="inline-flex items-center justify-center w-full bg-gradient-to-br from-primary to-primary-container text-white font-semibold px-4 py-3 rounded-full hover:opacity-95 transition-all" href="https://events.teams.microsoft.com/event/57d97aa5-7350-4d22-8c1f-715ed594a491@97f42f55-f1db-4804-b1eb-08db083efd4f" target="_blank" rel="noopener noreferrer">?�록?�기</a>
 </div>
 </article>
 </div>
@@ -325,26 +312,26 @@
 <!-- Curriculum Detail -->
 <section class="py-24 scroll-mt-28" id="curriculum">
 <div class="max-w-7xl mx-auto px-6">
-<h2 class="text-4xl font-bold mb-16 text-center">교육 프로그램 상세</h2>
+<h2 class="text-4xl font-bold mb-16 text-center">교육 ?�로그램 ?�세</h2>
 <div class="space-y-24">
 <!-- Module 1: Power BI -->
 <div class="grid lg:grid-cols-2 gap-16 items-center">
 <div class="order-2 lg:order-1">
 <div class="text-primary font-bold uppercase tracking-widest text-xs mb-4">Module 01</div>
-<h3 class="text-3xl font-bold mb-6">데이터 기반 의사결정을 위한 Power BI 활용법</h3>
-<p class="text-on-surface-variant mb-8 leading-relaxed">단순한 수치 나열을 넘어 데이터 속에 숨겨진 비즈니스 인사이트를 발견하고 의사결정의 질을 높이는 실무 테크닉을 다룹니다.</p>
+<h3 class="text-3xl font-bold mb-6">?�이??기반 ?�사결정???�한 Power BI ?�용�?/h3>
+<p class="text-on-surface-variant mb-8 leading-relaxed">?�순???�치 ?�열???�어 ?�이???�에 ?�겨�?비즈?�스 ?�사?�트�?발견?�고 ?�사결정??질을 ?�이???�무 ?�크?�을 ?�룹?�다.</p>
 <ul class="space-y-4">
 <li class="flex items-start gap-3">
 <span class="material-symbols-outlined text-primary" data-weight="fill">check_circle</span>
-<span class="text-on-surface font-medium">탄탄한 데이터 모델링 기초와 아키텍처</span>
+<span class="text-on-surface font-medium">?�탄???�이??모델�?기초?� ?�키?�처</span>
 </li>
 <li class="flex items-start gap-3">
 <span class="material-symbols-outlined text-primary" data-weight="fill">check_circle</span>
-<span class="text-on-surface font-medium">DAX 함수를 활용한 정교한 KPI 산출</span>
+<span class="text-on-surface font-medium">DAX ?�수�??�용???�교??KPI ?�출</span>
 </li>
 <li class="flex items-start gap-3">
 <span class="material-symbols-outlined text-primary" data-weight="fill">check_circle</span>
-<span class="text-on-surface font-medium">조직 성과 모니터링 및 대시보드 시각화</span>
+<span class="text-on-surface font-medium">조직 ?�과 모니?�링 �??�?�보???�각??/span>
 </li>
 </ul>
 </div>
@@ -359,20 +346,20 @@
 </div>
 <div>
 <div class="text-secondary font-bold uppercase tracking-widest text-xs mb-4">Module 02</div>
-<h3 class="text-3xl font-bold mb-6">AI Foundry로 구축하는 커스텀 AI 앱 개발 실무</h3>
-<p class="text-on-surface-variant mb-8 leading-relaxed">Microsoft AI Foundry의 핵심 기능을 탐색하고, 기업 고유 데이터를 결합한 RAG 어플리케이션을 구축하는 실무 프로세스를 공유합니다.</p>
+<h3 class="text-3xl font-bold mb-6">AI Foundry�?구축?�는 커스?� AI ??개발 ?�무</h3>
+<p class="text-on-surface-variant mb-8 leading-relaxed">Microsoft AI Foundry???�심 기능???�색?�고, 기업 고유 ?�이?��? 결합??RAG ?�플리�??�션??구축?�는 ?�무 ?�로?�스�?공유?�니??</p>
 <ul class="space-y-4">
 <li class="flex items-start gap-3">
 <span class="material-symbols-outlined text-secondary" data-weight="fill">check_circle</span>
-<span class="text-on-surface font-medium">모델 카탈로그 활용 및 최적 모델 비교 분석</span>
+<span class="text-on-surface font-medium">모델 카탈로그 ?�용 �?최적 모델 비교 분석</span>
 </li>
 <li class="flex items-start gap-3">
 <span class="material-symbols-outlined text-secondary" data-weight="fill">check_circle</span>
-<span class="text-on-surface font-medium">데이터 소스 연결 및 인덱싱 (RAG 구현)</span>
+<span class="text-on-surface font-medium">?�이???�스 ?�결 �??�덱??(RAG 구현)</span>
 </li>
 <li class="flex items-start gap-3">
 <span class="material-symbols-outlined text-secondary" data-weight="fill">check_circle</span>
-<span class="text-on-surface font-medium">에이전트 도구 연동 및 오케스트레이션</span>
+<span class="text-on-surface font-medium">?�이?�트 ?�구 ?�동 �??��??�트?�이??/span>
 </li>
 </ul>
 </div>
@@ -381,20 +368,20 @@
 <div class="grid lg:grid-cols-2 gap-16 items-center">
 <div class="order-2 lg:order-1">
 <div class="text-primary font-bold uppercase tracking-widest text-xs mb-4">Module 03</div>
-<h3 class="text-3xl font-bold mb-6">데스크톱과 클라우드를 넘나드는 업무 자동화</h3>
-<p class="text-on-surface-variant mb-8 leading-relaxed">매일 반복되는 이메일 확인, 단순 데이터 입력을 자동화하세요. 코딩을 몰라도 클릭 몇번으로 나만의 디지털 비서를 만드는 방법을 배웁니다.</p>
+<h3 class="text-3xl font-bold mb-6">?�스?�톱�??�라?�드�??�나?�는 ?�무 ?�동??/h3>
+<p class="text-on-surface-variant mb-8 leading-relaxed">매일 반복?�는 ?�메???�인, ?�순 ?�이???�력???�동?�하?�요. 코딩??몰라???�릭 몇번?�로 ?�만???��???비서�?만드??방법??배웁?�다.</p>
 <ul class="space-y-4">
 <li class="flex items-start gap-3">
 <span class="material-symbols-outlined text-primary" data-weight="fill">check_circle</span>
-<span class="text-on-surface font-medium">웹 브라우저 및 엑셀 자동화 (RPA)</span>
+<span class="text-on-surface font-medium">??브라?��? �??��? ?�동??(RPA)</span>
 </li>
 <li class="flex items-start gap-3">
 <span class="material-symbols-outlined text-primary" data-weight="fill">check_circle</span>
-<span class="text-on-surface font-medium">오피스 커넥터를 이용한 클라우드 자동화</span>
+<span class="text-on-surface font-medium">?�피??커넥?��? ?�용???�라?�드 ?�동??/span>
 </li>
 <li class="flex items-start gap-3">
 <span class="material-symbols-outlined text-primary" data-weight="fill">check_circle</span>
-<span class="text-on-surface font-medium">AI 모델을 활용한 지능형 문서 추출</span>
+<span class="text-on-surface font-medium">AI 모델???�용??지?�형 문서 추출</span>
 </li>
 </ul>
 </div>
@@ -409,20 +396,20 @@
 </div>
 <div>
 <div class="text-secondary font-bold uppercase tracking-widest text-xs mb-4">Module 04</div>
-<h3 class="text-3xl font-bold mb-6">스스로 일하는 AI 에이전트 - Copilot Studio</h3>
-<p class="text-on-surface-variant mb-8 leading-relaxed">비즈니스 로직과 AI가 유기적으로 결합 및 고도화된 자동화 시나리오를 경험하고 실행형 에이전트 구축 전략을 다룹니다.</p>
+<h3 class="text-3xl font-bold mb-6">?�스�??�하??AI ?�이?�트 - Copilot Studio</h3>
+<p class="text-on-surface-variant mb-8 leading-relaxed">비즈?�스 로직�?AI가 ?�기?�으�?결합 �?고도?�된 ?�동???�나리오�?경험?�고 ?�행???�이?�트 구축 ?�략???�룹?�다.</p>
 <ul class="space-y-4">
 <li class="flex items-start gap-3">
 <span class="material-symbols-outlined text-secondary" data-weight="fill">check_circle</span>
-<span class="text-on-surface font-medium">자연스러운 대화를 위한 대화 흐름 설계</span>
+<span class="text-on-surface font-medium">?�연?�러???�?��? ?�한 ?�???�름 ?�계</span>
 </li>
 <li class="flex items-start gap-3">
 <span class="material-symbols-outlined text-secondary" data-weight="fill">check_circle</span>
-<span class="text-on-surface font-medium">사내 지식 베이스 연결 및 질의응답 구현</span>
+<span class="text-on-surface font-medium">?�내 지??베이???�결 �?질의?�답 구현</span>
 </li>
 <li class="flex items-start gap-3">
 <span class="material-symbols-outlined text-secondary" data-weight="fill">check_circle</span>
-<span class="text-on-surface font-medium">Teams 및 웹 채널 멀티 채널 배포</span>
+<span class="text-on-surface font-medium">Teams �???채널 멀??채널 배포</span>
 </li>
 </ul>
 </div>

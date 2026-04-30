@@ -1,553 +1,697 @@
 <!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Power BI & AI 매출 분석 교육 신청</title>
-  <style>
-    :root {
-      --primary-1: #667eea;
-      --primary-2: #764ba2;
-      --success-1: #28a745;
-      --success-2: #20c997;
-      --danger-1: #dc3545;
-      --warning-1: #fd7e14;
-      --text-1: #333;
-      --text-2: #666;
-      --bg-1: #f8f9fa;
-      --card-border: #e8e8e8;
-      --box-border: #e3f2fd;
+
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title class="mt-40">Power BI &amp; AI 매출 분석 교육</title>
+<!-- Tailwind CSS v3 CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts for professional typography -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&amp;family=Manrope:wght@700;800&amp;family=Inter:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-primary": "#ffffff",
+            "inverse-on-surface": "#f4f0ed",
+            "surface-container-low": "#f7f3f0",
+            "primary-fixed": "#d8e2ff",
+            "on-background": "#1c1b1a",
+            "surface-container-high": "#ece7e4",
+            "on-tertiary-container": "#4d3e00",
+            "outline-variant": "#c5c6d0",
+            "surface-tint": "#495e8a",
+            "inverse-surface": "#31302e",
+            "surface-container": "#f1edea",
+            "primary-container": "#001b44",
+            "surface": "#fdf8f6",
+            "background": "#fdf8f6",
+            "on-tertiary": "#ffffff",
+            "secondary-fixed": "#d3e3ff",
+            "surface-container-highest": "#e6e2df",
+            "tertiary": "#715c00",
+            "on-surface": "#1c1b1a",
+            "on-primary-fixed-variant": "#314671",
+            "on-primary-fixed": "#001a42",
+            "on-surface-variant": "#44474f",
+            "on-secondary-fixed-variant": "#004883",
+            "on-secondary-container": "#003664",
+            "on-error-container": "#93000a",
+            "on-secondary-fixed": "#001c39",
+            "tertiary-container": "#cca700",
+            "tertiary-fixed": "#ffe17c",
+            "surface-container-lowest": "#ffffff",
+            "secondary": "#0060ab",
+            "tertiary-fixed-dim": "#ecc302",
+            "inverse-primary": "#b1c6f9",
+            "error": "#ba1a1a",
+            "on-secondary": "#ffffff",
+            "error-container": "#ffdad6",
+            "on-error": "#ffffff",
+            "on-tertiary-fixed": "#231b00",
+            "surface-dim": "#ddd9d6",
+            "primary-fixed-dim": "#b1c6f9",
+            "surface-variant": "#e6e2df",
+            "primary": "#00020a",
+            "on-tertiary-fixed-variant": "#564500",
+            "outline": "#75777f",
+            "surface-bright": "#fdf8f6",
+            "on-primary-container": "#7084b3",
+            "secondary-container": "#4ca0ff",
+            "secondary-fixed-dim": "#a3c9ff",
+            "popup-orange": "#E87722"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "stack-sm": "12px",
+            "stack-md": "24px",
+            "gutter": "24px",
+            "stack-lg": "48px",
+            "container-max": "1200px",
+            "base": "8px",
+            "section-padding": "80px"
+          },
+          "fontFamily": {
+            "h2": ["Manrope", "Noto Sans KR"],
+            "h3": ["Manrope", "Noto Sans KR"],
+            "h1": ["Manrope", "Noto Sans KR"],
+            "body-lg": ["Inter", "Noto Sans KR"],
+            "body-md": ["Inter", "Noto Sans KR"],
+            "label-sm": ["Inter", "Noto Sans KR"]
+          }
+        },
+      },
     }
-    * { box-sizing: border-box; }
+  </script>
+<style data-purpose="custom-typography">
     body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, sans-serif;
-      color: var(--text-1);
-      background-color: var(--bg-1);
-      line-height: 1.6;
-      overflow-x: hidden;
+      font-family: 'Inter', 'Noto Sans KR', sans-serif;
     }
-    .hero {
-      background: linear-gradient(135deg, var(--primary-1) 0%, var(--primary-2) 100%);
-      color: #fff;
-      text-align: center;
-      padding: 60px 20px;
-    }
-    .hero h1 {
-      font-size: 2.5em;
-      margin: 0 0 15px 0;
-      font-weight: 700;
-    }
-    .hero .subtitle {
-      font-size: 1.1em;
-      opacity: 0.9;
-      margin-bottom: 30px;
-    }
-
-    .overview-box {
-      max-width: 1000px;
-      margin: 40px auto;
-      background: #fff;
-      border: 2px solid var(--box-border);
-      border-radius: 12px;
-      padding: 30px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    }
-    .overview-box h3 {
-      color: #1976d2;
-      margin: 0 0 15px 0;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .overview-box h3:before {
-      content: '💡';
-      font-size: 1.2em;
-    }
-
-    .info-section {
-      max-width: 1000px;
-      margin: 30px auto;
-      padding: 0 20px;
-      text-align: center;
-    }
-    .info-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin: 20px 0;
-      font-size: 0.95em;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-    .info-item {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
-
-    .section-header,
-    .next-section-header {
-      color: white;
-      text-align: center;
-      padding: 15px;
-      margin: 40px auto 20px auto;
-      max-width: 1000px;
-      border-radius: 8px;
-      font-weight: 600;
-    }
-    .section-header {
-      background: linear-gradient(135deg, var(--primary-1) 0%, var(--primary-2) 100%);
-    }
-    .section-header:before {
-      content: '📚';
-      margin-right: 10px;
-    }
-    .next-section-header {
-      background: linear-gradient(135deg, var(--success-1) 0%, var(--success-2) 100%);
-    }
-    .next-section-header:before {
-      content: '🚀';
-      margin-right: 10px;
-    }
-
-    .curriculum-container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 0 20px;
-      position: relative;
-    }
-
-    /* ✅ 기본 3열 (최대 3개/행) */
-    .curriculum-grid,
-    .next-curriculum-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 5px;
-      margin-bottom: 30px;
-    }
-
-    .curriculum-card,
-    .next-card {
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-      overflow: hidden;
-      transition: transform 0.3s, box-shadow 0.3s;
-      border: 1px solid var(--card-border);
-      min-height: 200px;
-      position: relative;
-      cursor: pointer;
-    }
-    .curriculum-card:hover,
-    .next-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 4px 16px rgba(0,0,0,0.12);
-    }
-
-    .card-number,
-    .next-card-number {
-      color: #fff;
-      padding: 12px;
-      text-align: center;
-      font-weight: bold;
-      font-size: 1.1em;
-      position: relative;
-    }
-    .card-number {
-      background: linear-gradient(135deg, var(--primary-1) 0%, var(--primary-2) 100%);
-    }
-    .card-number:after {
-      content: '';
-      position: absolute;
-      left: 50%;
-      bottom: -10px;
-      transform: translateX(-50%);
-      width: 0; height: 0;
-      border-left: 10px solid transparent;
-      border-right: 10px solid transparent;
-      border-top: 10px solid var(--primary-2);
-    }
-    .next-card-number {
-      background: linear-gradient(135deg, var(--success-1) 0%, var(--success-2) 100%);
-    }
-
-    .card-title,
-    .next-card-title {
-      padding: 20px 15px 10px 15px;
-      font-weight: 600;
-      color: var(--text-1);
-      text-align: center;
-      font-size: 1em;
-    }
-    .card-content,
-    .next-card-content {
-      padding: 0 15px 20px 15px;
-    }
-
-    .curriculum-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .curriculum-list li {
-      padding: 4px 0;
-      color: var(--text-2);
-      font-size: 0.9em;
-      position: relative;
-      padding-left: 15px;
-    }
-    .curriculum-list li:before {
-      content: '•';
-      color: var(--primary-1);
-      font-weight: bold;
-      position: absolute;
-      left: 0;
-    }
-
-    .duration-badge {
-      background: var(--success-1);
-      color: white;
-      padding: 4px 8px;
-      border-radius: 12px;
-      font-size: 0.8em;
-      font-weight: 500;
-      display: inline-block;
-      margin-top: 10px;
-    }
-
-    .action-btn {
-      background: var(--success-1);
-      color: white;
-      border: none;
-      padding: 8px 16px;
-      border-radius: 20px;
-      font-size: 0.85em;
-      font-weight: 600;
-      margin-top: 12px;
-      cursor: pointer;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .action-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
-    }
-
-    .cta-section {
-      background: linear-gradient(135deg, var(--danger-1) 0%, var(--warning-1) 100%);
-      color: #fff;
-      text-align: center;
-      padding: 50px 20px;
-      margin-top: 50px;
-    }
-    .cta-button {
-      background: #fff;
-      color: var(--danger-1);
-      padding: 15px 40px;
-      text-decoration: none;
-      border-radius: 25px;
-      font-weight: 600;
-      font-size: 1.1em;
-      transition: all 0.3s;
-      display: inline-block;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    }
-    .cta-button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-    }
-
-    .footer {
-      text-align: center;
-      padding: 30px 20px;
-      background: var(--bg-1);
-      color: #6c757d;
-      border-top: 1px solid #e9ecef;
-    }
-
-    /* 갤러그 총알 애니메이션 - 숫자만 */
-    .bullet {
-      position: absolute;
-      width: 30px;
-      height: 30px;
-      z-index: 10;
-      pointer-events: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-      font-size: 24px;
-      text-shadow: 
-        0 0 8px rgba(102, 126, 234, 0.9),
-        0 0 15px rgba(102, 126, 234, 0.7),
-        0 0 25px rgba(102, 126, 234, 0.5);
-    }
-
-    .bullet::before {
-      content: attr(data-number);
-      color: #667eea;
-      font-weight: bold;
-      font-size: 24px;
-    }
-
-    @keyframes bulletShoot {
-      0% {
-        opacity: 1;
-        transform: translateY(0) scale(1) rotate(0deg);
-      }
-      25% {
-        opacity: 1;
-        transform: translateY(-60px) scale(1.2) rotate(90deg);
-      }
-      50% {
-        opacity: 1;
-        transform: translateY(-120px) scale(1.1) rotate(180deg);
-      }
-      75% {
-        opacity: 0.7;
-        transform: translateY(-180px) scale(0.9) rotate(270deg);
-      }
-      100% {
-        opacity: 0;
-        transform: translateY(-250px) scale(0.6) rotate(360deg);
-      }
-    }
-
-    .bullet.shoot {
-      animation: bulletShoot 0.9s ease-out forwards;
-    }
-
-    /* 총알 발사 시 카드 임팩트 효과 */
-    @keyframes cardImpact {
-      0% { transform: translateY(-3px) scale(1); }
-      20% { transform: translateY(-3px) scale(1.02); }
-      40% { transform: translateY(-3px) scale(0.98); }
-      60% { transform: translateY(-3px) scale(1.01); }
-      80% { transform: translateY(-3px) scale(0.99); }
-      100% { transform: translateY(-3px) scale(1); }
-    }
-
-    .curriculum-card.impact,
-    .next-card.impact {
-      animation: cardImpact 0.4s ease-out;
-    }
-
-    /* 반응형: 1024px 이하는 2열, 768px 이하는 1열 */
-    @media (max-width: 1024px) {
-      .curriculum-grid,
-      .next-curriculum-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-    @media (max-width: 768px) {
-      .curriculum-grid,
-      .next-curriculum-grid {
-        grid-template-columns: 1fr;
-      }
-      .info-row {
-        flex-direction: column;
-        gap: 10px;
-        align-items: flex-start;
-      }
-      .hero h1 { font-size: 2em; }
+    h1, h2, h3 {
+      font-family: 'Manrope', 'Noto Sans KR', sans-serif;
     }
   </style>
-</head>
-<body>
-  <header class="hero">
-    <h1>Power BI &amp; AI 매출 분석 교육</h1>
-    <p class="subtitle">AI 에이전트와 함께하는 개발 진단 및 실습 중심 교육 프로그램</p>
-  </header>
-
-  <div class="overview-box">
-    <h3>프로그램 특징</h3>
-    <p>
-      실제 업무 시나리오에 기반한 응용 프로그램 개발 방법을 AI 에이전트와 함께 단계적으로 학습합니다.
-      Azure AI Foundry를 활용한 설정부터 결과 해석까지 다루며, Power BI와 Microsoft Fabric 연계를 통해
-      실무형 데이터 분석/자동화를 경험합니다.
-    </p>
-	<h3>참여 혜택</h3>
-    <p>
-	  <li>아침 모닝 커피·샌드위치</li>
-	  <li>점심 도시락</li>
-	  <li>노트북과 충전기만 지참하시면 즉시 따라하는 실습에 참여 가능합니다.</li>
-	  <li>Power BI 라이선스 구매전이라면, <a href="https://www.microsoft.com/ko-kr/power-platform/products/power-bi/landing/free-account">체험판</a> 등록하시고 참여해주세요!!</li>
-	  <li>경영 대시보드부터 데이터 에이전트까지 클릭만으로 구성하는 실무 역량을 강화합니다.</li>
-	  <li>모시기 어려운 우수 강사님의 직강으로 효과적인 학습을 지원합니다.</li>
-    </p>
-  </div>
-
-  <div class="info-section">
-    <div class="info-row">
-      <div class="info-item"><strong>대상:</strong> AI/데이터 분석에 관심 있는 개발자 및 IT 전문가</div>
-      <div class="info-item"><strong>기술 수준:</strong> 초급–중급</div>
-      <div class="info-item"><strong>서비스:</strong> Power BI & Microsoft Fabric</div>
-    </div>
-	<div class="info-row">
-      <div class="info-item"><strong>일정:</strong>2025년9월29일 월요일</div>
-      <div class="info-item"><strong>시간:</strong>09:00~18:00, 8:30부터 웰컴 모닝커피&샌드위치</div>
-      <div class="info-item"><strong>장소:</strong><a href="https://naver.me/Fy2FZwe7" target="_blank">논현로85길 7 5층 워크토크</a>, 역삼역 2번출구</div>
-    </div>
-  </div>
-
-  <div class="section-header">오전: Power BI 기초 과정</div>
-
-  <div class="curriculum-container">
-    <div class="curriculum-grid">
-      <!-- Card 1 -->
-      <div class="curriculum-card">
-        <div class="card-number">1</div>
-        <div class="card-title">Power BI 이해</div>
-        <div class="card-content">
-          <ul class="curriculum-list">
-            <li>Power BI 구성요소 &amp; 작업 흐름</li>
-            <li>라이선스 개요</li>
-            <li>서비스/데스크톱 둘러보기</li>
-          </ul>
-          <span class="duration-badge">1시간</span>
-        </div>
-      </div>
-      <!-- Card 2 -->
-      <div class="curriculum-card">
-        <div class="card-number">2</div>
-        <div class="card-title">데이터 모델링</div>
-        <div class="card-content">
-          <ul class="curriculum-list">
-            <li>데이터 가져오기</li>
-            <li>관계 설정</li>
-            <li>변환/정제(파워쿼리)</li>
-          </ul>
-          <span class="duration-badge">1시간</span>
-        </div>
-      </div>
-      <!-- Card 3 -->
-      <div class="curriculum-card">
-        <div class="card-number">3</div>
-        <div class="card-title">데이터 시각화</div>
-        <div class="card-content">
-          <ul class="curriculum-list">
-            <li>기본 차트 &amp; 서식</li>
-            <li>슬라이서/필터</li>
-            <li>상호작용 &amp; 디자인</li>
-          </ul>
-          <span class="duration-badge">2시간</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="section-header">오후: 고급 기능 및 프로덕션 배포</div>
-
-<div class="curriculum-container">
-    <div class="curriculum-grid">
-      <!-- Card 1 -->
-      <div class="curriculum-card">
-        <div class="card-number">4</div>
-        <div class="card-title">Power BI 서비스</div>
-        <div class="card-content">
-          <ul class="curriculum-list">
-            <li>보고서/데이터셋 게시</li>
-            <li>워크스페이스/공유</li>
-            <li>게이트웨이 &amp; 새로고침</li>
-          </ul>
-          <span class="duration-badge">1시간</span>
-        </div>
-      </div>
-      <!-- Card 2 -->
-      <div class="curriculum-card">
-        <div class="card-number">5</div>
-        <div class="card-title">DAX</div>
-        <div class="card-content">
-          <ul class="curriculum-list">
-            <li>DAX 개념</li>
-            <li>계산열 &amp; 측정값</li>
-            <li>시간 기능(날짜 비교)</li>
-          </ul>
-          <span class="duration-badge">1시간</span>
-        </div>
-      </div>
-      <!-- Card 3 -->
-      <div class="curriculum-card">
-        <div class="card-number">6</div>
-        <div class="card-title">Microsoft Fabric 확장</div>
-        <div class="card-content">
-          <ul class="curriculum-list">
-            <li>Lakehouse 소개</li>
-            <li>데이터 통합(Dataflow/Notebook)</li>
-            <li>Fabric 기반 분석</li>
-	    <li>Copilot &amp; Data Agent</li>
-          </ul>
-          <span class="duration-badge">2시간</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <section class="cta-section" aria-label="교육 신청 섹션">
-    <h2>지금 신청하세요!</h2>
-    <p>Power BI와 AI 기반 데이터 분석 역량을 함께 키워보세요</p>
-    <a href="https://forms.microsoft.com/r/3PF0dWKhLM" class="cta-button" target="_blank" rel="noopener">교육 신청하기</a>
-  </section>
-
-  <footer class="footer">
-    <p>© 2025 메가존클라우드 Microsoft Business SMC Unit. All rights reserved.</p>
-  </footer>
-
-  <script>
-    // 갤러그 스타일 총알 발사 효과
-    function createBullet(x, y) {
-      const bullet = document.createElement('div');
-      bullet.className = 'bullet';
-      // 0-9 랜덤 숫자
-      const randomNumber = Math.floor(Math.random() * 10);
-      bullet.setAttribute('data-number', randomNumber);
-      bullet.style.left = x + 'px';
-      bullet.style.top = y + 'px';
-      
-      document.body.appendChild(bullet);
-      
-      // 총알 발사 애니메이션 시작
-      setTimeout(() => {
-        bullet.classList.add('shoot');
-      }, 10);
-      
-      // 애니메이션 완료 후 총알 제거
-      setTimeout(() => {
-        if (bullet.parentNode) {
-          bullet.parentNode.removeChild(bullet);
-        }
-      }, 900);
+<style data-purpose="background-gradients">
+    .main-bg {
+      background: linear-gradient(180deg, #0f172a 0%, #1e3a8a 100%);
     }
-    
-    // 카드에 클릭 이벤트 추가
-    document.addEventListener('DOMContentLoaded', function() {
-      const cards = document.querySelectorAll('.curriculum-card, .next-card');
-      
-      cards.forEach(card => {
-        card.addEventListener('click', function(e) {
-          // 카드의 정확한 중앙 상단 위치 계산
-          const rect = card.getBoundingClientRect();
-          const centerX = rect.left + rect.width / 2;
-          const topY = rect.top; // 카드 맨 위에서 발사
-          
-          // 5-7발의 랜덤 숫자 총알 발사
-          const bulletCount = Math.floor(Math.random() * 3) + 5; // 5-7발
-          
-          for (let i = 0; i < bulletCount; i++) {
-            setTimeout(() => {
-              const offsetX = (Math.random() - 0.5) * 60; // 더 넓은 x축 분산
-              createBullet(centerX + offsetX, topY);
-            }, i * 60); // 60ms 간격으로 빠른 연사
-          }
-          
-          // 카드에 임팩트 효과 추가
-          card.classList.add('impact');
-          setTimeout(() => {
-            card.classList.remove('impact');
-          }, 400);
-        });
-      });
+    .curriculum-step-badge {
+      background-color: #facc15; /* Yellow/Gold */
+      color: #1e3a8a;
+    }
+  </style>
+<style>
+  :root {
+    --ui-ink: #0f2138;
+    --ui-deep: #004c8f;
+    --ui-cyan: #12d6f2;
+    --ui-glass: rgba(255, 255, 255, 0.82);
+    --ui-stroke: rgba(0, 95, 170, 0.1);
+  }
+
+  .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; }
+  .gradient-primary { background: linear-gradient(135deg, #00579f 0%, #0dd2ef 100%); }
+
+  nav {
+    background: #ffffff !important;
+    border-bottom: 1px solid var(--ui-stroke);
+    box-shadow: 0 6px 20px rgba(7, 31, 58, 0.05);
+  }
+
+  .dropdown-shadow {
+    box-shadow:
+      0 18px 42px -12px rgba(0, 95, 170, 0.12),
+      0 8px 20px -8px rgba(16, 28, 46, 0.1),
+      0 3px 8px rgba(16, 28, 46, 0.05),
+      0 0 0 1px rgba(0, 95, 170, 0.08);
+  }
+
+  .nav-dropdown-menu {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%) translateY(6px);
+    transition: all 0.3s cubic-bezier(.22,1,.36,1);
+    max-height: 70vh;
+    overflow-y: auto;
+    background: rgba(255, 255, 255, 0.94) !important;
+    border-color: rgba(0, 95, 170, 0.12) !important;
+    backdrop-filter: blur(12px);
+  }
+  .nav-dropdown.active .nav-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+  .nav-dropdown.active .chevron { transform: rotate(180deg); }
+  .chevron { transition: transform 0.3s ease; }
+
+  .dropdown-item {
+    position: relative;
+    transition: all 0.3s cubic-bezier(.22,1,.36,1);
+    overflow: hidden;
+  }
+  .dropdown-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 0;
+    background: linear-gradient(180deg, #005faa, #00e3fd);
+    border-radius: 0 3px 3px 0;
+    transition: height 0.3s cubic-bezier(.22,1,.36,1);
+  }
+  .dropdown-item.orange::before {
+    background: linear-gradient(180deg, #E87722, #FFB74D);
+  }
+  .dropdown-item.teal::before {
+    background: linear-gradient(180deg, #006875, #00daf3);
+  }
+  .dropdown-item:hover {
+    background: linear-gradient(135deg, rgba(0,95,170,0.06), rgba(0,227,253,0.04));
+    transform: translateX(4px);
+    box-shadow: 0 4px 16px rgba(0, 95, 170, 0.08);
+  }
+  .dropdown-item.orange:hover {
+    background: linear-gradient(135deg, rgba(232,119,34,0.06), rgba(255,183,77,0.04));
+    box-shadow: 0 4px 16px rgba(232, 119, 34, 0.1);
+  }
+  .dropdown-item.teal:hover {
+    background: linear-gradient(135deg, rgba(0,104,117,0.06), rgba(0,218,243,0.04));
+    box-shadow: 0 4px 16px rgba(0, 104, 117, 0.1);
+  }
+  .dropdown-item:hover::before {
+    height: 60%;
+  }
+  .dropdown-item .dropdown-icon {
+    transition: all 0.3s cubic-bezier(.22,1,.36,1);
+  }
+  .dropdown-item:hover .dropdown-icon {
+    transform: scale(1.1) rotate(-4deg);
+  }
+  .dropdown-item .dropdown-arrow {
+    opacity: 0;
+    transform: translateX(-6px);
+    transition: all 0.3s cubic-bezier(.22,1,.36,1);
+    margin-left: auto;
+    color: #005faa;
+    font-weight: bold;
+    flex-shrink: 0;
+  }
+  .dropdown-item.orange .dropdown-arrow { color: #E87722; }
+  .dropdown-item.teal .dropdown-arrow { color: #006875; }
+  .dropdown-item:hover .dropdown-arrow {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .nav-dropdown-toggle {
+    position: relative;
+    padding-bottom: 0.4rem;
+  }
+  .nav-dropdown-toggle::after {
+    content: '';
+    position: absolute;
+    left: 0.7rem;
+    right: 0.7rem;
+    bottom: 0.1rem;
+    height: 2px;
+    background: linear-gradient(90deg, #005faa, #00e3fd);
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.25s ease;
+    border-radius: 999px;
+  }
+  .nav-dropdown-toggle:hover::after,
+  .nav-dropdown.active .nav-dropdown-toggle::after {
+    transform: scaleX(1);
+  }
+  .nav-dropdown-menu .dropdown-arrow {
+    display: none !important;
+  }
+</style>
+</head>
+<body class="main-bg text-white min-h-screen">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white shadow-sm transition-all duration-300">
+  <div class="flex items-center max-w-7xl mx-auto px-6 h-20 gap-6">
+    <a href="https://spfaif.com" class="flex items-center gap-3 text-xl font-bold tracking-tight text-slate-900 font-headline">
+      Hosted by MEGAZONE CLOUD
+    </a>
+    <div class="flex-1 min-w-0 flex items-center justify-center">
+      <div class="flex flex-nowrap gap-6 justify-center mr-8">
+      <!-- 온라인 웨비나 -->
+      <div class="nav-dropdown relative">
+        <button class="nav-dropdown-toggle inline-flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-white transition-all font-body font-semibold text-sm text-on-surface">
+          온라인 웨비나
+        </button>
+        <div class="nav-dropdown-menu absolute top-full left-1/2 mt-2 w-80 bg-white/95 backdrop-blur-xl border border-outline-variant/20 rounded-2xl p-2 dropdown-shadow z-10">
+          <a href="m365copilotagent2.html" target="_blank" rel="noopener noreferrer" class="dropdown-item flex items-center gap-3 p-3 rounded-xl">
+            <div class="w-10 h-10 rounded-xl dropdown-icon bg-[#005faa]/10 flex items-center justify-center text-[#005faa] shrink-0">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">calendar_month</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="font-semibold text-sm text-on-surface">M365 코파일럿 비즈니스 에이전트 파워 시리즈 4월</div>
+              <div class="text-xs text-on-surface-variant">Copilot Agent 시리즈 · 4월</div>
+            </div>
+          <span class="dropdown-arrow material-symbols-outlined text-lg">arrow_forward</span></a>
+          <div class="h-px bg-outline-variant/30 my-1 mx-3"></div>
+          <a href="webinar.html" target="_blank" rel="noopener noreferrer" class="dropdown-item flex items-center gap-3 p-3 rounded-xl">
+            <div class="w-10 h-10 rounded-xl dropdown-icon bg-[#005faa]/10 flex items-center justify-center text-[#005faa] shrink-0">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">event</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="font-semibold text-sm text-on-surface">AI & Data Modernization Training Series</div>
+              <div class="text-xs text-on-surface-variant">온라인 웨비나</div>
+            </div>
+          <span class="dropdown-arrow material-symbols-outlined text-lg">arrow_forward</span></a>
+          <div class="h-px bg-outline-variant/30 my-1 mx-3"></div>
+          <a href="https://spfaif.com/azurefoundry1.html" target="_blank" class="dropdown-item flex items-center gap-3 p-3 rounded-xl">
+            <div class="w-10 h-10 rounded-xl dropdown-icon bg-slate-200 flex items-center justify-center text-slate-500 shrink-0">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">cloud</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="font-semibold text-sm text-on-surface flex items-center gap-2">
+                Azure Foundry과 깃헙 코파일럿으로 AX
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-amber-100 text-amber-700 inline-flex items-center whitespace-nowrap shrink-0 ml-auto self-start -translate-y-0.5">준비중</span>
+              </div>
+              <div class="text-xs text-on-surface-variant">Azure &amp; GitHub Copilot 시리즈</div>
+            </div>
+          <span class="dropdown-arrow material-symbols-outlined text-lg">arrow_forward</span></a>
+          <div class="h-px bg-outline-variant/30 my-1 mx-3"></div>
+          <a href="https://spfaif.com/m365copilotagent1.html" target="_blank" class="dropdown-item flex items-center gap-3 p-3 rounded-xl">
+            <div class="w-10 h-10 rounded-xl dropdown-icon bg-slate-200 flex items-center justify-center text-slate-500 shrink-0">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="font-semibold text-sm text-on-surface flex items-center gap-2">
+                M365 코파일럿 에이전트 파워
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-slate-200 text-slate-600 inline-flex items-center whitespace-nowrap shrink-0 ml-auto self-start -translate-y-0.5">종료</span>
+              </div>
+              <div class="text-xs text-on-surface-variant">Copilot Agent 시리즈</div>
+            </div>
+          <span class="dropdown-arrow material-symbols-outlined text-lg">arrow_forward</span></a>
+          <div class="h-px bg-outline-variant/30 my-1 mx-3"></div>
+          <a href="https://spfaif.com/powerplatform1.html" target="_blank" class="dropdown-item flex items-center gap-3 p-3 rounded-xl">
+            <div class="w-10 h-10 rounded-xl dropdown-icon bg-slate-200 flex items-center justify-center text-slate-500 shrink-0">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">bolt</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="font-semibold text-sm text-on-surface flex items-center gap-2">
+                코파일럿 스튜디오에 파워플랫폼으로 킥
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-slate-200 text-slate-600 inline-flex items-center whitespace-nowrap shrink-0 ml-auto self-start -translate-y-0.5">종료</span>
+              </div>
+              <div class="text-xs text-on-surface-variant">Power Platform 시리즈</div>
+            </div>
+          <span class="dropdown-arrow material-symbols-outlined text-lg">arrow_forward</span></a>
+        </div>
+      </div>
+
+      <!-- 온사이트 행사 -->
+      <div class="nav-dropdown relative">
+        <button class="nav-dropdown-toggle inline-flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-white transition-all font-body font-semibold text-sm text-on-surface">
+          온사이트 행사
+        </button>
+        <div class="nav-dropdown-menu absolute top-full left-1/2 mt-2 w-80 bg-white/100 backdrop-blur-xl border border-outline-variant/20 rounded-2xl p-2 dropdown-shadow z-10">
+          <a href="https://lipcoding.kr" target="_blank" class="dropdown-item teal flex items-center gap-3 p-3 rounded-xl">
+            <div class="w-10 h-10 rounded-xl dropdown-icon bg-[#006875]/10 flex items-center justify-center text-[#006875] shrink-0">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">code</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="font-semibold text-sm text-on-surface">6월 20일 입코딩</div>
+              <div class="text-xs text-on-surface-variant">Lip Coding 현장 이벤트</div>
+            </div>
+          <span class="dropdown-arrow material-symbols-outlined text-lg">arrow_forward</span></a>
+          <div class="h-px bg-outline-variant/30 my-1 mx-3"></div>
+          <a href="https://dotnetuniverse.net/study/monthly-dotnet" target="_blank" class="dropdown-item teal flex items-center gap-3 p-3 rounded-xl">
+            <div class="w-10 h-10 rounded-xl dropdown-icon bg-[#006875]/10 flex items-center justify-center text-[#006875] shrink-0">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">language</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="font-semibold text-sm text-on-surface">닷넷 유니버스와 함께</div>
+              <div class="text-xs text-on-surface-variant">Monthly .NET 스터디</div>
+            </div>
+          <span class="dropdown-arrow material-symbols-outlined text-lg">arrow_forward</span></a>
+          <div class="h-px bg-outline-variant/30 my-1 mx-3"></div>
+          <a href="https://spfaif.com/pastevents/agenthackathon1.html" target="_blank" class="dropdown-item teal flex items-center gap-3 p-3 rounded-xl">
+            <div class="w-10 h-10 rounded-xl dropdown-icon bg-slate-200 flex items-center justify-center text-slate-500 shrink-0">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">trophy</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="font-semibold text-sm text-on-surface flex items-center gap-2">
+                3월 27일 에이전트 해커톤
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-slate-200 text-slate-600 inline-flex items-center whitespace-nowrap shrink-0 ml-auto self-start -translate-y-0.5">종료</span>
+              </div>
+              <div class="text-xs text-on-surface-variant">Azure Agent Hackathon</div>
+            </div>
+          <span class="dropdown-arrow material-symbols-outlined text-lg">arrow_forward</span></a>
+        </div>
+      </div>
+
+      <!-- 팝업 제안 -->
+      <div class="nav-dropdown relative">
+        <button class="nav-dropdown-toggle inline-flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-white transition-all font-body font-semibold text-sm text-on-surface">
+          팝업 제안. 찾아갑니다
+        </button>
+        <div class="nav-dropdown-menu absolute top-full left-1/2 mt-2 w-80 bg-white/95 backdrop-blur-xl border border-outline-variant/20 rounded-2xl p-2 dropdown-shadow z-10">
+          <a href="https://spfaif.com/vibecoding.html" target="_blank" class="dropdown-item orange flex items-center gap-3 p-3 rounded-xl">
+            <div class="w-10 h-10 rounded-xl dropdown-icon bg-popup-orange/10 flex items-center justify-center text-popup-orange shrink-0">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">music_note</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="font-semibold text-sm text-on-surface">깃헙 스파크 &amp; VS Code 바이브코딩 원데이</div>
+              <div class="text-xs text-on-surface-variant">Vibe Coding Workshop</div>
+            </div>
+          <span class="dropdown-arrow material-symbols-outlined text-lg">arrow_forward</span></a>
+          <div class="h-px bg-outline-variant/30 my-1 mx-3"></div>
+          <a href="https://spfaif.com/agentbuildmvp.html" target="_blank" class="dropdown-item orange flex items-center gap-3 p-3 rounded-xl">
+            <div class="w-10 h-10 rounded-xl dropdown-icon bg-popup-orange/10 flex items-center justify-center text-popup-orange shrink-0">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">build</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="font-semibold text-sm text-on-surface">하루 만에 만드는 나만의 AI 에이전트</div>
+              <div class="text-xs text-on-surface-variant">Agent Build MVP</div>
+            </div>
+          <span class="dropdown-arrow material-symbols-outlined text-lg">arrow_forward</span></a>
+          <div class="h-px bg-outline-variant/30 my-1 mx-3"></div>
+          <a href="https://spfaif.com/datavisualization.html" target="_blank" class="dropdown-item orange flex items-center gap-3 p-3 rounded-xl">
+            <div class="w-10 h-10 rounded-xl dropdown-icon bg-popup-orange/10 flex items-center justify-center text-popup-orange shrink-0">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">bar_chart</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="font-semibold text-sm text-on-surface">AX 시대, 데이터 기반 조직을 위한 올인원 실무형 교육 — 데이터 시각화</div>
+              <div class="text-xs text-on-surface-variant">Data Visualization 실무 교육</div>
+            </div>
+          <span class="dropdown-arrow material-symbols-outlined text-lg">arrow_forward</span></a>
+          <div class="h-px bg-outline-variant/30 my-1 mx-3"></div>
+          <a href="https://spfaif.com/dataagent.html" target="_blank" class="dropdown-item orange flex items-center gap-3 p-3 rounded-xl">
+            <div class="w-10 h-10 rounded-xl dropdown-icon bg-popup-orange/10 flex items-center justify-center text-popup-orange shrink-0">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">extension</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="font-semibold text-sm text-on-surface">Microsoft Fabric과 Microsoft Foundry로 만드는 데이터 에이전트</div>
+              <div class="text-xs text-on-surface-variant">Fabric &amp; Foundry Data Agent</div>
+            </div>
+          <span class="dropdown-arrow material-symbols-outlined text-lg">arrow_forward</span></a>
+          <div class="h-px bg-outline-variant/30 my-1 mx-3"></div>
+          <a href="https://spfaif.com/aibootcamp1.html" target="_blank" class="dropdown-item orange flex items-center gap-3 p-3 rounded-xl">
+            <div class="w-10 h-10 rounded-xl dropdown-icon bg-popup-orange/10 flex items-center justify-center text-popup-orange shrink-0">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">rocket_launch</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="font-semibold text-sm text-on-surface">AI Foundry 부트캠프</div>
+              <div class="text-xs text-on-surface-variant">AI Foundry Bootcamp</div>
+            </div>
+          <span class="dropdown-arrow material-symbols-outlined text-lg">arrow_forward</span></a>
+          <div class="h-px bg-outline-variant/30 my-1 mx-3"></div>
+          <a href="https://spfaif.com/copilotstudioautomate.html" target="_blank" class="dropdown-item orange flex items-center gap-3 p-3 rounded-xl">
+            <div class="w-10 h-10 rounded-xl dropdown-icon bg-popup-orange/10 flex items-center justify-center text-popup-orange shrink-0">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">autorenew</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="font-semibold text-sm text-on-surface">코파일럿 스튜디오와 파워 오토메이트로 달라지는 에이전틱 업무 자동화</div>
+              <div class="text-xs text-on-surface-variant">Copilot Studio &amp; Power Automate</div>
+            </div>
+          <span class="dropdown-arrow material-symbols-outlined text-lg">arrow_forward</span></a>
+          <div class="h-px bg-outline-variant/30 my-1 mx-3"></div>
+          <a href="https://spfaif.com/executivedashboard.html" target="_blank" class="dropdown-item orange flex items-center gap-3 p-3 rounded-xl">
+            <div class="w-10 h-10 rounded-xl dropdown-icon bg-popup-orange/10 flex items-center justify-center text-popup-orange shrink-0">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">insights</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="font-semibold text-sm text-on-surface">경영 대시보드에 데이터 에이전트를 키운다</div>
+              <div class="text-xs text-on-surface-variant">Executive Dashboard × Data Agent</div>
+            </div>
+          <span class="dropdown-arrow material-symbols-outlined text-lg">arrow_forward</span></a>
+          <div class="h-px bg-outline-variant/30 my-1 mx-3"></div>
+          <a href="https://spfaif.com/dataagentera.html" target="_blank" class="dropdown-item orange flex items-center gap-3 p-3 rounded-xl">
+            <div class="w-10 h-10 rounded-xl dropdown-icon bg-popup-orange/10 flex items-center justify-center text-popup-orange shrink-0">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">hub</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="font-semibold text-sm text-on-surface">에이전트 시대, 달라지는 데이터 에이전트</div>
+              <div class="text-xs text-on-surface-variant">Next-Gen Data Agent</div>
+            </div>
+          <span class="dropdown-arrow material-symbols-outlined text-lg">arrow_forward</span></a>
+        </div>
+      </div>
+
+      <!-- 다시보기 -->
+      <div class="nav-dropdown relative">
+        <button class="nav-dropdown-toggle inline-flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-white transition-all font-body font-semibold text-sm text-on-surface">
+          다시보기
+        </button>
+        <div class="nav-dropdown-menu absolute top-full left-1/2 mt-2 w-80 bg-white/95 backdrop-blur-xl border border-outline-variant/20 rounded-2xl p-2 dropdown-shadow z-10">
+          <a href="watchagain.html" class="dropdown-item flex items-center gap-3 p-3 rounded-xl">
+            <div class="w-10 h-10 rounded-xl dropdown-icon bg-primary/10 flex items-center justify-center text-primary shrink-0">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">video_library</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="font-semibold text-sm text-on-surface">웨비나 다시보기</div>
+              <div class="text-xs text-on-surface-variant">16개 웨비나 · Copilot, Power Platform, SPF</div>
+            </div>
+          <span class="dropdown-arrow material-symbols-outlined text-lg">arrow_forward</span></a>
+        </div>
+      </div>
+    </div>
+    <div class="flex items-center gap-4 ml-20">
+      <a href="https://events.teams.microsoft.com/event/aabe9391-ad55-47aa-bb58-e54509639ae1@97f42f55-f1db-4804-b1eb-08db083efd4f" target="_blank" class="gradient-primary text-white font-semibold px-6 py-2.5 rounded-full hover:opacity-90 active:scale-[0.98] transition-all font-body inline-flex items-center gap-2">
+        <span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">rocket_launch</span>
+        지금 등록하기
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- BEGIN: MainHeader -->
+<header class="pt-32 pb-12 px-6 text-center" data-purpose="hero-section">
+<div class="max-w-6xl mx-auto">
+<h1 class="text-4xl md:text-5xl lg:text-6xl mt-20 font-extrabold mb-6 tracking-tight">
+        Power BI &amp; AI 매출 분석 교육
+      </h1>
+<p class="text-lg md:text-xl text-gray-300 font-light max-w-2xl mx-auto">
+        AI 에이전트와 함께하는 개발 진단 및 실습 중심 교육 프로그램
+      </p>
+</div>
+</header>
+<!-- END: MainHeader -->
+<main class="max-w-6xl mx-auto px-6 pb-24 space-y-12">
+<!-- BEGIN: Upper Content (Intro & Details) -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- BEGIN: ProgramIntro -->
+<section class="lg:col-span-2 bg-white text-gray-800 rounded-2xl shadow-xl p-8" data-purpose="program-features">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div>
+<h2 class="flex items-center text-xl font-bold text-blue-900 mb-4 border-b border-gray-100 pb-2">
+<span class="mr-2">💡</span> 프로그램 특징
+            </h2>
+<p class="text-sm leading-relaxed text-gray-600">
+              실제 업무 시나리오에 기반한 응용 프로그램 개발 방법을 AI 에이전트와 함께 단계적으로 학습합니다. Azure AI Foundry를 활용한 설정부터 결과 해석까지 다루며, Power BI와 Microsoft Fabric 연계를 통해 실무형 데이터 분석/자동화를 경험합니다.
+            </p>
+</div>
+<div>
+<h2 class="flex items-center text-xl font-bold text-blue-900 mb-4 border-b border-gray-100 pb-2">
+<span class="mr-2">🎁</span> 참여 혜택
+            </h2>
+<ul class="text-sm space-y-2.5 text-gray-600">
+<li class="flex items-start"><span class="mr-2 text-blue-500">•</span> 아침 모닝 커피·샌드위치</li>
+<li class="flex items-start"><span class="mr-2 text-blue-500">•</span> 점심 도시락</li>
+<li class="flex items-start"><span class="mr-2 text-blue-500">•</span> 노트북과 충전기만 지참하시면 즉시 따라하는 실습에 참여 가능</li>
+<li class="flex items-start"><span class="mr-2 text-blue-500">•</span><span>Power BI 라이선스</span><a class="mx-1 text-blue-600 underline font-semibold" href="https://www.microsoft.com/ko-kr/power-platform/products/power-bi/landing/free-account" target="_blank" rel="noopener noreferrer">체험판</a><span>등록 안내</span></li>
+<li class="flex items-start"><span class="mr-2 text-blue-500">•</span> 경영 대시보드부터 데이터 에이전트까지 실무 역량 강화</li>
+<li class="flex items-start"><span class="mr-2 text-blue-500">•</span> 우수 강사님의 직강으로 효과적인 학습 지원</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- END: ProgramIntro -->
+<!-- BEGIN: TrainingDetails -->
+<section class="bg-blue-900/40 backdrop-blur-sm rounded-2xl p-8 border border-white/10 flex flex-col justify-center" data-purpose="logistics-info">
+<div class="space-y-4 text-sm">
+<div class="flex justify-between border-b border-white/10 pb-3">
+<span class="font-bold text-gray-300">대상</span>
+<span class="text-right">IT 전문가 및 개발자</span>
+</div>
+<div class="flex justify-between border-b border-white/10 pb-3">
+<span class="font-bold text-gray-300">기술 수준</span>
+<span>초급-중급</span>
+</div>
+<div class="flex justify-between border-b border-white/10 pb-3">
+<span class="font-bold text-gray-300">서비스</span>
+<span>Power BI &amp; Fabric</span>
+</div>
+<div class="flex justify-between border-b border-white/10 pb-3">
+<span class="font-bold text-gray-300">일정</span>
+<span>2025. 09. 29 (월)</span>
+</div>
+<div class="flex justify-between border-b border-white/10 pb-3">
+<span class="font-bold text-gray-300">시간</span>
+<span>09:00~18:00</span>
+</div>
+<div class="flex flex-col gap-1 pt-1">
+<span class="font-bold text-gray-300">장소</span>
+<span class="text-xs text-white/90">역삼역 2번출구 워크토크 5층</span>
+</div>
+</div>
+</section>
+<!-- END: TrainingDetails -->
+</div>
+<!-- BEGIN: Curriculum Section -->
+<div class="space-y-12">
+<!-- Curriculum AM -->
+<section data-purpose="curriculum-am">
+<div class="bg-blue-800/50 rounded-xl py-4 px-6 mb-8 border border-blue-600/50 flex items-center">
+<span class="text-2xl mr-3">📊</span>
+<h3 class="text-xl font-bold">오전: Power BI 기초 과정</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Step 1 -->
+<div class="bg-white rounded-2xl shadow-lg overflow-hidden transition-transform hover:-translate-y-1" data-purpose="step-card">
+<div class="bg-[#0c2357] py-3 text-center text-white font-extrabold text-xl">1</div>
+<div class="p-6 text-gray-800 flex flex-col h-full">
+<h4 class="font-bold text-lg text-center mb-4 text-blue-900">Power BI 이해</h4>
+<ul class="text-sm space-y-2 text-gray-500 mb-6 flex-grow">
+<li class="flex items-start"><span class="mr-2">•</span> Power BI 구성요소 &amp; 흐름</li>
+<li class="flex items-start"><span class="mr-2">•</span> 라이선스 개요</li>
+<li class="flex items-start"><span class="mr-2">•</span> 서비스/데스크톱 둘러보기</li>
+</ul>
+<div class="text-center">
+<span class="curriculum-step-badge px-4 py-1.5 rounded-full text-xs font-bold inline-block">1시간 소요</span>
+</div>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="bg-white rounded-2xl shadow-lg overflow-hidden transition-transform hover:-translate-y-1" data-purpose="step-card">
+<div class="bg-[#0c2357] py-3 text-center text-white font-extrabold text-xl">2</div>
+<div class="p-6 text-gray-800 flex flex-col h-full">
+<h4 class="font-bold text-lg text-center mb-4 text-blue-900">데이터 모델링</h4>
+<ul class="text-sm space-y-2 text-gray-500 mb-6 flex-grow">
+<li class="flex items-start"><span class="mr-2">•</span> 데이터 가져오기</li>
+<li class="flex items-start"><span class="mr-2">•</span> 관계 설정</li>
+<li class="flex items-start"><span class="mr-2">•</span> 변환/정제(파워크쿼리)</li>
+</ul>
+<div class="text-center">
+<span class="curriculum-step-badge px-4 py-1.5 rounded-full text-xs font-bold inline-block">1시간 소요</span>
+</div>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="bg-white rounded-2xl shadow-lg overflow-hidden transition-transform hover:-translate-y-1" data-purpose="step-card">
+<div class="bg-[#0c2357] py-3 text-center text-white font-extrabold text-xl">3</div>
+<div class="p-6 text-gray-800 flex flex-col h-full">
+<h4 class="font-bold text-lg text-center mb-4 text-blue-900">데이터 시각화</h4>
+<ul class="text-sm space-y-2 text-gray-500 mb-6 flex-grow">
+<li class="flex items-start"><span class="mr-2">•</span> 기본 차트 &amp; 서식</li>
+<li class="flex items-start"><span class="mr-2">•</span> 슬라이서/필터</li>
+<li class="flex items-start"><span class="mr-2">•</span> 상호작용 &amp; 디자인</li>
+</ul>
+<div class="text-center">
+<span class="curriculum-step-badge px-4 py-1.5 rounded-full text-xs font-bold inline-block">2시간 소요</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Curriculum PM -->
+<section data-purpose="curriculum-pm">
+<div class="bg-blue-800/50 rounded-xl py-4 px-6 mb-8 border border-blue-600/50 flex items-center">
+<span class="text-2xl mr-3">🚀</span>
+<h3 class="text-xl font-bold">오후: 고급 기능 및 프로덕션 배포</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Step 4 -->
+<div class="bg-white rounded-2xl shadow-lg overflow-hidden transition-transform hover:-translate-y-1" data-purpose="step-card">
+<div class="bg-[#0c2357] py-3 text-center text-white font-extrabold text-xl">4</div>
+<div class="p-6 text-gray-800 flex flex-col h-full">
+<h4 class="font-bold text-lg text-center mb-4 text-blue-900">Power BI 서비스</h4>
+<ul class="text-sm space-y-2 text-gray-500 mb-6 flex-grow">
+<li class="flex items-start"><span class="mr-2">•</span> 보고서/데이터셋 게시</li>
+<li class="flex items-start"><span class="mr-2">•</span> 워크스페이스/공유</li>
+<li class="flex items-start"><span class="mr-2">•</span> 게이트웨이 &amp; 새로고침</li>
+</ul>
+<div class="text-center">
+<span class="curriculum-step-badge px-4 py-1.5 rounded-full text-xs font-bold inline-block">1시간 소요</span>
+</div>
+</div>
+</div>
+<!-- Step 5 -->
+<div class="bg-white rounded-2xl shadow-lg overflow-hidden transition-transform hover:-translate-y-1" data-purpose="step-card">
+<div class="bg-[#0c2357] py-3 text-center text-white font-extrabold text-xl">5</div>
+<div class="p-6 text-gray-800 flex flex-col h-full">
+<h4 class="font-bold text-lg text-center mb-4 text-blue-900">DAX 분석</h4>
+<ul class="text-sm space-y-2 text-gray-500 mb-6 flex-grow">
+<li class="flex items-start"><span class="mr-2">•</span> DAX 개념 이해</li>
+<li class="flex items-start"><span class="mr-2">•</span> 계산열 &amp; 측정값</li>
+<li class="flex items-start"><span class="mr-2">•</span> 시간 인텔리전스 기능</li>
+</ul>
+<div class="text-center">
+<span class="curriculum-step-badge px-4 py-1.5 rounded-full text-xs font-bold inline-block">1시간 소요</span>
+</div>
+</div>
+</div>
+<!-- Step 6 -->
+<div class="bg-white rounded-2xl shadow-lg overflow-hidden transition-transform hover:-translate-y-1" data-purpose="step-card">
+<div class="bg-[#0c2357] py-3 text-center text-white font-extrabold text-xl">6</div>
+<div class="p-6 text-gray-800 flex flex-col h-full">
+<h4 class="font-bold text-lg text-center mb-4 text-blue-900">Microsoft Fabric 확장</h4>
+<ul class="text-sm space-y-2 text-gray-500 mb-6 flex-grow">
+<li class="flex items-start"><span class="mr-2">•</span> Lakehouse &amp; 통합</li>
+<li class="flex items-start"><span class="mr-2">•</span> Dataflow/Notebook</li>
+<li class="flex items-start"><span class="mr-2">•</span> Copilot &amp; Data Agent</li>
+</ul>
+<div class="text-center">
+<span class="curriculum-step-badge px-4 py-1.5 rounded-full text-xs font-bold inline-block">2시간 소요</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- BEGIN: CTASection -->
+<section class="text-center pt-12 max-w-2xl mx-auto" data-purpose="call-to-action">
+<h2 class="text-3xl font-bold mb-4">지금 신청하세요!</h2>
+<p class="text-lg text-gray-300 mb-8">Power BI와 AI 기반 데이터 분석 역량을 함께 키워보세요</p>
+<a href="https://forms.microsoft.com/pages/responsepage.aspx?id=VS_0l9vxBEix6wjbCD79T6fQfMgvQU1KkGS56S9wHbRURElVVVpOR01FTENXV1ZSVklUOEJaQUNaOC4u&route=shorturl" target="_blank" rel="noopener noreferrer" class="inline-block w-full md:w-auto md:px-16 bg-[#facc15] hover:bg-[#eab308] text-[#1e3a8a] font-bold py-5 rounded-2xl shadow-2xl transition-all hover:scale-105 active:scale-95 text-xl text-center">
+        교육 신청하기
+      </a>
+</section>
+<!-- END: CTASection -->
+</main>
+<!-- BEGIN: Footer -->
+<footer class="py-12 px-6 text-center text-xs text-gray-400 border-t border-white/5" data-purpose="footer-info">
+<div class="max-w-6xl mx-auto">
+<p>© 2025 메가존클라우드 Microsoft Business SMC Unit. All rights reserved.</p>
+</div>
+</footer>
+<!-- END: Footer -->
+<script>
+  // Navigation dropdown - hover based
+  const dropdowns = document.querySelectorAll('.nav-dropdown');
+
+  dropdowns.forEach(dropdown => {
+    dropdown.addEventListener('mouseenter', function() {
+      // Close all other dropdowns
+      dropdowns.forEach(d => d.classList.remove('active'));
+      // Open this dropdown
+      this.classList.add('active');
     });
-  </script>
-</body>
-</html>
+
+    dropdown.addEventListener('mouseleave', function() {
+      // Close this dropdown
+      this.classList.remove('active');
+    });
+  });
+</script>
+</body></html>
