@@ -210,6 +210,28 @@
   .nav-dropdown-menu .dropdown-arrow {
     display: none !important;
   }
+  /* First dropdown (온라인 웨비나): ensure items 1-3 show primary blue, items 4+ show slate gray */
+  .nav-dropdown:first-of-type .nav-dropdown-menu > a.dropdown-item:nth-of-type(-n+3) .dropdown-icon,
+  .nav-dropdown:first-of-type .nav-dropdown-menu > a.dropdown-item:nth-of-type(-n+3) .dropdown-icon span {
+    color: #005faa !important;
+    -webkit-text-fill-color: #005faa !important;
+  }
+  .nav-dropdown:first-of-type .nav-dropdown-menu > a.dropdown-item:nth-of-type(n+4) .dropdown-icon,
+  .nav-dropdown:first-of-type .nav-dropdown-menu > a.dropdown-item:nth-of-type(n+4) .dropdown-icon span {
+    color: #64748b !important;
+    -webkit-text-fill-color: #64748b !important;
+  }
+  /* Stronger overrides for cases where utility classes like .text-primary are present */
+  .nav-dropdown:first-of-type .nav-dropdown-menu > a.dropdown-item:nth-of-type(-n+3) .dropdown-icon.text-primary,
+  .nav-dropdown:first-of-type .nav-dropdown-menu > a.dropdown-item:nth-of-type(-n+3) .dropdown-icon.text-primary span {
+    color: #005faa !important;
+    -webkit-text-fill-color: #005faa !important;
+  }
+  .nav-dropdown:first-of-type .nav-dropdown-menu > a.dropdown-item:nth-of-type(n+4) .dropdown-icon.text-primary,
+  .nav-dropdown:first-of-type .nav-dropdown-menu > a.dropdown-item:nth-of-type(n+4) .dropdown-icon.text-primary span {
+    color: #64748b !important;
+    -webkit-text-fill-color: #64748b !important;
+  }
     </style>
 </head>
 <body class="bg-surface text-on-surface selection:bg-primary/20">
@@ -243,7 +265,17 @@
             </div>
             <div class="flex-1 min-w-0">
               <div class="font-semibold text-sm text-on-surface">AI & Data Modernization Training Series</div>
-              <div class="text-xs text-on-surface-variant">온라인 웨비나</div>
+              <div class="text-xs text-on-surface-variant">온라인 웨비나 · 5월</div>
+            </div>
+          <span class="dropdown-arrow material-symbols-outlined text-lg">arrow_forward</span></a>
+          <div class="h-px bg-outline-variant/30 my-1 mx-3"></div>
+          <a href="m365cs-agent.html" class="dropdown-item flex items-center gap-3 p-3 rounded-xl">
+            <div class="w-10 h-10 rounded-xl dropdown-icon bg-primary/10 flex items-center justify-center text-primary shrink-0">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="font-semibold text-sm text-on-surface">Microsoft 365 Copilot & AI 에이전트 마스터클래스</div>
+              <div class="text-xs text-on-surface-variant">Microsoft 365 Copilot Studio · 5월</div>
             </div>
           <span class="dropdown-arrow material-symbols-outlined text-lg">arrow_forward</span></a>
           <div class="h-px bg-outline-variant/30 my-1 mx-3"></div>
