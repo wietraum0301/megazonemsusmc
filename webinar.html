@@ -14,59 +14,48 @@
           theme: {
             extend: {
               "colors": {
-                      "on-secondary-fixed-variant": "#004f58",
-                      "on-secondary-fixed": "#001f24",
-                      "on-error": "#ffffff",
-                      "surface-container-low": "#f0f3ff",
-                      "on-error-container": "#93000a",
-                      "inverse-primary": "#a3c9ff",
                       "secondary": "#006875",
-                      "primary-fixed-dim": "#a3c9ff",
-                      "on-secondary-container": "#00616d",
-                      "primary-container": "#005faa",
-                      "outline": "#727782",
-                      "surface-container-lowest": "#ffffff",
-                      "surface-container-high": "#dee8ff",
-                      "on-surface-variant": "#414751",
-                      "background": "#f9f9ff",
-                      "on-tertiary-fixed": "#321300",
-                      "secondary-container": "#01e3fd",
-                      "tertiary-container": "#984600",
-                      "surface-container-highest": "#d7e3fc",
-                      "surface-container": "#e7eeff",
+                      "surface-container-high": "#dfe8ff",
+                      "primary": "#005faa",
                       "secondary-fixed-dim": "#00daf3",
+                      "tertiary-fixed": "#d7e3fc",
+                      "on-tertiary": "#ffffff",
+                      "tertiary-container": "#6c778d",
+                      "on-secondary-container": "#00616d",
+                      "surface-container": "#e7eeff",
+                      "surface-container-highest": "#d7e3fc",
+                      "outline": "#717783",
+                      "background": "#f9f9ff",
+                      "tertiary-fixed-dim": "#bbc7df",
+                      "on-primary-container": "#ffffff",
+                      "on-surface": "#101c2e",
+                      "surface-container-low": "#f0f3ff",
+                      "primary-fixed-dim": "#a3c9ff",
+                      "surface-bright": "#f9f9ff",
+                      "on-primary": "#ffffff",
+                      "secondary-fixed": "#9cf0ff",
                       "primary-fixed": "#d3e3ff",
                       "surface-variant": "#d7e3fc",
-                      "secondary-fixed": "#9cefff",
-                      "on-secondary": "#ffffff",
                       "on-primary-fixed": "#001c39",
-                      "error": "#ba1a1a",
-                      "inverse-surface": "#253144",
-                      "on-primary": "#ffffff",
-                      "error-container": "#ffdad6",
-                      "inverse-on-surface": "#ecf1ff",
-                      "on-surface": "#101c2e",
-                      "tertiary-fixed": "#ffdbc8",
-                      "outline-variant": "#c1c7d3",
-                      "on-tertiary": "#ffffff",
-                      "surface-tint": "#0260ab",
-                      "primary": "#004782",
-                      "on-primary-container": "#c1d9ff",
-                      "tertiary": "#733400",
+                      "on-background": "#101c2e",
+                      "secondary-container": "#00e3fd",
+                      "outline-variant": "#c0c7d4",
                       "surface-dim": "#cfdaf3",
-                      "on-tertiary-container": "#ffcdb1",
-                      "surface-bright": "#f9f9ff",
-                      "on-tertiary-fixed-variant": "#743400",
-                      "tertiary-fixed-dim": "#ffb68b",
-                      "on-primary-fixed-variant": "#004883",
+                      "on-tertiary-container": "#ffffff",
+                      "tertiary": "#535e73",
+                      "on-secondary": "#ffffff",
                       "surface": "#f9f9ff",
-                      "on-background": "#101c2e"
+                      "primary-container": "#0078d4",
+                      "on-primary-fixed-variant": "#004883",
+                      "on-surface-variant": "#404752",
+                      "surface-container-lowest": "#ffffff",
+                      "popup-orange": "#E87722"
               },
               "borderRadius": {
-                      "DEFAULT": "0.125rem",
-                      "lg": "0.25rem",
-                      "xl": "0.5rem",
-                      "full": "0.75rem"
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
               },
               "fontFamily": {
                       "headline": ["Plus Jakarta Sans"],
@@ -299,7 +288,7 @@
         </button>
         <div class="nav-dropdown-menu absolute top-full left-1/2 mt-2 w-80 bg-white/95 backdrop-blur-xl border border-outline-variant/20 rounded-2xl p-2 dropdown-shadow z-10">
           <a href="https://spfaif.com/vibecoding.html" target="_blank" class="dropdown-item orange flex items-center gap-3 p-3 rounded-xl">
-            <div class="w-10 h-10 rounded-xl dropdown-icon bg-[#E87722]/10 flex items-center justify-center text-[#E87722] shrink-0">
+            <div class="w-10 h-10 rounded-xl dropdown-icon bg-popup-orange/10 flex items-center justify-center text-popup-orange shrink-0">
               <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">music_note</span>
             </div>
             <div class="flex-1 min-w-0">
@@ -309,7 +298,7 @@
           <span class="dropdown-arrow material-symbols-outlined text-lg">arrow_forward</span></a>
           <div class="h-px bg-outline-variant/30 my-1 mx-3"></div>
           <a href="https://spfaif.com/agentbuildmvp.html" target="_blank" class="dropdown-item orange flex items-center gap-3 p-3 rounded-xl">
-            <div class="w-10 h-10 rounded-xl dropdown-icon bg-[#E87722]/10 flex items-center justify-center text-[#E87722] shrink-0">
+            <div class="w-10 h-10 rounded-xl dropdown-icon bg-popup-orange/10 flex items-center justify-center text-popup-orange shrink-0">
               <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">build</span>
             </div>
             <div class="flex-1 min-w-0">
@@ -319,12 +308,62 @@
           <span class="dropdown-arrow material-symbols-outlined text-lg">arrow_forward</span></a>
           <div class="h-px bg-outline-variant/30 my-1 mx-3"></div>
           <a href="https://spfaif.com/datavisualization.html" target="_blank" class="dropdown-item orange flex items-center gap-3 p-3 rounded-xl">
-            <div class="w-10 h-10 rounded-xl dropdown-icon bg-[#E87722]/10 flex items-center justify-center text-[#E87722] shrink-0">
+            <div class="w-10 h-10 rounded-xl dropdown-icon bg-popup-orange/10 flex items-center justify-center text-popup-orange shrink-0">
               <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">bar_chart</span>
             </div>
             <div class="flex-1 min-w-0">
               <div class="font-semibold text-sm text-on-surface">AX 시대, 데이터 기반 조직을 위한 올인원 실무형 교육 — 데이터 시각화</div>
               <div class="text-xs text-on-surface-variant">Data Visualization 실무 교육</div>
+            </div>
+          <span class="dropdown-arrow material-symbols-outlined text-lg">arrow_forward</span></a>
+          <div class="h-px bg-outline-variant/30 my-1 mx-3"></div>
+          <a href="https://spfaif.com/dataagent.html" target="_blank" class="dropdown-item orange flex items-center gap-3 p-3 rounded-xl">
+            <div class="w-10 h-10 rounded-xl dropdown-icon bg-popup-orange/10 flex items-center justify-center text-popup-orange shrink-0">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">extension</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="font-semibold text-sm text-on-surface">Microsoft Fabric과 Microsoft Foundry로 만드는 데이터 에이전트</div>
+              <div class="text-xs text-on-surface-variant">Fabric &amp; Foundry Data Agent</div>
+            </div>
+          <span class="dropdown-arrow material-symbols-outlined text-lg">arrow_forward</span></a>
+          <div class="h-px bg-outline-variant/30 my-1 mx-3"></div>
+          <a href="https://spfaif.com/aibootcamp1.html" target="_blank" class="dropdown-item orange flex items-center gap-3 p-3 rounded-xl">
+            <div class="w-10 h-10 rounded-xl dropdown-icon bg-popup-orange/10 flex items-center justify-center text-popup-orange shrink-0">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">rocket_launch</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="font-semibold text-sm text-on-surface">AI Foundry 부트캠프</div>
+              <div class="text-xs text-on-surface-variant">AI Foundry Bootcamp</div>
+            </div>
+          <span class="dropdown-arrow material-symbols-outlined text-lg">arrow_forward</span></a>
+          <div class="h-px bg-outline-variant/30 my-1 mx-3"></div>
+          <a href="https://spfaif.com/copilotstudioautomate.html" target="_blank" class="dropdown-item orange flex items-center gap-3 p-3 rounded-xl">
+            <div class="w-10 h-10 rounded-xl dropdown-icon bg-popup-orange/10 flex items-center justify-center text-popup-orange shrink-0">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">autorenew</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="font-semibold text-sm text-on-surface">코파일럿 스튜디오와 파워 오토메이트로 달라지는 에이전틱 업무 자동화</div>
+              <div class="text-xs text-on-surface-variant">Copilot Studio &amp; Power Automate</div>
+            </div>
+          <span class="dropdown-arrow material-symbols-outlined text-lg">arrow_forward</span></a>
+          <div class="h-px bg-outline-variant/30 my-1 mx-3"></div>
+          <a href="https://spfaif.com/executivedashboard.html" target="_blank" class="dropdown-item orange flex items-center gap-3 p-3 rounded-xl">
+            <div class="w-10 h-10 rounded-xl dropdown-icon bg-popup-orange/10 flex items-center justify-center text-popup-orange shrink-0">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">insights</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="font-semibold text-sm text-on-surface">경영 대시보드에 데이터 에이전트를 키운다</div>
+              <div class="text-xs text-on-surface-variant">Executive Dashboard × Data Agent</div>
+            </div>
+          <span class="dropdown-arrow material-symbols-outlined text-lg">arrow_forward</span></a>
+          <div class="h-px bg-outline-variant/30 my-1 mx-3"></div>
+          <a href="https://spfaif.com/dataagentera.html" target="_blank" class="dropdown-item orange flex items-center gap-3 p-3 rounded-xl">
+            <div class="w-10 h-10 rounded-xl dropdown-icon bg-popup-orange/10 flex items-center justify-center text-popup-orange shrink-0">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">hub</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="font-semibold text-sm text-on-surface">에이전트 시대, 달라지는 데이터 에이전트</div>
+              <div class="text-xs text-on-surface-variant">Next-Gen Data Agent</div>
             </div>
           <span class="dropdown-arrow material-symbols-outlined text-lg">arrow_forward</span></a>
         </div>

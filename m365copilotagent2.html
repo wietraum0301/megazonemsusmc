@@ -59,7 +59,8 @@
                       "on-surface-variant": "#404752",
                       "surface-tint": "#0060ab",
                       "surface-container-lowest": "#ffffff",
-                      "on-secondary-fixed-variant": "#004f58"
+                      "on-secondary-fixed-variant": "#004f58",
+              "popup-orange": "#E87722"
               },
               "borderRadius": {
                       "DEFAULT": "0.25rem",
@@ -84,52 +85,363 @@
         .hero-mesh { background: radial-gradient(at 0% 0%, rgba(0, 95, 170, 0.15) 0%, transparent 50%), radial-gradient(at 100% 100%, rgba(0, 227, 253, 0.1) 0%, transparent 50%); }
         .curriculum-card:hover { transform: translateY(-4px); }
         .ambient-shadow { box-shadow: 0 12px 40px rgba(16, 28, 46, 0.06); }
-    .nav-link {
-      position: relative;
-      color: #475569;
-      padding-bottom: 0.25rem;
-      transition: color 0.2s ease;
-    }
-    .nav-link::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 100%;
-      height: 2px;
-      background-color: #005faa;
-      transform: scaleX(0);
-      transform-origin: center;
-      transition: transform 0.2s ease;
-    }
-    .nav-link:hover {
-      color: #005faa;
-    }
-    .nav-link.is-active {
-      color: #005faa;
-      font-weight: 600;
-    }
-    .nav-link.is-active::after {
-      transform: scaleX(1);
-    }
+  .dropdown-shadow {
+    box-shadow:
+      0 18px 42px -12px rgba(0, 95, 170, 0.12),
+      0 8px 20px -8px rgba(16, 28, 46, 0.1),
+      0 3px 8px rgba(16, 28, 46, 0.05),
+      0 0 0 1px rgba(0, 95, 170, 0.08);
+  }
+  .event-card {
+    border-color: rgba(0, 95, 170, 0.12) !important;
+    box-shadow: 0 6px 16px rgba(8, 35, 66, 0.06);
+    backdrop-filter: blur(2px);
+    transition: transform 0.45s cubic-bezier(.22,1,.36,1), box-shadow 0.45s cubic-bezier(.22,1,.36,1), border-color 0.45s ease;
+  }
+  .event-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 26px rgba(0, 76, 143, 0.1);
+    border-color: rgba(0, 95, 170, 0.2) !important;
+  }
+
+  /* Dropdown */
+  .nav-dropdown-menu {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%) translateY(6px);
+    transition: all 0.3s cubic-bezier(.22,1,.36,1);
+    max-height: 70vh;
+    overflow-y: auto;
+    background: rgba(255, 255, 255, 0.94) !important;
+    border-color: rgba(0, 95, 170, 0.12) !important;
+    backdrop-filter: blur(12px);
+  }
+  .nav-dropdown.active .nav-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+  .nav-dropdown.active .chevron { transform: rotate(180deg); }
+  .chevron { transition: transform 0.3s ease; }
+
+  /* Dropdown item hover effects */
+  .dropdown-item {
+    position: relative;
+    transition: all 0.3s cubic-bezier(.22,1,.36,1);
+    overflow: hidden;
+  }
+  .dropdown-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 0;
+    background: linear-gradient(180deg, #005faa, #00e3fd);
+    border-radius: 0 3px 3px 0;
+    transition: height 0.3s cubic-bezier(.22,1,.36,1);
+  }
+  .dropdown-item.orange::before {
+    background: linear-gradient(180deg, #E87722, #FFB74D);
+  }
+  .dropdown-item.teal::before {
+    background: linear-gradient(180deg, #006875, #00daf3);
+  }
+  .dropdown-item:hover {
+    background: linear-gradient(135deg, rgba(0,95,170,0.06), rgba(0,227,253,0.04));
+    transform: translateX(4px);
+    box-shadow: 0 4px 16px rgba(0, 95, 170, 0.08);
+  }
+  .dropdown-item.orange:hover {
+    background: linear-gradient(135deg, rgba(232,119,34,0.06), rgba(255,183,77,0.04));
+    box-shadow: 0 4px 16px rgba(232, 119, 34, 0.1);
+  }
+  .dropdown-item.teal:hover {
+    background: linear-gradient(135deg, rgba(0,104,117,0.06), rgba(0,218,243,0.04));
+    box-shadow: 0 4px 16px rgba(0, 104, 117, 0.1);
+  }
+  .dropdown-item:hover::before {
+    height: 60%;
+  }
+  .dropdown-item .dropdown-icon {
+    transition: all 0.3s cubic-bezier(.22,1,.36,1);
+  }
+  .dropdown-item:hover .dropdown-icon {
+    transform: scale(1.1) rotate(-4deg);
+  }
+  .dropdown-item .dropdown-arrow {
+    opacity: 0;
+    transform: translateX(-6px);
+    transition: all 0.3s cubic-bezier(.22,1,.36,1);
+    margin-left: auto;
+    color: #005faa;
+    font-weight: bold;
+    flex-shrink: 0;
+  }
+  .dropdown-item.orange .dropdown-arrow { color: #E87722; }
+  .dropdown-item.teal .dropdown-arrow { color: #006875; }
+  .dropdown-item:hover .dropdown-arrow {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .nav-dropdown-toggle {
+    position: relative;
+    padding-bottom: 0.4rem;
+  }
+  .nav-dropdown-toggle::after {
+    content: '';
+    position: absolute;
+    left: 0.7rem;
+    right: 0.7rem;
+    bottom: 0.1rem;
+    height: 2px;
+    background: linear-gradient(90deg, #005faa, #00e3fd);
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.25s ease;
+    border-radius: 999px;
+  }
+  .nav-dropdown-toggle:hover::after,
+  .nav-dropdown.active .nav-dropdown-toggle::after {
+    transform: scaleX(1);
+  }
+  .nav-dropdown-menu .dropdown-arrow {
+    display: none !important;
+  }
     </style>
 </head>
 <body class="bg-surface text-on-surface selection:bg-primary/20">
 <!-- TopNavBar -->
-<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl shadow-sm dark:shadow-none transition-all duration-300">
-<div class="flex justify-between items-center max-w-7xl mx-auto px-6 h-20">
-<a class="text-xl font-bold tracking-tight text-slate-900 dark:text-slate-50 font-headline hover:text-blue-700 transition-colors" href="index.html">
-        Hosted by MEGAZONE CLOUD
+<nav class="fixed top-0 w-full z-50 bg-white shadow-sm transition-all duration-300">
+  <div class="flex items-center max-w-7xl mx-auto px-6 h-20 gap-6">
+    <a href="https://spfaif.com" class="flex items-center gap-3 text-xl font-bold tracking-tight text-slate-900 font-headline">
+      Hosted by MEGAZONE CLOUD
+    </a>
+    <div class="flex-1 min-w-0 flex items-center justify-center">
+      <div class="flex flex-nowrap gap-6 justify-center mr-8">
+      <!-- 온라인 웨비나 -->
+      <div class="nav-dropdown relative">
+        <button class="nav-dropdown-toggle inline-flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-white transition-all font-body font-semibold text-sm text-on-surface">
+          온라인 웨비나
+        </button>
+        <div class="nav-dropdown-menu absolute top-full left-1/2 mt-2 w-80 bg-white/95 backdrop-blur-xl border border-outline-variant/20 rounded-2xl p-2 dropdown-shadow z-10">
+          <a href="m365copilotagent2.html" target="_blank" rel="noopener noreferrer" class="dropdown-item flex items-center gap-3 p-3 rounded-xl">
+            <div class="w-10 h-10 rounded-xl dropdown-icon bg-primary/10 flex items-center justify-center text-primary shrink-0">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">calendar_month</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="font-semibold text-sm text-on-surface">M365 코파일럿 비즈니스 에이전트 파워 시리즈 4월</div>
+              <div class="text-xs text-on-surface-variant">Copilot Agent 시리즈 · 4월</div>
+            </div>
+          <span class="dropdown-arrow material-symbols-outlined text-lg">arrow_forward</span></a>
+          <div class="h-px bg-outline-variant/30 my-1 mx-3"></div>
+          <a href="webinar.html" target="_blank" rel="noopener noreferrer" class="dropdown-item flex items-center gap-3 p-3 rounded-xl">
+            <div class="w-10 h-10 rounded-xl dropdown-icon bg-primary/10 flex items-center justify-center text-primary shrink-0">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">event</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="font-semibold text-sm text-on-surface">AI & Data Modernization Training Series</div>
+              <div class="text-xs text-on-surface-variant">온라인 웨비나</div>
+            </div>
+          <span class="dropdown-arrow material-symbols-outlined text-lg">arrow_forward</span></a>
+          <div class="h-px bg-outline-variant/30 my-1 mx-3"></div>
+          <a href="https://spfaif.com/azurefoundry1.html" target="_blank" class="dropdown-item flex items-center gap-3 p-3 rounded-xl">
+            <div class="w-10 h-10 rounded-xl dropdown-icon bg-slate-200 flex items-center justify-center text-slate-500 shrink-0">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">cloud</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="font-semibold text-sm text-on-surface flex items-center gap-2">
+                Azure Foundry과 깃헙 코파일럿으로 AX
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-amber-100 text-amber-700 inline-flex items-center whitespace-nowrap shrink-0 ml-auto self-start -translate-y-0.5">준비중</span>
+              </div>
+              <div class="text-xs text-on-surface-variant">Azure &amp; GitHub Copilot 시리즈</div>
+            </div>
+          <span class="dropdown-arrow material-symbols-outlined text-lg">arrow_forward</span></a>
+          <div class="h-px bg-outline-variant/30 my-1 mx-3"></div>
+          <a href="https://spfaif.com/m365copilotagent1.html" target="_blank" class="dropdown-item flex items-center gap-3 p-3 rounded-xl">
+            <div class="w-10 h-10 rounded-xl dropdown-icon bg-slate-200 flex items-center justify-center text-slate-500 shrink-0">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="font-semibold text-sm text-on-surface flex items-center gap-2">
+                M365 코파일럿 에이전트 파워
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-slate-200 text-slate-600 inline-flex items-center whitespace-nowrap shrink-0 ml-auto self-start -translate-y-0.5">종료</span>
+              </div>
+              <div class="text-xs text-on-surface-variant">Copilot Agent 시리즈</div>
+            </div>
+          <span class="dropdown-arrow material-symbols-outlined text-lg">arrow_forward</span></a>
+          <div class="h-px bg-outline-variant/30 my-1 mx-3"></div>
+          <a href="https://spfaif.com/powerplatform1.html" target="_blank" class="dropdown-item flex items-center gap-3 p-3 rounded-xl">
+            <div class="w-10 h-10 rounded-xl dropdown-icon bg-slate-200 flex items-center justify-center text-slate-500 shrink-0">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">bolt</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="font-semibold text-sm text-on-surface flex items-center gap-2">
+                코파일럿 스튜디오에 파워플랫폼으로 킥
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-slate-200 text-slate-600 inline-flex items-center whitespace-nowrap shrink-0 ml-auto self-start -translate-y-0.5">종료</span>
+              </div>
+              <div class="text-xs text-on-surface-variant">Power Platform 시리즈</div>
+            </div>
+          <span class="dropdown-arrow material-symbols-outlined text-lg">arrow_forward</span></a>
+        </div>
+      </div>
+
+      <!-- 온사이트 행사 -->
+      <div class="nav-dropdown relative">
+        <button class="nav-dropdown-toggle inline-flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-white transition-all font-body font-semibold text-sm text-on-surface">
+          온사이트 행사
+        </button>
+        <div class="nav-dropdown-menu absolute top-full left-1/2 mt-2 w-80 bg-white/100 backdrop-blur-xl border border-outline-variant/20 rounded-2xl p-2 dropdown-shadow z-10">
+          <a href="https://lipcoding.kr" target="_blank" class="dropdown-item teal flex items-center gap-3 p-3 rounded-xl">
+            <div class="w-10 h-10 rounded-xl dropdown-icon bg-secondary/10 flex items-center justify-center text-secondary shrink-0">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">code</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="font-semibold text-sm text-on-surface">6월 20일 입코딩</div>
+              <div class="text-xs text-on-surface-variant">Lip Coding 현장 이벤트</div>
+            </div>
+          <span class="dropdown-arrow material-symbols-outlined text-lg">arrow_forward</span></a>
+          <div class="h-px bg-outline-variant/30 my-1 mx-3"></div>
+          <a href="https://dotnetuniverse.net/study/monthly-dotnet" target="_blank" class="dropdown-item teal flex items-center gap-3 p-3 rounded-xl">
+            <div class="w-10 h-10 rounded-xl dropdown-icon bg-secondary/10 flex items-center justify-center text-secondary shrink-0">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">language</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="font-semibold text-sm text-on-surface">닷넷 유니버스와 함께</div>
+              <div class="text-xs text-on-surface-variant">Monthly .NET Study</div>
+            </div>
+          <span class="dropdown-arrow material-symbols-outlined text-lg">arrow_forward</span></a>
+          <div class="h-px bg-outline-variant/30 my-1 mx-3"></div>
+          <a href="https://spfaif.com/pastevents/agenthackathon1.html" target="_blank" class="dropdown-item teal flex items-center gap-3 p-3 rounded-xl">
+            <div class="w-10 h-10 rounded-xl dropdown-icon bg-slate-200 flex items-center justify-center text-slate-500 shrink-0">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">trophy</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="font-semibold text-sm text-on-surface flex items-center gap-2">
+                3월 27일 에이전트 해커톤
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-slate-200 text-slate-600 inline-flex items-center whitespace-nowrap shrink-0 ml-auto self-start -translate-y-0.5">종료</span>
+              </div>
+              <div class="text-xs text-on-surface-variant">Azure Agent Hackathon</div>
+            </div>
+          <span class="dropdown-arrow material-symbols-outlined text-lg">arrow_forward</span></a>
+        </div>
+      </div>
+
+      <!-- 아이디어 코딩 -->
+      <div class="nav-dropdown relative">
+        <button class="nav-dropdown-toggle inline-flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-white transition-all font-body font-semibold text-sm text-on-surface">
+          팝업 제안. 찾아갑니다
+        </button>
+        <div class="nav-dropdown-menu absolute top-full left-1/2 mt-2 w-80 bg-white/95 backdrop-blur-xl border border-outline-variant/20 rounded-2xl p-2 dropdown-shadow z-10">
+          <a href="https://spfaif.com/vibecoding.html" target="_blank" class="dropdown-item orange flex items-center gap-3 p-3 rounded-xl">
+            <div class="w-10 h-10 rounded-xl dropdown-icon bg-popup-orange/10 flex items-center justify-center text-popup-orange shrink-0">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">music_note</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="font-semibold text-sm text-on-surface">깃헙 스파크 &amp; VS Code 바이브코딩 원데이</div>
+              <div class="text-xs text-on-surface-variant">Vibe Coding Workshop</div>
+            </div>
+          <span class="dropdown-arrow material-symbols-outlined text-lg">arrow_forward</span></a>
+          <div class="h-px bg-outline-variant/30 my-1 mx-3"></div>
+          <a href="https://spfaif.com/agentbuildmvp.html" target="_blank" class="dropdown-item orange flex items-center gap-3 p-3 rounded-xl">
+            <div class="w-10 h-10 rounded-xl dropdown-icon bg-popup-orange/10 flex items-center justify-center text-popup-orange shrink-0">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">build</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="font-semibold text-sm text-on-surface">하루 만에 만드는 나만의 AI 에이전트</div>
+              <div class="text-xs text-on-surface-variant">Agent Build MVP</div>
+            </div>
+          <span class="dropdown-arrow material-symbols-outlined text-lg">arrow_forward</span></a>
+          <div class="h-px bg-outline-variant/30 my-1 mx-3"></div>
+          <a href="https://spfaif.com/datavisualization.html" target="_blank" class="dropdown-item orange flex items-center gap-3 p-3 rounded-xl">
+            <div class="w-10 h-10 rounded-xl dropdown-icon bg-popup-orange/10 flex items-center justify-center text-popup-orange shrink-0">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">bar_chart</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="font-semibold text-sm text-on-surface">AX 시대, 데이터 기반 조직을 위한 올인원 실무형 교육 — 데이터 시각화</div>
+              <div class="text-xs text-on-surface-variant">Data Visualization 실무 교육</div>
+            </div>
+          <span class="dropdown-arrow material-symbols-outlined text-lg">arrow_forward</span></a>
+          <div class="h-px bg-outline-variant/30 my-1 mx-3"></div>
+          <a href="https://spfaif.com/dataagent.html" target="_blank" class="dropdown-item orange flex items-center gap-3 p-3 rounded-xl">
+            <div class="w-10 h-10 rounded-xl dropdown-icon bg-popup-orange/10 flex items-center justify-center text-popup-orange shrink-0">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">extension</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="font-semibold text-sm text-on-surface">Microsoft Fabric과 Microsoft Foundry로 만드는 데이터 에이전트</div>
+              <div class="text-xs text-on-surface-variant">Fabric &amp; Foundry Data Agent</div>
+            </div>
+          <span class="dropdown-arrow material-symbols-outlined text-lg">arrow_forward</span></a>
+          <div class="h-px bg-outline-variant/30 my-1 mx-3"></div>
+          <a href="https://spfaif.com/aibootcamp1.html" target="_blank" class="dropdown-item orange flex items-center gap-3 p-3 rounded-xl">
+            <div class="w-10 h-10 rounded-xl dropdown-icon bg-popup-orange/10 flex items-center justify-center text-popup-orange shrink-0">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">rocket_launch</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="font-semibold text-sm text-on-surface">AI Foundry 부트캠프</div>
+              <div class="text-xs text-on-surface-variant">AI Foundry Bootcamp</div>
+            </div>
+          <span class="dropdown-arrow material-symbols-outlined text-lg">arrow_forward</span></a>
+          <div class="h-px bg-outline-variant/30 my-1 mx-3"></div>
+          <a href="https://spfaif.com/copilotstudioautomate.html" target="_blank" class="dropdown-item orange flex items-center gap-3 p-3 rounded-xl">
+            <div class="w-10 h-10 rounded-xl dropdown-icon bg-popup-orange/10 flex items-center justify-center text-popup-orange shrink-0">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">autorenew</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="font-semibold text-sm text-on-surface">코파일럿 스튜디오와 파워 오토메이트로 달라지는 에이전틱 업무 자동화</div>
+              <div class="text-xs text-on-surface-variant">Copilot Studio &amp; Power Automate</div>
+            </div>
+          <span class="dropdown-arrow material-symbols-outlined text-lg">arrow_forward</span></a>
+          <div class="h-px bg-outline-variant/30 my-1 mx-3"></div>
+          <a href="https://spfaif.com/executivedashboard.html" target="_blank" class="dropdown-item orange flex items-center gap-3 p-3 rounded-xl">
+            <div class="w-10 h-10 rounded-xl dropdown-icon bg-popup-orange/10 flex items-center justify-center text-popup-orange shrink-0">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">insights</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="font-semibold text-sm text-on-surface">경영 대시보드에 데이터 에이전트를 키운다</div>
+              <div class="text-xs text-on-surface-variant">Executive Dashboard × Data Agent</div>
+            </div>
+          <span class="dropdown-arrow material-symbols-outlined text-lg">arrow_forward</span></a>
+          <div class="h-px bg-outline-variant/30 my-1 mx-3"></div>
+          <a href="https://spfaif.com/dataagentera.html" target="_blank" class="dropdown-item orange flex items-center gap-3 p-3 rounded-xl">
+            <div class="w-10 h-10 rounded-xl dropdown-icon bg-popup-orange/10 flex items-center justify-center text-popup-orange shrink-0">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">hub</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="font-semibold text-sm text-on-surface">에이전트 시대, 달라지는 데이터 에이전트</div>
+              <div class="text-xs text-on-surface-variant">Next-Gen Data Agent</div>
+            </div>
+          <span class="dropdown-arrow material-symbols-outlined text-lg">arrow_forward</span></a>
+        </div>
+      </div>
+
+      <!-- 다시보기 -->
+      <div class="nav-dropdown relative">
+        <button class="nav-dropdown-toggle inline-flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-white transition-all font-body font-semibold text-sm text-on-surface">
+          다시보기
+        </button>
+        <div class="nav-dropdown-menu absolute top-full left-1/2 mt-2 w-80 bg-white/95 backdrop-blur-xl border border-outline-variant/20 rounded-2xl p-2 dropdown-shadow z-10">
+          <a href="watchagain.html" class="dropdown-item flex items-center gap-3 p-3 rounded-xl">
+            <div class="w-10 h-10 rounded-xl dropdown-icon bg-primary/10 flex items-center justify-center text-primary shrink-0">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">video_library</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="font-semibold text-sm text-on-surface">웨비나 다시보기</div>
+              <div class="text-xs text-on-surface-variant">16개 웨비나 · Copilot, Power Platform, SPF</div>
+            </div>
+          <span class="dropdown-arrow material-symbols-outlined text-lg">arrow_forward</span></a>
+        </div>
+      </div>
+    </div>
+    <div class="flex items-center gap-4 ml-20">
+      <a href="https://events.teams.microsoft.com/event/aabe9391-ad55-47aa-bb58-e54509639ae1@97f42f55-f1db-4804-b1eb-08db083efd4f" target="_blank" class="gradient-primary text-white font-semibold px-6 py-2.5 rounded-full hover:opacity-90 active:scale-[0.98] transition-all font-body inline-flex items-center gap-2">
+        <span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">rocket_launch</span>
+        지금 등록하기
       </a>
-<div class="hidden md:flex items-center gap-8">
-<a class="nav-link is-active font-body" data-target="home" href="#home">Home</a>
-<a class="nav-link font-body" data-target="sessions" href="#sessions">Sessions</a>
-<a class="nav-link font-body" data-target="curriculum" href="#curriculum">Curriculum</a>
-</div>
-<div class="flex items-center gap-4">
-<button class="gradient-primary text-white font-semibold px-6 py-2.5 rounded-full hover:opacity-90 active:scale-[0.98] transition-all font-body" onclick="window.open('https://events.teams.microsoft.com/event/aabe9391-ad55-47aa-bb58-e54509639ae1@97f42f55-f1db-4804-b1eb-08db083efd4f', '_blank', 'noopener,noreferrer')">지금 등록하기</button>
-</div>
-</div>
+    </div>
+  </div>
 </nav>
 <main>
 <!-- Hero Section -->
@@ -407,30 +719,20 @@
 </div>
 </footer>
 <script>
-  const navLinks = document.querySelectorAll('.nav-link[data-target]');
-
-  function setActiveNav(targetId) {
-    navLinks.forEach((link) => {
-      const isActive = link.dataset.target === targetId;
-      link.classList.toggle('is-active', isActive);
+  // Navigation dropdown - hover based
+  const dropdowns = document.querySelectorAll('.nav-dropdown');
+  
+  dropdowns.forEach(dropdown => {
+    dropdown.addEventListener('mouseenter', function() {
+      // Close all other dropdowns
+      dropdowns.forEach(d => d.classList.remove('active'));
+      // Open this dropdown
+      this.classList.add('active');
     });
-  }
-
-  navLinks.forEach((link) => {
-    link.addEventListener('click', (event) => {
-      event.preventDefault();
-      const targetId = link.dataset.target;
-
-      if (targetId === 'home') {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else {
-        const section = document.getElementById(targetId);
-        if (section) {
-          section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      }
-
-      setActiveNav(targetId);
+    
+    dropdown.addEventListener('mouseleave', function() {
+      // Close this dropdown
+      this.classList.remove('active');
     });
   });
 </script>
