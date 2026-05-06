@@ -428,6 +428,7 @@
     background-color: rgb(255, 255, 255) !important;
     border: 1px solid rgba(0, 95, 170, 0.12) !important;
     color: #101c2e !important;
+    appearance: none !important;
     -webkit-appearance: none !important;
   }
 
@@ -583,6 +584,17 @@
     background-color: #ffffff !important;
     color: #000000 !important;
     border-color: transparent !important;
+  }
+
+  /* Make session number badges text-only with white text */
+  table.w-full tbody td:first-child span {
+    background: transparent !important;
+    background-color: transparent !important;
+    color: #ffffff !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    display: inline !important;
   }
 
   /* Key Takeaways cards: white background, black text, black left border */
@@ -854,7 +866,7 @@
 </div>
 <h1 class="text-[56px] md:text-[72px] font-extrabold text-on-background mb-lg leading-[1.1] tracking-tight">
                             Microsoft 365 Copilot&amp;<br/>
-<span class="text-[#677AFE] whitespace-nowrap">AI 에이전트 마스터클래스</span>
+<span class="text-white whitespace-nowrap">AI 에이전트 마스터클래스</span>
 </h1>
 <p class="font-body-lg text-on-surface-variant max-w-2xl mb-lg">
                             Microsoft 365 에코시스템 내에서 지능형 에이전트의 아키텍처, 개발 및 배포를 마스터하세요. 선언적 에이전트부터 Copilot Studio의 커스텀 구성까지 깊이 있게 다룹니다.
@@ -876,17 +888,17 @@
 <div>
 <h2 class="text-3xl font-bold text-on-background mb-base">커리큘럼 개요</h2>
 <div class="flex items-center gap-sm">
-<div class="h-1 w-12 bg-[#677AFE] rounded-full"></div>
+<div class="h-1 w-12 bg-white rounded-full"></div>
 <p class="font-body-md text-on-surface-variant">AI 전문가로 거듭나기 위한 체계적인 10회차 과정.</p>
 </div>
 </div>
 <div class="flex gap-base">
 <div class="flex items-center gap-xs text-on-surface-variant font-label-md">
-<span class="material-symbols-outlined text-[#677AFE]">schedule</span>
+<span class="material-symbols-outlined text-white">schedule</span>
                             총 15시간 교육
                         </div>
 <div class="flex items-center gap-xs text-on-surface-variant font-label-md">
-<span class="material-symbols-outlined text-[#677AFE]">verified_user</span>
+<span class="material-symbols-outlined text-white">verified_user</span>
                             전문가 인증
                         </div>
 </div>
@@ -1020,7 +1032,7 @@
 <td class="px-md py-md font-body-sm text-on-surface-variant">구조화된 UI/UX 구성</td>
 <td class="px-md py-md font-body-sm">
 <ul class="space-y-1">
-<li class="flex items-start gap-xs"><span class="material-symbols-outlined text-[#0052CC] text-xs mt-1">check_circle</span> Adaptive Card 개념 및 활용 목적</li>
+<li class="flex items-start gap-xs"><span class="material-symbols-outlined text-[#0052CC] text-xs mt-1">check_circle</span> Adaptive Card 개념 및<br />활용 목적</li>
 <li class="flex items-start gap-xs"><span class="material-symbols-outlined text-[#0052CC] text-xs mt-1">check_circle</span> 실습: Adaptive Card 적용</li>
 </ul>
 </td>
@@ -1050,8 +1062,8 @@
 <td class="px-md py-md font-body-sm text-on-surface-variant">자율 동작 에이전트 구현 및 배포 <br />전략</td>
 <td class="px-md py-md font-body-sm">
 <ul class="space-y-1">
-<li class="flex items-start gap-xs"><span class="material-symbols-outlined text-[#0052CC] text-xs mt-1">check_circle</span> 이벤트 트리거 개념 및 플로우</li>
-<li class="flex items-start gap-xs"><span class="material-symbols-outlined text-[#0052CC] text-xs mt-1">check_circle</span> 자율 에이전트 테스트 및 최종 <br />점검</li>
+<li class="flex items-start gap-xs"><span class="material-symbols-outlined text-[#0052CC] text-xs mt-1">check_circle</span> 이벤트 트리거 개념 및<br />플로우</li>
+<li class="flex items-start gap-xs"><span class="material-symbols-outlined text-[#0052CC] text-xs mt-1">check_circle</span> 자율 에이전트 테스트 및 <br />최종 점검</li>
 </ul>
 </td>
 <td class="px-md py-md text-right"><a href="https://events.teams.microsoft.com/event/0a1219dc-cbbc-4cbd-830d-21a6f28893a8@97f42f55-f1db-4804-b1eb-08db083efd4f" target="_blank" rel="noopener noreferrer" onclick="window.open('https://events.teams.microsoft.com/event/0a1219dc-cbbc-4cbd-830d-21a6f28893a8@97f42f55-f1db-4804-b1eb-08db083efd4f','_blank')" class="inline-block text-xs font-bold px-4 py-1.5 rounded-lg hover:opacity-90 transition-all" style="background-color:#ffffff;color:#000000;text-align:center;cursor:pointer;">신청</a></td></tr>
