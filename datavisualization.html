@@ -266,6 +266,35 @@
   .nav-dropdown-menu .dropdown-arrow {
     display: none !important;
   }
+
+  /* On-site dropdown (2nd) — force colors for its icons to avoid global blue override */
+  .nav-dropdown:nth-of-type(2) .nav-dropdown-menu .dropdown-icon {
+    color: #6b7280 !important;
+    -webkit-text-fill-color: #6b7280 !important;
+    background-color: #e6e7eb !important;
+  }
+  .nav-dropdown:nth-of-type(2) .nav-dropdown-menu > a.dropdown-item:nth-child(1) .dropdown-icon,
+  .nav-dropdown:nth-of-type(2) .nav-dropdown-menu > a.dropdown-item:nth-child(3) .dropdown-icon {
+    color: #006875 !important;
+    -webkit-text-fill-color: #006875 !important;
+    background-color: rgba(0,104,117,0.08) !important;
+  }
+
+  /* 온라인 웨비나 (1st nav-dropdown): first 3 icons blue (#005faa), next 3 icons grey (#6b7280) */
+  .nav-dropdown:nth-of-type(1) .nav-dropdown-menu > a.dropdown-item:nth-of-type(1) .dropdown-icon,
+  .nav-dropdown:nth-of-type(1) .nav-dropdown-menu > a.dropdown-item:nth-of-type(2) .dropdown-icon,
+  .nav-dropdown:nth-of-type(1) .nav-dropdown-menu > a.dropdown-item:nth-of-type(3) .dropdown-icon {
+    color: #005faa !important;
+    -webkit-text-fill-color: #005faa !important;
+    background-color: rgba(0,95,170,0.08) !important;
+  }
+  .nav-dropdown:nth-of-type(1) .nav-dropdown-menu > a.dropdown-item:nth-of-type(4) .dropdown-icon,
+  .nav-dropdown:nth-of-type(1) .nav-dropdown-menu > a.dropdown-item:nth-of-type(5) .dropdown-icon,
+  .nav-dropdown:nth-of-type(1) .nav-dropdown-menu > a.dropdown-item:nth-of-type(6) .dropdown-icon {
+    color: #6b7280 !important;
+    -webkit-text-fill-color: #6b7280 !important;
+    background-color: #e6e7eb !important;
+  }
 </style>
 </head>
 <body class="main-bg text-white min-h-screen">
@@ -299,7 +328,7 @@
             </div>
             <div class="flex-1 min-w-0">
               <div class="font-semibold text-sm text-on-surface">AI & Data Modernization Training Series</div>
-              <div class="text-xs text-on-surface-variant">온라인 웨비나</div>
+              <div class="text-xs text-on-surface-variant">온라인 웨비나 · 5월</div>
             </div>
           <span class="dropdown-arrow material-symbols-outlined text-lg">arrow_forward</span></a>
           <div class="h-px bg-outline-variant/30 my-1 mx-3"></div>
@@ -309,13 +338,13 @@
             </div>
             <div class="flex-1 min-w-0">
               <div class="font-semibold text-sm text-on-surface">Microsoft 365 Copilot & AI 에이전트 마스터클래스</div>
-              <div class="text-xs text-on-surface-variant">Microsoft 365 Copilot Studio</div>
+              <div class="text-xs text-on-surface-variant">Microsoft 365 Copilot Studio · 5월</div>
             </div>
           <span class="dropdown-arrow material-symbols-outlined text-lg">arrow_forward</span></a>
           <div class="h-px bg-outline-variant/30 my-1 mx-3"></div>
           <a href="https://spfaif.com/azurefoundry1.html" target="_blank" class="dropdown-item flex items-center gap-3 p-3 rounded-xl">
-            <div class="w-10 h-10 rounded-xl dropdown-icon bg-slate-200 flex items-center justify-center text-slate-500 shrink-0">
-              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">cloud</span>
+            <div class="w-10 h-10 rounded-xl dropdown-icon flex items-center justify-center shrink-0" style="background-color:#e6e7eb;color:#6b7280;-webkit-text-fill-color:#6b7280;">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1; color:#6b7280 !important; -webkit-text-fill-color:#6b7280 !important;">cloud</span>
             </div>
             <div class="flex-1 min-w-0">
               <div class="font-semibold text-sm text-on-surface flex items-center gap-2">
@@ -327,8 +356,8 @@
           <span class="dropdown-arrow material-symbols-outlined text-lg">arrow_forward</span></a>
           <div class="h-px bg-outline-variant/30 my-1 mx-3"></div>
           <a href="https://spfaif.com/m365copilotagent1.html" target="_blank" class="dropdown-item flex items-center gap-3 p-3 rounded-xl">
-            <div class="w-10 h-10 rounded-xl dropdown-icon bg-slate-200 flex items-center justify-center text-slate-500 shrink-0">
-              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+            <div class="w-10 h-10 rounded-xl dropdown-icon flex items-center justify-center shrink-0" style="background-color:#e6e7eb;color:#6b7280;-webkit-text-fill-color:#6b7280;">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1; color:#6b7280 !important; -webkit-text-fill-color:#6b7280 !important;">smart_toy</span>
             </div>
             <div class="flex-1 min-w-0">
               <div class="font-semibold text-sm text-on-surface flex items-center gap-2">
@@ -340,8 +369,8 @@
           <span class="dropdown-arrow material-symbols-outlined text-lg">arrow_forward</span></a>
           <div class="h-px bg-outline-variant/30 my-1 mx-3"></div>
           <a href="https://spfaif.com/powerplatform1.html" target="_blank" class="dropdown-item flex items-center gap-3 p-3 rounded-xl">
-            <div class="w-10 h-10 rounded-xl dropdown-icon bg-slate-200 flex items-center justify-center text-slate-500 shrink-0">
-              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">bolt</span>
+            <div class="w-10 h-10 rounded-xl dropdown-icon flex items-center justify-center shrink-0" style="background-color:#e6e7eb;color:#6b7280;-webkit-text-fill-color:#6b7280;">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1; color:#6b7280 !important; -webkit-text-fill-color:#6b7280 !important;">bolt</span>
             </div>
             <div class="flex-1 min-w-0">
               <div class="font-semibold text-sm text-on-surface flex items-center gap-2">
@@ -361,7 +390,7 @@
         </button>
         <div class="nav-dropdown-menu absolute top-full left-1/2 mt-2 w-80 bg-white/100 backdrop-blur-xl border border-outline-variant/20 rounded-2xl p-2 dropdown-shadow z-10">
           <a href="https://lipcoding.kr" target="_blank" class="dropdown-item teal flex items-center gap-3 p-3 rounded-xl">
-            <div class="w-10 h-10 rounded-xl dropdown-icon bg-[#006875]/10 flex items-center justify-center text-[#006875] shrink-0">
+            <div class="w-10 h-10 rounded-xl dropdown-icon flex items-center justify-center shrink-0" style="background-color: rgba(0,104,117,0.08); color: #006875; -webkit-text-fill-color: #006875;">
               <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">code</span>
             </div>
             <div class="flex-1 min-w-0">
@@ -371,7 +400,7 @@
           <span class="dropdown-arrow material-symbols-outlined text-lg">arrow_forward</span></a>
           <div class="h-px bg-outline-variant/30 my-1 mx-3"></div>
           <a href="https://dotnetuniverse.net/study/monthly-dotnet" target="_blank" class="dropdown-item teal flex items-center gap-3 p-3 rounded-xl">
-            <div class="w-10 h-10 rounded-xl dropdown-icon bg-[#006875]/10 flex items-center justify-center text-[#006875] shrink-0">
+            <div class="w-10 h-10 rounded-xl dropdown-icon flex items-center justify-center shrink-0" style="background-color: rgba(0,104,117,0.08); color: #006875; -webkit-text-fill-color: #006875;">
               <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">language</span>
             </div>
             <div class="flex-1 min-w-0">
@@ -381,7 +410,7 @@
           <span class="dropdown-arrow material-symbols-outlined text-lg">arrow_forward</span></a>
           <div class="h-px bg-outline-variant/30 my-1 mx-3"></div>
           <a href="https://spfaif.com/pastevents/agenthackathon1.html" target="_blank" class="dropdown-item teal flex items-center gap-3 p-3 rounded-xl">
-            <div class="w-10 h-10 rounded-xl dropdown-icon bg-slate-200 flex items-center justify-center text-slate-500 shrink-0">
+            <div class="w-10 h-10 rounded-xl dropdown-icon flex items-center justify-center shrink-0" style="background-color: #e6e7eb; color: #6b7280; -webkit-text-fill-color: #6b7280;">
               <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">trophy</span>
             </div>
             <div class="flex-1 min-w-0">
@@ -490,7 +519,7 @@
         </button>
         <div class="nav-dropdown-menu absolute top-full left-1/2 mt-2 w-80 bg-white/95 backdrop-blur-xl border border-outline-variant/20 rounded-2xl p-2 dropdown-shadow z-10">
           <a href="watchagain.html" class="dropdown-item flex items-center gap-3 p-3 rounded-xl">
-            <div class="w-10 h-10 rounded-xl dropdown-icon bg-primary/10 flex items-center justify-center text-primary shrink-0">
+            <div class="w-10 h-10 rounded-xl dropdown-icon flex items-center justify-center shrink-0" style="background-color: rgba(0,95,170,0.08); color:#005faa; -webkit-text-fill-color:#005faa;">
               <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">video_library</span>
             </div>
             <div class="flex-1 min-w-0">
