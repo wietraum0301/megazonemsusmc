@@ -567,6 +567,8 @@
 
   tbody td:nth-child(5) .material-symbols-outlined {
     color: #ffffff !important;
+    font-size: 18px !important;
+    font-variation-settings: 'wght' 300 !important;
   }
 
   /* Ensure apply buttons render horizontally and don't wrap */
@@ -585,6 +587,22 @@
     color: #000000 !important;
     border-color: transparent !important;
   }
+  table.w-full tbody td:last-child a.cta-pill {
+    padding: 8px 16px 8px 20px !important;
+    gap: 8px !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    margin-left: -2px !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+    border-color: #ffffff !important;
+    box-shadow: none !important;
+  }
+  table.w-full tbody td:last-child a.cta-pill .material-symbols-outlined {
+    color: #000000 !important;
+    font-size: 16px !important;
+    font-variation-settings: 'wght' 300, 'FILL' 1 !important;
+  }
 
   /* Make session number badges text-only with white text */
   table.w-full tbody td:first-child span {
@@ -595,6 +613,7 @@
     border-radius: 0 !important;
     box-shadow: none !important;
     display: inline !important;
+    font-size: 15px !important;
   }
 
   /* Key Takeaways cards: white background, black text, black left border */
@@ -610,6 +629,36 @@
   .key-takeaways p {
     color: #000000 !important;
   }
+
+  /* Gradient heading for hero */
+  .gradient-heading {
+    background: linear-gradient(90deg, #7EC8FF 0%, #6A74FF 45%, #C082FF 75%, #5CE1FF 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    line-height: 1.05;
+    text-decoration: none;
+    opacity: 0.9;
+  }
+  /* Pill CTA similar to provided example */
+  .cta-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 32px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.95);
+    background: transparent;
+    color: #ffffff;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: none;
+    transition: transform .18s ease, box-shadow .18s ease, opacity .18s ease;
+  }
+  .cta-pill .material-symbols-outlined { font-size: 20px; opacity: 0.95; font-weight: bold; }
+  .cta-pill:hover { transform: translateY(-2px); }
 
 </style>
 </head>
@@ -860,19 +909,19 @@
 <div class="max-w-7xl mx-auto px-8 relative z-10">
 <div class="flex flex-col md:flex-row items-center gap-lg">
 <div class="w-full md:w-3/5">
-<div class="inline-flex items-center gap-base px-md py-sm bg-surface-container rounded-full mb-md">
-<span class="material-symbols-outlined text-primary text-lg font-bold">robot_2</span>
-<span class="font-label-caps text-primary text-sm uppercase font-bold tracking-widest">Professional Masterclass</span>
-</div>
-<h1 class="text-[56px] md:text-[72px] font-extrabold text-on-background mb-lg leading-[1.1] tracking-tight">
-                            Microsoft 365 Copilot&amp;<br/>
-<span class="text-white whitespace-nowrap">AI 에이전트 마스터클래스</span>
+
+<h1 class="text-[56px] md:text-[72px] font-extrabold mb-lg mt-lg leading-[1.1] tracking-tight gradient-heading">
+                            Microsoft 365 Copilot &<br/>
+<span class="gradient-heading whitespace-nowrap">AI 에이전트 마스터클래스</span>
 </h1>
 <p class="font-body-lg text-on-surface-variant max-w-2xl mb-lg">
-                            Microsoft 365 에코시스템 내에서 지능형 에이전트의 아키텍처, 개발 및 배포를 마스터하세요. 선언적 에이전트부터 Copilot Studio의 커스텀 구성까지 깊이 있게 다룹니다.
+                            Microsoft 365 에코시스템 내에서 지능형 에이전트의 아키텍처, 개발 및 배포를 마스터하세요.<br />선언적 에이전트부터 Copilot Studio의 커스텀 구성까지 깊이 있게 다룹니다.
                         </p>
 <div class="flex flex-wrap gap-base">
-<a href="https://events.teams.microsoft.com/event/bb19f714-2ea6-4569-ac75-aca8f2737e4b@97f42f55-f1db-4804-b1eb-08db083efd4f" target="_blank" rel="noopener noreferrer" onclick="window.open('https://events.teams.microsoft.com/event/bb19f714-2ea6-4569-ac75-aca8f2737e4b@97f42f55-f1db-4804-b1eb-08db083efd4f','_blank')" class="border border-outline text-on-surface font-label-md px-xl py-md rounded-xl hover:bg-surface-variant transition-all inline-block text-center" style="cursor:pointer;">등록하기</a>
+<a href="https://events.teams.microsoft.com/event/bb19f714-2ea6-4569-ac75-aca8f2737e4b@97f42f55-f1db-4804-b1eb-08db083efd4f" target="_blank" rel="noopener noreferrer" onclick="window.open('https://events.teams.microsoft.com/event/bb19f714-2ea6-4569-ac75-aca8f2737e4b@97f42f55-f1db-4804-b1eb-08db083efd4f','_blank')" class="cta-pill inline-flex items-center gap-3 font-label-md transition-all" style="cursor:pointer;">
+  <span>등록하기</span>
+  <span class="material-symbols-outlined" style="font-variation-settings: 'wght' 300, 'FILL' 1;">chevron_right</span>
+</a>
 </div>
 </div>
 <!-- Right-side hero image removed per request -->
@@ -888,11 +937,10 @@
 <div>
 <h2 class="text-3xl font-bold text-on-background mb-base">커리큘럼 개요</h2>
 <div class="flex items-center gap-sm">
-<div class="h-1 w-12 bg-white rounded-full"></div>
-<p class="font-body-md text-on-surface-variant">AI 전문가로 거듭나기 위한 체계적인 10회차 과정.</p>
+<p class="font-body-md text-on-surface-variant">AI 전문가로 거듭나기 위한 체계적인 10회차 과정</p>
 </div>
 </div>
-<div class="flex gap-base">
+<div class="flex" style="gap: 18px;">
 <div class="flex items-center gap-xs text-on-surface-variant font-label-md">
 <span class="material-symbols-outlined text-white">schedule</span>
                             총 15시간 교육
@@ -922,7 +970,7 @@
 <td class="px-md py-md text-center">
 <span class="bg-[#0052CC]/20 text-[#b2c5ff] font-bold px-3 py-1 rounded-full text-sm">1차</span>
 </td>
-<td class="px-md py-md font-body-sm text-on-surface-variant">5월 8일 금요일<br/>오전 9시 ~ 10시 30분</td>
+<td class="px-md py-md font-body-sm text-on-surface-variant">5/8(금)<br/>09:00 ~ 10:30</td>
 <td class="px-md py-md font-bold text-sm text-on-surface">선언적 에이전트 개요와 완성 로드맵</td>
 <td class="px-md py-md font-body-sm text-on-surface-variant">에이전트 개념과 로드맵 이해</td>
 <td class="px-md py-md font-body-sm">
@@ -931,13 +979,13 @@
 <li class="flex items-start gap-xs"><span class="material-symbols-outlined text-[#0052CC] text-xs mt-1">check_circle</span> 실습: 업무 시나리오 정의</li>
 </ul>
 </td>
-<td class="px-md py-md text-right"><a href="https://events.teams.microsoft.com/event/bb19f714-2ea6-4569-ac75-aca8f2737e4b@97f42f55-f1db-4804-b1eb-08db083efd4f" target="_blank" rel="noopener noreferrer" onclick="window.open('https://events.teams.microsoft.com/event/bb19f714-2ea6-4569-ac75-aca8f2737e4b@97f42f55-f1db-4804-b1eb-08db083efd4f','_blank')" class="inline-block text-xs font-bold px-4 py-1.5 rounded-lg hover:opacity-90 transition-all" style="background-color:#ffffff;color:#000000;text-align:center;cursor:pointer;">신청</a></td></tr>
+<td class="px-md py-md text-right"><a href="https://events.teams.microsoft.com/event/bb19f714-2ea6-4569-ac75-aca8f2737e4b@97f42f55-f1db-4804-b1eb-08db083efd4f" target="_blank" rel="noopener noreferrer" onclick="window.open('https://events.teams.microsoft.com/event/bb19f714-2ea6-4569-ac75-aca8f2737e4b@97f42f55-f1db-4804-b1eb-08db083efd4f','_blank')" class="cta-pill inline-flex items-center gap-3 font-label-md transition-all" style="cursor:pointer;"><span>신청</span><span class="material-symbols-outlined" style="font-variation-settings: 'wght' 300, 'FILL' 1;">chevron_right</span></a></td></tr>
 <!-- Row 2 -->
 <tr class="hover:bg-white/5 transition-colors">
 <td class="px-md py-md text-center">
 <span class="bg-[#0052CC]/20 text-[#b2c5ff] font-bold px-3 py-1 rounded-full text-sm">2차</span>
 </td>
-<td class="px-md py-md font-body-sm text-on-surface-variant">5월 11일 월요일<br/>오전 9시 ~ 10시 30분</td>
+<td class="px-md py-md font-body-sm text-on-surface-variant">5/11(월)<br/>09:00 ~ 10:30</td>
 <td class="px-md py-md font-bold text-sm text-on-surface">Copilot Studio 환경 이해 및 기본 <br />에이전트 생성</td>
 <td class="px-md py-md font-body-sm text-on-surface-variant">개발 환경 구축 및 라이선스 이해</td>
 <td class="px-md py-md font-body-sm">
@@ -946,13 +994,13 @@
 <li class="flex items-start gap-xs"><span class="material-symbols-outlined text-[#0052CC] text-xs mt-1">check_circle</span> 기본 에이전트 생성 데모</li>
 </ul>
 </td>
-<td class="px-md py-md text-right"><a href="https://events.teams.microsoft.com/event/22407156-81e5-4953-bc73-e7a411ec321b@97f42f55-f1db-4804-b1eb-08db083efd4f" target="_blank" rel="noopener noreferrer" onclick="window.open('https://events.teams.microsoft.com/event/22407156-81e5-4953-bc73-e7a411ec321b@97f42f55-f1db-4804-b1eb-08db083efd4f','_blank')" class="inline-block text-xs font-bold px-4 py-1.5 rounded-lg hover:opacity-90 transition-all" style="background-color:#ffffff;color:#000000;text-align:center;cursor:pointer;">신청</a></td></tr>
+<td class="px-md py-md text-right"><a href="https://events.teams.microsoft.com/event/22407156-81e5-4953-bc73-e7a411ec321b@97f42f55-f1db-4804-b1eb-08db083efd4f" target="_blank" rel="noopener noreferrer" onclick="window.open('https://events.teams.microsoft.com/event/22407156-81e5-4953-bc73-e7a411ec321b@97f42f55-f1db-4804-b1eb-08db083efd4f','_blank')" class="cta-pill inline-flex items-center gap-3 font-label-md transition-all" style="cursor:pointer;"><span>신청</span><span class="material-symbols-outlined" style="font-variation-settings: 'wght' 300, 'FILL' 1;">chevron_right</span></a></td></tr>
 <!-- Row 3 -->
 <tr class="hover:bg-white/5 transition-colors">
 <td class="px-md py-md text-center">
 <span class="bg-[#0052CC]/20 text-[#b2c5ff] font-bold px-3 py-1 rounded-full text-sm">3차</span>
 </td>
-<td class="px-md py-md font-body-sm text-on-surface-variant">5월 14일 목요일<br/>오전 9시 ~ 10시 30분</td>
+<td class="px-md py-md font-body-sm text-on-surface-variant">5/14(목)<br/>09:00 ~ 10:30</td>
 <td class="px-md py-md font-bold text-sm text-on-surface">에이전트 지침(Instructions) 설계</td>
 <td class="px-md py-md font-body-sm text-on-surface-variant">응답 품질 안정화</td>
 <td class="px-md py-md font-body-sm">
@@ -961,13 +1009,13 @@
 <li class="flex items-start gap-xs"><span class="material-symbols-outlined text-[#0052CC] text-xs mt-1">check_circle</span> 실습: 에이전트 지침 작성</li>
 </ul>
 </td>
-<td class="px-md py-md text-right"><a href="https://events.teams.microsoft.com/event/d398cb9d-1c18-4998-944d-12701de4e632@97f42f55-f1db-4804-b1eb-08db083efd4f" target="_blank" rel="noopener noreferrer" onclick="window.open('https://events.teams.microsoft.com/event/d398cb9d-1c18-4998-944d-12701de4e632@97f42f55-f1db-4804-b1eb-08db083efd4f','_blank')" class="inline-block text-xs font-bold px-4 py-1.5 rounded-lg hover:opacity-90 transition-all" style="background-color:#ffffff;color:#000000;text-align:center;cursor:pointer;">신청</a></td></tr>
+<td class="px-md py-md text-right"><a href="https://events.teams.microsoft.com/event/d398cb9d-1c18-4998-944d-12701de4e632@97f42f55-f1db-4804-b1eb-08db083efd4f" target="_blank" rel="noopener noreferrer" onclick="window.open('https://events.teams.microsoft.com/event/d398cb9d-1c18-4998-944d-12701de4e632@97f42f55-f1db-4804-b1eb-08db083efd4f','_blank')" class="cta-pill inline-flex items-center gap-3 font-label-md transition-all" style="cursor:pointer;"><span>신청</span><span class="material-symbols-outlined" style="font-variation-settings: 'wght' 300, 'FILL' 1;">chevron_right</span></a></td></tr>
 <!-- Row 4 -->
 <tr class="hover:bg-white/5 transition-colors">
 <td class="px-md py-md text-center">
 <span class="bg-[#0052CC]/20 text-[#b2c5ff] font-bold px-3 py-1 rounded-full text-sm">4차</span>
 </td>
-<td class="px-md py-md font-body-sm text-on-surface-variant">5월 18일 목요일<br/>오전 9시 ~ 10시 30분</td>
+<td class="px-md py-md font-body-sm text-on-surface-variant">5/18(월)<br/>09:00 ~ 10:30</td>
 <td class="px-md py-md font-bold text-sm text-on-surface">지식(그라운딩) - SharePoint 연계</td>
 <td class="px-md py-md font-body-sm text-on-surface-variant">사내 문서 기반 답변 환경 구축</td>
 <td class="px-md py-md font-body-sm">
@@ -976,13 +1024,13 @@
 <li class="flex items-start gap-xs"><span class="material-symbols-outlined text-[#0052CC] text-xs mt-1">check_circle</span> 권한 기반 응답 구조 이해</li>
 </ul>
 </td>
-<td class="px-md py-md text-right"><a href="https://events.teams.microsoft.com/event/0462a930-0d06-4d22-a115-ae49e530dae5@97f42f55-f1db-4804-b1eb-08db083efd4f" target="_blank" rel="noopener noreferrer" onclick="window.open('https://events.teams.microsoft.com/event/0462a930-0d06-4d22-a115-ae49e530dae5@97f42f55-f1db-4804-b1eb-08db083efd4f','_blank')" class="inline-block text-xs font-bold px-4 py-1.5 rounded-lg hover:opacity-90 transition-all" style="background-color:#ffffff;color:#000000;text-align:center;cursor:pointer;">신청</a></td></tr>
+<td class="px-md py-md text-right"><a href="https://events.teams.microsoft.com/event/0462a930-0d06-4d22-a115-ae49e530dae5@97f42f55-f1db-4804-b1eb-08db083efd4f" target="_blank" rel="noopener noreferrer" onclick="window.open('https://events.teams.microsoft.com/event/0462a930-0d06-4d22-a115-ae49e530dae5@97f42f55-f1db-4804-b1eb-08db083efd4f','_blank')" class="cta-pill inline-flex items-center gap-3 font-label-md transition-all" style="cursor:pointer;"><span>신청</span><span class="material-symbols-outlined" style="font-variation-settings: 'wght' 300, 'FILL' 1;">chevron_right</span></a></td></tr>
 <!-- Row 5 -->
 <tr class="hover:bg-white/5 transition-colors">
 <td class="px-md py-md text-center">
 <span class="bg-[#0052CC]/20 text-[#b2c5ff] font-bold px-3 py-1 rounded-full text-sm">5차</span>
 </td>
-<td class="px-md py-md font-body-sm text-on-surface-variant">5월 22일 금요일<br/>오후 2시 ~ 3시 30분</td>
+<td class="px-md py-md font-body-sm text-on-surface-variant">5/22(금)<br/>14:00 ~ 15:30</td>
 <td class="px-md py-md font-bold text-sm text-on-surface">지식 확장 - 파일 및 웹 기반 지식</td>
 <td class="px-md py-md font-body-sm text-on-surface-variant">데이터 소스 다변화 및 검색 최적화</td>
 <td class="px-md py-md font-body-sm">
@@ -991,13 +1039,13 @@
 <li class="flex items-start gap-xs"><span class="material-symbols-outlined text-[#0052CC] text-xs mt-1">check_circle</span> 웹 URL 기반 지식 활용</li>
 </ul>
 </td>
-<td class="px-md py-md text-right"><a href="https://events.teams.microsoft.com/event/0eda0830-b739-4ac6-b317-321f01cac0dd@97f42f55-f1db-4804-b1eb-08db083efd4f" target="_blank" rel="noopener noreferrer" onclick="window.open('https://events.teams.microsoft.com/event/0eda0830-b739-4ac6-b317-321f01cac0dd@97f42f55-f1db-4804-b1eb-08db083efd4f','_blank')" class="inline-block text-xs font-bold px-4 py-1.5 rounded-lg hover:opacity-90 transition-all" style="background-color:#ffffff;color:#000000;text-align:center;cursor:pointer;">신청</a></td></tr>
+<td class="px-md py-md text-right"><a href="https://events.teams.microsoft.com/event/0eda0830-b739-4ac6-b317-321f01cac0dd@97f42f55-f1db-4804-b1eb-08db083efd4f" target="_blank" rel="noopener noreferrer" onclick="window.open('https://events.teams.microsoft.com/event/0eda0830-b739-4ac6-b317-321f01cac0dd@97f42f55-f1db-4804-b1eb-08db083efd4f','_blank')" class="cta-pill inline-flex items-center gap-3 font-label-md transition-all" style="cursor:pointer;"><span>신청</span><span class="material-symbols-outlined" style="font-variation-settings: 'wght' 300, 'FILL' 1;">chevron_right</span></a></td></tr>
 <!-- Row 6 -->
 <tr class="hover:bg-white/5 transition-colors">
 <td class="px-md py-md text-center">
 <span class="bg-[#0052CC]/20 text-[#b2c5ff] font-bold px-3 py-1 rounded-full text-sm">6차</span>
 </td>
-<td class="px-md py-md font-body-sm text-on-surface-variant">5월 28일 목요일<br/>오전 9시 ~ 10시 30분</td>
+<td class="px-md py-md font-body-sm text-on-surface-variant">5/28(목)<br/>09:00 ~ 10:30</td>
 <td class="px-md py-md font-bold text-sm text-on-surface">토픽(Topic)과 트리거(Trigger) <br />설계</td>
 <td class="px-md py-md font-body-sm text-on-surface-variant">대화 구조화 및 의도 파악 설계</td>
 <td class="px-md py-md font-body-sm">
@@ -1006,13 +1054,13 @@
 <li class="flex items-start gap-xs"><span class="material-symbols-outlined text-[#0052CC] text-xs mt-1">check_circle</span> 실습: 토픽 1개 생성</li>
 </ul>
 </td>
-<td class="px-md py-md text-right"><a href="https://events.teams.microsoft.com/event/f2cd7126-85ad-4bf6-9081-c255aff84298@97f42f55-f1db-4804-b1eb-08db083efd4f" target="_blank" rel="noopener noreferrer" onclick="window.open('https://events.teams.microsoft.com/event/f2cd7126-85ad-4bf6-9081-c255aff84298@97f42f55-f1db-4804-b1eb-08db083efd4f','_blank')" class="inline-block text-xs font-bold px-4 py-1.5 rounded-lg hover:opacity-90 transition-all" style="background-color:#ffffff;color:#000000;text-align:center;cursor:pointer;">신청</a></td></tr>
+<td class="px-md py-md text-right"><a href="https://events.teams.microsoft.com/event/f2cd7126-85ad-4bf6-9081-c255aff84298@97f42f55-f1db-4804-b1eb-08db083efd4f" target="_blank" rel="noopener noreferrer" onclick="window.open('https://events.teams.microsoft.com/event/f2cd7126-85ad-4bf6-9081-c255aff84298@97f42f55-f1db-4804-b1eb-08db083efd4f','_blank')" class="cta-pill inline-flex items-center gap-3 font-label-md transition-all" style="cursor:pointer;"><span>신청</span><span class="material-symbols-outlined" style="font-variation-settings: 'wght' 300, 'FILL' 1;">chevron_right</span></a></td></tr>
 <!-- Row 7 -->
 <tr class="hover:bg-white/5 transition-colors">
 <td class="px-md py-md text-center">
 <span class="bg-[#0052CC]/20 text-[#b2c5ff] font-bold px-3 py-1 rounded-full text-sm">7차</span>
 </td>
-<td class="px-md py-md font-body-sm text-on-surface-variant">6월 4일 목요일<br/>오전 9시 ~ 10시 30분</td>
+<td class="px-md py-md font-body-sm text-on-surface-variant">6/4(목)<br/>09:00 ~ 10:30</td>
 <td class="px-md py-md font-bold text-sm text-on-surface">커넥터 도구를 활용한 데이터 조회</td>
 <td class="px-md py-md font-body-sm text-on-surface-variant">실시간 데이터 연동 에이전트 구현</td>
 <td class="px-md py-md font-body-sm">
@@ -1021,13 +1069,13 @@
 <li class="flex items-start gap-xs"><span class="material-symbols-outlined text-[#0052CC] text-xs mt-1">check_circle</span> 데이터 조회 데모</li>
 </ul>
 </td>
-<td class="px-md py-md text-right"><a href="https://events.teams.microsoft.com/event/1596e915-7a47-4868-a31f-cc178eec5517@97f42f55-f1db-4804-b1eb-08db083efd4f" target="_blank" rel="noopener noreferrer" onclick="window.open('https://events.teams.microsoft.com/event/1596e915-7a47-4868-a31f-cc178eec5517@97f42f55-f1db-4804-b1eb-08db083efd4f','_blank')" class="inline-block text-xs font-bold px-4 py-1.5 rounded-lg hover:opacity-90 transition-all" style="background-color:#ffffff;color:#000000;text-align:center;cursor:pointer;">신청</a></td></tr>
+<td class="px-md py-md text-right"><a href="https://events.teams.microsoft.com/event/1596e915-7a47-4868-a31f-cc178eec5517@97f42f55-f1db-4804-b1eb-08db083efd4f" target="_blank" rel="noopener noreferrer" onclick="window.open('https://events.teams.microsoft.com/event/1596e915-7a47-4868-a31f-cc178eec5517@97f42f55-f1db-4804-b1eb-08db083efd4f','_blank')" class="cta-pill inline-flex items-center gap-3 font-label-md transition-all" style="cursor:pointer;"><span>신청</span><span class="material-symbols-outlined" style="font-variation-settings: 'wght' 300, 'FILL' 1;">chevron_right</span></a></td></tr>
 <!-- Row 8 -->
 <tr class="hover:bg-white/5 transition-colors">
 <td class="px-md py-md text-center">
 <span class="bg-[#0052CC]/20 text-[#b2c5ff] font-bold px-3 py-1 rounded-full text-sm">8차</span>
 </td>
-<td class="px-md py-md font-body-sm text-on-surface-variant">6월 12일 금요일<br/>오전 9시 ~ 10시 30분</td>
+<td class="px-md py-md font-body-sm text-on-surface-variant">6/12(금)<br/>09:00 ~ 10:30</td>
 <td class="px-md py-md font-bold text-sm text-on-surface">Adaptive Card로 사용자 입력 설계</td>
 <td class="px-md py-md font-body-sm text-on-surface-variant">구조화된 UI/UX 구성</td>
 <td class="px-md py-md font-body-sm">
@@ -1036,13 +1084,13 @@
 <li class="flex items-start gap-xs"><span class="material-symbols-outlined text-[#0052CC] text-xs mt-1">check_circle</span> 실습: Adaptive Card 적용</li>
 </ul>
 </td>
-<td class="px-md py-md text-right"><a href="https://events.teams.microsoft.com/event/670b17cd-169b-4f60-a557-83ddfb6d689e@97f42f55-f1db-4804-b1eb-08db083efd4f" target="_blank" rel="noopener noreferrer" onclick="window.open('https://events.teams.microsoft.com/event/670b17cd-169b-4f60-a557-83ddfb6d689e@97f42f55-f1db-4804-b1eb-08db083efd4f','_blank')" class="inline-block text-xs font-bold px-4 py-1.5 rounded-lg hover:opacity-90 transition-all" style="background-color:#ffffff;color:#000000;text-align:center;cursor:pointer;">신청</a></td></tr>
+<td class="px-md py-md text-right"><a href="https://events.teams.microsoft.com/event/670b17cd-169b-4f60-a557-83ddfb6d689e@97f42f55-f1db-4804-b1eb-08db083efd4f" target="_blank" rel="noopener noreferrer" onclick="window.open('https://events.teams.microsoft.com/event/670b17cd-169b-4f60-a557-83ddfb6d689e@97f42f55-f1db-4804-b1eb-08db083efd4f','_blank')" class="cta-pill inline-flex items-center gap-3 font-label-md transition-all" style="cursor:pointer;"><span>신청</span><span class="material-symbols-outlined" style="font-variation-settings: 'wght' 300, 'FILL' 1;">chevron_right</span></a></td></tr>
 <!-- Row 9 -->
 <tr class="hover:bg-white/5 transition-colors">
 <td class="px-md py-md text-center">
 <span class="bg-[#0052CC]/20 text-[#b2c5ff] font-bold px-3 py-1 rounded-full text-sm">9차</span>
 </td>
-<td class="px-md py-md font-body-sm text-on-surface-variant">6월 19일 금요일<br/>오전 9시 ~ 10시 30분</td>
+<td class="px-md py-md font-body-sm text-on-surface-variant">6/19(금)<br/>09:00 ~ 10:30</td>
 <td class="px-md py-md font-bold text-sm text-on-surface">프롬프트 도구 + 에이전트 플로우 <br />자동화</td>
 <td class="px-md py-md font-body-sm text-on-surface-variant">업무 자동화 완성을 위한 플로우 설계</td>
 <td class="px-md py-md font-body-sm">
@@ -1051,13 +1099,13 @@
 <li class="flex items-start gap-xs"><span class="material-symbols-outlined text-[#0052CC] text-xs mt-1">check_circle</span> 자동 처리 데모(알림/메일 등)</li>
 </ul>
 </td>
-<td class="px-md py-md text-right"><a href="https://events.teams.microsoft.com/event/6525e217-c7e5-4901-8ecd-14e2a0ce1b39@97f42f55-f1db-4804-b1eb-08db083efd4f" target="_blank" rel="noopener noreferrer" onclick="window.open('https://events.teams.microsoft.com/event/6525e217-c7e5-4901-8ecd-14e2a0ce1b39@97f42f55-f1db-4804-b1eb-08db083efd4f','_blank')" class="inline-block text-xs font-bold px-4 py-1.5 rounded-lg hover:opacity-90 transition-all" style="background-color:#ffffff;color:#000000;text-align:center;cursor:pointer;">신청</a></td></tr>
+<td class="px-md py-md text-right"><a href="https://events.teams.microsoft.com/event/6525e217-c7e5-4901-8ecd-14e2a0ce1b39@97f42f55-f1db-4804-b1eb-08db083efd4f" target="_blank" rel="noopener noreferrer" onclick="window.open('https://events.teams.microsoft.com/event/6525e217-c7e5-4901-8ecd-14e2a0ce1b39@97f42f55-f1db-4804-b1eb-08db083efd4f','_blank')" class="cta-pill inline-flex items-center gap-3 font-label-md transition-all" style="cursor:pointer;"><span>신청</span><span class="material-symbols-outlined" style="font-variation-settings: 'wght' 300, 'FILL' 1;">chevron_right</span></a></td></tr>
 <!-- Row 10 -->
 <tr class="hover:bg-white/5 transition-colors border-l-4 border-[#0052CC]">
 <td class="px-md py-md text-center">
 <span class="bg-[#0052CC]/20 text-[#b2c5ff] font-bold px-3 py-1 rounded-full text-sm whitespace-nowrap">10차</span>
 </td>
-<td class="px-md py-md font-body-sm text-on-surface-variant">6월 26일 금요일<br/>오전 9시 ~ 10시 30분</td>
+<td class="px-md py-md font-body-sm text-on-surface-variant">6/26(금)<br/>09:00 ~ 10:30</td>
 <td class="px-md py-md font-bold text-sm text-on-surface">이벤트 트리거 기반 자율 에이전트 완성</td>
 <td class="px-md py-md font-body-sm text-on-surface-variant">자율 동작 에이전트 구현 및 배포 <br />전략</td>
 <td class="px-md py-md font-body-sm">
@@ -1066,7 +1114,7 @@
 <li class="flex items-start gap-xs"><span class="material-symbols-outlined text-[#0052CC] text-xs mt-1">check_circle</span> 자율 에이전트 테스트 및 <br />최종 점검</li>
 </ul>
 </td>
-<td class="px-md py-md text-right"><a href="https://events.teams.microsoft.com/event/0a1219dc-cbbc-4cbd-830d-21a6f28893a8@97f42f55-f1db-4804-b1eb-08db083efd4f" target="_blank" rel="noopener noreferrer" onclick="window.open('https://events.teams.microsoft.com/event/0a1219dc-cbbc-4cbd-830d-21a6f28893a8@97f42f55-f1db-4804-b1eb-08db083efd4f','_blank')" class="inline-block text-xs font-bold px-4 py-1.5 rounded-lg hover:opacity-90 transition-all" style="background-color:#ffffff;color:#000000;text-align:center;cursor:pointer;">신청</a></td></tr>
+<td class="px-md py-md text-right"><a href="https://events.teams.microsoft.com/event/0a1219dc-cbbc-4cbd-830d-21a6f28893a8@97f42f55-f1db-4804-b1eb-08db083efd4f" target="_blank" rel="noopener noreferrer" onclick="window.open('https://events.teams.microsoft.com/event/0a1219dc-cbbc-4cbd-830d-21a6f28893a8@97f42f55-f1db-4804-b1eb-08db083efd4f','_blank')" class="cta-pill inline-flex items-center gap-3 font-label-md transition-all" style="cursor:pointer;"><span>신청</span><span class="material-symbols-outlined" style="font-variation-settings: 'wght' 300, 'FILL' 1;">chevron_right</span></a></td></tr>
 </tbody>
 </table>
 </div>
@@ -1097,7 +1145,10 @@
 <h2 class="text-3xl font-bold mb-md text-on-background">미래의 업무 환경을 선도할 준비가 되셨나요?</h2>
 <p class="font-body-lg text-on-surface-variant mb-lg">이미 500명 이상의 전문가들이 본 프로그램을 통해 AI 에이전트 개발 기술을 마스터했습니다.</p>
 <div class="flex flex-col sm:flex-row justify-center gap-md">
-<a href="https://events.teams.microsoft.com/event/bb19f714-2ea6-4569-ac75-aca8f2737e4b@97f42f55-f1db-4804-b1eb-08db083efd4f" target="_blank" rel="noopener noreferrer" onclick="window.open('https://events.teams.microsoft.com/event/bb19f714-2ea6-4569-ac75-aca8f2737e4b@97f42f55-f1db-4804-b1eb-08db083efd4f','_blank')" class="border border-outline text-on-surface font-label-md px-xl py-md rounded-xl hover:bg-surface-variant transition-all inline-block text-center" style="cursor:pointer;">등록하기</a>
+<a href="https://events.teams.microsoft.com/event/bb19f714-2ea6-4569-ac75-aca8f2737e4b@97f42f55-f1db-4804-b1eb-08db083efd4f" target="_blank" rel="noopener noreferrer" onclick="window.open('https://events.teams.microsoft.com/event/bb19f714-2ea6-4569-ac75-aca8f2737e4b@97f42f55-f1db-4804-b1eb-08db083efd4f','_blank')" class="cta-pill inline-flex items-center gap-3 font-label-md transition-all" style="cursor:pointer;">
+  <span>등록하기</span>
+  <span class="material-symbols-outlined" style="font-variation-settings: 'wght' 300, 'FILL' 1;">chevron_right</span>
+</a>
 </div>
 </div>
 </section>
