@@ -397,21 +397,30 @@
 
   /* Navigation light mode - force all elements to light mode regardless of dark class */
   nav.fixed {
-    background: white !important;
-    color-scheme: light !important;
+    background: #000000 !important;
+    background-color: #000000 !important;
+    color-scheme: dark !important;
+    box-shadow: none !important;
+    border-bottom: 0 !important;
   }
 
   nav.fixed * {
-    color-scheme: light !important;
+    color-scheme: dark !important;
   }
 
   /* Override nav button colors */
   nav.fixed .nav-dropdown-toggle {
-    color: #101c2e !important;
+    color: #ffffff !important;
+    background: #000000 !important;
+    border: 1px solid #000000 !important;
   }
 
-  nav.fixed .text-on-surface {
-    color: #101c2e !important;
+  nav.fixed .nav-brand {
+    color: #ffffff !important;
+  }
+
+  nav.fixed .nav-dropdown-toggle.text-on-surface {
+    color: #ffffff !important;
   }
 
   nav.fixed .text-on-surface-variant {
@@ -419,7 +428,7 @@
   }
 
   nav.fixed .text-slate-900 {
-    color: #101c2e !important;
+    color: #ffffff !important;
   }
 
   /* Force nav-dropdown-menu to be light mode - override dark mode completely */
@@ -430,6 +439,14 @@
     color: #101c2e !important;
     appearance: none !important;
     -webkit-appearance: none !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+  }
+
+  .nav-dropdown-menu::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
   }
 
   .dark .nav-dropdown-menu {
@@ -664,9 +681,9 @@
 </head>
 <body class="font-body-md text-slate-900 antialiased bg-white">
 <!-- TopNavBar -->
-<nav class="fixed top-0 w-full z-50 bg-white shadow-sm transition-all duration-300">
+<nav class="fixed top-0 w-full z-50 bg-black shadow-sm transition-all duration-300">
   <div class="flex items-center max-w-7xl mx-auto px-6 h-20 gap-6">
-    <a href="https://spfaif.com" class="flex items-center gap-3 text-xl font-bold tracking-tight text-slate-900 font-headline">
+    <a href="https://spfaif.com" class="nav-brand flex items-center gap-3 text-xl font-bold tracking-tight text-slate-900 font-headline">
       Hosted by MEGAZONE CLOUD
     </a>
     <div class="flex-1 min-w-0 flex items-center justify-center">
