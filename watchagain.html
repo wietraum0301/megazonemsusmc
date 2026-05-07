@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html class="scroll-smooth" lang="ko">
 <head>
 <meta charset="utf-8"/>
@@ -13,41 +13,41 @@
     theme: {
       extend: {
         "colors": {
-          "secondary": "#006875",
-          "surface-container-high": "#dfe8ff",
-          "primary": "#005faa",
+          "secondary": "#00daf3",
+          "surface-container-high": "#1a1a1a",
+          "primary": "#0dd2ef",
           "secondary-fixed-dim": "#00daf3",
           "tertiary-fixed": "#d7e3fc",
           "on-tertiary": "#ffffff",
           "tertiary-container": "#6c778d",
-          "on-secondary-container": "#00616d",
-          "surface-container": "#e7eeff",
-          "surface-container-highest": "#d7e3fc",
-          "outline": "#717783",
-          "background": "#f9f9ff",
+          "on-secondary-container": "#ffffff",
+          "surface-container": "#1a1a1a",
+          "surface-container-highest": "#2a2a2a",
+          "outline": "#888888",
+          "background": "#0a0a0a",
           "tertiary-fixed-dim": "#bbc7df",
           "on-primary-container": "#ffffff",
-          "on-surface": "#101c2e",
-          "surface-container-low": "#f0f3ff",
+          "on-surface": "#000000",
+          "surface-container-low": "#151515",
           "primary-fixed-dim": "#a3c9ff",
-          "surface-bright": "#f9f9ff",
+          "surface-bright": "#0a0a0a",
           "on-primary": "#ffffff",
           "secondary-fixed": "#9cf0ff",
           "primary-fixed": "#d3e3ff",
-          "surface-variant": "#d7e3fc",
+          "surface-variant": "#333333",
           "on-primary-fixed": "#001c39",
-          "on-background": "#101c2e",
+          "on-background": "#ffffff",
           "secondary-container": "#00e3fd",
-          "outline-variant": "#c0c7d4",
-          "surface-dim": "#cfdaf3",
+          "outline-variant": "#555555",
+          "surface-dim": "#0a0a0a",
           "on-tertiary-container": "#ffffff",
-          "tertiary": "#535e73",
-          "on-secondary": "#ffffff",
-          "surface": "#f9f9ff",
+          "tertiary": "#00daf3",
+          "on-secondary": "#000000",
+          "surface": "#0a0a0a",
           "primary-container": "#0078d4",
           "on-primary-fixed-variant": "#004883",
-          "on-surface-variant": "#404752",
-          "surface-container-lowest": "#ffffff",
+          "on-surface-variant": "#aaaaaa",
+          "surface-container-lowest": "#1a1a1a",
           "popup-orange": "#E87722"
         },
         "borderRadius": {
@@ -67,20 +67,17 @@
 </script>
 <style>
   :root {
-    --ui-ink: #0f2138;
+    --ui-ink: #ffffff;
     --ui-deep: #004c8f;
     --ui-cyan: #12d6f2;
-    --ui-glass: rgba(255, 255, 255, 0.82);
-    --ui-stroke: rgba(0, 95, 170, 0.1);
+    --ui-glass: rgba(0, 0, 0, 0.82);
+    --ui-stroke: rgba(255, 255, 255, 0.1);
   }
 
   body {
     font-family: 'Inter', sans-serif;
-    background:
-      radial-gradient(1200px 600px at 90% -10%, rgba(0, 149, 255, 0.1), transparent 55%),
-      radial-gradient(900px 520px at -10% 25%, rgba(0, 198, 255, 0.08), transparent 60%),
-      linear-gradient(180deg, #f5faff 0%, #e8f4ff 100%);
-    color: var(--ui-ink);
+    background: #ffffff;
+    color: #0f172a;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
@@ -97,9 +94,18 @@
   .ambient-shadow { box-shadow: 0 10px 28px rgba(8, 29, 53, 0.08); }
 
   nav {
-    background: var(--ui-glass) !important;
-    border-bottom: 1px solid var(--ui-stroke);
-    box-shadow: 0 6px 20px rgba(7, 31, 58, 0.05);
+    background: #ffffff !important;
+    border-bottom: 0;
+    box-shadow: none;
+  }
+
+  a[class*="border-black/30"] {
+    border-width: 0 !important;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06), 0 10px 24px rgba(15, 23, 42, 0.06) !important;
+  }
+
+  a[class*="border-black/30"]:hover {
+    box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08), 0 16px 32px rgba(15, 23, 42, 0.10) !important;
   }
 
   a.gradient-primary {
@@ -133,7 +139,7 @@
     position: absolute;
     border-radius: 50%;
     filter: blur(100px);
-    opacity: 0.35;
+    opacity: 0.15;
     animation: floatCircle 25s ease-in-out infinite;
   }
   .bg-circle:nth-child(1) {
@@ -174,8 +180,8 @@
     z-index: 0;
     pointer-events: none;
     background-image:
-      linear-gradient(rgba(0, 95, 170, 0.035) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0, 95, 170, 0.035) 1px, transparent 1px);
+      linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
     background-size: 80px 80px;
     animation: gridMove 40s linear infinite;
   }
@@ -187,7 +193,7 @@
   .particle {
     position: fixed;
     pointer-events: none;
-    opacity: 0.55;
+    opacity: 0.2;
     z-index: 0;
     border-radius: 50%;
   }
@@ -239,7 +245,7 @@
     transition: all 0.3s cubic-bezier(.22,1,.36,1);
     max-height: 70vh;
     overflow-y: auto;
-    background: rgba(255, 255, 255, 0.94) !important;
+    background: rgba(255, 255, 255, 1) !important;
     border-color: rgba(0, 95, 170, 0.12) !important;
     backdrop-filter: blur(12px);
   }
@@ -338,7 +344,7 @@
   }
 </style>
 </head>
-<body class="bg-surface text-on-surface selection:bg-primary/20">
+<body class="bg-white text-slate-900 selection:bg-primary/20">
 
 <!-- Animated Background -->
 <div class="bg-animation" aria-hidden="true">
@@ -354,9 +360,9 @@
 <div class="particle particle-4" aria-hidden="true"></div>
 
 <!-- TopNavBar -->
-<nav class="fixed top-0 w-full z-50 bg-white shadow-sm transition-all duration-300">
+<nav class="fixed top-0 w-full z-50 bg-white transition-all duration-300">
   <div class="flex items-center max-w-7xl mx-auto px-6 h-20 gap-6">
-    <a href="https://spfaif.com" class="flex items-center gap-3 text-xl font-bold tracking-tight text-slate-900 font-headline">
+    <a href="https://spfaif.com" class="nav-brand flex items-center gap-3 text-xl font-bold tracking-tight text-slate-900 font-headline">
       Hosted by MEGAZONE CLOUD
     </a>
     <div class="flex-1 min-w-0 flex items-center justify-center">
@@ -368,7 +374,7 @@
         </button>
         <div class="nav-dropdown-menu absolute top-full left-1/2 mt-2 w-80 bg-white/95 backdrop-blur-xl border border-outline-variant/20 rounded-2xl p-2 dropdown-shadow z-10">
           <a href="m365copilotagent2.html" target="_blank" rel="noopener noreferrer" class="dropdown-item flex items-center gap-3 p-3 rounded-xl">
-            <div class="w-10 h-10 rounded-xl dropdown-icon bg-primary/10 flex items-center justify-center text-primary shrink-0">
+            <div class="w-10 h-10 rounded-xl dropdown-icon bg-sky-100 flex items-center justify-center text-sky-700 shrink-0">
               <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">calendar_month</span>
             </div>
             <div class="flex-1 min-w-0">
@@ -378,7 +384,7 @@
           <span class="dropdown-arrow material-symbols-outlined text-lg">arrow_forward</span></a>
           <div class="h-px bg-outline-variant/30 my-1 mx-3"></div>
           <a href="webinar.html" target="_blank" rel="noopener noreferrer" class="dropdown-item flex items-center gap-3 p-3 rounded-xl">
-            <div class="w-10 h-10 rounded-xl dropdown-icon bg-primary/10 flex items-center justify-center text-primary shrink-0">
+            <div class="w-10 h-10 rounded-xl dropdown-icon bg-sky-100 flex items-center justify-center text-sky-700 shrink-0">
               <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">event</span>
             </div>
             <div class="flex-1 min-w-0">
@@ -388,7 +394,7 @@
           <span class="dropdown-arrow material-symbols-outlined text-lg">arrow_forward</span></a>
           <div class="h-px bg-outline-variant/30 my-1 mx-3"></div>
           <a href="m365cs-agent.html" class="dropdown-item flex items-center gap-3 p-3 rounded-xl">
-            <div class="w-10 h-10 rounded-xl dropdown-icon bg-primary/10 flex items-center justify-center text-primary shrink-0">
+            <div class="w-10 h-10 rounded-xl dropdown-icon bg-sky-100 flex items-center justify-center text-sky-700 shrink-0">
               <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
             </div>
             <div class="flex-1 min-w-0">
@@ -443,9 +449,9 @@
         <button class="nav-dropdown-toggle inline-flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-white transition-all font-body font-semibold text-sm text-on-surface">
           온사이트 행사
         </button>
-        <div class="nav-dropdown-menu absolute top-full left-1/2 mt-2 w-80 bg-white/100 backdrop-blur-xl border border-outline-variant/20 rounded-2xl p-2 dropdown-shadow z-10">
+        <div class="nav-dropdown-menu absolute top-full left-1/2 mt-2 w-80 bg-white/95 backdrop-blur-xl border border-outline-variant/20 rounded-2xl p-2 dropdown-shadow z-10">
           <a href="https://lipcoding.kr" target="_blank" class="dropdown-item teal flex items-center gap-3 p-3 rounded-xl">
-            <div class="w-10 h-10 rounded-xl dropdown-icon bg-secondary/10 flex items-center justify-center text-secondary shrink-0">
+            <div class="w-10 h-10 rounded-xl dropdown-icon bg-teal-50 flex items-center justify-center text-teal-700 shrink-0">
               <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">code</span>
             </div>
             <div class="flex-1 min-w-0">
@@ -455,7 +461,7 @@
           <span class="dropdown-arrow material-symbols-outlined text-lg">arrow_forward</span></a>
           <div class="h-px bg-outline-variant/30 my-1 mx-3"></div>
           <a href="https://dotnetuniverse.net/study/monthly-dotnet" target="_blank" class="dropdown-item flex items-center gap-3 p-3 rounded-xl">
-            <div class="w-10 h-10 rounded-xl dropdown-icon bg-secondary/10 flex items-center justify-center text-secondary shrink-0">
+            <div class="w-10 h-10 rounded-xl dropdown-icon bg-teal-50 flex items-center justify-center text-teal-700 shrink-0">
               <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">language</span>
             </div>
             <div class="flex-1 min-w-0">
@@ -574,7 +580,7 @@
         </button>
         <div class="nav-dropdown-menu absolute top-full left-1/2 mt-2 w-80 bg-white/95 backdrop-blur-xl border border-outline-variant/20 rounded-2xl p-2 dropdown-shadow z-10">
           <a href="watchagain.html" class="dropdown-item flex items-center gap-3 p-3 rounded-xl">
-            <div class="w-10 h-10 rounded-xl dropdown-icon bg-primary/10 flex items-center justify-center text-primary shrink-0">
+            <div class="w-10 h-10 rounded-xl dropdown-icon bg-sky-100 flex items-center justify-center text-sky-700 shrink-0">
               <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">video_library</span>
             </div>
             <div class="flex-1 min-w-0">
@@ -598,16 +604,16 @@
   <!-- 최신순 웨비나: SPF → Power Platform → Copilot -->
   
   <!-- SPF 웨비나 (가장 최신) -->
-  <section class="py-16 border-b border-outline-variant/10">
+  <section class="py-16">
     <div class="max-w-7xl mx-auto px-6">
       <div class="mb-8">
-        <h2 class="text-3xl font-bold font-headline text-on-surface mb-2">M365 코파일럿 비즈니스 에이전트 파워 시리즈 4월</h2>
-        <p class="text-on-surface-variant">Copilot Agent 시리즈 · 4월</p>
+        <h2 class="text-3xl font-bold font-headline text-slate-900 mb-2">M365 코파일럿 비즈니스 에이전트 파워 시리즈 4월</h2>
+        <p class="text-slate-600">Copilot Agent 시리즈 · 4월</p>
       </div>
       <!-- SPF 비디오 카드 -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <!-- SPF Video 1 -->
-        <a href="https://megazonecloudwebinar.blob.core.windows.net/spfwebinar/SPF%20%EC%9B%A8%EB%B9%84%EB%82%98%201%ED%9A%8C%EC%B0%A8%20%5B%EB%A9%94%EA%B0%80%EC%A1%B4%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C%5D%20%EC%97%90%EC%9D%B4%EC%A0%84%ED%8B%B1%20AI%EC%8B%9C%EB%8C%80%2C%20M365%20%EC%BD%94%ED%8C%8C%EC%9D%BC%EB%9F%BF%20%EB%B9%84%EC%A6%88%EB%8B%88%EC%8A%A4%20%EC%97%90%EC%9D%B4%EC%A0%84%ED%8A%B8%20%EC%88%98%EC%97%85%20%EC%8B%9C%EB%A6%AC%EC%A6%88%204%EC%9B%94%201%ED%9A%8C%EC%B0%A8-20260408_065556UTC-Meeting%20Recording.mp4?sp=r&st=2026-04-29T05:54:07Z&se=2027-04-29T14:09:07Z&spr=https&sv=2024-11-04&sr=b&sig=VtJ%2BYtTrFlfc3v4b1lbpqsY9NFMrCsMr%2FxSfpAeFt04%3D" target="_blank" class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all border border-outline-variant/10 block group">
+        <a href="https://megazonecloudwebinar.blob.core.windows.net/spfwebinar/SPF%20%EC%9B%A8%EB%B9%84%EB%82%98%201%ED%9A%8C%EC%B0%A8%20%5B%EB%A9%94%EA%B0%80%EC%A1%B4%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C%5D%20%EC%97%90%EC%9D%B4%EC%A0%84%ED%8B%B1%20AI%EC%8B%9C%EB%8C%80%2C%20M365%20%EC%BD%94%ED%8C%8C%EC%9D%BC%EB%9F%BF%20%EB%B9%84%EC%A6%88%EB%8B%88%EC%8A%A4%20%EC%97%90%EC%9D%B4%EC%A0%84%ED%8A%B8%20%EC%88%98%EC%97%85%20%EC%8B%9C%EB%A6%AC%EC%A6%88%204%EC%9B%94%201%ED%9A%8C%EC%B0%A8-20260408_065556UTC-Meeting%20Recording.mp4?sp=r&st=2026-04-29T05:54:07Z&se=2027-04-29T14:09:07Z&spr=https&sv=2024-11-04&sr=b&sig=VtJ%2BYtTrFlfc3v4b1lbpqsY9NFMrCsMr%2FxSfpAeFt04%3D" target="_blank" class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all border border-black/30 block group">
           <div class="aspect-video bg-slate-100 flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-primary/5 to-primary/10">
             <img src="spf_webinar_1_thumb.jpg" alt="SPF 웨비나 1회차" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://via.placeholder.com/400x225?text=SPF+Webinar+1'"/>
             <div class="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors flex items-center justify-center">
@@ -616,11 +622,11 @@
           </div>
           <div class="p-4">
             <h3 class="font-bold text-on-surface mb-2">만들지 않아도 바로 쓰는 미리 빌드된 M365 에이전트 활용</h3>
-            <p class="text-sm text-on-surface-variant mb-3">4월 8일 (수) 4시~5시</p>
+            <p class="text-sm text-on-surface-variant text-gray-600 mb-3">4월 8일 (수) 4시~5시</p>
           </div>
         </a>
         <!-- SPF Video 2 -->
-        <a href="https://megazonecloudwebinar.blob.core.windows.net/spfwebinar/SPF%20%EC%9B%A8%EB%B9%84%EB%82%98%202%ED%9A%8C%EC%B0%A8%20%5B%EB%A9%94%EA%B0%80%EC%A1%B4%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C%5D%20%EC%97%90%EC%9D%B4%EC%A0%84%ED%8B%B1%20AI%EC%8B%9C%EB%8C%80%2C%20M365%20%EC%BD%94%ED%8C%8C%EC%9D%BC%EB%9F%BF%20%EB%B9%84%EC%A6%88%EB%8B%88%EC%8A%A4%20%EC%97%90%EC%9D%B4%EC%A0%84%ED%8A%B8%20%EC%88%98%EC%97%85%20%EC%8B%9C%EB%A6%AC%EC%A6%88%204%EC%9B%94%202%ED%9A%8C%EC%B0%A8-20260415_065213UTC-Meeting%20Recording%201.mp4?sp=r&st=2026-04-29T06:23:25Z&se=2027-04-29T14:38:25Z&spr=https&sv=2024-11-04&sr=b&sig=JvVDHiwRVjcR6Ov%2Be3J9x9eE5E%2BkOT3fwv59AoHK1Fg%3D" target="_blank" rel="noopener noreferrer" class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all border border-outline-variant/10 block group">
+        <a href="https://megazonecloudwebinar.blob.core.windows.net/spfwebinar/SPF%20%EC%9B%A8%EB%B9%84%EB%82%98%202%ED%9A%8C%EC%B0%A8%20%5B%EB%A9%94%EA%B0%80%EC%A1%B4%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C%5D%20%EC%97%90%EC%9D%B4%EC%A0%84%ED%8B%B1%20AI%EC%8B%9C%EB%8C%80%2C%20M365%20%EC%BD%94%ED%8C%8C%EC%9D%BC%EB%9F%BF%20%EB%B9%84%EC%A6%88%EB%8B%88%EC%8A%A4%20%EC%97%90%EC%9D%B4%EC%A0%84%ED%8A%B8%20%EC%88%98%EC%97%85%20%EC%8B%9C%EB%A6%AC%EC%A6%88%204%EC%9B%94%202%ED%9A%8C%EC%B0%A8-20260415_065213UTC-Meeting%20Recording%201.mp4?sp=r&st=2026-04-29T06:23:25Z&se=2027-04-29T14:38:25Z&spr=https&sv=2024-11-04&sr=b&sig=JvVDHiwRVjcR6Ov%2Be3J9x9eE5E%2BkOT3fwv59AoHK1Fg%3D" target="_blank" rel="noopener noreferrer" class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all border border-black/30 block group">
           <div class="aspect-video bg-slate-100 flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-primary/5 to-primary/10">
             <img src="spf_webinar_2_thumb.jpg" alt="SPF Webinar" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://via.placeholder.com/400x225?text=SPF+Webinar+2'"/>
             <div class="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors flex items-center justify-center">
@@ -629,11 +635,11 @@
           </div>
           <div class="p-4">
             <h3 class="font-bold text-on-surface mb-2">우리 회사 문서를 이해하게 만드는 SharePoint 기본 지식 에이전트</h3>
-            <p class="text-sm text-on-surface-variant mb-3">4월 15일 (수) 4시~5시</p>
+            <p class="text-sm text-on-surface-variant text-gray-600 mb-3">4월 15일 (수) 4시~5시</p>
           </div>
         </a>
         <!-- SPF Video 3 -->
-        <a href="https://megazonecloudwebinar.blob.core.windows.net/spfwebinar/SPF%20%EC%9B%A8%EB%B9%84%EB%82%98%203%ED%9A%8C%EC%B0%A8%20%5B%EB%A9%94%EA%B0%80%EC%A1%B4%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C%5D%20%EC%97%90%EC%9D%B4%EC%A0%84%ED%8B%B1%20AI%EC%8B%9C%EB%8C%80%2C%20M365%20%EC%BD%94%ED%8C%8C%EC%9D%BC%EB%9F%BF%20%EB%B9%84%EC%A6%88%EB%8B%88%EC%8A%A4%20%EC%97%90%EC%9D%B4%EC%A0%84%ED%8A%B8%20%EC%88%98%EC%97%85%20%EC%8B%9C%EB%A6%AC%EC%A6%88%204%EC%9B%94%203%ED%9A%8C%EC%B0%A8-20260422_065012UTC-Meeting%20Recording.mp4?sp=r&st=2026-04-29T06:23:47Z&se=2027-04-29T14:38:47Z&spr=https&sv=2024-11-04&sr=b&sig=87e7u5hNleRlkBQxZEuieYRU%2B%2BIiWFFfc3HV%2B%2BRkYtI%3D" target="_blank" rel="noopener noreferrer" class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all border border-outline-variant/10 block group">
+        <a href="https://megazonecloudwebinar.blob.core.windows.net/spfwebinar/SPF%20%EC%9B%A8%EB%B9%84%EB%82%98%203%ED%9A%8C%EC%B0%A8%20%5B%EB%A9%94%EA%B0%80%EC%A1%B4%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C%5D%20%EC%97%90%EC%9D%B4%EC%A0%84%ED%8B%B1%20AI%EC%8B%9C%EB%8C%80%2C%20M365%20%EC%BD%94%ED%8C%8C%EC%9D%BC%EB%9F%BF%20%EB%B9%84%EC%A6%88%EB%8B%88%EC%8A%A4%20%EC%97%90%EC%9D%B4%EC%A0%84%ED%8A%B8%20%EC%88%98%EC%97%85%20%EC%8B%9C%EB%A6%AC%EC%A6%88%204%EC%9B%94%203%ED%9A%8C%EC%B0%A8-20260422_065012UTC-Meeting%20Recording.mp4?sp=r&st=2026-04-29T06:23:47Z&se=2027-04-29T14:38:47Z&spr=https&sv=2024-11-04&sr=b&sig=87e7u5hNleRlkBQxZEuieYRU%2B%2BIiWFFfc3HV%2B%2BRkYtI%3D" target="_blank" rel="noopener noreferrer" class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all border border-black/30 block group">
           <div class="aspect-video bg-slate-100 flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-primary/5 to-primary/10">
             <img src="spf_webinar_3_thumb.jpg" alt="SPF Webinar" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://via.placeholder.com/400x225?text=SPF+Webinar+3'"/>
             <div class="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors flex items-center justify-center">
@@ -642,11 +648,11 @@
           </div>
           <div class="p-4">
             <h3 class="font-bold text-on-surface mb-2">[새 에이전트]로 만드는 에이전트 세상</h3>
-            <p class="text-sm text-on-surface-variant mb-3">4월 22일 (수) 4시~5시</p>
+            <p class="text-sm text-on-surface-variant text-gray-600 mb-3">4월 22일 (수) 4시~5시</p>
           </div>
         </a>
         <!-- SPF Video 4 -->
-        <a href="https://megazonecloudwebinar.blob.core.windows.net/spfwebinar/SPF%20%EC%9B%A8%EB%B9%84%EB%82%98%204%ED%9A%8C%EC%B0%A8%20%5B%EB%A9%94%EA%B0%80%EC%A1%B4%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C%5D%20%EC%97%90%EC%9D%B4%EC%A0%84%ED%8B%B1%20AI%EC%8B%9C%EB%8C%80%2C%20M365%20%EC%BD%94%ED%8C%8C%EC%9D%BC%EB%9F%BF%20%EB%B9%84%EC%A6%88%EB%8B%88%EC%8A%A4%20%EC%97%90%EC%9D%B4%EC%A0%84%ED%8A%B8%20%EC%88%98%EC%97%85%20%EC%8B%9C%EB%A6%AC%EC%A6%88%204%EC%9B%94%204%ED%9A%8C%EC%B0%A8-20260429_065408UTC-Meeting%20Recording.mp4?sp=r&st=2026-04-30T00:31:50Z&se=2027-04-30T08:46:50Z&spr=https&sv=2025-11-05&sr=b&sig=KkBN6iddyWgeSE4L0xZP4xB195c0bzDciTcui0U7k0s%3D" target="_blank" rel="noopener noreferrer" class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all border border-outline-variant/10 block group">
+        <a href="https://megazonecloudwebinar.blob.core.windows.net/spfwebinar/SPF%20%EC%9B%A8%EB%B9%84%EB%82%98%204%ED%9A%8C%EC%B0%A8%20%5B%EB%A9%94%EA%B0%80%EC%A1%B4%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C%5D%20%EC%97%90%EC%9D%B4%EC%A0%84%ED%8B%B1%20AI%EC%8B%9C%EB%8C%80%2C%20M365%20%EC%BD%94%ED%8C%8C%EC%9D%BC%EB%9F%BF%20%EB%B9%84%EC%A6%88%EB%8B%88%EC%8A%A4%20%EC%97%90%EC%9D%B4%EC%A0%84%ED%8A%B8%20%EC%88%98%EC%97%85%20%EC%8B%9C%EB%A6%AC%EC%A6%88%204%EC%9B%94%204%ED%9A%8C%EC%B0%A8-20260429_065408UTC-Meeting%20Recording.mp4?sp=r&st=2026-04-30T00:31:50Z&se=2027-04-30T08:46:50Z&spr=https&sv=2025-11-05&sr=b&sig=KkBN6iddyWgeSE4L0xZP4xB195c0bzDciTcui0U7k0s%3D" target="_blank" rel="noopener noreferrer" class="bg-white rounded-lg overflow-hidden shadow-[0_10px_25px_rgba(15,23,42,0.10)] hover:shadow-[0_16px_32px_rgba(15,23,42,0.14)] transition-all border-0 block group">
           <div class="aspect-video bg-slate-100 flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-primary/5 to-primary/10">
             <img src="spf_webinar_4_thumb.jpg" alt="SPF 웨비나 4회차" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://via.placeholder.com/400x225?text=SPF+Webinar+4'"/>
             <div class="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors flex items-center justify-center">
@@ -655,37 +661,37 @@
           </div>
           <div class="p-4">
             <h3 class="font-bold text-on-surface mb-2">판단·정리·보고를 대신하는 에이전트 활용</h3>
-            <p class="text-sm text-on-surface-variant mb-3">4월 29일 (수) 4시~5시</p>
+            <p class="text-sm text-on-surface-variant text-gray-600 mb-3">4월 29일 (수) 4시~5시</p>
           </div>
         </a>
         <!-- SPF Video 5 -->
-        <div class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all border border-outline-variant/10">
+        <a href="https://megazonecloudwebinar.blob.core.windows.net/spfwebinar/SPF%20%EC%9B%A8%EB%B9%84%EB%82%98%205%ED%9A%8C%EC%B0%A8%20%5B%EB%A9%94%EA%B0%80%EC%A1%B4%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C%5D%20%EC%97%90%EC%9D%B4%EC%A0%84%ED%8B%B1%20AI%EC%8B%9C%EB%8C%80%2C%20M365%20%EC%BD%94%ED%8C%8C%EC%9D%BC%EB%9F%BF%20%EB%B9%84%EC%A6%88%EB%8B%88%EC%8A%A4%20%EC%97%90%EC%9D%B4%EC%A0%84%ED%8A%B8%20%EC%88%98%EC%97%85%20%EC%8B%9C%EB%A6%AC%EC%A6%88%204%EC%9B%94%205%ED%9A%8C%EC%B0%A8%20%EC%88%98%EC%97%85-20260506_060324UTC-Meeting%20Recording.mp4?sp=r&st=2026-05-07T00:27:44Z&se=2027-05-07T08:42:44Z&spr=https&sv=2025-11-05&sr=b&sig=aKg7RrnlZ7%2FhtNhp2D%2F8wXJBzzaGgRsl76QESnoUOI4%3D" class="video-card bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all border border-black/30 block group" data-video-src="https://megazonecloudwebinar.blob.core.windows.net/spfwebinar/SPF%20%EC%9B%A8%EB%B9%84%EB%82%98%205%ED%9A%8C%EC%B0%A8%20%5B%EB%A9%94%EA%B0%80%EC%A1%B4%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C%5D%20%EC%97%90%EC%9D%B4%EC%A0%84%ED%8B%B1%20AI%EC%8B%9C%EB%8C%80%2C%20M365%20%EC%BD%94%ED%8C%8C%EC%9D%BC%EB%9F%BF%20%EB%B9%84%EC%A6%88%EB%8B%88%EC%8A%A4%20%EC%97%90%EC%9D%B4%EC%A0%84%ED%8A%B8%20%EC%88%98%EC%97%85%20%EC%8B%9C%EB%A6%AC%EC%A6%88%204%EC%9B%94%205%ED%9A%8C%EC%B0%A8%20%EC%88%98%EC%97%85-20260506_060324UTC-Meeting%20Recording.mp4?sp=r&st=2026-05-07T00:27:44Z&se=2027-05-07T08:42:44Z&spr=https&sv=2025-11-05&sr=b&sig=aKg7RrnlZ7%2FhtNhp2D%2F8wXJBzzaGgRsl76QESnoUOI4%3D" data-title="같은 에이전트인데, 왜 결과가 다를까? 설계의 모든 것!" data-modal="false" target="_blank" rel="noopener noreferrer">
           <div class="aspect-video bg-slate-100 flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-primary/5 to-primary/10">
-            <img src="https://via.placeholder.com/400x225?text=SPF+Webinar" alt="SPF Webinar" class="w-full h-full object-cover"/>
-            <div class="absolute inset-0 bg-black/30 transition-colors flex items-center justify-center">
+            <img src="https://via.placeholder.com/400x225?text=SPF+Webinar+5" alt="SPF Webinar" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://via.placeholder.com/400x225?text=SPF+Webinar'"/>
+            <div class="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors flex items-center justify-center">
               <span class="material-symbols-outlined text-white text-5xl">play_circle</span>
             </div>
           </div>
           <div class="p-4">
             <h3 class="font-bold text-on-surface mb-2">같은 에이전트인데, 왜 결과가 다를까? 설계의 모든 것!</h3>
-            <p class="text-sm text-on-surface-variant mb-3">5월 6일 (수) 4시~5시</p>
+            <p class="text-sm text-on-surface-variant text-gray-600 mb-3">5월 6일 (수) 4시~5시</p>
           </div>
-        </div>
+        </a>
       </div>
     </div>
   </section>
 
   <!-- Power Platform 웨비나 -->
-  <section class="py-16 border-b border-outline-variant/10">
+  <section class="py-16">
     <div class="max-w-7xl mx-auto px-6">
       <div class="mb-8">
-        <h2 class="text-3xl font-bold font-headline text-on-surface mb-2">코파일럿 스튜디오에 파워플랫폼으로 킥</h2>
-        <p class="text-on-surface-variant">Power Platform 시리즈</p>
+        <h2 class="text-3xl font-bold font-headline text-slate-900 mb-2">코파일럿 스튜디오에 파워플랫폼으로 킥</h2>
+        <p class="text-slate-600">Power Platform 시리즈</p>
       </div>
       <!-- Power Platform 비디오 카드 -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <!-- Power Platform Video 1 -->
-        <a href="https://megazonecloudwebinar.blob.core.windows.net/powerplatformwebinar/%ED%8C%8C%EC%9B%8C%ED%94%8C%EB%9E%AB%ED%8F%BC%20%EC%9B%A8%EB%B9%84%EB%82%98%201%EC%A3%BC%EC%B0%A8%20%5B%EB%A9%94%EA%B0%80%EC%A1%B4%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C%5D%20%EC%97%90%EC%9D%B4%EC%A0%84%ED%8B%B1%20AI%EC%8B%9C%EB%8C%80%2C%20M365%20%ED%8C%8C%EC%9B%8C%ED%94%8C%EB%9E%AB%ED%8F%BC%EC%9C%BC%EB%A1%9C%20%ED%82%A5%EC%9D%84%20%EB%8D%94%ED%95%9C%EB%8B%A4!%20%ED%8C%8C%EC%9B%8C%ED%94%8C%EB%9E%AB%ED%8F%BC%20%EB%A7%88%EC%8A%A4%ED%84%B0%20%EC%9B%A8%EB%B9%84%EB%82%98-20260318_054704UTC-Meeting%20Recording%201.mp4?sp=r&st=2026-04-29T07:13:23Z&se=2027-04-29T15:28:23Z&spr=https&sv=2024-11-04&sr=b&sig=fG2MOUt4eZxeiCHw7GEWM0ui1LmelFa%2BAItmJHTVIjo%3D" target="_blank" rel="noopener noreferrer" class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all border border-outline-variant/10 block group">
+        <a href="https://megazonecloudwebinar.blob.core.windows.net/powerplatformwebinar/%ED%8C%8C%EC%9B%8C%ED%94%8C%EB%9E%AB%ED%8F%BC%20%EC%9B%A8%EB%B9%84%EB%82%98%201%EC%A3%BC%EC%B0%A8%20%5B%EB%A9%94%EA%B0%80%EC%A1%B4%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C%5D%20%EC%97%90%EC%9D%B4%EC%A0%84%ED%8B%B1%20AI%EC%8B%9C%EB%8C%80%2C%20M365%20%ED%8C%8C%EC%9B%8C%ED%94%8C%EB%9E%AB%ED%8F%BC%EC%9C%BC%EB%A1%9C%20%ED%82%A5%EC%9D%84%20%EB%8D%94%ED%95%9C%EB%8B%A4!%20%ED%8C%8C%EC%9B%8C%ED%94%8C%EB%9E%AB%ED%8F%BC%20%EB%A7%88%EC%8A%A4%ED%84%B0%20%EC%9B%A8%EB%B9%84%EB%82%98-20260318_054704UTC-Meeting%20Recording%201.mp4?sp=r&st=2026-04-29T07:13:23Z&se=2027-04-29T15:28:23Z&spr=https&sv=2024-11-04&sr=b&sig=fG2MOUt4eZxeiCHw7GEWM0ui1LmelFa%2BAItmJHTVIjo%3D" target="_blank" rel="noopener noreferrer" class="bg-white rounded-lg overflow-hidden shadow-[0_10px_25px_rgba(15,23,42,0.10)] hover:shadow-[0_16px_32px_rgba(15,23,42,0.14)] transition-all border-0 block group">
           <div class="aspect-video bg-slate-100 flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-primary/5 to-primary/10">
             <img src="powerplatform_1_thumb.jpg" alt="Power Platform Webinar" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://via.placeholder.com/400x225?text=Power+Platform+1'"/>
             <div class="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors flex items-center justify-center">
@@ -694,11 +700,11 @@
           </div>
           <div class="p-4">
             <h3 class="font-bold text-on-surface mb-2">Copilot Studio — HR 4 You Agent 3종</h3>
-            <p class="text-sm text-on-surface-variant mb-3">3월 18일 (수) 오후 3시~4시</p>
+            <p class="text-sm text-on-surface-variant text-gray-600 mb-3">3월 18일 (수) 오후 3시~4시</p>
           </div>
         </a>
         <!-- Power Platform Video 2 -->
-        <a href="https://megazonecloudwebinar.blob.core.windows.net/powerplatformwebinar/%ED%8C%8C%EC%9B%8C%ED%94%8C%EB%9E%AB%ED%8F%BC%20%EC%9B%A8%EB%B9%84%EB%82%98%202%EC%A3%BC%EC%B0%A8%20%5B%EB%A9%94%EA%B0%80%EC%A1%B4%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C%5D%20%EC%97%90%EC%9D%B4%EC%A0%84%ED%8B%B1%20AI%EC%8B%9C%EB%8C%80%2C%20M365%20%ED%8C%8C%EC%9B%8C%ED%94%8C%EB%9E%AB%ED%8F%BC%EC%9C%BC%EB%A1%9C%20%ED%82%A5%EC%9D%84%20%EB%8D%94%ED%95%9C%EB%8B%A4!%20%ED%8C%8C%EC%9B%8C%ED%94%8C%EB%9E%AB%ED%8F%BC%20%EB%A7%88%EC%8A%A4%ED%84%B0%20%EC%9B%A8%EB%B9%84%EB%82%98%202%EC%A3%BC%EC%B0%A8-20260325_054706UTC-Meeting%20Recording.mp4?sp=r&st=2026-04-29T23:43:17Z&se=2027-04-30T07:58:17Z&spr=https&sv=2024-11-04&sr=b&sig=8%2F9vb6JO8lLmbgha1L4B5eJGbkKTLp7unIWUs4hC%2Fnw%3D" target="_blank" rel="noopener noreferrer" class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all border border-outline-variant/10 block group">
+        <a href="https://megazonecloudwebinar.blob.core.windows.net/powerplatformwebinar/%ED%8C%8C%EC%9B%8C%ED%94%8C%EB%9E%AB%ED%8F%BC%20%EC%9B%A8%EB%B9%84%EB%82%98%202%EC%A3%BC%EC%B0%A8%20%5B%EB%A9%94%EA%B0%80%EC%A1%B4%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C%5D%20%EC%97%90%EC%9D%B4%EC%A0%84%ED%8B%B1%20AI%EC%8B%9C%EB%8C%80%2C%20M365%20%ED%8C%8C%EC%9B%8C%ED%94%8C%EB%9E%AB%ED%8F%BC%EC%9C%BC%EB%A1%9C%20%ED%82%A5%EC%9D%84%20%EB%8D%94%ED%95%9C%EB%8B%A4!%20%ED%8C%8C%EC%9B%8C%ED%94%8C%EB%9E%AB%ED%8F%BC%20%EB%A7%88%EC%8A%A4%ED%84%B0%20%EC%9B%A8%EB%B9%84%EB%82%98%202%EC%A3%BC%EC%B0%A8-20260325_054706UTC-Meeting%20Recording.mp4?sp=r&st=2026-04-29T23:43:17Z&se=2027-04-30T07:58:17Z&spr=https&sv=2024-11-04&sr=b&sig=8%2F9vb6JO8lLmbgha1L4B5eJGbkKTLp7unIWUs4hC%2Fnw%3D" target="_blank" rel="noopener noreferrer" class="bg-white rounded-lg overflow-hidden shadow-[0_10px_25px_rgba(15,23,42,0.10)] hover:shadow-[0_16px_32px_rgba(15,23,42,0.14)] transition-all border-0 block group">
           <div class="aspect-video bg-slate-100 flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-primary/5 to-primary/10">
             <img src="powerplatform_2_thumb.jpg" alt="Power Platform Webinar 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://via.placeholder.com/400x225?text=Power+Platform+2'"/>
             <div class="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors flex items-center justify-center">
@@ -707,11 +713,11 @@
           </div>
           <div class="p-4">
             <h3 class="font-bold text-on-surface mb-2">Copilot Studio — 멀티 에이전트 구성</h3>
-            <p class="text-sm text-on-surface-variant mb-3">3월 25일 (수) 오후 3시~4시</p>
+            <p class="text-sm text-on-surface-variant text-gray-600 mb-3">3월 25일 (수) 오후 3시~4시</p>
           </div>
         </a>
         <!-- Power Platform Video 3 -->
-        <a href="https://megazonecloudwebinar.blob.core.windows.net/powerplatformwebinar/%ED%8C%8C%EC%9B%8C%ED%94%8C%EB%9E%AB%ED%8F%BC%20%EC%9B%A8%EB%B9%84%EB%82%98%203%EC%A3%BC%EC%B0%A8%20%5B%EB%A9%94%EA%B0%80%EC%A1%B4%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C%5D%20%EC%97%90%EC%9D%B4%EC%A0%84%ED%8B%B1%20AI%EC%8B%9C%EB%8C%80%2C%20M365%20%ED%8C%8C%EC%9B%8C%ED%94%8C%EB%9E%AB%ED%8F%BC%EC%9C%BC%EB%A1%9C%20%ED%82%A5%EC%9D%84%20%EB%8D%94%ED%95%9C%EB%8B%A4!%20%ED%8C%8C%EC%9B%8C%ED%94%8C%EB%9E%AB%ED%8F%BC%20%EB%A7%88%EC%8A%A4%ED%84%B0%20%EC%9B%A8%EB%B9%84%EB%82%98%203%EC%A3%BC%EC%B0%A8-20260401_043847UTC-Meeting%20Recording.mp4?sp=r&st=2026-04-29T23:51:15Z&se=2027-04-30T08:06:15Z&spr=https&sv=2024-11-04&sr=b&sig=0c%2FgE%2BaPjB2mSTSKzHyqk6LZ1XnyjI%2FekfwrJg3pOB8%3D" target="_blank" rel="noopener noreferrer" class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all border border-outline-variant/10 block group">
+        <a href="https://megazonecloudwebinar.blob.core.windows.net/powerplatformwebinar/%ED%8C%8C%EC%9B%8C%ED%94%8C%EB%9E%AB%ED%8F%BC%20%EC%9B%A8%EB%B9%84%EB%82%98%203%EC%A3%BC%EC%B0%A8%20%5B%EB%A9%94%EA%B0%80%EC%A1%B4%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C%5D%20%EC%97%90%EC%9D%B4%EC%A0%84%ED%8B%B1%20AI%EC%8B%9C%EB%8C%80%2C%20M365%20%ED%8C%8C%EC%9B%8C%ED%94%8C%EB%9E%AB%ED%8F%BC%EC%9C%BC%EB%A1%9C%20%ED%82%A5%EC%9D%84%20%EB%8D%94%ED%95%9C%EB%8B%A4!%20%ED%8C%8C%EC%9B%8C%ED%94%8C%EB%9E%AB%ED%8F%BC%20%EB%A7%88%EC%8A%A4%ED%84%B0%20%EC%9B%A8%EB%B9%84%EB%82%98%203%EC%A3%BC%EC%B0%A8-20260401_043847UTC-Meeting%20Recording.mp4?sp=r&st=2026-04-29T23:51:15Z&se=2027-04-30T08:06:15Z&spr=https&sv=2024-11-04&sr=b&sig=0c%2FgE%2BaPjB2mSTSKzHyqk6LZ1XnyjI%2FekfwrJg3pOB8%3D" target="_blank" rel="noopener noreferrer" class="bg-white rounded-lg overflow-hidden shadow-[0_10px_25px_rgba(15,23,42,0.10)] hover:shadow-[0_16px_32px_rgba(15,23,42,0.14)] transition-all border-0 block group">
           <div class="aspect-video bg-slate-100 flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-primary/5 to-primary/10">
             <img src="powerplatform_3_thumb.jpg" alt="Power Platform Webinar 3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://via.placeholder.com/400x225?text=Power+Platform+3'"/>
             <div class="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors flex items-center justify-center">
@@ -720,11 +726,11 @@
           </div>
           <div class="p-4">
             <h3 class="font-bold text-on-surface mb-2">Power BI — MCP 서버로 AI 대시보드 만들기</h3>
-            <p class="text-sm text-on-surface-variant mb-3">4월 1일 (수) 오후 2시~3시</p>
+            <p class="text-sm text-on-surface-variant text-gray-600 mb-3">4월 1일 (수) 오후 2시~3시</p>
           </div>
         </a>
         <!-- Power Platform Video 4 -->
-        <a href="https://megazonecloudwebinar.blob.core.windows.net/powerplatformwebinar/%ED%8C%8C%EC%9B%8C%ED%94%8C%EB%9E%AB%ED%8F%BC%20%EC%9B%A8%EB%B9%84%EB%82%98%204%EC%A3%BC%EC%B0%A8%20%5B%EB%A9%94%EA%B0%80%EC%A1%B4%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C%5D%20%EC%97%90%EC%9D%B4%EC%A0%84%ED%8B%B1%20AI%EC%8B%9C%EB%8C%80%2C%20M365%20%ED%8C%8C%EC%9B%8C%ED%94%8C%EB%9E%AB%ED%8F%BC%EC%9C%BC%EB%A1%9C%20%ED%82%A5%EC%9D%84%20%EB%8D%94%ED%95%9C%EB%8B%A4!%20%ED%8C%8C%EC%9B%8C%ED%94%8C%EB%9E%AB%ED%8F%BC%20%EB%A7%88%EC%8A%A4%ED%84%B0%20%EC%9B%A8%EB%B9%84%EB%82%98%204%EC%A3%BC%EC%B0%A8-20260408_043223UTC-Meeting%20Recording%201.mp4?sp=r&st=2026-04-29T23:52:54Z&se=2027-04-30T08:07:54Z&spr=https&sv=2024-11-04&sr=b&sig=rTXTEsSLHxath%2BpWpqud8WBceK6yJjPRWC9ujypDSC8%3D" target="_blank" rel="noopener noreferrer" class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all border border-outline-variant/10 block group">
+        <a href="https://megazonecloudwebinar.blob.core.windows.net/powerplatformwebinar/%ED%8C%8C%EC%9B%8C%ED%94%8C%EB%9E%AB%ED%8F%BC%20%EC%9B%A8%EB%B9%84%EB%82%98%204%EC%A3%BC%EC%B0%A8%20%5B%EB%A9%94%EA%B0%80%EC%A1%B4%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C%5D%20%EC%97%90%EC%9D%B4%EC%A0%84%ED%8B%B1%20AI%EC%8B%9C%EB%8C%80%2C%20M365%20%ED%8C%8C%EC%9B%8C%ED%94%8C%EB%9E%AB%ED%8F%BC%EC%9C%BC%EB%A1%9C%20%ED%82%A5%EC%9D%84%20%EB%8D%94%ED%95%9C%EB%8B%A4!%20%ED%8C%8C%EC%9B%8C%ED%94%8C%EB%9E%AB%ED%8F%BC%20%EB%A7%88%EC%8A%A4%ED%84%B0%20%EC%9B%A8%EB%B9%84%EB%82%98%204%EC%A3%BC%EC%B0%A8-20260408_043223UTC-Meeting%20Recording%201.mp4?sp=r&st=2026-04-29T23:52:54Z&se=2027-04-30T08:07:54Z&spr=https&sv=2024-11-04&sr=b&sig=rTXTEsSLHxath%2BpWpqud8WBceK6yJjPRWC9ujypDSC8%3D" target="_blank" rel="noopener noreferrer" class="bg-white rounded-lg overflow-hidden shadow-[0_10px_25px_rgba(15,23,42,0.10)] hover:shadow-[0_16px_32px_rgba(15,23,42,0.14)] transition-all border-0 block group">
           <div class="aspect-video bg-slate-100 flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-primary/5 to-primary/10">
             <img src="powerplatform_4_thumb.jpg" alt="Power Platform Webinar 4" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://via.placeholder.com/400x225?text=Power+Platform+4'"/>
             <div class="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors flex items-center justify-center">
@@ -733,11 +739,11 @@
           </div>
           <div class="p-4">
             <h3 class="font-bold text-on-surface mb-2">Power Apps — 앱 만드는 4가지 방법</h3>
-            <p class="text-sm text-on-surface-variant mb-3">4월 8일 (수) 오후 2시~3시</p>
+            <p class="text-sm text-on-surface-variant text-gray-600 mb-3">4월 8일 (수) 오후 2시~3시</p>
           </div>
         </a>
         <!-- Power Platform Video 5 -->
-        <a href="https://megazonecloudwebinar.blob.core.windows.net/powerplatformwebinar/%ED%8C%8C%EC%9B%8C%ED%94%8C%EB%9E%AB%ED%8F%BC%20%EC%9B%A8%EB%B9%84%EB%82%98%205%EC%A3%BC%EC%B0%A8%20%5B%EB%A9%94%EA%B0%80%EC%A1%B4%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C%5D%20%EC%97%90%EC%9D%B4%EC%A0%84%ED%8B%B1%20AI%EC%8B%9C%EB%8C%80%2C%20M365%20%ED%8C%8C%EC%9B%8C%ED%94%8C%EB%9E%AB%ED%8F%BC%EC%9C%BC%EB%A1%9C%20%ED%82%A5%EC%9D%84%20%EB%8D%94%ED%95%9C%EB%8B%A4!%20%ED%8C%8C%EC%9B%8C%ED%94%8C%EB%9E%AB%ED%8F%BC%20%EB%A7%88%EC%8A%A4%ED%84%B0%20%EC%9B%A8%EB%B9%84%EB%82%98%205%EC%A3%BC%EC%B0%A8-20260415_045536UTC-Meeting%20Recording%201.mp4?sp=r&st=2026-04-29T23:55:26Z&se=2027-04-30T08:10:26Z&spr=https&sv=2024-11-04&sr=b&sig=dqmavZbnNhgB%2FjScEZI5AEzVVjB3JGZd%2F1aZAP4CaV8%3D" target="_blank" rel="noopener noreferrer" class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all border border-outline-variant/10 block group">
+        <a href="https://megazonecloudwebinar.blob.core.windows.net/powerplatformwebinar/%ED%8C%8C%EC%9B%8C%ED%94%8C%EB%9E%AB%ED%8F%BC%20%EC%9B%A8%EB%B9%84%EB%82%98%205%EC%A3%BC%EC%B0%A8%20%5B%EB%A9%94%EA%B0%80%EC%A1%B4%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C%5D%20%EC%97%90%EC%9D%B4%EC%A0%84%ED%8B%B1%20AI%EC%8B%9C%EB%8C%80%2C%20M365%20%ED%8C%8C%EC%9B%8C%ED%94%8C%EB%9E%AB%ED%8F%BC%EC%9C%BC%EB%A1%9C%20%ED%82%A5%EC%9D%84%20%EB%8D%94%ED%95%9C%EB%8B%A4!%20%ED%8C%8C%EC%9B%8C%ED%94%8C%EB%9E%AB%ED%8F%BC%20%EB%A7%88%EC%8A%A4%ED%84%B0%20%EC%9B%A8%EB%B9%84%EB%82%98%205%EC%A3%BC%EC%B0%A8-20260415_045536UTC-Meeting%20Recording%201.mp4?sp=r&st=2026-04-29T23:55:26Z&se=2027-04-30T08:10:26Z&spr=https&sv=2024-11-04&sr=b&sig=dqmavZbnNhgB%2FjScEZI5AEzVVjB3JGZd%2F1aZAP4CaV8%3D" target="_blank" rel="noopener noreferrer" class="bg-white rounded-lg overflow-hidden shadow-[0_10px_25px_rgba(15,23,42,0.10)] hover:shadow-[0_16px_32px_rgba(15,23,42,0.14)] transition-all border-0 block group">
           <div class="aspect-video bg-slate-100 flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-primary/5 to-primary/10">
             <img src="powerplatform_5_thumb.jpg" alt="Power Platform Webinar 5" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://via.placeholder.com/400x225?text=Power+Platform+5'"/>
             <div class="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors flex items-center justify-center">
@@ -746,7 +752,7 @@
           </div>
           <div class="p-4">
             <h3 class="font-bold text-on-surface mb-2">Power Automate — 입금결의서 자동 생성</h3>
-            <p class="text-sm text-on-surface-variant mb-3">4월 15일 (수) 오후 2시~3시</p>
+            <p class="text-sm text-on-surface-variant text-gray-600 mb-3">4월 15일 (수) 오후 2시~3시</p>
           </div>
         </a>
       </div>
@@ -757,13 +763,13 @@
   <section class="py-16">
     <div class="max-w-7xl mx-auto px-6">
       <div class="mb-8">
-        <h2 class="text-3xl font-bold font-headline text-on-surface mb-2">M365 코파일럿 에이전트 파워</h2>
-        <p class="text-on-surface-variant">Copilot Agent 시리즈</p>
+        <h2 class="text-3xl font-bold font-headline text-slate-900 mb-2">M365 코파일럿 에이전트 파워</h2>
+        <p class="text-slate-600">Copilot Agent 시리즈</p>
       </div>
       <!-- Copilot 비디오 카드 -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <!-- Copilot Video 1 -->
-        <a href="https://megazonecloudwebinar.blob.core.windows.net/copilotwebinar/%EC%BD%94%ED%8C%8C%EC%9D%BC%EB%9F%BF%20%EC%9B%A8%EB%B9%84%EB%82%98%201%ED%9A%8C%EC%B0%A8%20%5B%EB%A9%94%EA%B0%80%EC%A1%B4%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C%5D%20%EC%97%90%EC%9D%B4%EC%A0%84%ED%8B%B1%20AI%EC%8B%9C%EB%8C%80%2C%20M365%20%EC%BD%94%ED%8C%8C%EC%9D%BC%EB%9F%BF%20%EB%B9%84%EC%A6%88%EB%8B%88%EC%8A%A4%20%EC%97%90%EC%9D%B4%EC%A0%84%ED%8A%B8%20%EB%A7%8C%EB%93%A4%EA%B8%B0%203%EC%9B%94%20%EC%B2%AB%EB%B2%88%EC%A7%B8%20%EC%88%98%EC%97%85-20260309_070113UTC-Meeting%20Recording%201.mp4?sp=r&st=2026-04-29T23:59:49Z&se=2027-04-30T08:14:49Z&spr=https&sv=2024-11-04&sr=b&sig=0Me%2FvD6gmGZPxz%2BVG1Kat2xSPMYVX79uMTlYFzKs3w0%3D" target="_blank" rel="noopener noreferrer" class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all border border-outline-variant/10 block group">
+        <a href="https://megazonecloudwebinar.blob.core.windows.net/copilotwebinar/%EC%BD%94%ED%8C%8C%EC%9D%BC%EB%9F%BF%20%EC%9B%A8%EB%B9%84%EB%82%98%201%ED%9A%8C%EC%B0%A8%20%5B%EB%A9%94%EA%B0%80%EC%A1%B4%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C%5D%20%EC%97%90%EC%9D%B4%EC%A0%84%ED%8B%B1%20AI%EC%8B%9C%EB%8C%80%2C%20M365%20%EC%BD%94%ED%8C%8C%EC%9D%BC%EB%9F%BF%20%EB%B9%84%EC%A6%88%EB%8B%88%EC%8A%A4%20%EC%97%90%EC%9D%B4%EC%A0%84%ED%8A%B8%20%EB%A7%8C%EB%93%A4%EA%B8%B0%203%EC%9B%94%20%EC%B2%AB%EB%B2%88%EC%A7%B8%20%EC%88%98%EC%97%85-20260309_070113UTC-Meeting%20Recording%201.mp4?sp=r&st=2026-04-29T23:59:49Z&se=2027-04-30T08:14:49Z&spr=https&sv=2024-11-04&sr=b&sig=0Me%2FvD6gmGZPxz%2BVG1Kat2xSPMYVX79uMTlYFzKs3w0%3D" target="_blank" rel="noopener noreferrer" class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all border border-black/30 block group">
           <div class="aspect-video bg-slate-100 flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-primary/5 to-primary/10">
             <img src="copilot_1_thumb.jpg" alt="Copilot Webinar 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://via.placeholder.com/400x225?text=Copilot+1'"/>
             <div class="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors flex items-center justify-center">
@@ -772,11 +778,11 @@
           </div>
           <div class="p-4">
             <h3 class="font-bold text-on-surface mb-2">Copilot Chat, 그냥 질문하는 도구가 아닙니다</h3>
-            <p class="text-sm text-on-surface-variant mb-3">3월 9일 (월) 오후 4시~5시</p>
+            <p class="text-sm text-on-surface-variant text-gray-600 mb-3">3월 9일 (월) 오후 4시~5시</p>
           </div>
         </a>
         <!-- Copilot Video 2 -->
-        <a href="https://megazonecloudwebinar.blob.core.windows.net/copilotwebinar/%EC%BD%94%ED%8C%8C%EC%9D%BC%EB%9F%BF%20%EC%9B%A8%EB%B9%84%EB%82%98%202%ED%9A%8C%EC%B0%A8%20%5B%EB%A9%94%EA%B0%80%EC%A1%B4%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C%5D%20%EC%97%90%EC%9D%B4%EC%A0%84%ED%8B%B1%20AI%EC%8B%9C%EB%8C%80%2C%20M365%20%EC%BD%94%ED%8C%8C%EC%9D%BC%EB%9F%BF%20%EB%B9%84%EC%A6%88%EB%8B%88%EC%8A%A4%20%EC%97%90%EC%9D%B4%EC%A0%84%ED%8A%B8%20%EC%88%98%EC%97%85%20%EC%8B%9C%EB%A6%AC%EC%A6%88%202%EB%B2%88%EC%A7%B8-20260311_070002UTC-Meeting%20Recording%201.mp4?sp=r&st=2026-04-30T00:00:39Z&se=2027-04-30T08:15:39Z&spr=https&sv=2024-11-04&sr=b&sig=UfzXOBHR0Pw%2FYyUk63KVPIfHuAmaDngfQCpLlWmc6v4%3D" target="_blank" rel="noopener noreferrer" class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all border border-outline-variant/10 block group">
+        <a href="https://megazonecloudwebinar.blob.core.windows.net/copilotwebinar/%EC%BD%94%ED%8C%8C%EC%9D%BC%EB%9F%BF%20%EC%9B%A8%EB%B9%84%EB%82%98%202%ED%9A%8C%EC%B0%A8%20%5B%EB%A9%94%EA%B0%80%EC%A1%B4%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C%5D%20%EC%97%90%EC%9D%B4%EC%A0%84%ED%8B%B1%20AI%EC%8B%9C%EB%8C%80%2C%20M365%20%EC%BD%94%ED%8C%8C%EC%9D%BC%EB%9F%BF%20%EB%B9%84%EC%A6%88%EB%8B%88%EC%8A%A4%20%EC%97%90%EC%9D%B4%EC%A0%84%ED%8A%B8%20%EC%88%98%EC%97%85%20%EC%8B%9C%EB%A6%AC%EC%A6%88%202%EB%B2%88%EC%A7%B8-20260311_070002UTC-Meeting%20Recording%201.mp4?sp=r&st=2026-04-30T00:00:39Z&se=2027-04-30T08:15:39Z&spr=https&sv=2024-11-04&sr=b&sig=UfzXOBHR0Pw%2FYyUk63KVPIfHuAmaDngfQCpLlWmc6v4%3D" target="_blank" rel="noopener noreferrer" class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all border border-black/30 block group">
           <div class="aspect-video bg-slate-100 flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-primary/5 to-primary/10">
             <img src="copilot_2_thumb.jpg" alt="Copilot Webinar 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://via.placeholder.com/400x225?text=Copilot+2'"/>
             <div class="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors flex items-center justify-center">
@@ -785,11 +791,11 @@
           </div>
           <div class="p-4">
             <h3 class="font-bold text-on-surface mb-2">프롬프트 하나로 만드는 나만의 에이전트</h3>
-            <p class="text-sm text-on-surface-variant mb-3">3월 11일 (수) 오후 4시~5시</p>
+            <p class="text-sm text-on-surface-variant text-gray-600 mb-3">3월 11일 (수) 오후 4시~5시</p>
           </div>
         </a>
         <!-- Copilot Video 3 -->
-        <a href="https://megazonecloudwebinar.blob.core.windows.net/copilotwebinar/%EC%BD%94%ED%8C%8C%EC%9D%BC%EB%9F%BF%20%EC%9B%A8%EB%B9%84%EB%82%98%203%ED%9A%8C%EC%B0%A8%20%5B%EB%A9%94%EA%B0%80%EC%A1%B4%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C%5D%20%EC%97%90%EC%9D%B4%EC%A0%84%ED%8B%B1%20AI%EC%8B%9C%EB%8C%80%2C%20M365%20%EC%BD%94%ED%8C%8C%EC%9D%BC%EB%9F%BF%20%EB%B9%84%EC%A6%88%EB%8B%88%EC%8A%A4%20%EC%97%90%EC%9D%B4%EC%A0%84%ED%8A%B8%20%EC%88%98%EC%97%85%20%EC%8B%9C%EB%A6%AC%EC%A6%88%203%EB%B2%88%EC%A7%B8-20260313_065653UTC-Meeting%20Recording%201.mp4?sp=r&st=2026-04-30T00:03:35Z&se=2027-04-30T08:18:35Z&spr=https&sv=2024-11-04&sr=b&sig=GOTznl4BDTkAWEw7isb%2BSWVyHPvbAMu5AQ%2FV1b%2BPxd0%3D" target="_blank" rel="noopener noreferrer" class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all border border-outline-variant/10 block group">
+        <a href="https://megazonecloudwebinar.blob.core.windows.net/copilotwebinar/%EC%BD%94%ED%8C%8C%EC%9D%BC%EB%9F%BF%20%EC%9B%A8%EB%B9%84%EB%82%98%203%ED%9A%8C%EC%B0%A8%20%5B%EB%A9%94%EA%B0%80%EC%A1%B4%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C%5D%20%EC%97%90%EC%9D%B4%EC%A0%84%ED%8B%B1%20AI%EC%8B%9C%EB%8C%80%2C%20M365%20%EC%BD%94%ED%8C%8C%EC%9D%BC%EB%9F%BF%20%EB%B9%84%EC%A6%88%EB%8B%88%EC%8A%A4%20%EC%97%90%EC%9D%B4%EC%A0%84%ED%8A%B8%20%EC%88%98%EC%97%85%20%EC%8B%9C%EB%A6%AC%EC%A6%88%203%EB%B2%88%EC%A7%B8-20260313_065653UTC-Meeting%20Recording%201.mp4?sp=r&st=2026-04-30T00:03:35Z&se=2027-04-30T08:18:35Z&spr=https&sv=2024-11-04&sr=b&sig=GOTznl4BDTkAWEw7isb%2BSWVyHPvbAMu5AQ%2FV1b%2BPxd0%3D" target="_blank" rel="noopener noreferrer" class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all border border-black/30 block group">
           <div class="aspect-video bg-slate-100 flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-primary/5 to-primary/10">
             <img src="copilot_3_thumb.jpg" alt="Copilot Webinar 3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://via.placeholder.com/400x225?text=Copilot+3'"/>
             <div class="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors flex items-center justify-center">
@@ -798,11 +804,11 @@
           </div>
           <div class="p-4">
             <h3 class="font-bold text-on-surface mb-2">문서를 아는 에이전트 만들기</h3>
-            <p class="text-sm text-on-surface-variant mb-3">3월 13일 (금) 오후 4시~5시</p>
+            <p class="text-sm text-on-surface-variant text-gray-600 mb-3">3월 13일 (금) 오후 4시~5시</p>
           </div>
         </a>
         <!-- Copilot Video 4 -->
-        <a href="https://megazonecloudwebinar.blob.core.windows.net/copilotwebinar/%EC%BD%94%ED%8C%8C%EC%9D%BC%EB%9F%BF%20%EC%9B%A8%EB%B9%84%EB%82%98%204%ED%9A%8C%EC%B0%A8%20%5B%EB%A9%94%EA%B0%80%EC%A1%B4%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C%5D%20%EC%97%90%EC%9D%B4%EC%A0%84%ED%8B%B1%20AI%EC%8B%9C%EB%8C%80%2C%20M365%20%EC%BD%94%ED%8C%8C%EC%9D%BC%EB%9F%BF%20%EB%B9%84%EC%A6%88%EB%8B%88%EC%8A%A4%20%EC%97%90%EC%9D%B4%EC%A0%84%ED%8A%B8%20%EC%88%98%EC%97%85%20%EC%8B%9C%EB%A6%AC%EC%A6%88%204%EB%B2%88%EC%A7%B8-20260316_002811UTC-Meeting%20Recording%201.mp4?sp=r&st=2026-04-30T00:04:49Z&se=2027-04-30T08:19:49Z&spr=https&sv=2024-11-04&sr=b&sig=7HXEEL2XeFw%2BMv0PzYi7iZUiDMh4xhJbUKFlSPmzkGM%3D" target="_blank" rel="noopener noreferrer" class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all border border-outline-variant/10 block group">
+        <a href="https://megazonecloudwebinar.blob.core.windows.net/copilotwebinar/%EC%BD%94%ED%8C%8C%EC%9D%BC%EB%9F%BF%20%EC%9B%A8%EB%B9%84%EB%82%98%204%ED%9A%8C%EC%B0%A8%20%5B%EB%A9%94%EA%B0%80%EC%A1%B4%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C%5D%20%EC%97%90%EC%9D%B4%EC%A0%84%ED%8B%B1%20AI%EC%8B%9C%EB%8C%80%2C%20M365%20%EC%BD%94%ED%8C%8C%EC%9D%BC%EB%9F%BF%20%EB%B9%84%EC%A6%88%EB%8B%88%EC%8A%A4%20%EC%97%90%EC%9D%B4%EC%A0%84%ED%8A%B8%20%EC%88%98%EC%97%85%20%EC%8B%9C%EB%A6%AC%EC%A6%88%204%EB%B2%88%EC%A7%B8-20260316_002811UTC-Meeting%20Recording%201.mp4?sp=r&st=2026-04-30T00:04:49Z&se=2027-04-30T08:19:49Z&spr=https&sv=2024-11-04&sr=b&sig=7HXEEL2XeFw%2BMv0PzYi7iZUiDMh4xhJbUKFlSPmzkGM%3D" target="_blank" rel="noopener noreferrer" class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all border border-black/30 block group">
           <div class="aspect-video bg-slate-100 flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-primary/5 to-primary/10">
             <img src="copilot_4_thumb.jpg" alt="Copilot Webinar 4" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://via.placeholder.com/400x225?text=Copilot+4'"/>
             <div class="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors flex items-center justify-center">
@@ -811,11 +817,11 @@
           </div>
           <div class="p-4">
             <h3 class="font-bold text-on-surface mb-2">직무별 Copilot 에이전트 시나리오</h3>
-            <p class="text-sm text-on-surface-variant mb-3">3월 16일 (월) 오전 9시30분~10시30분</p>
+            <p class="text-sm text-on-surface-variant text-gray-600 mb-3">3월 16일 (월) 오전 9시30분~10시30분</p>
           </div>
         </a>
         <!-- Copilot Video 5 -->
-        <a href="https://megazonecloudwebinar.blob.core.windows.net/copilotwebinar/%EC%BD%94%ED%8C%8C%EC%9D%BC%EB%9F%BF%20%EC%9B%A8%EB%B9%84%EB%82%98%205%ED%9A%8C%EC%B0%A8%20%5B%EB%A9%94%EA%B0%80%EC%A1%B4%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C%5D%20%EC%97%90%EC%9D%B4%EC%A0%84%ED%8B%B1%20AI%EC%8B%9C%EB%8C%80%2C%20M365%20%EC%BD%94%ED%8C%8C%EC%9D%BC%EB%9F%BF%20%EB%B9%84%EC%A6%88%EB%8B%88%EC%8A%A4%20%EC%97%90%EC%9D%B4%EC%A0%84%ED%8A%B8%20%EC%88%98%EC%97%85%20%EC%8B%9C%EB%A6%AC%EC%A6%88%205%EB%B2%88%EC%A7%B8-20260323_000905UTC-Meeting%20Recording%201.mp4?sp=r&st=2026-04-30T00:05:33Z&se=2027-04-30T08:20:33Z&spr=https&sv=2024-11-04&sr=b&sig=WEBFQpywL6TAZiE8sNtC6YiRNtune6wLfypcCoM4RlE%3D" target="_blank" rel="noopener noreferrer" class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all border border-outline-variant/10 block group">
+        <a href="https://megazonecloudwebinar.blob.core.windows.net/copilotwebinar/%EC%BD%94%ED%8C%8C%EC%9D%BC%EB%9F%BF%20%EC%9B%A8%EB%B9%84%EB%82%98%205%ED%9A%8C%EC%B0%A8%20%5B%EB%A9%94%EA%B0%80%EC%A1%B4%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C%5D%20%EC%97%90%EC%9D%B4%EC%A0%84%ED%8B%B1%20AI%EC%8B%9C%EB%8C%80%2C%20M365%20%EC%BD%94%ED%8C%8C%EC%9D%BC%EB%9F%BF%20%EB%B9%84%EC%A6%88%EB%8B%88%EC%8A%A4%20%EC%97%90%EC%9D%B4%EC%A0%84%ED%8A%B8%20%EC%88%98%EC%97%85%20%EC%8B%9C%EB%A6%AC%EC%A6%88%205%EB%B2%88%EC%A7%B8-20260323_000905UTC-Meeting%20Recording%201.mp4?sp=r&st=2026-04-30T00:05:33Z&se=2027-04-30T08:20:33Z&spr=https&sv=2024-11-04&sr=b&sig=WEBFQpywL6TAZiE8sNtC6YiRNtune6wLfypcCoM4RlE%3D" target="_blank" rel="noopener noreferrer" class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all border border-black/30 block group">
           <div class="aspect-video bg-slate-100 flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-primary/5 to-primary/10">
             <img src="copilot_5_thumb.jpg" alt="Copilot Webinar 5" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://via.placeholder.com/400x225?text=Copilot+5'"/>
             <div class="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors flex items-center justify-center">
@@ -824,11 +830,11 @@
           </div>
           <div class="p-4">
             <h3 class="font-bold text-on-surface mb-2">오늘부터 바로 쓰는 Copilot 에이전트용</h3>
-            <p class="text-sm text-on-surface-variant mb-3">3월 23일 (월) 오전 9시30분~10시30분</p>
+            <p class="text-sm text-on-surface-variant text-gray-600 mb-3">3월 23일 (월) 오전 9시30분~10시30분</p>
           </div>
         </a>
         <!-- Copilot Video 6 -->
-        <a href="https://megazonecloudwebinar.blob.core.windows.net/copilotwebinar/%EC%BD%94%ED%8C%8C%EC%9D%BC%EB%9F%BF%20%EC%9B%A8%EB%B9%84%EB%82%98%206%ED%9A%8C%EC%B0%A8%20%5B%EB%A9%94%EA%B0%80%EC%A1%B4%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C%5D%20%EC%97%90%EC%9D%B4%EC%A0%84%ED%8B%B1%20AI%EC%8B%9C%EB%8C%80%2C%20M365%20%EC%BD%94%ED%8C%8C%EC%9D%BC%EB%9F%BF%20%EB%B9%84%EC%A6%88%EB%8B%88%EC%8A%A4%20%EC%97%90%EC%9D%B4%EC%A0%84%ED%8A%B8%20%EC%88%98%EC%97%85%20%EC%8B%9C%EB%A6%AC%EC%A6%88%203%EC%9B%94%20%EB%A7%88%EC%A7%80%EB%A7%89%20%EC%88%98%EC%97%85%206%EB%B2%88%EC%A7%B8-20260330_001025UTC-Meeting%20Recording%20(1).mp4?sp=r&st=2026-04-30T00:06:22Z&se=2027-04-30T08:21:22Z&spr=https&sv=2024-11-04&sr=b&sig=2pManLiYcmMylDNTnYz56k90Ar%2FjBjt%2BpB%2BVTv6Z4U4%3D" target="_blank" rel="noopener noreferrer" class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all border border-outline-variant/10 block group">
+        <a href="https://megazonecloudwebinar.blob.core.windows.net/copilotwebinar/%EC%BD%94%ED%8C%8C%EC%9D%BC%EB%9F%BF%20%EC%9B%A8%EB%B9%84%EB%82%98%206%ED%9A%8C%EC%B0%A8%20%5B%EB%A9%94%EA%B0%80%EC%A1%B4%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C%5D%20%EC%97%90%EC%9D%B4%EC%A0%84%ED%8B%B1%20AI%EC%8B%9C%EB%8C%80%2C%20M365%20%EC%BD%94%ED%8C%8C%EC%9D%BC%EB%9F%BF%20%EB%B9%84%EC%A6%88%EB%8B%88%EC%8A%A4%20%EC%97%90%EC%9D%B4%EC%A0%84%ED%8A%B8%20%EC%88%98%EC%97%85%20%EC%8B%9C%EB%A6%AC%EC%A6%88%203%EC%9B%94%20%EB%A7%88%EC%A7%80%EB%A7%89%20%EC%88%98%EC%97%85%206%EB%B2%88%EC%A7%B8-20260330_001025UTC-Meeting%20Recording%20(1).mp4?sp=r&st=2026-04-30T00:06:22Z&se=2027-04-30T08:21:22Z&spr=https&sv=2024-11-04&sr=b&sig=2pManLiYcmMylDNTnYz56k90Ar%2FjBjt%2BpB%2BVTv6Z4U4%3D" target="_blank" rel="noopener noreferrer" class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all border border-black/30 block group">
           <div class="aspect-video bg-slate-100 flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-primary/5 to-primary/10">
             <img src="copilot_6_thumb.jpg" alt="Copilot Webinar 6" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://via.placeholder.com/400x225?text=Copilot+6'"/>
             <div class="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors flex items-center justify-center">
@@ -837,7 +843,7 @@
           </div>
           <div class="p-4">
             <h3 class="font-bold text-on-surface mb-2">짜잔~ 유료 Copilot이 더 좋은 이유</h3>
-            <p class="text-sm text-on-surface-variant mb-3">3월 30일 (월) 오전 9시30분~10시30분</p>
+            <p class="text-sm text-on-surface-variant text-gray-600 mb-3">3월 30일 (월) 오전 9시30분~10시30분</p>
           </div>
         </a>
       </div>
@@ -845,22 +851,255 @@
   </section>
 </main>
 
+<!-- Video modal (hidden by default) -->
+<div id="video-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 px-4">
+  <div class="max-w-4xl w-full mx-auto">
+    <div class="bg-white rounded-lg overflow-hidden shadow-lg">
+      <div class="relative">
+        <video id="modal-video" controls class="w-full h-auto bg-black" crossorigin="anonymous"></video>
+        <button id="modal-close" class="absolute top-3 right-3 bg-white/90 rounded-full p-2 shadow">✕</button>
+      </div>
+      <div class="p-3 flex items-center gap-3">
+        <button id="thumb-capture" class="px-3 py-2 bg-primary text-white rounded">썸네일 생성</button>
+        <a id="thumb-download" class="px-3 py-2 bg-slate-100 text-slate-700 rounded hidden" download="thumbnail.png">썸네일 다운로드</a>
+        <div class="ml-auto text-sm text-on-surface-variant" id="video-title"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<canvas id="thumb-canvas" style="display:none"></canvas>
+
 <script>
   // Navigation dropdown - hover based
   const dropdowns = document.querySelectorAll('.nav-dropdown');
-  
   dropdowns.forEach(dropdown => {
     dropdown.addEventListener('mouseenter', function() {
-      // Close all other dropdowns
       dropdowns.forEach(d => d.classList.remove('active'));
-      // Open this dropdown
       this.classList.add('active');
     });
-    
     dropdown.addEventListener('mouseleave', function() {
-      // Close this dropdown
       this.classList.remove('active');
     });
+  });
+
+  // Video modal + thumbnail logic
+  const videoModal = document.getElementById('video-modal');
+  const modalVideo = document.getElementById('modal-video');
+  const modalClose = document.getElementById('modal-close');
+  const thumbBtn = document.getElementById('thumb-capture');
+  const thumbDownload = document.getElementById('thumb-download');
+  const thumbCanvas = document.getElementById('thumb-canvas');
+  const videoTitleEl = document.getElementById('video-title');
+  let currentCard = null;
+
+  function showVideoModal(src, title, card) {
+    try {
+      modalVideo.pause();
+      modalVideo.src = src;
+      modalVideo.crossOrigin = 'anonymous';
+      videoTitleEl.textContent = title || '';
+      currentCard = card || null;
+      videoModal.classList.remove('hidden');
+      setTimeout(() => { modalVideo.play().catch(()=>{}); }, 120);
+    } catch (err) {
+      alert('비디오를 재생할 수 없습니다. URL을 확인하세요.');
+    }
+  }
+
+  function closeVideoModal() {
+    try {
+      modalVideo.pause();
+      modalVideo.removeAttribute('src');
+      modalVideo.load();
+    } catch (e) {}
+    videoModal.classList.add('hidden');
+    thumbDownload.classList.add('hidden');
+  }
+
+  modalClose.addEventListener('click', closeVideoModal);
+  videoModal.addEventListener('click', (e) => { e.stopPropagation(); });
+
+  document.querySelectorAll('.video-card').forEach(card => {
+    card.addEventListener('click', function(e) {
+      // If data-modal is explicitly set to 'false', allow the anchor to navigate normally
+      if (this.dataset.modal === 'false') return;
+      e.preventDefault();
+      const src = this.dataset.videoSrc;
+      const title = this.dataset.title;
+      showVideoModal(src, title, this);
+    });
+  });
+
+  thumbBtn.addEventListener('click', async () => {
+    try {
+      const seekTime = 0.1;
+      await seekVideo(modalVideo, seekTime);
+      const canvas = thumbCanvas;
+      canvas.width = modalVideo.videoWidth || 640;
+      canvas.height = modalVideo.videoHeight || 360;
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(modalVideo, 0, 0, canvas.width, canvas.height);
+      const dataUrl = canvas.toDataURL('image/png');
+      thumbDownload.href = dataUrl;
+      thumbDownload.classList.remove('hidden');
+      thumbDownload.download = (videoTitleEl.textContent || 'thumbnail') + '.png';
+      // Update card image and persist thumbnail in localStorage
+      if (currentCard) {
+        const img = currentCard.querySelector('img');
+        if (img) img.src = dataUrl;
+        try {
+          const key = 'thumb_' + encodeURIComponent(currentCard.dataset.videoSrc);
+          localStorage.setItem(key, dataUrl);
+        } catch (e) {
+          console.warn('Cannot persist thumbnail to localStorage', e);
+        }
+      }
+    } catch (err) {
+      alert('썸네일 생성 실패: CORS 설정으로 인해 생성이 차단되었을 수 있습니다. 서버의 CORS 헤더를 확인하세요.');
+    }
+  });
+
+  function seekVideo(video, time) {
+    return new Promise((resolve, reject) => {
+      function onSeeked() {
+        video.removeEventListener('seeked', onSeeked);
+        resolve();
+      }
+      video.addEventListener('seeked', onSeeked);
+      try { video.currentTime = time; } catch (e) { resolve(); }
+      setTimeout(resolve, 2500);
+    });
+  }
+
+  // Auto-generate and apply thumbnails on page load
+  async function generateThumbnailForVideo(videoSrc, card) {
+    if (!videoSrc || !videoSrc.includes('.mp4')) return;
+    
+    const key = 'thumb_' + encodeURIComponent(videoSrc);
+    
+    try {
+      // Check if thumbnail already exists in localStorage
+      const cached = localStorage.getItem(key);
+      if (cached) {
+        const img = card.querySelector('img');
+        if (img) img.src = cached;
+        return;
+      }
+    } catch (e) {}
+
+    // Create hidden video element to extract frame
+    const tempVideo = document.createElement('video');
+    tempVideo.crossOrigin = 'anonymous';
+    tempVideo.preload = 'metadata';
+    tempVideo.muted = true;
+    tempVideo.style.display = 'none';
+    document.body.appendChild(tempVideo);
+
+    return new Promise((resolve) => {
+      let resolved = false;
+      const seekTime = 0.1;
+      
+      function captureThumb() {
+        if (resolved) return;
+        resolved = true;
+        
+        try {
+          const canvas = document.createElement('canvas');
+          canvas.width = tempVideo.videoWidth || 640;
+          canvas.height = tempVideo.videoHeight || 360;
+          const ctx = canvas.getContext('2d');
+          ctx.drawImage(tempVideo, 0, 0, canvas.width, canvas.height);
+          const dataUrl = canvas.toDataURL('image/png', 0.8);
+          
+          // Apply to card
+          const img = card.querySelector('img');
+          if (img) img.src = dataUrl;
+          
+          // Save to localStorage
+          try {
+            localStorage.setItem(key, dataUrl);
+          } catch (e) {}
+          
+          console.log('✓ Thumbnail generated:', videoSrc.substring(0, 80) + '...');
+        } catch (err) {
+          console.warn('⚠ Cannot generate thumbnail (CORS may not be enabled):', videoSrc.substring(0, 80) + '...', err.message);
+        }
+        
+        cleanup();
+      }
+
+      function onReadyToCapture() {
+        seekVideo(tempVideo, seekTime).then(captureThumb);
+      }
+      
+      function cleanup() {
+        tempVideo.removeEventListener('loadedmetadata', onReadyToCapture);
+        tempVideo.removeEventListener('error', onError);
+        tempVideo.pause();
+        tempVideo.removeAttribute('src');
+        tempVideo.load();
+        if (document.body.contains(tempVideo)) {
+          document.body.removeChild(tempVideo);
+        }
+        resolve();
+      }
+      
+      function onError(e) {
+        if (resolved) return;
+        resolved = true;
+        console.warn('⚠ Video load error:', e, videoSrc.substring(0, 80) + '...');
+        cleanup();
+      }
+
+      tempVideo.addEventListener('loadedmetadata', onReadyToCapture, { once: true });
+      tempVideo.addEventListener('error', onError, { once: true });
+      
+      const timeout = setTimeout(() => {
+        if (!resolved) {
+          resolved = true;
+          console.warn('⚠ Timeout loading video:', videoSrc.substring(0, 80) + '...');
+          cleanup();
+        }
+      }, 10000);
+      
+      tempVideo.addEventListener('loadedmetadata', () => clearTimeout(timeout), { once: true });
+      tempVideo.src = videoSrc;
+      tempVideo.load();
+    });
+  }
+
+  // On load, prioritize May 6 card, then process all others
+  document.addEventListener('DOMContentLoaded', async () => {
+    console.log('Starting thumbnail generation...');
+    
+    // First: Find and process May 6 card specifically
+    const may6Card = document.querySelector('[data-title*="같은 에이전트인데"]');
+    if (may6Card) {
+      console.log('Found May 6 card, generating thumbnail...');
+      const src = may6Card.dataset.videoSrc || may6Card.getAttribute('href');
+      if (src) {
+        await generateThumbnailForVideo(src, may6Card);
+        await new Promise(r => setTimeout(r, 500));
+      }
+    }
+    
+    // Then: Process all other video links
+    const allVideoLinks = document.querySelectorAll('a[href*=".mp4"][href*="blob.core.windows.net"]');
+    let count = 0;
+    
+    for (const card of allVideoLinks) {
+      // Skip if already processed (May 6 card)
+      if (card === may6Card) continue;
+      
+      const src = card.dataset.videoSrc || card.getAttribute('href');
+      if (!src || !src.includes('.mp4')) continue;
+      
+      count++;
+      await generateThumbnailForVideo(src, card);
+      await new Promise(r => setTimeout(r, 200)); // Small delay between each
+    }
+    
+    console.log('Thumbnail generation complete. Processed May 6 card + ' + count + ' others');
   });
 </script>
 </body>
