@@ -123,6 +123,15 @@
     transition: none !important;
   }
 
+  /* 다시보기 드롭다운 숨김 */
+  .no-dropdown > div[class*="invisible"],
+  .no-dropdown.hover-active > div[class*="invisible"],
+  .no-dropdown > div[class*="invisible"].show-dropdown {
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+
   /* 드롭다운 스타일 (더 넓게, 그림자 제거) */
   .group:hover > div[class*="invisible"],
   .group.hover-active > div[class*="invisible"],
@@ -219,6 +228,16 @@
       color: black !important;
     }
 
+    /* Ensure header CTA is readable when header switches to white */
+    nav:has(.group:hover) a[href*="teams.microsoft.com"],
+    nav.nav-hover-active a[href*="teams.microsoft.com"],
+    nav.nav-hover-content a[href*="teams.microsoft.com"],
+    nav:has(.group:hover) .gradient-primary,
+    nav.nav-hover-active .gradient-primary,
+    nav.nav-hover-content .gradient-primary {
+      color: black !important;
+    }
+
   /* 구분선 숨기기 */
   nav:has(.group:hover) .my-1,
   nav.nav-hover-active .my-1 {
@@ -235,7 +254,7 @@
 <script>
   // 네비게이션 호버 유지 기능
   document.addEventListener('DOMContentLoaded', function() {
-    const groups = document.querySelectorAll('.group');
+    const groups = document.querySelectorAll('.group:not(.no-dropdown)');
     const nav = document.querySelector('nav');
     const navContent = nav.querySelector('.mx-auto'); // 네비게이션 콘텐츠 영역
     
@@ -295,8 +314,9 @@
     // 로고/CTA 호버 시 헤더을 검정으로 복구하고 모든 드롭다운 숨김
     const logo = nav.querySelector('a.font-headline');
     const ctaButton = nav.querySelector('a[href*="teams.microsoft.com"]');
+    const noDropdownGroup = nav.querySelector('.no-dropdown');
 
-    [logo, ctaButton].forEach(el => {
+    [logo, ctaButton, noDropdownGroup].forEach(el => {
       if (el) {
         el.addEventListener('mouseenter', () => {
           groups.forEach(g => {
@@ -334,21 +354,26 @@
 
   <nav class="fixed top-0 z-50 w-full border-b border-white/10 bg-black shadow-[0_6px_20px_rgba(0,0,0,0.3)] backdrop-blur-xl">
     <div class="mx-auto flex h-20 max-w-7xl items-center gap-6 px-6">
-      <a href="https://spfaif.com" class="flex items-center gap-3 text-xl font-bold tracking-tight text-white font-headline">
+      <a href="https://spfaif.com" class="-ml-10 flex items-center gap-3 text-xl font-bold tracking-tight text-white font-headline">
         Hosted by MEGAZONE CLOUD
       </a>
       <div class="flex flex-1 min-w-0 items-center justify-center">
-        <div class="mr-8 flex flex-nowrap justify-center gap-6">
+        <div class="mr-8 ml-8 flex flex-nowrap justify-center gap-6">
           <div class="group relative">
             <button class="inline-flex items-center gap-1 rounded-full bg-transparent px-2.5 py-1.5 text-sm font-semibold text-white transition-all font-body">온라인 웨비나</button>
             <div class="invisible absolute left-1/2 top-full z-10 mt-0 w-full -translate-x-1/2 translate-y-0 rounded-none border border-primary/12 bg-white/95 p-6 opacity-0 transition-all duration-0 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 show-dropdown">
-              <div class="max-w-8xl mx-auto grid grid-cols-4 items-start">
-                <div class="col-span-1 flex items-start">
-                  <div class="pl-24 pt-4">
-                    <div class="font-headline text-2xl font-semibold whitespace-nowrap text-on-surface">온라인 웨비나</div>
-                  </div>
+              <div class="max-w-8xl mx-auto flex items-start justify-between gap-16">
+                <div class="shrink-0 pl-36 pt-0">
+                  <div class="font-headline text-2xl font-regular whitespace-nowrap text-on-surface ml-40 -mt-4">온라인 웨비나</div>
                 </div>
-                <div class="col-span-3 pl-12"></div>
+                <div class="flex w-max flex-col gap-8 -mt-2 text-left ml-48 font-body">
+                  <div class="text-sm font-normal tracking-wider whitespace-nowrap text-on-surface" style="letter-spacing: 0.04em;">Microsoft 365 Copilot & AI 에이전트 마스터클래스</div>
+                  <div class="text-sm font-normal tracking-wider whitespace-nowrap text-on-surface" style="letter-spacing: 0.04em;">AI & Data Modernization Trainng Series</div>
+                  <div class="text-sm font-normal tracking-wider whitespace-nowrap text-on-surface" style="letter-spacing: 0.04em;">M365 코파일럿 에이전트 파워</div>
+                  <div class="text-sm font-normal tracking-wider whitespace-nowrap text-on-surface" style="letter-spacing: 0.04em;">코파일럿 스튜디오에 파워플랫폼으로 킥</div>
+                  <div class="text-sm font-normal tracking-wider whitespace-nowrap text-on-surface" style="letter-spacing: 0.04em;">M365 코파일럿 비즈니스 에이전트 파워 시리즈</div>
+                  <div class="text-sm font-normal tracking-wider whitespace-nowrap text-on-surface" style="letter-spacing: 0.04em;">Azure Foundry와 깃헙 코파일럿으로 AX</div>
+                </div>
               </div>
             </div>
           </div>
@@ -356,13 +381,23 @@
           <div class="group relative">
             <button class="inline-flex items-center gap-1 rounded-full bg-transparent px-2.5 py-1.5 text-sm font-semibold text-white transition-all font-body">온사이트 행사</button>
             <div class="invisible absolute left-1/2 top-full z-10 mt-0 w-full -translate-x-1/2 translate-y-0 rounded-none border border-primary/12 bg-white/95 p-6 opacity-0 transition-all duration-0 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 show-dropdown">
-              <div class="max-w-8xl mx-auto grid grid-cols-4 items-start">
-                <div class="col-span-1 flex items-start">
-                  <div class="pl-6 pt-4">
-                    <div class="font-headline text-2xl font-semibold text-on-surface">온사이트<br><span class="block">행사</span></div>
+              <div class="max-w-8xl mx-auto flex items-start justify-between gap-16">
+                <div class="shrink-0 pl-36 pt-0">
+                  <div class="font-headline text-2xl font-regular whitespace-nowrap text-on-surface ml-40 -mt-4">온사이트 행사</div>
+                </div>
+                <div class="flex w-max flex-col gap-6 -mt-2 text-left ml-48 font-body">
+                  <div class="flex items-baseline gap-4">
+                    <div class="text-base font-semibold text-on-surface">입코딩</div>
+                    <div class="text-sm font-normal text-on-surface">6월 20일</div>
+                  </div>
+                  <div class="flex items-baseline gap-4">
+                    <div class="text-base font-semibold text-on-surface">닷넷 유니버스와 함께</div>
+                  </div>
+                  <div class="flex items-baseline gap-4">
+                    <div class="text-base font-semibold text-on-surface">에이전트 해커톤</div>
+                    <div class="text-sm font-normal text-on-surface">3월 27일</div>
                   </div>
                 </div>
-                <div class="col-span-3 pl-12"></div>
               </div>
             </div>
           </div>
@@ -370,24 +405,35 @@
           <div class="group relative">
             <button class="inline-flex items-center gap-1 rounded-full bg-transparent px-2.5 py-1.5 text-sm font-semibold text-white transition-all font-body">픽업 제안. 찾아갑니다</button>
             <div class="invisible absolute left-1/2 top-full z-10 mt-0 w-full -translate-x-1/2 translate-y-0 rounded-none border border-primary/12 bg-white/95 p-6 opacity-0 transition-all duration-0 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 show-dropdown">
-              <div class="max-w-8xl mx-auto grid grid-cols-4 items-start">
-                <div class="col-span-1 flex items-start">
-                  <div class="pl-6 pt-4">
-                    <div class="font-headline text-2xl font-semibold text-on-surface">픽업 제안.<br><span class="block whitespace-nowrap">찾아갑니다</span></div>
+              <div class="max-w-8xl mx-auto flex items-start justify-between gap-16">
+                <div class="shrink-0 pl-36 pt-0">
+                  <div class="font-headline text-2xl font-regular whitespace-nowrap text-on-surface ml-24 -mt-4">픽업 제안. 찾아갑니다</div>
+                </div>
+                <div class="flex w-max gap-24">
+                  <div class="flex w-max flex-col gap-8 -mt-2 text-left ml-44 font-body">
+                    <div class="text-sm font-normal tracking-wider whitespace-nowrap text-on-surface" style="letter-spacing: 0.04em;">깃헙 스파크 & VS Code 바이브코딩 원데이</div>
+                    <div class="text-sm font-normal tracking-wider whitespace-nowrap text-on-surface" style="letter-spacing: 0.04em;">하루 만에 만드는 나만의 AI 에이전트</div>
+                    <div class="text-sm font-normal tracking-wider whitespace-nowrap text-on-surface" style="letter-spacing: 0.04em;">AX 시대, 데이터 기반 조직을 위한 올인원 실무형 교육 ― 데이터 시각화</div>
+                    <div class="text-sm font-normal tracking-wider whitespace-nowrap text-on-surface" style="letter-spacing: 0.04em;">Microsoft Fabric과 Microsoft Foundry로 만드는 데이터 에이전트</div>
+                  </div>
+                  <div class="flex w-max flex-col gap-8 -mt-2 text-left font-body">
+                    <div class="text-sm font-normal tracking-wider whitespace-nowrap text-on-surface" style="letter-spacing: 0.04em;">AI Foundry 부트캠프</div>
+                    <div class="text-sm font-normal tracking-wider whitespace-nowrap text-on-surface" style="letter-spacing: 0.04em;">코파일럿 스튜디오와 파워 오토메이트로 달라지는 에이전틱 업무 자동화</div>
+                    <div class="text-sm font-normal tracking-wider whitespace-nowrap text-on-surface" style="letter-spacing: 0.04em;">경영 대시보드에 데이터 에이전트를 키운다</div>
+                    <div class="text-sm font-normal tracking-wider whitespace-nowrap text-on-surface" style="letter-spacing: 0.04em;">에이전트 시대, 달라지는 데이터 에이전트</div>
                   </div>
                 </div>
-                <div class="col-span-3 pl-12"></div>
               </div>
             </div>
           </div>
 
-          <div class="group relative">
+          <div class="group relative no-dropdown">
             <button class="inline-flex items-center gap-1 rounded-full bg-transparent px-2.5 py-1.5 text-sm font-semibold text-white transition-all font-body">다시보기</button>
             <div class="invisible absolute left-1/2 top-full z-10 mt-0 w-full -translate-x-1/2 translate-y-0 rounded-none border border-primary/12 bg-white/95 p-6 opacity-0 transition-all duration-0 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 show-dropdown">
               <div class="max-w-8xl mx-auto grid grid-cols-4 items-start">
                 <div class="col-span-1 flex items-start">
-                  <div class="pl-6 pt-4">
-                    <div class="font-headline text-2xl font-semibold text-on-surface">웨비나<br><span class="block">다시보기</span></div>
+                  <div class="pl-36 pt-0">
+                    <div class="font-headline text-2xl font-regular whitespace-nowrap text-on-surface ml-40 -mt-4">웨비나 다시보기</div>
                   </div>
                 </div>
                 <div class="col-span-3 pl-12"></div>
@@ -396,7 +442,7 @@
           </div>
         </div>
       </div>
-      <div class="ml-20 flex items-center gap-4">
+      <div class="ml-8 flex items-center gap-4">
         <a href="https://events.teams.microsoft.com/event/bb19f714-2ea6-4569-ac75-aca8f2737e4b@97f42f55-f1db-4804-b1eb-08db083efd4f" target="_blank" class="gradient-primary inline-flex items-center gap-2 rounded-full px-6 py-2.5 font-semibold text-on-primary transition-all hover:opacity-90 active:scale-[0.98] font-body">
           <span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">rocket_launch</span>
           지금 등록하기
