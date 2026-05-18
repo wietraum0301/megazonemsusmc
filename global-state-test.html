@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>전역 상태 관리 테스트</title>
+    <!-- 전역 상태 관리 라이브러리 -->
+    <script defer src="global-state-store.js"></script>
+    <!-- 헤더 로더 -->
+    <script defer src="global-header-loader.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+        }
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+        h1 { color: white; text-align: center; margin-bottom: 30px; }
+        h2 {
+            color: #667eea;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .status {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .status-item {
+            padding: 15px;
+            background: #f5f5f5;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        .status-item.ready {
+            border-left-color: #10b981;
+            background: #f0fdf4;
+        }
+        .status-item label {
+            display: block;
+            font-size: 12px;
+            color: #666;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+        .status-item .value {
+            font-size: 18px;
+            font-weight: bold;
+            color: #667eea;
+        }
+        .status-item.ready .value {
+            color: #10b981;
+        }
+        .controls {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 12px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+        .state-display {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            overflow-x: auto;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .log {
+            background: #1a1a1a;
+            color: #0f0;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .log-entry {
+            margin: 5px 0;
+            display: flex;
+            align-items: flex-start;
+        }
+        .log-time {
+            color: #666;
+            margin-right: 10px;
+            min-width: 60px;
+        }
+        .log-message {
+            color: #0f0;
+        }
+        .input-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-family: inherit;
+        }
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: #667eea;
+            color: white;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        .badge.success { background: #10b981; }
+        .badge.warning { background: #f59e0b; }
+        .badge.error { background: #ef4444; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 전역 상태 관리 시스템 테스트</h1>
+        
+        <!-- 상태 확인 -->
+        <div class="card">
+            <h2>📊 시스템 상태</h2>
+            <div class="status" id="status-container"></div>
+        </div>
+
+        <!-- 제어판 -->
+        <div class="card">
+            <h2>⚙️ 제어판</h2>
+            <div class="controls">
+                <button onclick="loadGlobalState()">🔄 상태 새로고침</button>
+                <button onclick="remountHeader()">📌 헤더 다시 로드</button>
+                <button onclick="toggleTheme()">🌓 테마 토글</button>
+                <button onclick="clearState()">🗑️ 상태 초기화</button>
+            </div>
+        </div>
+
+        <!-- 상태 확인 -->
+        <div class="card">
+            <h2>📋 현재 전역 상태</h2>
+            <div class="state-display" id="state-display">대기 중...</div>
+        </div>
+
+        <!-- 커스텀 값 설정 -->
+        <div class="card">
+            <h2>⚡ 커스텀 상태 설정</h2>
+            <div class="input-group">
+                <input type="text" id="menuInput" placeholder="활성 메뉴 ID 입력 (예: menu:Products)" />
+                <button onclick="setActiveMenu()">설정</button>
+            </div>
+            <div class="input-group">
+                <select id="languageSelect" style="flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 6px;">
+                    <option value="ko">한국어 (Korean)</option>
+                    <option value="en">English</option>
+                    <option value="ja">日本語 (Japanese)</option>
+                </select>
+                <button onclick="setLanguage()">언어 설정</button>
+            </div>
+        </div>
+
+        <!-- 로그 -->
+        <div class="card">
+            <h2>📝 이벤트 로그</h2>
+            <div class="log" id="log-container"></div>
+        </div>
+    </div>
+
+    <script>
+        let logEntries = [];
+
+        function log(message, type = 'info') {
+            const time = new Date().toLocaleTimeString('ko-KR');
+            const entry = { time, message, type };
+            logEntries.unshift(entry);
+            if (logEntries.length > 50) logEntries.pop();
+            updateLog();
+        }
+
+        function updateLog() {
+            const logContainer = document.getElementById('log-container');
+            logContainer.innerHTML = logEntries
+                .map(entry => `
+                    <div class="log-entry">
+                        <span class="log-time">${entry.time}</span>
+                        <span class="log-message">${entry.message}</span>
+                    </div>
+                `)
+                .join('');
+            logContainer.scrollTop = 0;
+        }
+
+        function updateStatus() {
+            const container = document.getElementById('status-container');
+            const zustandReady = document.body.classList.contains('zustand-store-ready');
+            const reduxReady = document.body.classList.contains('redux-store-ready');
+            const fallbackReady = document.body.classList.contains('fallback-store-ready');
+            const globalStateReady = !!window.GlobalState;
+            const globalHeaderReady = !!window.GlobalHeader;
+            const headerLoaded = window.GlobalState?.getState?.()?.headerLoaded;
+
+            container.innerHTML = `
+                <div class="status-item ${zustandReady ? 'ready' : ''}">
+                    <label>Zustand 스토어</label>
+                    <div class="value">${zustandReady ? '✓ 활성' : '✗ 비활성'}</div>
+                </div>
+                <div class="status-item ${reduxReady ? 'ready' : ''}">
+                    <label>Redux 스토어</label>
+                    <div class="value">${reduxReady ? '✓ 활성' : '✗ 비활성'}</div>
+                </div>
+                <div class="status-item ${fallbackReady ? 'ready' : ''}">
+                    <label>Fallback 스토어</label>
+                    <div class="value">${fallbackReady ? '✓ 활성' : '✗ 비활성'}</div>
+                </div>
+                <div class="status-item ${globalStateReady ? 'ready' : ''}">
+                    <label>GlobalState API</label>
+                    <div class="value">${globalStateReady ? '✓ 준비' : '✗ 대기'}</div>
+                </div>
+                <div class="status-item ${globalHeaderReady ? 'ready' : ''}">
+                    <label>GlobalHeader API</label>
+                    <div class="value">${globalHeaderReady ? '✓ 준비' : '✗ 대기'}</div>
+                </div>
+                <div class="status-item ${headerLoaded ? 'ready' : ''}">
+                    <label>헤더 로드 상태</label>
+                    <div class="value">${headerLoaded ? '✓ 로드됨' : '✗ 로딩중'}</div>
+                </div>
+            `;
+        }
+
+        function loadGlobalState() {
+            if (!window.GlobalState) {
+                log('❌ GlobalState가 아직 준비되지 않았습니다', 'error');
+                return;
+            }
+
+            const state = window.GlobalState.getState();
+            const stateDisplay = document.getElementById('state-display');
+            stateDisplay.innerHTML = `<pre>${JSON.stringify(state, null, 2)}</pre>`;
+            log('✓ 상태 로드 완료', 'success');
+            updateStatus();
+        }
+
+        function remountHeader() {
+            if (!window.GlobalHeader) {
+                log('❌ GlobalHeader가 아직 준비되지 않았습니다', 'error');
+                return;
+            }
+
+            log('🔄 헤더 다시 로드 중...', 'info');
+            window.GlobalHeader.mount();
+            log('✓ 헤더 다시 로드 요청 완료', 'success');
+        }
+
+        function toggleTheme() {
+            if (!window.GlobalState) {
+                log('❌ GlobalState가 아직 준비되지 않았습니다', 'error');
+                return;
+            }
+
+            const state = window.GlobalState.getState();
+            const newTheme = state.userPreferences.theme === 'light' ? 'dark' : 'light';
+            
+            window.GlobalState.setState({
+                userPreferences: {
+                    ...state.userPreferences,
+                    theme: newTheme
+                }
+            });
+            
+            log(`🌓 테마 변경: ${newTheme}`, 'success');
+        }
+
+        function setActiveMenu() {
+            if (!window.GlobalHeader) {
+                log('❌ GlobalHeader가 아직 준비되지 않았습니다', 'error');
+                return;
+            }
+
+            const menuId = document.getElementById('menuInput').value;
+            window.GlobalHeader.dispatch({
+                type: 'GLOBAL_HEADER/SET_ACTIVE_MENU',
+                menuId: menuId || null
+            });
+            log(`📌 활성 메뉴 설정: ${menuId || '(해제)'}`, 'success');
+        }
+
+        function setLanguage() {
+            if (!window.GlobalState) {
+                log('❌ GlobalState가 아직 준비되지 않았습니다', 'error');
+                return;
+            }
+
+            const language = document.getElementById('languageSelect').value;
+            const state = window.GlobalState.getState();
+            
+            window.GlobalState.setState({
+                userPreferences: {
+                    ...state.userPreferences,
+                    language
+                }
+            });
+            
+            log(`🌍 언어 설정: ${language}`, 'success');
+        }
+
+        function clearState() {
+            if (confirm('정말로 상태를 초기화하시겠습니까?')) {
+                window.GlobalState?.setState?.({
+                    headerLoaded: false,
+                    activeMenuId: null,
+                    navigationItems: [],
+                    userPreferences: { theme: 'light', language: 'ko' },
+                    error: null,
+                    loading: false
+                });
+                log('🗑️ 상태 초기화 완료', 'success');
+                setTimeout(loadGlobalState, 500);
+            }
+        }
+
+        // 초기화
+        window.addEventListener('load', () => {
+            log('✓ 테스트 페이지 로드 완료', 'success');
+            
+            // 상태가 준비될 때까지 대기
+            const checkInterval = setInterval(() => {
+                if (window.GlobalState) {
+                    clearInterval(checkInterval);
+                    log('✓ GlobalState 준비 완료', 'success');
+                    loadGlobalState();
+                }
+            }, 100);
+
+            // 3초 후에도 준비되지 않으면 타임아웃
+            setTimeout(() => {
+                if (!window.GlobalState) {
+                    clearInterval(checkInterval);
+                    log('⚠️ GlobalState 초기화 타임아웃 (3초)', 'warning');
+                }
+            }, 3000);
+        });
+
+        // 상태 변경 감시
+        if (window.GlobalState && typeof window.GlobalState.subscribe === 'function') {
+            window.GlobalState.subscribe((state) => {
+                log('📡 상태 변경 감지', 'info');
+                updateStatus();
+            });
+        }
+
+        // 1초마다 상태 확인
+        setInterval(updateStatus, 1000);
+    </script>
+</body>
+</html>
