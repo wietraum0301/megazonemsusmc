@@ -144,9 +144,17 @@
     transition: all 0.3s cubic-bezier(.22,1,.36,1);
     max-height: 70vh;
     overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
     background: rgba(255, 255, 255, 1) !important;
     border-color: rgba(0, 95, 170, 0.12) !important;
     backdrop-filter: blur(12px);
+  }
+  
+  .nav-dropdown-menu::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
   }
 
   /* Force non-primary icons inside dropdowns to use primary blue for readability */
@@ -274,7 +282,8 @@
     background-color: #e6e7eb !important;
   }
   .nav-dropdown:nth-of-type(2) .nav-dropdown-menu > a.dropdown-item:nth-child(1) .dropdown-icon,
-  .nav-dropdown:nth-of-type(2) .nav-dropdown-menu > a.dropdown-item:nth-child(3) .dropdown-icon {
+  .nav-dropdown:nth-of-type(2) .nav-dropdown-menu > a.dropdown-item:nth-child(3) .dropdown-icon,
+  .nav-dropdown:nth-of-type(2) .nav-dropdown-menu > a.dropdown-item:nth-child(5) .dropdown-icon {
     color: #006875 !important;
     -webkit-text-fill-color: #006875 !important;
     background-color: rgba(0,104,117,0.08) !important;
@@ -312,16 +321,6 @@
           온라인 웨비나
         </button>
         <div class="nav-dropdown-menu absolute top-full left-1/2 mt-2 w-80 bg-white/95 backdrop-blur-xl border border-outline-variant/20 rounded-2xl p-2 dropdown-shadow z-10">
-          <a href="m365copilotagent2.html" target="_blank" rel="noopener noreferrer" class="dropdown-item flex items-center gap-3 p-3 rounded-xl">
-            <div class="w-10 h-10 rounded-xl dropdown-icon bg-primary/10 flex items-center justify-center text-primary shrink-0">
-              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">calendar_month</span>
-            </div>
-            <div class="flex-1 min-w-0">
-              <div class="font-semibold text-sm text-on-surface">M365 코파일럿 비즈니스 에이전트 파워 시리즈 4월</div>
-              <div class="text-xs text-on-surface-variant">Copilot Agent 시리즈 · 4월</div>
-            </div>
-          <span class="dropdown-arrow material-symbols-outlined text-lg">arrow_forward</span></a>
-          <div class="h-px bg-outline-variant/30 my-1 mx-3"></div>
           <a href="webinar.html" target="_blank" rel="noopener noreferrer" class="dropdown-item flex items-center gap-3 p-3 rounded-xl">
             <div class="w-10 h-10 rounded-xl dropdown-icon bg-primary/10 flex items-center justify-center text-primary shrink-0">
               <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">event</span>
@@ -380,6 +379,19 @@
               <div class="text-xs text-on-surface-variant">Power Platform 시리즈</div>
             </div>
           <span class="dropdown-arrow material-symbols-outlined text-lg">arrow_forward</span></a>
+          <div class="h-px bg-outline-variant/30 my-1 mx-3"></div>
+          <a href="m365copilotagent2.html" target="_blank" rel="noopener noreferrer" class="dropdown-item flex items-center gap-3 p-3 rounded-xl">
+            <div class="w-10 h-10 rounded-xl dropdown-icon bg-slate-200 flex items-center justify-center text-slate-500 shrink-0">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1; color: #6b7280 !important; -webkit-text-fill-color: #6b7280 !important;">calendar_month</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="font-semibold text-sm text-on-surface flex items-center gap-2">
+                M365 코파일럿 비즈니스 에이전트 파워 시리즈 4월
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-slate-200 text-slate-600 inline-flex items-center whitespace-nowrap shrink-0 ml-auto self-start -translate-y-0.5">종료</span>
+              </div>
+              <div class="text-xs text-on-surface-variant">Copilot Agent 시리즈 · 4월</div>
+            </div>
+          <span class="dropdown-arrow material-symbols-outlined text-lg">arrow_forward</span></a>
         </div>
       </div>
 
@@ -399,9 +411,19 @@
             </div>
           <span class="dropdown-arrow material-symbols-outlined text-lg">arrow_forward</span></a>
           <div class="h-px bg-outline-variant/30 my-1 mx-3"></div>
+          <a href="fabric.html" class="dropdown-item teal flex items-center gap-3 p-3 rounded-xl">
+            <div class="w-10 h-10 rounded-xl dropdown-icon flex items-center justify-center shrink-0" style="background-color: rgba(0,104,117,0.08); color: #006875; -webkit-text-fill-color: #006875;">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">analytics</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="font-semibold text-sm text-on-surface">6월 26일 Fabric Analyst in a Day</div>
+              <div class="text-xs text-on-surface-variant">Microsoft Fabric 웨비나</div>
+            </div>
+          <span class="dropdown-arrow material-symbols-outlined text-lg">arrow_forward</span></a>
+          <div class="h-px bg-outline-variant/30 my-1 mx-3"></div>
           <a href="https://dotnetuniverse.net/study/monthly-dotnet" target="_blank" class="dropdown-item teal flex items-center gap-3 p-3 rounded-xl">
             <div class="w-10 h-10 rounded-xl dropdown-icon flex items-center justify-center shrink-0" style="background-color: rgba(0,104,117,0.08); color: #006875; -webkit-text-fill-color: #006875;">
-              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">language</span>
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1; color: #006875; -webkit-text-fill-color: #006875;">language</span>
             </div>
             <div class="flex-1 min-w-0">
               <div class="font-semibold text-sm text-on-surface">닷넷 유니버스와 함께</div>
@@ -531,7 +553,7 @@
       </div>
     </div>
     <div class="flex items-center gap-4 ml-20">
-      <a href="https://events.teams.microsoft.com/event/aabe9391-ad55-47aa-bb58-e54509639ae1@97f42f55-f1db-4804-b1eb-08db083efd4f" target="_blank" class="gradient-primary text-white font-semibold px-6 py-2.5 rounded-full hover:opacity-90 active:scale-[0.98] transition-all font-body inline-flex items-center gap-2">
+      <a href="https://events.teams.microsoft.com/event/0eda0830-b739-4ac6-b317-321f01cac0dd@97f42f55-f1db-4804-b1eb-08db083efd4f" target="_blank" class="gradient-primary text-white font-semibold px-6 py-2.5 rounded-full hover:opacity-90 active:scale-[0.98] transition-all font-body inline-flex items-center gap-2">
         <span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">rocket_launch</span>
         지금 등록하기
       </a>

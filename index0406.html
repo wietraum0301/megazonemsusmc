@@ -252,6 +252,14 @@
     pointer-events: none;
     transition: all .3s cubic-bezier(.22,1,.36,1);
     z-index: 1;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+  .nav-dropdown-menu::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
   }
   .nav-dropdown.active .nav-dropdown-menu {
     opacity: 1;
@@ -669,7 +677,7 @@
         <div class="logo-icon">⚡</div>
         <span>Hosted by MEGAZONE CLOUD</span>
       </a>
-      <a href="https://megazone.agenthon-lab.com" class="nav-btn" target="_blank">🚀 지금 등록하기</a>
+      <a href="https://events.teams.microsoft.com/event/0eda0830-b739-4ac6-b317-321f01cac0dd@97f42f55-f1db-4804-b1eb-08db083efd4f" class="nav-btn" target="_blank">🚀 지금 등록하기</a>
     </div>
   </div>
 </header>
@@ -747,6 +755,15 @@
             <div class="dropdown-item-text">
               <div class="dropdown-item-title">6월 20일 입코딩</div>
               <div class="dropdown-item-sub">Lip Coding 현장 이벤트</div>
+            </div>
+            <span class="dropdown-item-arrow">→</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="fabric.html" class="dropdown-item teal" target="_blank">
+            <div class="dropdown-item-icon teal">📊</div>
+            <div class="dropdown-item-text">
+              <div class="dropdown-item-title">6월 26일 Fabric Analyst in a Day</div>
+              <div class="dropdown-item-sub">Microsoft Fabric 웨비나</div>
             </div>
             <span class="dropdown-item-arrow">→</span>
           </a>

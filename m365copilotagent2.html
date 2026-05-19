@@ -112,9 +112,17 @@
     transition: all 0.3s cubic-bezier(.22,1,.36,1);
     max-height: 70vh;
     overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
     background: rgba(255, 255, 255, 0.94) !important;
     border-color: rgba(0, 95, 170, 0.12) !important;
     backdrop-filter: blur(12px);
+  }
+  
+  .nav-dropdown-menu::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
   }
   .nav-dropdown.active .nav-dropdown-menu {
     opacity: 1;
@@ -336,6 +344,16 @@
             </div>
           <span class="dropdown-arrow material-symbols-outlined text-lg">arrow_forward</span></a>
           <div class="h-px bg-outline-variant/30 my-1 mx-3"></div>
+          <a href="fabric.html" class="dropdown-item teal flex items-center gap-3 p-3 rounded-xl">
+            <div class="w-10 h-10 rounded-xl dropdown-icon bg-secondary/10 flex items-center justify-center text-secondary shrink-0">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">analytics</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="font-semibold text-sm text-on-surface">6월 26일 Fabric Analyst in a Day</div>
+              <div class="text-xs text-on-surface-variant">Microsoft Fabric 웨비나</div>
+            </div>
+          <span class="dropdown-arrow material-symbols-outlined text-lg">arrow_forward</span></a>
+          <div class="h-px bg-outline-variant/30 my-1 mx-3"></div>
           <a href="https://dotnetuniverse.net/study/monthly-dotnet" target="_blank" class="dropdown-item teal flex items-center gap-3 p-3 rounded-xl">
             <div class="w-10 h-10 rounded-xl dropdown-icon bg-secondary/10 flex items-center justify-center text-secondary shrink-0">
               <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">language</span>
@@ -468,7 +486,7 @@
       </div>
     </div>
     <div class="flex items-center gap-4 ml-20">
-      <a href="https://events.teams.microsoft.com/event/aabe9391-ad55-47aa-bb58-e54509639ae1@97f42f55-f1db-4804-b1eb-08db083efd4f" target="_blank" class="gradient-primary text-white font-semibold px-6 py-2.5 rounded-full hover:opacity-90 active:scale-[0.98] transition-all font-body inline-flex items-center gap-2">
+      <a href="https://events.teams.microsoft.com/event/0eda0830-b739-4ac6-b317-321f01cac0dd@97f42f55-f1db-4804-b1eb-08db083efd4f" target="_blank" class="gradient-primary text-white font-semibold px-6 py-2.5 rounded-full hover:opacity-90 active:scale-[0.98] transition-all font-body inline-flex items-center gap-2">
         <span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">rocket_launch</span>
         지금 등록하기
       </a>
