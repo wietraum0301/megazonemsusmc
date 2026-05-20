@@ -6,6 +6,7 @@
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="styles/header.css">
 <script id="tailwind-config">
       tailwind.config = {
         darkMode: "class",
@@ -121,6 +122,7 @@
     text-rendering: optimizeLegibility;
   }
   .font-headline { font-family: 'Plus Jakarta Sans'; }
+  .font-gmarket { font-family: 'Gmarket Sans', 'Plus Jakarta Sans', Inter, sans-serif; }
   .gradient-primary { background: linear-gradient(135deg, #00579f 0%, #0dd2ef 100%); }
   .gradient-teal { background: linear-gradient(135deg, #006875 0%, #00daf3 100%); }
   .gradient-orange { background: linear-gradient(135deg, #E87722 0%, #FFB74D 100%); }
@@ -757,8 +759,8 @@
               <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">analytics</span>
             </div>
             <div class="flex-1 min-w-0">
-              <div class="font-semibold text-sm text-on-surface">6월 26일 Fabric Analyst in a Day</div>
-              <div class="text-xs text-on-surface-variant">Microsoft Fabric 웨비나</div>
+              <div class="font-semibold text-sm text-on-surface">Fabric Analyst in a Day</div>
+              <div class="text-xs text-on-surface-variant">6월 26일 금요일</div>
             </div>
           <span class="dropdown-arrow material-symbols-outlined text-lg">arrow_forward</span></a>
           <div class="h-px bg-outline-variant/30 my-1 mx-3"></div>
@@ -907,40 +909,40 @@
 <div class="max-w-7xl mx-auto px-8 relative z-10">
 <div class="flex flex-col items-start gap-8">
 <!-- In Person Label -->
-<div class="inline-flex items-center px-3.5 py-1.5 mt-10" style="background-color: #DEDCDC;">
-  <span class="font-extrabold text-[15px] tracking-wide" style="color: #000000;">In Person</span>
+<div class="inline-flex items-center px-2.5 py-0.5 mt-1.5" style="background-color: #EAF7EE; border: 0; box-shadow: none; outline: none;">
+  <span class="font-black text-[16px] tracking-wide" style="color: #000000; font-weight: 900;">In Person</span>
 </div>
 
 <!-- Main Title -->
-<h1 class="text-6xl md:text-7xl font-black leading-tight text-white max-w-4xl mt-0.5" style="font-weight: 900; letter-spacing: -0.02em;">
+<h1 class="text-6xl md:text-7xl font-black leading-tight text-white max-w-4xl mt-0.5 font-gmarket" style="font-weight: 900; letter-spacing: -0.02em;">
   Fabric Analyst<br/>in a Day
 </h1>
 
-<p class="max-w-3xl text-lg md:text-xl leading-8 text-white/90">
+<!-- <p class="max-w-3xl text-lg md:text-xl leading-8 text-white/90">
   Microsoft Fabric으로 데이터 사일로를 줄이고, 다양한 원본 데이터를 하나의 분석 환경으로 통합해
   Power BI 대시보드를 만드는 1일 실습 워크숍입니다.
-</p>
+</p> -->
 
 <!-- When/Where Info -->
-<div class="flex flex-col gap-4 text-white mt-6">
-  <div class="flex items-start gap-3">
-    <span class="material-symbols-outlined mt-1 shrink-0" style="font-variation-settings: 'FILL' 1;">schedule</span>
-    <div class="flex-1">
-      <div class="text-sm font-semibold text-white/90">언제</div>
-      <div class="text-base font-body">금요일, 2026년 6월 25일, 오전 9:00 - 오후 5:00 (GMT+09:00)</div>
+<div class="flex flex-col gap-1 text-white mt-6">
+  <div class="flex items-center gap-3 mb-2">
+    <span class="material-symbols-outlined shrink-0" style="font-variation-settings: 'FILL' 1; font-size: 18px;">schedule</span>
+    <div class="flex-1 flex items-center gap-3">
+      <div class="text-sm font-semibold text-white/90 whitespace-nowrap">언제</div>
+      <div class="text-sm font-body">금요일, 2026년 6월 26일, 오전 9:00 - 오후 5:00 (GMT+09:00)</div>
     </div>
   </div>
-  <div class="flex items-start gap-3">
-    <span class="material-symbols-outlined mt-1 shrink-0" style="font-variation-settings: 'FILL' 1;">location_on</span>
-    <div class="flex-1">
-      <div class="text-sm font-semibold text-white/90">어디서</div>
-      <div class="text-base font-body">리부팅랩 세미나강의실 압구정도산점, 서울</div>
+  <div class="flex items-center gap-3">
+    <span class="material-symbols-outlined shrink-0" style="font-variation-settings: 'FILL' 1; font-size: 18px;">location_on</span>
+    <div class="flex-1 flex items-center gap-3">
+      <div class="text-sm font-semibold text-white/90 whitespace-nowrap">어디서</div>
+      <div class="text-sm font-body">리부팅랩 세미나강의실 압구정도산점, 서울</div>
     </div>
   </div>
 </div>
 
 <!-- CTA Button -->
-<div class="mt-8">
+<div class="mt-0">
 
 </div>
 </div>
@@ -958,8 +960,8 @@
 </span>
 <h2 class="mt-4 text-3xl font-black tracking-tight text-[#06101f] md:text-4xl">Fabric Analyst in a Day</h2>
 <p class="mt-4 max-w-3xl text-sm leading-7 text-slate-600 md:text-base">
-  이 워크숍은 Power BI 경험은 있지만 Microsoft Fabric은 처음인 데이터 분석가를 위한 실습 중심 교육입니다.
-  데이터 통합, 변환, 분석, 시각화를 하나의 흐름으로 연결하는 방법을 실제 시나리오로 배웁니다.
+  이 워크숍은 Microsoft Fabric이 처음인 데이터 분석가를 위한 실습 중심 교육입니다.
+  데이터 통합, 변환,<br /> 분석, 시각화를 하나의 흐름으로 연결하는 방법을 실제 시나리오로 배웁니다.
 </p>
 </div>
 <div class="grid gap-4 sm:grid-cols-2 md:grid-cols-1">
