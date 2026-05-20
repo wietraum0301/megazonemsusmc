@@ -276,17 +276,17 @@
   }
 
   /* On-site dropdown (2nd) — force colors for its icons to avoid global blue override */
-  .nav-dropdown:nth-of-type(2) .nav-dropdown-menu .dropdown-icon {
-    color: #6b7280 !important;
-    -webkit-text-fill-color: #6b7280 !important;
-    background-color: #e6e7eb !important;
-  }
-  .nav-dropdown:nth-of-type(2) .nav-dropdown-menu > a.dropdown-item:nth-child(1) .dropdown-icon,
-  .nav-dropdown:nth-of-type(2) .nav-dropdown-menu > a.dropdown-item:nth-child(3) .dropdown-icon,
-  .nav-dropdown:nth-of-type(2) .nav-dropdown-menu > a.dropdown-item:nth-child(5) .dropdown-icon {
+  /* On-site dropdown (2nd): make icons green by default, except hackathon stays gray */
+  .nav-dropdown:nth-of-type(2) .nav-dropdown-menu > a.dropdown-item .dropdown-icon {
     color: #006875 !important;
     -webkit-text-fill-color: #006875 !important;
     background-color: rgba(0,104,117,0.08) !important;
+  }
+  /* Target the Agent Hackathon link and force it to gray */
+  .nav-dropdown:nth-of-type(2) .nav-dropdown-menu > a[href*="agenthackathon1.html"] .dropdown-icon {
+    color: #6b7280 !important;
+    -webkit-text-fill-color: #6b7280 !important;
+    background-color: #e6e7eb !important;
   }
 
   /* 온라인 웨비나 (1st nav-dropdown): first 3 icons blue (#005faa), next 3 icons grey (#6b7280) */
@@ -408,6 +408,16 @@
             <div class="flex-1 min-w-0">
               <div class="font-semibold text-sm text-on-surface">6월 20일 입코딩</div>
               <div class="text-xs text-on-surface-variant">Lip Coding 현장 이벤트</div>
+            </div>
+          <span class="dropdown-arrow material-symbols-outlined text-lg">arrow_forward</span></a>
+          <div class="h-px bg-outline-variant/30 my-1 mx-3"></div>
+          <a href="foundry.html" class="dropdown-item teal flex items-center gap-3 p-3 rounded-xl">
+            <div class="w-10 h-10 rounded-xl dropdown-icon flex items-center justify-center shrink-0" style="background-color: rgba(0,104,117,0.08); color: #006875; -webkit-text-fill-color: #006875;">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">build</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="font-semibold text-sm text-on-surface">Foundry Hands-on 교육</div>
+              <div class="text-xs text-on-surface-variant">6월 25일</div>
             </div>
           <span class="dropdown-arrow material-symbols-outlined text-lg">arrow_forward</span></a>
           <div class="h-px bg-outline-variant/30 my-1 mx-3"></div>
