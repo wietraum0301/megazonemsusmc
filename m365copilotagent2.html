@@ -130,6 +130,13 @@
     width: 0;
     height: 0;
   }
+  /* Ensure the 3rd item in '온라인 웨비나' shows a gray icon/background on this page */
+  header[data-global-header] nav .nav-dropdown:nth-of-type(1) .nav-dropdown-menu > a.dropdown-item:nth-of-type(3) .dropdown-icon,
+  header[data-global-header] nav .nav-dropdown:nth-of-type(1) .nav-dropdown-menu > a.dropdown-item:nth-of-type(3) .dropdown-icon span {
+    color: #6b7280 !important;
+    -webkit-text-fill-color: #6b7280 !important;
+    background-color: #e6e7eb !important;
+  }
   .nav-dropdown.active .nav-dropdown-menu {
     opacity: 1;
     visibility: visible;

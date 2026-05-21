@@ -145,6 +145,11 @@
     border-color: transparent !important;
   }
 
+  /* Remove bottom border under mounted global header on this page */
+  header[data-global-header] nav {
+    border-bottom: none !important;
+  }
+
   a.gradient-primary {
     box-shadow: 0 6px 18px rgba(0, 95, 170, 0.16), inset 0 0 0 1px rgba(255, 255, 255, 0.12);
     position: relative;
@@ -720,7 +725,7 @@
 
 <header data-global-header aria-label="사이트 헤더"></header>
 
-<main class="pt-xl pb-xl px-margin max-w-7xl mx-auto">
+<main class="pt-l pb-xl px-margin max-w-7xl mx-auto">
 <!-- Hero Section -->
 <section class="pt-lg pb-xl animate-fade-in mb-[140px]">
 <h1 class="font-display-lg text-[56px] md:text-[72px] mt-[160px] leading-[1.05] tracking-tight font-semibold text-primary mb-sm ">Foundry Hands-on 교육</h1>
