@@ -629,6 +629,60 @@
     text-decoration: none;
     opacity: 1;
   }
+  /* Fabric page UI polish: make nav/dropdowns and CTAs match site quality */
+  nav.fixed {
+    background: #ffffff !important;
+    box-shadow: 0 12px 30px rgba(2,6,23,0.06);
+    border-bottom: 1px solid rgba(15,23,42,0.04);
+  }
+  .nav-dropdown-toggle {
+    color: #0f172a !important;
+    background: #ffffff !important;
+    border: none !important;
+    padding: 0.4rem 0.75rem !important;
+    font-weight: 600 !important;
+  }
+  .nav-dropdown-menu {
+    width: 20rem !important;
+    padding: 0.5rem !important;
+    border-radius: 1rem !important;
+    box-shadow: 0 18px 42px -12px rgba(0,0,0,0.12), 0 8px 20px -8px rgba(16,28,46,0.06) !important;
+  }
+  /* Hover fallback: show dropdown on hover if JS didn't toggle .active */
+  .nav-dropdown:hover .nav-dropdown-menu {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateX(-50%) translateY(0) !important;
+  }
+  .dropdown-item { min-height: 56px; padding: 12px !important; gap: 12px !important; align-items: center !important; }
+  .dropdown-item .dropdown-icon { width: 40px !important; height: 40px !important; border-radius: 12px !important; display: flex !important; align-items: center; justify-content: center; font-size: 18px !important; }
+  .dropdown-item .font-semibold { font-size: 15px !important; }
+  .dropdown-item .text-xs { color: #6b7280 !important; }
+  .dropdown-item:hover { transform: translateX(6px) !important; }
+  .cta-pill { background: linear-gradient(135deg,#006875 0%,#00daf3 100%) !important; color: #ffffff !important; border: none !important; box-shadow: 0 8px 24px rgba(3,102,94,0.12) !important; }
+  .gradient-heading { background: linear-gradient(90deg, #7EC8FF 0%, #6A74FF 45%, #C082FF 75%, #5CE1FF 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; }
+
+  /* Make header CTA visually identical to index.html */
+  nav .gradient-primary {
+    background: linear-gradient(135deg, #00579f 0%, #0dd2ef 100%) !important;
+    box-shadow: 0 6px 18px rgba(0, 95, 170, 0.16), inset 0 0 0 1px rgba(255, 255, 255, 0.12) !important;
+    color: #ffffff !important;
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+    padding-top: 0.625rem !important;
+    padding-bottom: 0.625rem !important;
+    border-radius: 999px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+  }
+  nav .gradient-primary::after {
+    content: '' !important;
+    position: absolute !important;
+    inset: 0 !important;
+    background: linear-gradient(120deg, transparent 20%, rgba(255,255,255,0.12) 50%, transparent 80%) !important;
+    pointer-events: none !important;
+  }
   /* Pill CTA similar to provided example */
   .cta-pill {
     display: inline-flex;
@@ -905,7 +959,7 @@
         </div>
       </div>
     </div>
-    <div class="flex items-center gap-4 ml-20">
+      <div class="flex items-center gap-4 ml-20">
       <a href="https://events.teams.microsoft.com/event/0eda0830-b739-4ac6-b317-321f01cac0dd@97f42f55-f1db-4804-b1eb-08db083efd4f" target="_blank" class="gradient-primary text-white font-semibold px-6 py-2.5 rounded-full hover:opacity-90 active:scale-[0.98] transition-all font-body inline-flex items-center gap-2">
         <span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">rocket_launch</span>
         지금 등록하기
@@ -914,231 +968,392 @@
   </div>
 </nav>
 <main class="dark pt-16">
+<!DOCTYPE html>
+
+<html class="light" lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Fabric Analyst in a Day</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-container": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#dadad9",
+                        "on-background": "#1a1c1c",
+                        "on-error": "#ffffff",
+                        "inverse-surface": "#2f3130",
+                        "on-primary-container": "#ffffff",
+                        "surface-variant": "#e3e2e1",
+                        "background": "#faf9f8",
+                        "on-secondary-fixed": "#2a0053",
+                        "inverse-primary": "#a3c9ff",
+                        "secondary-fixed-dim": "#dab9ff",
+                        "error": "#ba1a1a",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed": "#91f4e1",
+                        "on-secondary-fixed-variant": "#5c2d91",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary": "#7547ab",
+                        "inverse-on-surface": "#f1f0ef",
+                        "on-surface-variant": "#404752",
+                        "primary-fixed": "#d3e3ff",
+                        "primary": "#005faa",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-highest": "#e3e2e1",
+                        "on-primary-fixed-variant": "#004883",
+                        "surface-container": "#efeeed",
+                        "surface": "#faf9f8",
+                        "secondary-fixed": "#efdbff",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#00201b",
+                        "outline-variant": "#c0c7d4",
+                        "tertiary": "#006a5c",
+                        "surface-tint": "#0060ab",
+                        "on-tertiary-fixed-variant": "#005046",
+                        "outline": "#717783",
+                        "on-surface": "#1a1c1c",
+                        "primary-container": "#0078d4",
+                        "surface-container-high": "#e9e8e7",
+                        "surface-bright": "#faf9f8",
+                        "tertiary-fixed-dim": "#75d8c5",
+                        "secondary-container": "#c695ff",
+                        "surface-container-low": "#f4f3f2",
+                        "tertiary-container": "#0a8575",
+                        "on-secondary-container": "#552589",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed": "#001c39",
+                        "primary-fixed-dim": "#a3c9ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "stack-md": "24px",
+                        "stack-lg": "48px",
+                        "stack-sm": "12px",
+                        "container-max": "1200px",
+                        "margin-desktop": "40px",
+                        "margin-mobile": "16px",
+                        "base": "8px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "time-code": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "time-code": ["16px", { "lineHeight": "24px", "letterSpacing": "0.02em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #faf9f8;
+            color: #1a1c1c;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .timeline-line {
+            position: absolute;
+            left: 1.25rem;
+            top: 2rem;
+            bottom: -1rem;
+            width: 2px;
+            background-color: #e3e2e1;
+        }
+        .agenda-row:last-child .timeline-line {
+            display: none;
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
 <!-- Hero Section -->
-<section class="relative overflow-hidden py-16 md:py-24" style="background: linear-gradient(135deg, #1d5f6f 0%, #2b7a8a 100%);">
-<div class="max-w-7xl mx-auto px-8 relative z-10">
-<div class="flex flex-col items-start gap-8">
-<!-- In Person Label -->
-<div class="inline-flex items-center px-2.5 py-0.5 mt-1.5" style="background-color: #EAF7EE; border: 0; box-shadow: none; outline: none;">
-  <span class="font-black text-[16px] tracking-wide" style="color: #000000; font-weight: 900;">In Person</span>
+<section class="relative min-h-[512px] flex items-center justify-center pt-stack-lg pb-stack-lg bg-surface">
+<div class="absolute inset-0 z-0 overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5"></div>
+<div class="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] -mr-48 -mt-48"></div>
+<div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-tertiary/10 rounded-full blur-[100px] -ml-24 -mb-24"></div>
 </div>
-
-<!-- Main Title -->
-<h1 class="text-6xl md:text-7xl font-black leading-tight text-white max-w-4xl mt-0.5 font-gmarket" style="font-weight: 900; letter-spacing: -0.02em;">
-  Fabric Analyst<br/>in a Day
-</h1>
-
-<!-- <p class="max-w-3xl text-lg md:text-xl leading-8 text-white/90">
-  Microsoft Fabric으로 데이터 사일로를 줄이고, 다양한 원본 데이터를 하나의 분석 환경으로 통합해
-  Power BI 대시보드를 만드는 1일 실습 워크숍입니다.
-</p> -->
-
-<!-- When/Where Info -->
-<div class="flex flex-col gap-1 text-white mt-6">
-  <div class="flex items-center gap-3 mb-2">
-    <span class="material-symbols-outlined shrink-0" style="font-variation-settings: 'FILL' 1; font-size: 18px;">schedule</span>
-    <div class="flex-1 flex items-center gap-3">
-      <div class="text-sm font-semibold text-white/90 whitespace-nowrap">언제</div>
-      <div class="text-sm font-body">금요일, 2026년 6월 26일, 오전 9:00 - 오후 5:00 (GMT+09:00)</div>
-    </div>
-  </div>
-  <div class="flex items-center gap-3">
-    <span class="material-symbols-outlined shrink-0" style="font-variation-settings: 'FILL' 1; font-size: 18px;">location_on</span>
-    <div class="flex-1 flex items-center gap-3">
-      <div class="text-sm font-semibold text-white/90 whitespace-nowrap">어디서</div>
-      <div class="text-sm font-body">리부팅랩 세미나강의실 압구정도산점, 서울</div>
-    </div>
-  </div>
-</div>
-
-<!-- CTA Button -->
-<div class="mt-0">
-
-</div>
-</div>
+<div class="relative z-10 max-w-container-max mx-auto mt-20 px-margin-mobile md:px-margin-desktop text-center">
+<div class="inline-flex items-center gap-2 px-3 py-1 mb-6 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+                Microsoft Fabric Workshop
+            </div>
+<h1 class="font-display-lg text-display-lg md:text-[64px] mb-4 text-on-surface tracking-tight">
+                Fabric Analyst in a Day
+            </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-[700px] mx-auto mb-10">
+                Microsoft Fabric과 함께 데이터 분석의 미래를 경험하세요. 통합 데이터 분석 플랫폼의 모든 과정을 하루 만에 마스터합니다.
+            </p>
 </div>
 </section>
-
-<!-- Workshop Overview -->
-<section class="py-xl bg-white">
-<div class="max-w-7xl mx-auto px-8">
-<div class="grid gap-6 md:grid-cols-[1.2fr_0.8fr] items-start">
+<!-- Agenda Section -->
+<section class="py-stack-lg bg-background">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="mb-stack-lg flex flex-col md:flex-row md:items-end justify-between gap-4">
 <div>
-<span class="inline-flex items-center gap-2 rounded-full border border-[#c9e7f4] bg-[#f4fbff] px-4 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-[#1d6f91]">
-<span class="h-2 w-2 rounded-full bg-[#1d6f91]"></span>
-워크숍 소개
-</span>
-<h2 class="mt-4 text-3xl font-black tracking-tight text-[#06101f] md:text-4xl">Fabric Analyst in a Day</h2>
-<p class="mt-4 max-w-3xl text-sm leading-7 text-slate-600 md:text-base">
-  이 워크숍은 Microsoft Fabric이 처음인 데이터 분석가를 위한 실습 중심 교육입니다.
-  데이터 통합, 변환,<br /> 분석, 시각화를 하나의 흐름으로 연결하는 방법을 실제 시나리오로 배웁니다.
-</p>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mt-20">Agenda &amp; Workshop Schedule</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">전문가와 함께하는 체계적인 실습 및 세션 일정입니다.</p>
 </div>
-<div class="grid gap-4 sm:grid-cols-2 md:grid-cols-1">
-<div class="rounded-2xl border border-[#c9e7f4] bg-white px-5 py-4 shadow-[0_10px_24px_rgba(4,18,35,0.06)]">
-<div class="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">대상</div>
-<div class="mt-2 text-base font-bold text-[#06101f]">Power BI 분석가 / Fabric 입문자</div>
-</div>
-<div class="rounded-2xl border border-[#c9e7f4] bg-white px-5 py-4 shadow-[0_10px_24px_rgba(4,18,35,0.06)]">
-<div class="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">형태</div>
-<div class="mt-2 text-base font-bold text-[#06101f]">1일 오프라인 실습 워크숍</div>
+<div class="flex items-center gap-4 bg-surface-container p-2 rounded-lg">
+<span class="flex items-center gap-1.5 text-label-md font-label-md text-on-surface-variant px-2">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span> 발표
+                    </span>
+<span class="flex items-center gap-1.5 text-label-md font-label-md text-on-surface-variant px-2">
+<span class="w-2.5 h-2.5 rounded-full bg-tertiary"></span> 랩/실습
+                    </span>
+<span class="flex items-center gap-1.5 text-label-md font-label-md text-on-surface-variant px-2">
+<span class="w-2.5 h-2.5 rounded-full bg-outline"></span> 휴식
+                    </span>
 </div>
 </div>
+<div class="space-y-4">
+<!-- Session 1: Intro -->
+<div class="agenda-row relative flex flex-col md:flex-row gap-6 group">
+<div class="timeline-line md:block hidden"></div>
+<div class="relative z-10 w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center shrink-0 border-4 border-background mt-1 hidden md:flex">
+<span class="material-symbols-outlined text-on-secondary-container text-[20px]">present_to_all</span>
 </div>
-
-<div class="mt-8 grid gap-4 md:grid-cols-3">
-<div class="rounded-3xl border border-[#c9e7f4] bg-[#f8fcff] p-6">
-<div class="text-sm font-semibold text-[#1d6f91]">1</div>
-<h3 class="mt-3 text-lg font-black text-[#06101f]">데이터 통합 이해</h3>
-<p class="mt-2 text-sm leading-6 text-slate-600">여러 데이터 소스를 하나의 분석 흐름으로 연결하는 Fabric의 핵심 개념을 익힙니다.</p>
+<div class="bg-surface p-6 rounded-xl shadow-[0px_4px_12px_rgba(0,0,0,0.05)] border-l-4 border-secondary flex-1 transition-transform hover:scale-[1.01]">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
+<span class="font-time-code text-time-code text-primary">9:00-10:00</span>
+<span class="px-2 py-0.5 rounded bg-secondary text-on-secondary text-label-md font-label-md w-fit">PRESENTATION</span>
 </div>
-<div class="rounded-3xl border border-[#c9e7f4] bg-[#f8fcff] p-6">
-<div class="text-sm font-semibold text-[#1d6f91]">2</div>
-<h3 class="mt-3 text-lg font-black text-[#06101f]">실습 중심 구성</h3>
-<p class="mt-2 text-sm leading-6 text-slate-600">Shortcuts, Dataflows Gen2, Pipelines를 이용해 데이터 변환과 자동화를 직접 다룹니다.</p>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Microsoft Fabric 소개</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">워크숍 개요 및 Microsoft Fabric의 비전과 주요 기능 로드맵 설명</p>
 </div>
-<div class="rounded-3xl border border-[#c9e7f4] bg-[#f8fcff] p-6">
-<div class="text-sm font-semibold text-[#1d6f91]">3</div>
-<h3 class="mt-3 text-lg font-black text-[#06101f]">보고서 완성</h3>
-<p class="mt-2 text-sm leading-6 text-slate-600">자동 새로 고침이 포함된 Power BI 보고서를 만들어 실무 적용 포인트를 정리합니다.</p>
+</div>
+<!-- Session 2: OneLake -->
+<div class="agenda-row relative flex flex-col md:flex-row gap-6 group">
+<div class="timeline-line md:block hidden"></div>
+<div class="relative z-10 w-10 h-10 rounded-full bg-tertiary-container flex items-center justify-center shrink-0 border-4 border-background mt-1 hidden md:flex">
+<span class="material-symbols-outlined text-on-tertiary-container text-[20px]">biotech</span>
+</div>
+<div class="bg-surface p-6 rounded-xl shadow-[0px_4px_12px_rgba(0,0,0,0.05)] border-l-4 border-tertiary flex-1 transition-transform hover:scale-[1.01]">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
+<span class="font-time-code text-time-code text-primary">10:00-10:30</span>
+<span class="px-2 py-0.5 rounded bg-tertiary text-on-tertiary text-label-md font-label-md w-fit">LAB 1</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">OneLake 개요</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">랩 1 – 문제 정의</p>
+</div>
+</div>
+<!-- Session 3: Break -->
+<div class="agenda-row relative flex flex-col md:flex-row gap-6 group">
+<div class="timeline-line md:block hidden"></div>
+<div class="relative z-10 w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center shrink-0 border-4 border-background mt-1 hidden md:flex">
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]">coffee</span>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl flex-1 border-l-4 border-outline/30">
+<div class="flex items-center justify-between">
+<span class="font-time-code text-time-code text-outline">10:30-10:45</span>
+<span class="px-2 py-0.5 rounded bg-outline-variant/30 text-on-surface-variant text-label-md font-label-md">BREAK</span>
+</div>
+<h3 class="font-body-sm text-body-sm text-on-surface-variant opacity-70">휴식</h3>
+</div>
+</div>
+<!-- Session 4: Engineering -->
+<div class="agenda-row relative flex flex-col md:flex-row gap-6 group">
+<div class="timeline-line md:block hidden"></div>
+<div class="relative z-10 w-10 h-10 rounded-full bg-tertiary-container flex items-center justify-center shrink-0 border-4 border-background mt-1 hidden md:flex">
+<span class="material-symbols-outlined text-on-tertiary-container text-[20px]">construction</span>
+</div>
+<div class="bg-surface p-6 rounded-xl shadow-[0px_4px_12px_rgba(0,0,0,0.05)] border-l-4 border-tertiary flex-1 transition-transform hover:scale-[1.01]">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
+<span class="font-time-code text-time-code text-primary">10:45-11:00</span>
+<span class="px-2 py-0.5 rounded bg-tertiary text-on-tertiary text-label-md font-label-md w-fit">LAB 2</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Data Engineering</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">랩 2 – Fabric 작업 영역 생성</p>
+</div>
+</div>
+<!-- Session 5: Factory -->
+<div class="agenda-row relative flex flex-col md:flex-row gap-6 group">
+<div class="timeline-line md:block hidden"></div>
+<div class="relative z-10 w-10 h-10 rounded-full bg-tertiary-container flex items-center justify-center shrink-0 border-4 border-background mt-1 hidden md:flex">
+<span class="material-symbols-outlined text-on-tertiary-container text-[20px]">precision_manufacturing</span>
+</div>
+<div class="bg-surface p-6 rounded-xl shadow-[0px_4px_12px_rgba(0,0,0,0.05)] border-l-4 border-tertiary flex-1 transition-transform hover:scale-[1.01]">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
+<span class="font-time-code text-time-code text-primary">11:00-12:00</span>
+<span class="px-2 py-0.5 rounded bg-tertiary text-on-tertiary text-label-md font-label-md w-fit">LAB 3</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Data Factory</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">랩 3 – 레이크하우스 바로 가기 소개(1부)</p>
+</div>
+</div>
+<!-- Session 6: Lunch -->
+<div class="agenda-row relative flex flex-col md:flex-row gap-6 group">
+<div class="timeline-line md:block hidden"></div>
+<div class="relative z-10 w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center shrink-0 border-4 border-background mt-1 hidden md:flex">
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]">restaurant</span>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl flex-1 border-l-4 border-outline/30">
+<div class="flex items-center justify-between">
+<span class="font-time-code text-time-code text-outline">12:00-12:45</span>
+<span class="px-2 py-0.5 rounded bg-outline-variant/30 text-on-surface-variant text-label-md font-label-md">LUNCH</span>
+</div>
+<h3 class="font-body-sm text-body-sm text-on-surface-variant opacity-70">점심 시간</h3>
+</div>
+</div>
+<!-- Session 7: Lab 4 -->
+<div class="agenda-row relative flex flex-col md:flex-row gap-6 group">
+<div class="timeline-line md:block hidden"></div>
+<div class="relative z-10 w-10 h-10 rounded-full bg-tertiary-container flex items-center justify-center shrink-0 border-4 border-background mt-1 hidden md:flex">
+<span class="material-symbols-outlined text-on-tertiary-container text-[20px]">factory</span>
+</div>
+<div class="bg-surface p-6 rounded-xl shadow-[0px_4px_12px_rgba(0,0,0,0.05)] border-l-4 border-tertiary flex-1 transition-transform hover:scale-[1.01]">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
+<span class="font-time-code text-time-code text-primary">12:45-13:45</span>
+<span class="px-2 py-0.5 rounded bg-tertiary text-on-tertiary text-label-md font-label-md w-fit">LAB 4</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Data Factory</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">랩 4 – Data Factory 환경 – 2부</p>
+</div>
+</div>
+<!-- Session 8: Warehouse -->
+<div class="agenda-row relative flex flex-col md:flex-row gap-6 group">
+<div class="timeline-line md:block hidden"></div>
+<div class="relative z-10 w-10 h-10 rounded-full bg-tertiary-container flex items-center justify-center shrink-0 border-4 border-background mt-1 hidden md:flex">
+<span class="material-symbols-outlined text-on-tertiary-container text-[20px]">database</span>
+</div>
+<div class="bg-surface p-6 rounded-xl shadow-[0px_4px_12px_rgba(0,0,0,0.05)] border-l-4 border-tertiary flex-1 transition-transform hover:scale-[1.01]">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
+<span class="font-time-code text-time-code text-primary">13:45-14:45</span>
+<span class="px-2 py-0.5 rounded bg-tertiary text-on-tertiary text-label-md font-label-md w-fit">LAB 5</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Data Warehouse</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">랩 5 – Data Factory 환경 – 3부</p>
+</div>
+</div>
+<!-- Session 9: Break -->
+<div class="agenda-row relative flex flex-col md:flex-row gap-6 group">
+<div class="timeline-line md:block hidden"></div>
+<div class="relative z-10 w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center shrink-0 border-4 border-background mt-1 hidden md:flex">
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]">relax</span>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl flex-1 border-l-4 border-outline/30">
+<div class="flex items-center justify-between">
+<span class="font-time-code text-time-code text-outline">14:45-15:00</span>
+<span class="px-2 py-0.5 rounded bg-outline-variant/30 text-on-surface-variant text-label-md font-label-md">BREAK</span>
+</div>
+<h3 class="font-body-sm text-body-sm text-on-surface-variant opacity-70">휴식</h3>
+</div>
+</div>
+<!-- Session 10: Power BI -->
+<div class="agenda-row relative flex flex-col md:flex-row gap-6 group">
+<div class="timeline-line md:block hidden"></div>
+<div class="relative z-10 w-10 h-10 rounded-full bg-tertiary-container flex items-center justify-center shrink-0 border-4 border-background mt-1 hidden md:flex">
+<span class="material-symbols-outlined text-on-tertiary-container text-[20px]">bar_chart</span>
+</div>
+<div class="bg-surface p-6 rounded-xl shadow-[0px_4px_12px_rgba(0,0,0,0.05)] border-l-4 border-tertiary flex-1 transition-transform hover:scale-[1.01]">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
+<span class="font-time-code text-time-code text-primary">15:00-16:00</span>
+<span class="px-2 py-0.5 rounded bg-tertiary text-on-tertiary text-label-md font-label-md w-fit">LAB 6</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Power BI</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">랩 6 – Data Engineering 환경</p>
+</div>
+</div>
+<!-- Session 11: Demo & Lab 7 -->
+<div class="agenda-row relative flex flex-col md:flex-row gap-6 group">
+<div class="timeline-line md:block hidden"></div>
+<div class="relative z-10 w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center shrink-0 border-4 border-background mt-1 hidden md:flex">
+<span class="material-symbols-outlined text-on-secondary-container text-[20px]">monitoring</span>
+</div>
+<div class="bg-surface p-6 rounded-xl shadow-[0px_4px_12px_rgba(0,0,0,0.05)] border-l-4 border-secondary flex-1 transition-transform hover:scale-[1.01]">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
+<span class="font-time-code text-time-code text-primary">16:00-16:30</span>
+<span class="px-2 py-0.5 rounded bg-secondary text-on-secondary text-label-md font-label-md w-fit">DEMO + LAB 7</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">예측 모델 데모</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">랩 7 – Power BI 환경</p>
+</div>
+</div>
+<!-- Session 12: Activator -->
+<div class="agenda-row relative flex flex-col md:flex-row gap-6 group">
+<div class="timeline-line md:block hidden"></div>
+<div class="relative z-10 w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center shrink-0 border-4 border-background mt-1 hidden md:flex">
+<span class="material-symbols-outlined text-on-secondary-container text-[20px]">notification_important</span>
+</div>
+<div class="bg-surface p-6 rounded-xl shadow-[0px_4px_12px_rgba(0,0,0,0.05)] border-l-4 border-secondary flex-1 transition-transform hover:scale-[1.01]">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
+<span class="font-time-code text-time-code text-primary">16:30-16:45</span>
+<span class="px-2 py-0.5 rounded bg-secondary text-on-secondary text-label-md font-label-md w-fit">DEMO</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Data Activator 데모</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">랩 7 – 정리</p>
+</div>
+</div>
+<!-- Session 13: Closing -->
+<div class="agenda-row relative flex flex-col md:flex-row gap-6 group">
+<div class="timeline-line md:block hidden"></div>
+<div class="relative z-10 w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center shrink-0 border-4 border-background mt-1 hidden md:flex">
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]">flag</span>
+</div>
+<div class="bg-surface p-6 rounded-xl mb-40 shadow-[0px_4px_12px_rgba(0,0,0,0.05)] border-l-4 border-outline flex-1 transition-transform hover:scale-[1.01]">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
+<span class="font-time-code text-time-code text-primary">16:45-17:00</span>
+<span class="px-2 py-0.5 rounded bg-outline text-on-surface text-label-md font-label-md w-fit">CLOSING</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">다음 단계 및 리소스</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">마무리</p>
+</div>
 </div>
 </div>
 </div>
 </section>
-<!-- Schedule Table Section -->
-<section class="py-xl bg-white">
-<div class="max-w-7xl mx-auto px-8">
-<div class="mb-6 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-<div class="max-w-3xl">
-<span class="inline-flex items-center gap-2 rounded-full border border-[#c9e7f4] bg-[#f4fbff] px-4 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-[#1d6f91]">
-<span class="h-2 w-2 rounded-full bg-[#1d6f91]"></span>
-워크숍 아젠다
-</span>
-<h2 class="mt-4 text-3xl font-black tracking-tight text-[#06101f] md:text-4xl">하루 동안의 진행 흐름</h2>
-<p class="mt-3 max-w-2xl text-sm leading-6 text-slate-600 md:text-base">소개, 개념 학습, 실습, 보고서 작성까지 이어지는 구성으로 워크숍 흐름을 한눈에 볼 수 있습니다.</p>
-</div>
-<div class="grid grid-cols-2 gap-3 md:min-w-[320px]">
-<div class="rounded-2xl border border-[#c9e7f4] bg-white px-4 py-3 shadow-[0_10px_24px_rgba(4,18,35,0.06)]">
-<div class="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">총 세션</div>
-<div class="mt-1 text-lg font-bold text-[#06101f]">10개 트랙</div>
-</div>
-<div class="rounded-2xl border border-[#c9e7f4] bg-white px-4 py-3 shadow-[0_10px_24px_rgba(4,18,35,0.06)]">
-<div class="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">실습 비중</div>
-<div class="mt-1 text-lg font-bold text-[#06101f]">랩 중심 진행</div>
-</div>
-<div class="rounded-2xl border border-[#c9e7f4] bg-white px-4 py-3 shadow-[0_10px_24px_rgba(4,18,35,0.06)]">
-<div class="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">오전</div>
-<div class="mt-1 text-lg font-bold text-[#06101f]">이론 + 데모</div>
-</div>
-<div class="rounded-2xl border border-[#c9e7f4] bg-white px-4 py-3 shadow-[0_10px_24px_rgba(4,18,35,0.06)]">
-<div class="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">오후</div>
-<div class="mt-1 text-lg font-bold text-[#06101f]">실전 랩 집중</div>
-</div>
-</div>
-</div>
-<div class="overflow-hidden rounded-3xl border border-[#c9e7f4] bg-white shadow-[0_20px_50px_rgba(4,18,35,0.10)]">
-<div class="h-1 w-full bg-gradient-to-r from-[#7EC8FF] via-[#6A74FF] to-[#5CE1FF]"></div>
-<div class="overflow-x-auto">
-<table class="w-full border-collapse text-left text-[15px] text-[#09111f]">
-<colgroup>
-<col class="w-[20%]"/>
-<col class="w-[40%]"/>
-<col class="w-[40%]"/>
-</colgroup>
-<tbody>
-<tr class="border-b border-[#c9e7f4] bg-white">
-<td class="px-4 py-4 border-r border-[#c9e7f4] whitespace-nowrap">오전 9:00 ~ 오전 10:00</td>
-<td class="px-4 py-4 border-r border-[#c9e7f4] font-medium">Microsoft Fabric 소개</td>
-<td class="px-4 py-4"></td>
-</tr>
-<tr class="border-b border-[#c9e7f4] bg-white">
-<td class="px-4 py-4 border-r border-[#c9e7f4] whitespace-nowrap">오전 10:00 ~ 오전 10:30</td>
-<td class="px-4 py-4 border-r border-[#c9e7f4]">OneLake 개요</td>
-<td class="px-4 py-4">랩 1 - 문제 정의</td>
-</tr>
-<tr class="border-b border-[#c9e7f4] bg-[#f3f3f3] text-[#8b67db]">
-<td class="px-4 py-4 border-r border-[#c9e7f4] whitespace-nowrap">오전 10:30 ~ 오전 10:45</td>
-<td class="px-4 py-4 border-r border-[#c9e7f4]">휴식</td>
-<td class="px-4 py-4"></td>
-</tr>
-<tr class="border-b border-[#c9e7f4] bg-white">
-<td class="px-4 py-4 border-r border-[#c9e7f4] whitespace-nowrap">오전 10:45 ~ 오전 11:00</td>
-<td class="px-4 py-4 border-r border-[#c9e7f4]">Data Engineering</td>
-<td class="px-4 py-4">랩 2 - Fabric 작업 영역 생성</td>
-</tr>
-<tr class="border-b border-[#c9e7f4] bg-white">
-<td class="px-4 py-4 border-r border-[#c9e7f4] whitespace-nowrap">오전 11:00 ~ 오후 12:00</td>
-<td class="px-4 py-4 border-r border-[#c9e7f4]">Data Factory</td>
-<td class="px-4 py-4">랩 3 - 레이크하우스 바로 가기 소개(1부)</td>
-</tr>
-<tr class="border-b border-[#c9e7f4] bg-[#f3f3f3] text-[#8b67db]">
-<td class="px-4 py-4 border-r border-[#c9e7f4] whitespace-nowrap">오후 12:00 ~ 오후 12:45</td>
-<td class="px-4 py-4 border-r border-[#c9e7f4]">점심 시간</td>
-<td class="px-4 py-4"></td>
-</tr>
-<tr class="bg-[#2d6a73] text-white">
-<td class="px-4 py-4 border-r border-[#c9e7f4] font-semibold">오후</td>
-<td class="px-4 py-4 border-r border-[#c9e7f4] font-semibold">프레젠테이션</td>
-<td class="px-4 py-4 font-semibold">랩</td>
-</tr>
-<tr class="border-b border-[#c9e7f4] bg-white">
-<td class="px-4 py-4 border-r border-[#c9e7f4] whitespace-nowrap">오후 12:45 ~ 오후 01:45</td>
-<td class="px-4 py-4 border-r border-[#c9e7f4]"></td>
-<td class="px-4 py-4">랩 4 - Data Factory 환경 - 2부</td>
-</tr>
-<tr class="border-b border-[#c9e7f4] bg-white">
-<td class="px-4 py-4 border-r border-[#c9e7f4] whitespace-nowrap">오후 01:45 ~ 오후 02:45</td>
-<td class="px-4 py-4 border-r border-[#c9e7f4]">Data Warehouse</td>
-<td class="px-4 py-4">랩 5 - Data Factory 환경 - 3부</td>
-</tr>
-<tr class="border-b border-[#c9e7f4] bg-[#f3f3f3] text-[#8b67db]">
-<td class="px-4 py-4 border-r border-[#c9e7f4] whitespace-nowrap">오후 02:45 ~ 오후 03:00</td>
-<td class="px-4 py-4 border-r border-[#c9e7f4]">휴식</td>
-<td class="px-4 py-4"></td>
-</tr>
-<tr class="border-b border-[#c9e7f4] bg-white">
-<td class="px-4 py-4 border-r border-[#c9e7f4] whitespace-nowrap">오후 03:00 ~ 오후 04:00</td>
-<td class="px-4 py-4 border-r border-[#c9e7f4]">Power BI</td>
-<td class="px-4 py-4">랩 6 - Data Engineering 환경</td>
-</tr>
-<tr class="border-b border-[#c9e7f4] bg-white">
-<td class="px-4 py-4 border-r border-[#c9e7f4] whitespace-nowrap">오후 04:00 ~ 오후 04:30</td>
-<td class="px-4 py-4 border-r border-[#c9e7f4]">예측 모델 데모</td>
-<td class="px-4 py-4">랩 7 - Power BI 환경</td>
-</tr>
-<tr class="border-b border-[#c9e7f4] bg-white">
-<td class="px-4 py-4 border-r border-[#c9e7f4] whitespace-nowrap">오후 04:30 ~ 오후 04:45</td>
-<td class="px-4 py-4 border-r border-[#c9e7f4]">Data Activator 데모</td>
-<td class="px-4 py-4">랩 7 - 정리</td>
-</tr>
-<tr class="bg-white">
-<td class="px-4 py-4 border-r border-[#c9e7f4] whitespace-nowrap">오후 04:45 ~ 오후 05:00</td>
-<td class="px-4 py-4 border-r border-[#c9e7f4]">다음 단계 및 리소스</td>
-<td class="px-4 py-4"></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</section>
-
 <script>
-  // Navigation dropdown - hover based
-  const dropdowns = document.querySelectorAll('.nav-dropdown');
-  
-  dropdowns.forEach(dropdown => {
-    dropdown.addEventListener('mouseenter', function() {
-      // Close all other dropdowns
-      dropdowns.forEach(d => d.classList.remove('active'));
-      // Open this dropdown
-      this.classList.add('active');
-    });
-    
-    dropdown.addEventListener('mouseleave', function() {
-      // Close this dropdown
-      this.classList.remove('active');
-    });
-  });
-</script>
+        // Simple entrance animation for cards
+        document.addEventListener('DOMContentLoaded', () => {
+            const rows = document.querySelectorAll('.agenda-row');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.classList.add('opacity-100', 'translate-y-0');
+                            entry.target.classList.remove('opacity-0', 'translate-y-4');
+                        }, index * 100);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            rows.forEach(row => {
+                row.classList.add('transition-all', 'duration-500', 'opacity-0', 'translate-y-4');
+                observer.observe(row);
+            });
+        });
+    </script>
 </body></html>
