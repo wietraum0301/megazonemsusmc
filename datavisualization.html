@@ -169,15 +169,15 @@
     -webkit-text-fill-color: inherit !important;
   }
   /* Specifically force the '온라인 웨비나' (1st) and '다시보기' (4th) dropdown icons to primary blue */
-  .nav-dropdown:nth-of-type(1) .nav-dropdown-menu .dropdown-icon,
-  .nav-dropdown:nth-of-type(4) .nav-dropdown-menu .dropdown-icon {
+  header[data-global-header] nav .nav-dropdown:nth-of-type(1) .nav-dropdown-menu .dropdown-icon,
+  header[data-global-header] nav .nav-dropdown:nth-of-type(4) .nav-dropdown-menu .dropdown-icon {
     color: #005faa !important;
     -webkit-text-fill-color: #005faa !important;
   }
-  .nav-dropdown:nth-of-type(1) .nav-dropdown-menu > a.dropdown-item .dropdown-icon,
-  .nav-dropdown:nth-of-type(1) .nav-dropdown-menu > a.dropdown-item .dropdown-icon span,
-  .nav-dropdown:nth-of-type(4) .nav-dropdown-menu > a.dropdown-item .dropdown-icon,
-  .nav-dropdown:nth-of-type(4) .nav-dropdown-menu > a.dropdown-item .dropdown-icon span {
+  header[data-global-header] nav .nav-dropdown:nth-of-type(1) .nav-dropdown-menu > a.dropdown-item .dropdown-icon,
+  header[data-global-header] nav .nav-dropdown:nth-of-type(1) .nav-dropdown-menu > a.dropdown-item .dropdown-icon span,
+  header[data-global-header] nav .nav-dropdown:nth-of-type(4) .nav-dropdown-menu > a.dropdown-item .dropdown-icon,
+  header[data-global-header] nav .nav-dropdown:nth-of-type(4) .nav-dropdown-menu > a.dropdown-item .dropdown-icon span {
     color: #005faa !important;
     -webkit-text-fill-color: #005faa !important;
   }
@@ -243,6 +243,22 @@
     font-weight: bold;
     flex-shrink: 0;
   }
+
+  /* FORCE: '다시보기' (4th) items should always use primary blue icon + blue-tinted background */
+  header[data-global-header] nav .nav-dropdown:nth-of-type(4) .nav-dropdown-menu > a.dropdown-item .dropdown-icon,
+  header[data-global-header] nav .nav-dropdown:nth-of-type(4) .nav-dropdown-menu > a.dropdown-item .dropdown-icon span,
+  header[data-global-header] nav .nav-dropdown:nth-of-type(4) .nav-dropdown-menu > a.dropdown-item .dropdown-icon .material-symbols-outlined {
+    color: #005faa !important;
+    -webkit-text-fill-color: #005faa !important;
+    background-color: rgba(0,95,170,0.08) !important;
+  }
+  /* PAGE-SPECIFIC OVERRIDE: ensure .is-ended/.is-pending in 4th dropdown stay blue on this page */
+  header[data-global-header] nav .nav-dropdown:nth-of-type(4) .nav-dropdown-menu > a.dropdown-item.is-ended .dropdown-icon,
+  header[data-global-header] nav .nav-dropdown:nth-of-type(4) .nav-dropdown-menu > a.dropdown-item.is-pending .dropdown-icon {
+    background-color: rgba(0,95,170,0.08) !important;
+    color: #005faa !important;
+    -webkit-text-fill-color: #005faa !important;
+  }
   .dropdown-item.orange .dropdown-arrow { color: #E87722; }
   .dropdown-item.teal .dropdown-arrow { color: #006875; }
   .dropdown-item:hover .dropdown-arrow {
@@ -277,33 +293,33 @@
 
   /* On-site dropdown (2nd) — force colors for its icons to avoid global blue override */
   /* On-site dropdown (2nd): make icons green by default, except hackathon stays gray */
-  .nav-dropdown:nth-of-type(2) .nav-dropdown-menu > a.dropdown-item .dropdown-icon {
+  header[data-global-header] nav .nav-dropdown:nth-of-type(2) .nav-dropdown-menu > a.dropdown-item .dropdown-icon {
     color: #006875 !important;
     -webkit-text-fill-color: #006875 !important;
     background-color: rgba(0,104,117,0.08) !important;
   }
   /* Target the Agent Hackathon link and force it to gray */
-  .nav-dropdown:nth-of-type(2) .nav-dropdown-menu > a[href*="agenthackathon1.html"] .dropdown-icon {
+  header[data-global-header] nav .nav-dropdown:nth-of-type(2) .nav-dropdown-menu > a[href*="agenthackathon1.html"] .dropdown-icon {
     color: #6b7280 !important;
     -webkit-text-fill-color: #6b7280 !important;
     background-color: #e6e7eb !important;
   }
 
   /* 온라인 웨비나 (1st nav-dropdown): first 3 icons blue (#005faa), next 3 icons grey (#6b7280) */
-  .nav-dropdown:nth-of-type(1) .nav-dropdown-menu > a.dropdown-item:nth-of-type(1) .dropdown-icon,
-  .nav-dropdown:nth-of-type(1) .nav-dropdown-menu > a.dropdown-item:nth-of-type(2) .dropdown-icon,
-  .nav-dropdown:nth-of-type(1) .nav-dropdown-menu > a.dropdown-item:nth-of-type(3) .dropdown-icon {
+  header[data-global-header] nav .nav-dropdown:nth-of-type(1) .nav-dropdown-menu > a.dropdown-item:nth-of-type(1) .dropdown-icon,
+  header[data-global-header] nav .nav-dropdown:nth-of-type(1) .nav-dropdown-menu > a.dropdown-item:nth-of-type(2) .dropdown-icon,
+  header[data-global-header] nav .nav-dropdown:nth-of-type(1) .nav-dropdown-menu > a.dropdown-item:nth-of-type(3) .dropdown-icon {
     color: #005faa !important;
     -webkit-text-fill-color: #005faa !important;
     background-color: rgba(0,95,170,0.08) !important;
   }
   /* Make items 3..6 in '온라인 웨비나' use gray icon + gray background */
-  .nav-dropdown:nth-of-type(1) .nav-dropdown-menu > a.dropdown-item:nth-of-type(n+3) .dropdown-icon,
-  .nav-dropdown:nth-of-type(1) .nav-dropdown-menu > a.dropdown-item:nth-of-type(n+3) .dropdown-icon span,
-  .nav-dropdown:nth-of-type(1) .nav-dropdown-menu > a.dropdown-item.is-ended .dropdown-icon,
-  .nav-dropdown:nth-of-type(1) .nav-dropdown-menu > a.dropdown-item.is-ended .dropdown-icon span,
-  .nav-dropdown:nth-of-type(1) .nav-dropdown-menu > a.dropdown-item.is-pending .dropdown-icon,
-  .nav-dropdown:nth-of-type(1) .nav-dropdown-menu > a.dropdown-item.is-pending .dropdown-icon span {
+  header[data-global-header] nav .nav-dropdown:nth-of-type(1) .nav-dropdown-menu > a.dropdown-item:nth-of-type(n+3) .dropdown-icon,
+  header[data-global-header] nav .nav-dropdown:nth-of-type(1) .nav-dropdown-menu > a.dropdown-item:nth-of-type(n+3) .dropdown-icon span,
+  header[data-global-header] nav .nav-dropdown:nth-of-type(1) .nav-dropdown-menu > a.dropdown-item.is-ended .dropdown-icon,
+  header[data-global-header] nav .nav-dropdown:nth-of-type(1) .nav-dropdown-menu > a.dropdown-item.is-ended .dropdown-icon span,
+  header[data-global-header] nav .nav-dropdown:nth-of-type(1) .nav-dropdown-menu > a.dropdown-item.is-pending .dropdown-icon,
+  header[data-global-header] nav .nav-dropdown:nth-of-type(1) .nav-dropdown-menu > a.dropdown-item.is-pending .dropdown-icon span {
     color: #6b7280 !important;
     -webkit-text-fill-color: #6b7280 !important;
     background-color: #e6e7eb !important;
@@ -535,4 +551,38 @@
 <!-- Global header scripts -->
 <script src="global-state-manager.js"></script>
 <script src="global-header-loader.js"></script>
+<script>
+  (function(){
+    function applyBlueToDasiBogi(){
+      var mount = document.querySelector('header[data-global-header]');
+      if(!mount) return;
+      var nav = mount.querySelector('nav');
+      if(!nav) return;
+      var dropdowns = Array.from(nav.querySelectorAll('.nav-dropdown'));
+      var target = dropdowns.find(function(d){
+        var t = d.querySelector('.nav-dropdown-toggle');
+        return t && /다시보기/.test(t.textContent);
+      });
+      if(!target) return;
+      target.querySelectorAll('.dropdown-icon').forEach(function(icon){
+        icon.style.backgroundColor = 'rgba(0,95,170,0.08)';
+        icon.style.color = '#005faa';
+        try{ icon.style.webkitTextFillColor = '#005faa'; }catch(e){}
+      });
+    }
+
+    var mount = document.querySelector('header[data-global-header]');
+    if(!mount){ return; }
+    // If header mounts after load, observe and apply
+    var obs = new MutationObserver(function(m){
+      if(mount.querySelector('nav')){
+        applyBlueToDasiBogi();
+        obs.disconnect();
+      }
+    });
+    obs.observe(mount, { childList: true, subtree: true });
+    // also attempt after short delay in case header already present
+    setTimeout(applyBlueToDasiBogi, 600);
+  })();
+</script>
 </body></html>

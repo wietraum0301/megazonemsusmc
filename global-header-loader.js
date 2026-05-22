@@ -125,6 +125,47 @@
         } catch (e) {}
 
         wireDropdowns(mountPoint);
+        // Enforce icon colors on the mounted header to avoid host page CSS overrides
+        try {
+          (function enforceHeaderIconColors(){
+            var mountedNav = mountPoint.querySelector('nav');
+            if(!mountedNav) return;
+            var dropdowns = Array.prototype.slice.call(mountedNav.querySelectorAll('.nav-dropdown')) || [];
+            function setIconStyles(icon, bg, color){
+              try{ icon.style.backgroundColor = bg; icon.style.color = color; icon.style.webkitTextFillColor = color; }catch(e){}
+            }
+            // Ensure 온라인 웨비나 (1st) and 다시보기 (4th) use primary blue unless item marked ended
+            [0,3].forEach(function(idx){
+              var d = dropdowns[idx]; if(!d) return;
+              d.querySelectorAll('.dropdown-icon').forEach(function(icon){
+                var a = icon.closest('a');
+                if(a && a.classList && (a.classList.contains('is-ended') || a.classList.contains('is-pending'))) return;
+                setIconStyles(icon, 'rgba(0,95,170,0.08)', '#005faa');
+              });
+            });
+            // On-site (2nd) keep green accent except agent hackathon which stays ended/gray
+            var onsite = dropdowns[1];
+            if(onsite){
+              onsite.querySelectorAll('.dropdown-icon').forEach(function(icon){
+                var a = icon.closest('a');
+                try{
+                  if(a && a.href && a.href.indexOf('agenthackathon1.html') !== -1){
+                    // mark ended and force gray
+                    if(a.classList && !a.classList.contains('is-ended')) a.classList.add('is-ended');
+                    setIconStyles(icon, '#e6e7eb', '#6b7280');
+                  } else {
+                    setIconStyles(icon, 'rgba(0,104,117,0.08)', '#006875');
+                  }
+                }catch(e){}
+              });
+            }
+            // Reapply if header content changes later
+            try{
+              var obs = new MutationObserver(function(){ enforceHeaderIconColors(); });
+              obs.observe(mountPoint, { childList: true, subtree: true });
+            }catch(e){}
+          })();
+        } catch(e) {}
         // Remove any overly-broad header color rules that may have been
         // injected by host pages earlier and force white text across the
         // mounted header (breaks badges). Prefer removing the rule rather

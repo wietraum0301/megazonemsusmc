@@ -701,6 +701,119 @@
   .cta-pill .material-symbols-outlined { font-size: 20px; opacity: 0.95; font-weight: bold; }
   .cta-pill:hover { transform: translateY(-2px); }
 
+  /* Register button style: transparent background with black border/text */
+  a.cta-pill,
+  button.cta-pill {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    min-height: 56px;
+    padding: 14px 30px;
+    border: 1.5px solid #111111 !important;
+    border-radius: 999px !important;
+    background: transparent !important;
+    color: #111111 !important;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+    box-shadow: none !important;
+    transition: transform .18s ease, background-color .18s ease, border-color .18s ease, box-shadow .18s ease;
+    overflow: hidden;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+  a.cta-pill::before,
+  button.cta-pill::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: rgba(17, 17, 17, 0.02);
+    opacity: 0;
+    transition: opacity .18s ease;
+    pointer-events: none;
+  }
+  a.cta-pill:hover,
+  button.cta-pill:hover {
+    transform: translateY(-2px);
+    background: rgba(17, 17, 17, 0.03) !important;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08) !important;
+  }
+  a.cta-pill:hover::before,
+  button.cta-pill:hover::before { opacity: 1; }
+  a.cta-pill .material-symbols-outlined,
+  button.cta-pill .material-symbols-outlined {
+    font-size: 20px;
+    font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    color: #111111 !important;
+    opacity: 1;
+  }
+
+  .bottom-cta-panel {
+    width: 70%;
+    max-width: 980px;
+    margin: 0 auto;
+    border-radius: 40px;
+    padding: clamp(32px, 5vw, 72px) clamp(24px, 5vw, 96px);
+    background: linear-gradient(135deg, #0a77b8 0%, #16a6d6 52%, #2ac8e8 100%);
+    box-shadow: 0 24px 50px rgba(12, 90, 138, 0.22);
+    position: relative;
+    overflow: hidden;
+  }
+  .bottom-cta-panel::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 50% 0%, rgba(255,255,255,0.14), transparent 38%),
+      radial-gradient(circle at 100% 50%, rgba(255,255,255,0.10), transparent 26%);
+    pointer-events: none;
+  }
+  .bottom-cta-panel > * {
+    position: relative;
+    z-index: 1;
+  }
+  .bottom-cta-title {
+    color: #ffffff;
+    font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+    font-size: clamp(32px, 4vw, 58px);
+    line-height: 1.05;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+  }
+  .bottom-cta-copy {
+    color: rgba(255,255,255,0.88);
+    font-size: clamp(15px, 1.5vw, 20px);
+    line-height: 1.6;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .bottom-cta-note {
+    color: rgba(255,255,255,0.76);
+    font-size: 14px;
+    margin-top: 18px;
+  }
+  .bottom-cta-panel .cta-pill {
+    border-color: rgba(255,255,255,0.96) !important;
+    background: #ffffff !important;
+    color: #0b5ca8 !important;
+    box-shadow: 0 16px 32px rgba(0, 44, 96, 0.18) !important;
+    min-width: 250px;
+  }
+  .bottom-cta-panel .cta-pill .material-symbols-outlined {
+    color: #0b5ca8 !important;
+  }
+
+  @media (max-width: 640px) {
+    .bottom-cta-panel {
+      width: calc(100% - 32px);
+      max-width: none;
+    }
+  }
+
 </style>
 </head>
 <body class="font-body-md text-slate-900 antialiased bg-white">
@@ -836,6 +949,75 @@
         .agenda-row:last-child .timeline-line {
             display: none;
         }
+        /* Agenda cards grid (centered, 70% width or max 700px) */
+        .agenda-cards-container { width: 70%; max-width: 700px; margin: 0 auto; }
+        /* Header aligns to same left edge as cards */
+        .agenda-header { width: 70%; max-width: 700px; margin: 0 auto; text-align: left; }
+        .agenda-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+          gap: 16px;
+        }
+        .agenda-grid .agenda-row {
+          display: block;
+        }
+        /* hide timeline markers in grid view */
+        .agenda-grid .timeline-line { display: none !important; }
+        .agenda-grid .agenda-row > .relative.z-10 { display: none !important; }
+        .agenda-grid .agenda-row > div {
+          border-left: none !important;
+          padding: 1rem !important;
+          border-radius: 12px !important;
+          box-shadow: 0 8px 24px rgba(8,35,66,0.06) !important;
+          background: #ffffff !important;
+        }
+        /* Card typography & compact layout for clarity */
+        .agenda-grid .card-meta { display: flex; gap: 8px; align-items: center; justify-content: space-between; margin-bottom: 6px; }
+        .agenda-grid .font-time-code { font-size: 12px; font-weight: 800; color: #005faa; letter-spacing: 0.06em; text-transform: uppercase; }
+        .agenda-grid .px-2.py-0\.5 { padding: 4px 8px !important; font-size: 12px !important; }
+        .agenda-grid h3 { font-size: 18px !important; line-height: 1.15 !important; margin: 4px 0 6px 0 !important; color: #0f172a !important; font-weight: 800 !important; }
+        .agenda-grid p { font-size: 13px !important; color: #475569 !important; margin: 0 !important; display: -webkit-box; line-clamp: 2; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis; }
+        /* Make cards slightly taller and consistent */
+        .agenda-grid .agenda-row > div { min-height: 100px; display: flex; flex-direction: column; justify-content: center; }
+        /* On hover, expand a bit with clearer shadow */
+        .agenda-grid .agenda-row > div:hover { transform: translateY(-6px) scale(1.01); box-shadow: 0 18px 36px rgba(8,35,66,0.08) !important; }
+        /* Mobile: make container full width with side padding */
+        @media (max-width: 640px) {
+          .agenda-cards-container { width: calc(100% - 32px); max-width: none; }
+          .agenda-grid { grid-template-columns: 1fr; gap: 12px; }
+        }
+
+        /* Unified badge styling and small icons */
+        .agenda-grid .badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 10px !important; border-radius: 999px !important; font-weight: 700 !important; font-size: 12px !important; }
+        .agenda-grid .badge .material-symbols-outlined { font-size: 16px; opacity: 0.95; }
+        .agenda-grid .badge.neutral { background: #f1f5f9 !important; color: #0f172a !important; border: 1px solid rgba(15,23,42,0.06) !important; }
+        .agenda-grid .badge.pres { background: linear-gradient(135deg,#00579f 0%,#0dd2ef 100%) !important; color: #fff !important; }
+        .agenda-grid .badge.lab { background: linear-gradient(135deg,#E87722 0%,#FFB74D 100%) !important; color: #fff !important; }
+        .agenda-grid .badge.break { background: rgba(15,23,42,0.03) !important; color: #475569 !important; border: 1px solid rgba(15,23,42,0.04) !important; }
+        .agenda-grid .badge.demo { background: linear-gradient(135deg,#6A74FF 0%,#5CE1FF 100%) !important; color: #fff !important; }
+        .agenda-grid .badge.small { padding: 4px 8px !important; font-size: 11px !important; }
+
+        /* Tag/badge refinements to reduce visual clutter */
+        .agenda-grid .px-2.py-0\.5.rounded { 
+          display: inline-flex !important; 
+          align-items: center; 
+          gap: 6px; 
+          padding: 6px 10px !important; 
+          font-size: 12px !important; 
+          font-weight: 600 !important; 
+          border-radius: 999px !important; 
+          background: #f1f5f9 !important; 
+          color: #0f172a !important; 
+          border: 1px solid rgba(15,23,42,0.06) !important; 
+          white-space: nowrap !important; 
+          text-transform: none !important; 
+        }
+        /* Preserve original semantic color accents for key badge types */
+        .agenda-grid .px-2.py-0\.5.bg-secondary { background: linear-gradient(135deg,#00579f 0%,#0dd2ef 100%) !important; color: #ffffff !important; border: none !important; }
+        .agenda-grid .px-2.py-0\.5.bg-tertiary { background: linear-gradient(135deg,#E87722 0%,#FFB74D 100%) !important; color: #ffffff !important; border: none !important; }
+        .agenda-grid .px-2.py-0\.5.bg-outline-variant\/30 { background: rgba(15,23,42,0.03) !important; color: #475569 !important; border: 1px solid rgba(15,23,42,0.04) !important; }
+        /* If badge text is long (e.g., 'DEMO + LAB 7'), reduce internal spacing and slightly smaller font to keep it neat */
+        .agenda-grid .px-2.py-0\.5.w-fit { padding-left: 8px !important; padding-right: 8px !important; font-size: 11px !important; }
     </style>
 </head>
 <body class="overflow-x-hidden">
@@ -846,7 +1028,7 @@
 <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] -mr-48 -mt-48"></div>
 <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-tertiary/10 rounded-full blur-[100px] -ml-24 -mb-24"></div>
 </div>
-<div class="relative z-10 max-w-container-max mx-auto mt-0 px-margin-mobile md:px-margin-desktop text-center">
+<div class="relative z-10 max-w-container-max mx-auto mt-20 px-margin-mobile md:px-margin-desktop text-center">
 <div class="inline-flex items-center gap-2 px-3 py-1 mb-6 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-label-md text-label-md">
 <span class="material-symbols-outlined text-[16px]">verified</span>
                 Microsoft Fabric Workshop
@@ -857,29 +1039,26 @@
 <p class="font-body-lg text-body-lg text-on-surface-variant max-w-[700px] mx-auto mb-10">
                 Microsoft Fabric과 함께 데이터 분석의 미래를 경험하세요. 통합 데이터 분석 플랫폼의 모든 과정을 하루 만에 마스터합니다.
             </p>
+      <div class="mt-10 mb-20">
+        <a href="#register" id="register-hero" class="cta-pill">
+          <span class="material-symbols-outlined">how_to_reg</span>
+          등록하기
+        </a>
+      </div>
 </div>
 </section>
 <!-- Agenda Section -->
 <section class="py-stack-lg bg-background">
 <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
 <div class="mb-stack-lg flex flex-col md:flex-row md:items-end justify-between gap-4">
-<div>
+<div class="agenda-header">
 <h2 class="font-headline-lg text-headline-lg text-on-surface mt-20">Agenda &amp; Workshop Schedule</h2>
 <p class="font-body-md text-body-md text-on-surface-variant mt-2">전문가와 함께하는 체계적인 실습 및 세션 일정입니다.</p>
 </div>
-<div class="flex items-center gap-4 bg-surface-container p-2 rounded-lg">
-<span class="flex items-center gap-1.5 text-label-md font-label-md text-on-surface-variant px-2">
-<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span> 발표
-                    </span>
-<span class="flex items-center gap-1.5 text-label-md font-label-md text-on-surface-variant px-2">
-<span class="w-2.5 h-2.5 rounded-full bg-tertiary"></span> 랩/실습
-                    </span>
-<span class="flex items-center gap-1.5 text-label-md font-label-md text-on-surface-variant px-2">
-<span class="w-2.5 h-2.5 rounded-full bg-outline"></span> 휴식
-                    </span>
 </div>
 </div>
-<div class="space-y-4">
+<div class="space-y-4 agenda-cards-container">
+  <div class="agenda-grid">
 <!-- Session 1: Intro -->
 <div class="agenda-row relative flex flex-col md:flex-row gap-6 group">
 <div class="timeline-line md:block hidden"></div>
@@ -1063,7 +1242,7 @@
 <div class="relative z-10 w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center shrink-0 border-4 border-background mt-1 hidden md:flex">
 <span class="material-symbols-outlined text-on-surface-variant text-[20px]">flag</span>
 </div>
-<div class="bg-surface p-6 rounded-xl mb-40 shadow-[0px_4px_12px_rgba(0,0,0,0.05)] border-l-4 border-outline flex-1 transition-transform hover:scale-[1.01]">
+<div class="bg-surface p-6 rounded-xl mb-24 shadow-[0px_4px_12px_rgba(0,0,0,0.05)] border-l-4 border-outline flex-1 transition-transform hover:scale-[1.01]">
 <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
 <span class="font-time-code text-time-code text-primary">16:45-17:00</span>
 <span class="px-2 py-0.5 rounded bg-outline text-on-surface text-label-md font-label-md w-fit">CLOSING</span>
@@ -1072,9 +1251,25 @@
 <p class="font-body-sm text-body-sm text-on-surface-variant mt-1">마무리</p>
 </div>
 </div>
-</div>
+  </div>
 </div>
 </section>
+  <section class="py-10 bg-background">
+    <div class="bottom-cta-panel text-center mb-40">
+      <h2 class="bottom-cta-title">Fabric 최신 기술로<br/>새로운 가능성을 발견하세요</h2>
+      <p class="bottom-cta-copy mt-6">
+        Microsoft Fabric과 함께 데이터 분석의 미래를 경험하세요.<br/>
+        통합 데이터 분석 플랫폼의 모든 과정을 하루 만에 마스터합니다.
+      </p>
+      <div class="mt-10 flex justify-center">
+        <a href="#register" id="register-bottom-page" class="cta-pill">
+          <span class="material-symbols-outlined">rocket_launch</span>
+          등록하기
+        </a>
+      </div>
+      <p class="bottom-cta-note">📌 관심 있는 분은 아래 등록 폼으로 바로 신청하세요.</p>
+    </div>
+  </section>
 <script>
         // Simple entrance animation for cards
         document.addEventListener('DOMContentLoaded', () => {
