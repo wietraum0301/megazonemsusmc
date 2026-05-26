@@ -4,6 +4,9 @@
 name: Build and deploy Node.js app to Azure Web App - megazone
 
 on:
+  push:
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
@@ -46,7 +49,7 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'megazone'
+          app-name: 'spf'
           slot-name: 'Production'
           package: .
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_BDE43FB941714B17A81DB96BFC8B7FE3 }}
