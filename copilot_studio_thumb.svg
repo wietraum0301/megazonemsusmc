@@ -1,0 +1,61 @@
+<svg width="1280" height="720" viewBox="0 0 1280 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1280" y2="720" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8FAFC"/>
+      <stop offset="0.45" stop-color="#EEF2FF"/>
+      <stop offset="1" stop-color="#FDF2F8"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="320" y1="160" x2="960" y2="560" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7C3AED"/>
+      <stop offset="0.5" stop-color="#2563EB"/>
+      <stop offset="1" stop-color="#F97316"/>
+    </linearGradient>
+    <filter id="shadow" x="0" y="0" width="1280" height="720" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#0F172A" flood-opacity="0.14"/>
+    </filter>
+  </defs>
+
+  <rect width="1280" height="720" fill="url(#bg)"/>
+
+  <path d="M-40 540C160 430 320 420 520 500C695 570 850 610 1080 520C1160 490 1220 460 1320 440V760H-40V540Z" fill="url(#accent)" opacity="0.14"/>
+  <path d="M-40 610C170 500 340 490 540 565C735 637 900 670 1135 590C1200 568 1260 545 1320 525V760H-40V610Z" fill="url(#accent)" opacity="0.10"/>
+
+  <g filter="url(#shadow)">
+    <rect x="86" y="88" width="1108" height="544" rx="36" fill="white" fill-opacity="0.82"/>
+  </g>
+
+  <g transform="translate(130 136)">
+    <rect x="0" y="0" width="156" height="38" rx="19" fill="#E0E7FF"/>
+    <text x="78" y="24" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700" fill="#4F46E5">AI & Data Modernization</text>
+
+    <text x="0" y="108" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="600" fill="#334155">Copilot Studio</text>
+    <text x="0" y="184" font-family="Inter, Arial, sans-serif" font-size="70" font-weight="800" fill="#0F172A">영상 다시보기</text>
+    <text x="0" y="244" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="600" fill="#475569">5월 29일 · 15:00-16:30</text>
+
+    <g transform="translate(0 300)">
+      <rect x="0" y="0" width="470" height="112" rx="28" fill="#F8FAFC" stroke="#CBD5E1"/>
+      <circle cx="62" cy="56" r="30" fill="#EEF2FF"/>
+      <path d="M51 66C55 55 63 48 75 46" stroke="#7C3AED" stroke-width="8" stroke-linecap="round"/>
+      <path d="M75 46L76 67" stroke="#2563EB" stroke-width="8" stroke-linecap="round"/>
+      <path d="M76 67C85 59 92 56 104 56" stroke="#F97316" stroke-width="8" stroke-linecap="round"/>
+      <text x="122" y="47" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700" fill="#0F172A">Copilot Studio로 만드는</text>
+      <text x="122" y="81" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700" fill="#0F172A">에이전트 자동화 데모</text>
+    </g>
+  </g>
+
+  <g transform="translate(760 132)">
+    <rect x="0" y="0" width="390" height="390" rx="36" fill="#0F172A" fill-opacity="0.04"/>
+    <circle cx="195" cy="158" r="104" fill="url(#accent)" opacity="0.18"/>
+    <circle cx="195" cy="158" r="72" fill="white" opacity="0.95"/>
+    <path d="M166 162C166 146 177 134 193 134H199C216 134 228 146 228 162C228 178 216 190 199 190H179L161 208V162H166Z" fill="url(#accent)"/>
+    <circle cx="187" cy="158" r="6" fill="white"/>
+    <circle cx="206" cy="158" r="6" fill="white"/>
+    <path d="M182 172C187 178 196 181 205 181C213 181 219 178 224 172" stroke="white" stroke-width="4" stroke-linecap="round"/>
+
+    <g transform="translate(0 276)">
+      <rect x="0" y="0" width="390" height="114" rx="26" fill="white"/>
+      <text x="26" y="44" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700" fill="#0F172A">Copilot Studio</text>
+      <text x="26" y="78" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="500" fill="#64748B">AI 에이전트와 업무 자동화</text>
+    </g>
+  </g>
+</svg>
