@@ -1,0 +1,66 @@
+<svg width="1010" height="568" viewBox="0 0 1010 568" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1010" y2="568" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="0.45" stop-color="#F9FBFF"/>
+      <stop offset="1" stop-color="#EEF2FF"/>
+    </linearGradient>
+    <linearGradient id="softBlue" x1="490" y1="210" x2="900" y2="450" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D7ECFF" stop-opacity="0.95"/>
+      <stop offset="1" stop-color="#C8E2FF" stop-opacity="0.35"/>
+    </linearGradient>
+    <linearGradient id="purpleGrad" x1="110" y1="205" x2="420" y2="335" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6D6BE7"/>
+      <stop offset="1" stop-color="#B94ACF"/>
+    </linearGradient>
+    <linearGradient id="iconPink" x1="640" y1="230" x2="850" y2="410" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E9A8C9"/>
+      <stop offset="1" stop-color="#E76BC7"/>
+    </linearGradient>
+    <linearGradient id="yellow" x1="660" y1="220" x2="750" y2="310" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFD652"/>
+      <stop offset="1" stop-color="#F4B62E"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1010" height="568" fill="url(#bg)"/>
+  <rect x="520" y="130" width="390" height="230" rx="20" fill="url(#softBlue)" opacity="0.78"/>
+
+  <g transform="translate(40 42)">
+    <rect x="0" y="0" width="26" height="26" fill="#F25022"/>
+    <rect x="30" y="0" width="26" height="26" fill="#7FBA00"/>
+    <rect x="0" y="30" width="26" height="26" fill="#00A4EF"/>
+    <rect x="30" y="30" width="26" height="26" fill="#FFB900"/>
+    <text x="74" y="25" font-family="Arial, Helvetica, sans-serif" font-size="26" fill="#5B5B5B">Microsoft 365</text>
+    <text x="0" y="76" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#111111">AI 에이전트 마스터 클래스</text>
+  </g>
+
+  <text x="42" y="313" font-family="Arial, Helvetica, sans-serif" font-size="74" font-weight="700" fill="url(#purpleGrad)">7회 차</text>
+  <text x="42" y="363" font-family="Arial, Helvetica, sans-serif" font-size="74" font-weight="700" fill="url(#purpleGrad)">커넥터 도구를 활용한</text>
+  <text x="42" y="413" font-family="Arial, Helvetica, sans-serif" font-size="74" font-weight="700" fill="url(#purpleGrad)">데이터 조회</text>
+
+  <text x="42" y="520" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#111111">박은정 MVP</text>
+  <text x="42" y="546" font-family="Arial, Helvetica, sans-serif" font-size="23" fill="#111111">Microsoft 365 Apps and Services</text>
+
+  <g transform="translate(595 170)">
+    <path d="M184 0C225 0 259 33 259 74C259 115 225 149 184 149C162 149 145 140 131 127L184 74L239 129C251 114 259 96 259 74C259 33 225 0 184 0Z" fill="#9B51E0" opacity="0.95"/>
+    <circle cx="184" cy="74" r="23" fill="#F7C3D9"/>
+
+    <path d="M0 148L52 121L103 148V251L52 277L0 251V148Z" fill="#8E67D6"/>
+    <path d="M103 148L154 121L206 148V251L154 277L103 251V148Z" fill="#7B5DC5"/>
+    <path d="M51 121L103 94L154 121L103 148L51 121Z" fill="#A77BE3"/>
+
+    <rect x="182" y="128" width="160" height="146" rx="12" fill="url(#iconPink)"/>
+    <path d="M182 128L235 95L343 95L342 128H182Z" fill="#F3A6CF"/>
+    <path d="M182 274L235 244V128H182V274Z" fill="#D96FC4" opacity="0.85"/>
+
+    <path d="M88 77C88 58 104 43 123 43C137 43 150 51 156 64C160 61 165 59 171 59C185 59 196 70 196 84C196 97 186 108 172 108H110C97 108 88 98 88 85C88 83 88 80 88 77Z" fill="url(#yellow)"/>
+
+    <circle cx="358" cy="92" r="61" fill="#FFD54F" opacity="0.92"/>
+    <path d="M337 76C337 66 345 58 355 58C362 58 369 62 373 69C375 67 379 66 383 66C390 66 396 72 396 80C396 87 391 93 384 93H351C343 93 337 87 337 80C337 79 337 78 337 76Z" fill="#B02CD5"/>
+    <path d="M333 86L355 108L382 81" stroke="#B02CD5" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <path d="M289 30C289 11 304 0 323 0C342 0 357 11 357 30C357 49 323 92 323 92C323 92 289 49 289 30Z" fill="#8E46D9"/>
+    <circle cx="323" cy="31" r="11" fill="#F5C7E0"/>
+  </g>
+</svg>
