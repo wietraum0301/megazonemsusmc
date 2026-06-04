@@ -1050,7 +1050,8 @@
         </div>
       </div>
       <div class="mt-10 mb-20">
-        <a href="https://msevents.microsoft.com/event?id=3940444848" id="register-hero" class="cta-pill" target="_blank" rel="noopener noreferrer">
+
+        <a href="https://msevents.microsoft.com/event?id=3940444848" id="register-hero" class="cta-pill">
           <span class="material-symbols-outlined">how_to_reg</span>
           등록하기
         </a>
@@ -1272,7 +1273,8 @@
         통합 데이터 분석 플랫폼의 모든 과정을 하루 만에 마스터합니다.
       </p>
       <div class="mt-10 flex justify-center">
-        <a href="https://msevents.microsoft.com/event?id=3940444848" id="register-bottom-page" class="cta-pill" target="_blank" rel="noopener noreferrer">
+
+        <a href="https://msevents.microsoft.com/event?id=3940444848" id="register-bottom-page" class="cta-pill">
           <span class="material-symbols-outlined">rocket_launch</span>
           등록하기
         </a>
@@ -1307,42 +1309,79 @@
     <script>
       (function(){
         const targetUrl = 'https://msevents.microsoft.com/event?id=3940444848';
+
+        function shouldMatchText(text) {
+          if (!text) return false;
+          const t = text.toString().trim().toLowerCase();
+          if (t.indexOf('등록') !== -1) return true; // catches '지금 등록하기', '등록하기' 등
+          if (t.indexOf('신청') !== -1) return true;
+          return /register|apply/i.test(t);
+        }
+
         function overrideHeader() {
           const header = document.querySelector('header[data-global-header]');
           if (!header) return;
+
+          // Update existing anchors to point to target and open in new tab
           const anchors = header.querySelectorAll('a');
           anchors.forEach(a => {
             const txt = (a.textContent || '').trim();
-            if (/등록|신청|register|apply/i.test(txt)) {
+            if (shouldMatchText(txt)) {
               a.href = targetUrl;
               a.target = '_blank';
               a.rel = 'noopener noreferrer';
             }
           });
-          const buttons = header.querySelectorAll('button');
-          buttons.forEach(b => {
-            const txt = (b.textContent || '').trim();
-            if (/등록|신청|register|apply/i.test(txt)) {
-              b.addEventListener('click', (e) => {
-                e.preventDefault();
-                window.open(targetUrl, '_blank', 'noopener');
-              });
+
+          // Add a capture-phase click listener on the header to intercept any navigation
+          header.addEventListener('click', function captureClick(e) {
+            const el = e.target.closest('a, button');
+            if (!el) return;
+            const txt = (el.textContent || '').trim();
+            if (!shouldMatchText(txt)) return;
+
+            // Prevent default navigation and any other handlers
+            e.preventDefault();
+            e.stopPropagation();
+
+            // Open in a new tab/window
+            try {
+              window.open(targetUrl, '_blank', 'noopener');
+            } catch (err) {
+              setTimeout(() => { window.location.href = targetUrl; }, 50);
             }
+          }, true); // useCapture = true
+        }
+
+        function setupPageButtons() {
+          const ids = ['register-hero', 'register-bottom-page'];
+          ids.forEach(id => {
+            const el = document.getElementById(id);
+            if (!el) return;
+            el.addEventListener('click', (e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              try {
+                window.open(targetUrl, '_blank', 'noopener');
+              } catch (err) {
+                setTimeout(() => { window.location.href = targetUrl; }, 50);
+              }
+            });
           });
         }
 
+        // Observe header insertion/updates from global-header-loader and re-run override
         document.addEventListener('DOMContentLoaded', () => {
-          // Observe for header content inserted by global-header-loader
-          const root = document.querySelector('header[data-global-header]') || document.body;
-          const mo = new MutationObserver((mutations, obs) => {
+          const root = document.body;
+          const mo = new MutationObserver((mutations) => {
             if (document.querySelector('header[data-global-header] a, header[data-global-header] button')) {
               overrideHeader();
-              obs.disconnect();
             }
           });
           mo.observe(root, { childList: true, subtree: true });
-          // Try immediately in case header already present
+          // Try immediately in case header/buttons already present
           overrideHeader();
+          setupPageButtons();
         });
       })();
     </script>
