@@ -110,6 +110,29 @@
         var parsed = new DOMParser().parseFromString(html, 'text/html');
         var header = parsed.querySelector('nav');
 
+        // Inject stylesheet links and style blocks from header.html into host page
+        try {
+          var parsedLinks = Array.prototype.slice.call(parsed.querySelectorAll('link[rel="stylesheet"]'));
+          parsedLinks.forEach(function (l) {
+            try {
+              var href = l.href || l.getAttribute('href');
+              if (!href) return;
+              var exists = Array.prototype.slice.call(document.head.querySelectorAll('link[rel="stylesheet"]')).some(function (el) { return el.href === href; });
+              if (!exists) {
+                var nl = document.createElement('link'); nl.rel = 'stylesheet'; nl.href = href; document.head.appendChild(nl);
+              }
+            } catch (e) {}
+          });
+
+          var parsedStyles = Array.prototype.slice.call(parsed.querySelectorAll('style'));
+          parsedStyles.forEach(function (s) {
+            try {
+              if (s.id && document.getElementById(s.id)) return;
+              var ns = document.createElement('style'); if (s.id) ns.id = s.id; ns.appendChild(document.createTextNode(s.textContent || s.innerHTML || '')); document.head.appendChild(ns);
+            } catch (e) {}
+          });
+        } catch (e) {}
+
         mountPoint.innerHTML = header ? header.outerHTML : html;
         // mounted nav left as-is; do not force visual overrides here
         // Inject hover CSS into document head so hover works when header is mounted
@@ -165,6 +188,40 @@
               obs.observe(mountPoint, { childList: true, subtree: true });
             }catch(e){}
           })();
+
+          // Also force orange styles for any dropdown items marked as "orange" (팝업 제안)
+          try {
+            dropdowns.forEach(function(dd){
+              try {
+                var orangeIcons = dd.querySelectorAll('.dropdown-item.orange .dropdown-icon') || [];
+                Array.prototype.slice.call(orangeIcons).forEach(function(icon){
+                  setIconStyles(icon, 'rgba(232,119,34,0.12)', '#E87722');
+                });
+              } catch (e) {}
+            });
+          } catch (e) {}
+
+          // Inject persistent CSS rules to override any host styles that may force icons to black
+          try {
+            if (!document.getElementById('global-header-orange-css')) {
+              var css = '\nheader[data-global-header] .nav-dropdown-menu .dropdown-item.orange .dropdown-icon { background-color: rgba(232,119,34,0.12) !important; color: #E87722 !important; }\nheader[data-global-header] .nav-dropdown-menu .dropdown-item.orange .dropdown-icon .material-symbols-outlined, header[data-global-header] .nav-dropdown-menu .dropdown-item.orange .dropdown-icon span { color: #E87722 !important; -webkit-text-fill-color: #E87722 !important; fill: #E87722 !important; }\n';
+              var s = document.createElement('style');
+              s.id = 'global-header-orange-css';
+              s.appendChild(document.createTextNode(css));
+              document.head.appendChild(s);
+            }
+          } catch (e) {}
+
+          // Also ensure the 4th dropdown (다시보기) icons stay primary blue
+          try {
+            if (!document.getElementById('global-header-blue-css')) {
+              var blueCss = '\nheader[data-global-header] .nav-dropdown:nth-of-type(4) .dropdown-icon { background-color: rgba(0,95,170,0.08) !important; color: #005faa !important; }\nheader[data-global-header] .nav-dropdown:nth-of-type(4) .dropdown-icon .material-symbols-outlined, header[data-global-header] .nav-dropdown:nth-of-type(4) .dropdown-icon span { color: #005faa !important; -webkit-text-fill-color: #005faa !important; fill: #005faa !important; }\n';
+              var sb = document.createElement('style');
+              sb.id = 'global-header-blue-css';
+              sb.appendChild(document.createTextNode(blueCss));
+              document.head.appendChild(sb);
+            }
+          } catch (e) {}
         } catch(e) {}
         // Remove any overly-broad header color rules that may have been
         // injected by host pages earlier and force white text across the

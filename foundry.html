@@ -1,1646 +1,509 @@
 <!DOCTYPE html>
 
-<html class="scroll-smooth" lang="ko"><head>
+<html class="light" lang="ko"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Foundry Hands-on 교육 - Megazone Cloud</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;900&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            "colors": {
-                  "on-tertiary-fixed-variant": "#7c2d12",
-                  "on-surface-variant": "#5b6472",
-                  "secondary-fixed": "#dbeafe",
-                  "tertiary-fixed": "#ffedd5",
-                  "on-secondary": "#ffffff",
-                  "on-error": "#ffffff",
-                  "on-primary-fixed-variant": "#1d4ed8",
-                  "outline": "#94a3b8",
-                  "surface-container-lowest": "#ffffff",
-                  "secondary-fixed-dim": "#93c5fd",
-                  "inverse-surface": "#1f2937",
-                  "tertiary-fixed-dim": "#fdba74",
-                  "primary-container": "#dbeafe",
-                  "primary": "#2563eb",
-                  "secondary": "#0f766e",
-                  "background": "#f8fafc",
-                  "surface": "#ffffff",
-                  "on-error-container": "#991b1b",
-                  "inverse-primary": "#93c5fd",
-                  "on-secondary-container": "#0f766e",
-                  "error": "#b91c1c",
-                  "surface-bright": "#ffffff",
-                  "surface-dim": "#e2e8f0",
-                  "secondary-container": "#ccfbf1",
-                  "inverse-on-surface": "#f8fafc",
-                  "on-secondary-fixed-variant": "#0f766e",
-                  "primary-fixed-dim": "#93c5fd",
-                  "surface-variant": "#e5e7eb",
-                  "on-primary": "#ffffff",
-                  "tertiary-container": "#fde68a",
-                  "surface-tint": "#2563eb",
-                  "outline-variant": "#d1d5db",
-                  "surface-container-highest": "#e5e7eb",
-                  "on-tertiary-container": "#92400e",
-                  "surface-container-high": "#f1f5f9",
-                  "primary-fixed": "#dbeafe",
-                  "on-surface": "#111827",
-                  "on-secondary-fixed": "#0f172a",
-                  "error-container": "#fecaca",
-                  "tertiary": "#d97706",
-                  "surface-container-low": "#f8fafc",
-                  "on-primary-container": "#1e3a8a",
-                  "on-tertiary": "#ffffff",
-                  "on-tertiary-fixed": "#7c2d12",
-                  "surface-container": "#f8fafc",
-                  "on-background": "#0f172a",
-                  "on-primary-fixed": "#1e3a8a"
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#f9f9fc",
+                        "primary": "#00459a",
+                        "inverse-on-surface": "#f0f0f3",
+                        "on-tertiary-fixed-variant": "#40484e",
+                        "on-error": "#ffffff",
+                        "tertiary-container": "#5a6168",
+                        "on-surface": "#1a1c1e",
+                        "surface-container-low": "#f3f3f6",
+                        "surface": "#f9f9fc",
+                        "on-error-container": "#93000a",
+                        "on-surface-variant": "#424753",
+                        "on-primary-fixed-variant": "#004396",
+                        "surface-bright": "#f9f9fc",
+                        "on-primary-container": "#cfdcff",
+                        "surface-container-highest": "#e2e2e5",
+                        "tertiary-fixed-dim": "#c0c7cf",
+                        "on-secondary-fixed": "#001e2b",
+                        "primary-container": "#005cc8",
+                        "primary-fixed": "#d8e2ff",
+                        "surface-variant": "#e2e2e5",
+                        "tertiary": "#424950",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#00c1fd",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-container": "#004b65",
+                        "error": "#ba1a1a",
+                        "inverse-surface": "#2f3133",
+                        "primary-fixed-dim": "#aec6ff",
+                        "on-primary-fixed": "#001a42",
+                        "inverse-primary": "#aec6ff",
+                        "secondary": "#006688",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-container": "#d5dce4",
+                        "surface-container": "#eeeef0",
+                        "surface-dim": "#dadadc",
+                        "secondary-fixed": "#c2e8ff",
+                        "on-secondary-fixed-variant": "#004d67",
+                        "on-background": "#1a1c1e",
+                        "outline": "#727785",
+                        "on-tertiary-fixed": "#151c22",
+                        "outline-variant": "#c2c6d5",
+                        "error-container": "#ffdad6",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-high": "#e8e8ea",
+                        "secondary-fixed-dim": "#75d1ff",
+                        "tertiary-fixed": "#dce3eb",
+                        "surface-tint": "#005ac4"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-max": "1200px",
+                        "base": "8px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px",
+                        "section-padding": "80px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Hanken Grotesk"],
+                        "body-sm": ["Hanken Grotesk"],
+                        "body-md": ["Hanken Grotesk"],
+                        "display-lg": ["Hanken Grotesk"],
+                        "label-mono": ["JetBrains Mono"],
+                        "headline-sm": ["Hanken Grotesk"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "display-lg-mobile": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-mono": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "headline-sm": ["20px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "display-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}]
+                    }
+                },
             },
-            "borderRadius": {
-                    "DEFAULT": "0.25rem",
-                    "lg": "0.5rem",
-                    "xl": "0.75rem",
-                    "full": "9999px"
-            },
-            "spacing": {
-                    "md": "24px",
-                    "sm": "16px",
-                    "container-max": "1280px",
-                    "xs": "8px",
-                    "lg": "40px",
-                    "xl": "64px",
-                    "gutter": "24px",
-                    "base": "4px"
-            },
-            "fontFamily": {
-                    "body-lg": ["Inter"],
-                    "display-xl": ["Inter"],
-                    "headline-lg": ["Inter"],
-                    "headline-md": ["Inter"],
-                    "label-md": ["Inter"],
-                    "body-sm": ["Inter"],
-                    "label-caps": ["Inter"],
-                    "body-md": ["Inter"]
-            },
-            "fontSize": {
-                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
-                    "display-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                    "headline-lg": ["32px", {"lineHeight": "1.25", "letterSpacing": "-0.01em", "fontWeight": "600"}],
-                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
-                    "label-md": ["14px", {"lineHeight": "1.5", "fontWeight": "500"}],
-                    "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
-                    "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "700"}],
-                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
-            }
-          },
-        },
-      }
+        }
     </script>
 <style>
-  :root {
-    --ui-ink: #0f2138;
-    --ui-deep: #004c8f;
-    --ui-cyan: #12d6f2;
-    --ui-glass: #ffffff;
-    --ui-stroke: rgba(0, 95, 170, 0.1);
-  }
-
-  body {
-    font-family: 'Inter', sans-serif;
-    background:
-      radial-gradient(1200px 600px at 90% -10%, rgba(96, 165, 250, 0.18), transparent 55%),
-      radial-gradient(900px 520px at -10% 25%, rgba(34, 211, 238, 0.12), transparent 60%),
-      linear-gradient(180deg, #f8fbff 0%, #eef5ff 100%);
-    color: #0f172a;
-    overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-  }
-  .font-headline { font-family: 'Plus Jakarta Sans'; }
-  .gradient-primary { background: linear-gradient(135deg, #00579f 0%, #0dd2ef 100%); }
-  .gradient-teal { background: linear-gradient(135deg, #006875 0%, #00daf3 100%); }
-  .gradient-orange { background: linear-gradient(135deg, #E87722 0%, #FFB74D 100%); }
-  .hero-mesh {
-    background:
-      radial-gradient(at 0% 0%, rgba(0, 95, 170, 0.12) 0%, transparent 50%),
-      radial-gradient(at 100% 100%, rgba(0, 227, 253, 0.08) 0%, transparent 50%);
-  }
-  .ambient-shadow { box-shadow: 0 10px 28px rgba(8, 29, 53, 0.08); }
-
-  nav {
-    background: #ffffff !important;
-    border-bottom: 1px solid rgba(148, 163, 184, 0.18);
-    box-shadow: 0 6px 20px rgba(15, 23, 42, 0.06);
-  }
-  /* Keep top-level nav controls dark and text white to match header */
-  header[data-global-header] nav .nav-dropdown-toggle,
-  header[data-global-header] nav .nav-brand,
-  header[data-global-header] nav > div > a {
-    background: #ffffff !important;
-    color: #0f172a !important;
-    border-color: transparent !important;
-  }
-
-  /* Remove bottom border under mounted global header on this page */
-  header[data-global-header] nav {
-    border-bottom: none !important;
-  }
-
-  a.gradient-primary {
-    box-shadow: 0 6px 18px rgba(0, 95, 170, 0.16), inset 0 0 0 1px rgba(255, 255, 255, 0.12);
-    position: relative;
-    overflow: hidden;
-  }
-  a.gradient-primary::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(120deg, transparent 20%, rgba(255, 255, 255, 0.12) 50%, transparent 80%);
-    transform: none;
-    transition: none;
-    pointer-events: none;
-  }
-  a.gradient-primary:hover::after {
-    transform: none;
-  }
-
-  /* ============================================ */
-  /* Animated Background — Floating Water Drops   */
-  /* ============================================ */
-  .bg-animation {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    z-index: 0;
-    overflow: hidden;
-    pointer-events: none;
-  }
-  .bg-circle {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(100px);
-    opacity: 0.35;
-    animation: floatCircle 25s ease-in-out infinite;
-  }
-  .bg-circle:nth-child(1) {
-    width: 700px; height: 700px;
-    background: linear-gradient(135deg, rgba(0, 95, 170, 0.40), rgba(0, 227, 253, 0.22));
-    top: -250px; right: -150px;
-    animation-delay: 0s;
-  }
-  .bg-circle:nth-child(2) {
-    width: 500px; height: 500px;
-    background: linear-gradient(135deg, rgba(0, 120, 212, 0.32), rgba(0, 104, 117, 0.22));
-    bottom: 15%; left: -200px;
-    animation-delay: -7s;
-  }
-  .bg-circle:nth-child(3) {
-    width: 450px; height: 450px;
-    background: linear-gradient(135deg, rgba(0, 227, 253, 0.24), rgba(0, 95, 170, 0.20));
-    top: 45%; right: 5%;
-    animation-delay: -12s;
-  }
-  .bg-circle:nth-child(4) {
-    width: 350px; height: 350px;
-    background: linear-gradient(135deg, rgba(0, 104, 117, 0.22), rgba(0, 164, 239, 0.26));
-    bottom: -100px; left: 25%;
-    animation-delay: -18s;
-  }
-  @keyframes floatCircle {
-    0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
-    25%      { transform: translate(40px, -40px) scale(1.08) rotate(2deg); }
-    50%      { transform: translate(-30px, 30px) scale(0.95) rotate(-1deg); }
-    75%      { transform: translate(-40px, -25px) scale(1.03) rotate(1deg); }
-  }
-
-  /* Subtle grid pattern */
-  .grid-pattern {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    z-index: 0;
-    pointer-events: none;
-    background-image:
-      linear-gradient(rgba(0, 95, 170, 0.035) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0, 95, 170, 0.035) 1px, transparent 1px);
-    background-size: 80px 80px;
-    animation: gridMove 40s linear infinite;
-  }
-  @keyframes gridMove {
-    0%   { transform: translate(0, 0); }
-    100% { transform: translate(80px, 80px); }
-  }
-
-  /* Floating particles (water droplets) */
-  .particle {
-    position: fixed;
-    pointer-events: none;
-    opacity: 0.55;
-    z-index: 0;
-    border-radius: 50%;
-  }
-  .particle-1 {
-    width: 10px; height: 10px;
-    background: #00a4ef;
-    top: 18%; left: 8%;
-    animation: particleFloat 18s ease-in-out infinite;
-  }
-  .particle-2 {
-    width: 7px; height: 7px;
-    background: #00e3fd;
-    top: 55%; right: 12%;
-    animation: particleFloat 22s ease-in-out infinite reverse;
-  }
-  .particle-3 {
-    width: 12px; height: 12px;
-    background: #00b7c3;
-    bottom: 25%; left: 18%;
-    animation: particleFloat 25s ease-in-out infinite;
-    animation-delay: -8s;
-  }
-  .particle-4 {
-    width: 6px; height: 6px;
-    background: #005faa;
-    top: 35%; left: 75%;
-    animation: particleFloat 20s ease-in-out infinite;
-    animation-delay: -4s;
-  }
-  @keyframes particleFloat {
-    0%, 100% { transform: translate(0, 0) rotate(0deg); }
-    25%      { transform: translate(60px, -60px) rotate(90deg); }
-    50%      { transform: translate(0, -120px) rotate(180deg); }
-    75%      { transform: translate(-60px, -60px) rotate(270deg); }
-  }
-
-  .dropdown-shadow {
-    box-shadow:
-      0 18px 42px -12px rgba(0, 95, 170, 0.12),
-      0 8px 20px -8px rgba(16, 28, 46, 0.1),
-      0 3px 8px rgba(16, 28, 46, 0.05),
-      0 0 0 1px rgba(0, 95, 170, 0.08);
-  }
-  .event-card {
-    border-color: rgba(0, 95, 170, 0.12) !important;
-    box-shadow: 0 6px 16px rgba(8, 35, 66, 0.06);
-    backdrop-filter: blur(2px);
-    transition: transform 0.45s cubic-bezier(.22,1,.36,1), box-shadow 0.45s cubic-bezier(.22,1,.36,1), border-color 0.45s ease;
-  }
-  .event-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 14px 26px rgba(0, 76, 143, 0.1);
-    border-color: rgba(0, 95, 170, 0.2) !important;
-  }
-
-  /* Dropdown */
-  .nav-dropdown-menu {
-    opacity: 0;
-    visibility: hidden;
-    transform: translateX(-50%) translateY(6px);
-    transition: all 0.3s cubic-bezier(.22,1,.36,1);
-    max-height: 70vh;
-    overflow-y: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    background: rgba(255, 255, 255, 0.94) !important;
-    border-color: rgba(0, 95, 170, 0.12) !important;
-    backdrop-filter: blur(12px);
-  }
-  
-  .nav-dropdown-menu::-webkit-scrollbar {
-    display: none;
-    width: 0;
-    height: 0;
-  }
-  .nav-dropdown.active .nav-dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) translateY(0);
-  }
-  .nav-dropdown.active .chevron { transform: rotate(180deg); }
-  .chevron { transition: transform 0.3s ease; }
-
-  /* Dropdown item hover effects */
-  .dropdown-item {
-    position: relative;
-    transition: all 0.3s cubic-bezier(.22,1,.36,1);
-    overflow: hidden;
-  }
-  .dropdown-item::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 3px;
-    height: 0;
-    background: linear-gradient(180deg, #005faa, #00e3fd);
-    border-radius: 0 3px 3px 0;
-    transition: height 0.3s cubic-bezier(.22,1,.36,1);
-  }
-  .dropdown-item.orange::before {
-    background: linear-gradient(180deg, #E87722, #FFB74D);
-  }
-  .dropdown-item.teal::before {
-    background: linear-gradient(180deg, #006875, #00daf3);
-  }
-  .dropdown-item:hover {
-    background: linear-gradient(135deg, rgba(0,95,170,0.06), rgba(0,227,253,0.04));
-    transform: translateX(4px);
-    box-shadow: 0 4px 16px rgba(0, 95, 170, 0.08);
-  }
-  .dropdown-item.orange:hover {
-    background: linear-gradient(135deg, rgba(232,119,34,0.06), rgba(255,183,77,0.04));
-    box-shadow: 0 4px 16px rgba(232, 119, 34, 0.1);
-  }
-  .dropdown-item.teal:hover {
-    background: linear-gradient(135deg, rgba(0,104,117,0.06), rgba(0,218,243,0.04));
-    box-shadow: 0 4px 16px rgba(0, 104, 117, 0.1);
-  }
-  .dropdown-item:hover::before {
-    height: 60%;
-  }
-  .dropdown-item .dropdown-icon {
-    transition: all 0.3s cubic-bezier(.22,1,.36,1);
-  }
-  .dropdown-item:hover .dropdown-icon {
-    transform: scale(1.1) rotate(-4deg);
-  }
-  .dropdown-item .dropdown-arrow {
-    opacity: 0;
-    transform: translateX(-6px);
-    transition: all 0.3s cubic-bezier(.22,1,.36,1);
-    margin-left: auto;
-    color: #005faa;
-    font-weight: bold;
-    flex-shrink: 0;
-  }
-  .dropdown-item.orange .dropdown-arrow { color: #E87722; }
-  .dropdown-item.teal .dropdown-arrow { color: #006875; }
-  .dropdown-item:hover .dropdown-arrow {
-    opacity: 1;
-    transform: translateX(0);
-  }
-
-  .agenda-grid {
-    display: grid;
-    grid-template-columns: repeat(1, minmax(0, 1fr));
-    gap: 16px;
-  }
-
-  @media (min-width: 768px) {
-    .agenda-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-
-  .agenda-card {
-    background: rgba(255, 255, 255, 0.95);
-    border: 1px solid rgba(148, 163, 184, 0.18);
-    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
-    transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
-  }
-
-  .agenda-card:hover {
-    transform: translateY(-3px);
-    border-color: rgba(37, 99, 235, 0.22);
-    box-shadow: 0 14px 28px rgba(15, 23, 42, 0.12);
-  }
-
-  .agenda-card .agenda-time {
-    color: #2563eb;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.03em;
-    text-transform: uppercase;
-  }
-
-  .agenda-card .agenda-tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 4px 10px;
-    border-radius: 999px;
-    background: rgba(37, 99, 235, 0.08);
-    color: #1d4ed8;
-    font-size: 11px;
-    font-weight: 700;
-  }
-
-  .agenda-card .agenda-title {
-    font-size: 18px;
-    line-height: 1.25;
-    font-weight: 700;
-    color: #0f172a;
-  }
-
-  .agenda-card .agenda-desc {
-    margin-top: 8px;
-    color: #475569;
-    font-size: 14px;
-    line-height: 1.55;
-  }
-
-  .agenda-break {
-    background: rgba(248, 250, 252, 0.98);
-    border: 1px dashed rgba(148, 163, 184, 0.35);
-  }
-
-  .nav-dropdown-toggle {
-    position: relative;
-    padding-bottom: 0.4rem;
-  }
-  .nav-dropdown-toggle::after {
-    content: '';
-    position: absolute;
-    left: 0.7rem;
-    right: 0.7rem;
-    bottom: 0.1rem;
-    height: 2px;
-    background: linear-gradient(90deg, #005faa, #00e3fd);
-    transform: scaleX(0);
-    transform-origin: left center;
-    transition: transform 0.25s ease;
-    border-radius: 999px;
-  }
-  .nav-dropdown-toggle:hover::after,
-  .nav-dropdown.active .nav-dropdown-toggle::after {
-    transform: scaleX(1);
-  }
-  .nav-dropdown-menu .dropdown-arrow {
-    display: none !important;
-  }
-
-  .material-symbols-outlined {
-    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-    display: inline-block;
-    vertical-align: middle;
-  }
-
-  /* Navigation light mode - force all elements to light mode regardless of dark class */
-  nav.fixed {
-    background: #ffffff !important;
-    background-color: #ffffff !important;
-    color-scheme: light !important;
-    box-shadow: none !important;
-    border-bottom: 0 !important;
-  }
-
-  nav.fixed * {
-    color-scheme: light !important;
-  }
-
-  /* Override nav button colors */
-  nav.fixed .nav-dropdown-toggle {
-    color: #0f172a !important;
-    background: #ffffff !important;
-    border: 1px solid rgba(148, 163, 184, 0.18) !important;
-  }
-
-  nav.fixed .nav-brand {
-    color: #0f172a !important;
-  }
-
-  nav.fixed .nav-dropdown-toggle.text-on-surface {
-    color: #0f172a !important;
-  }
-
-  nav.fixed .text-on-surface-variant {
-    color: #6b7280 !important;
-  }
-
-  nav.fixed .text-slate-900 {
-    color: #0f172a !important;
-  }
-
-  /* Force nav-dropdown-menu to be light mode - override dark mode completely */
-  .nav-dropdown-menu {
-    background: rgb(255, 255, 255) !important;
-    background-color: rgb(255, 255, 255) !important;
-    border: 1px solid rgba(0, 95, 170, 0.12) !important;
-    color: #101c2e !important;
-    appearance: none !important;
-    -webkit-appearance: none !important;
-    scrollbar-width: none !important;
-    -ms-overflow-style: none !important;
-  }
-
-  .nav-dropdown-menu::-webkit-scrollbar {
-    display: none !important;
-    width: 0 !important;
-    height: 0 !important;
-  }
-
-  .dark .nav-dropdown-menu {
-    background: rgb(255, 255, 255) !important;
-    background-color: rgb(255, 255, 255) !important;
-  }
-
-  .dropdown-item {
-    color: #101c2e !important;
-    background: transparent !important;
-  }
-
-  .dropdown-item .font-semibold {
-    color: #101c2e !important;
-  }
-
-  .dropdown-item .text-on-surface {
-    color: #101c2e !important;
-  }
-
-  .dropdown-item .text-on-surface-variant {
-    color: #717171 !important;
-  }
-
-  /* Icon colors - keep original colors */
-  .dropdown-item .text-primary {
-    color: #005faa !important;
-  }
-
-  .dropdown-item .text-popup-orange {
-    color: #E87722 !important;
-  }
-
-  .dropdown-item .text-secondary {
-    color: #006875 !important;
-  }
-
-  .dropdown-item .text-slate-500 {
-    color: #64748b !important;
-  }
-
-  /* Icon background colors */
-    /* Ensure icon spans inherit text colors properly */
-    .dropdown-item .text-primary span {
-      color: #005faa !important;
-    }
-
-    .dropdown-item .text-secondary span {
-      color: #006875 !important;
-    }
-
-    .dropdown-item .text-popup-orange span {
-      color: #E87722 !important;
-    }
-
-    .dropdown-item .text-slate-500 span {
-      color: #64748b !important;
-    }
-
-    /* Icon background colors */
-    .dropdown-item .bg-primary\/10 {
-    background-color: rgba(0, 95, 170, 0.1) !important;
-  }
-
-  .dropdown-item .bg-popup-orange\/10 {
-    background-color: rgba(232, 119, 34, 0.1) !important;
-  }
-
-  .dropdown-item .bg-secondary\/10 {
-    background-color: rgba(0, 104, 117, 0.1) !important;
-  }
-
-  .dropdown-item .bg-slate-200 {
-    background-color: #e2e8f0 !important;
-  }
-
-  .dropdown-item:hover {
-    background: linear-gradient(135deg, rgba(0,95,170,0.06), rgba(0,227,253,0.04)) !important;
-  }
-
-  .dropdown-item.orange:hover {
-    background: linear-gradient(135deg, rgba(232,119,34,0.06), rgba(255,183,77,0.04)) !important;
-  }
-
-  .dropdown-item.teal:hover {
-    background: linear-gradient(135deg, rgba(0,104,117,0.06), rgba(0,218,243,0.04)) !important;
-  }
-
-  .nav-dropdown-menu .bg-outline-variant\/30 {
-    background-color: rgba(141, 144, 160, 0.3) !important;
-  }
-
-  .nav-dropdown-menu .border-outline-variant {
-    border-color: rgba(141, 144, 160, 0.2) !important;
-  }
-
-  .nav-dropdown-menu .outline-variant {
-    border-color: rgba(141, 144, 160, 0.2) !important;
-  }
-
-  /* Override all dark mode colors in dropdown */
-  .dark .dropdown-item {
-    color: #101c2e !important;
-  }
-
-
-  .dark .dropdown-item .text-on-surface {
-    color: #101c2e !important;
-  }
-
-  .dark .dropdown-item .text-on-surface-variant {
-    color: #717171 !important;
-  }
-
-  .glass-card {
-    background: rgba(255, 255, 255, 0.94);
-    border: 1px solid rgba(148, 163, 184, 0.16);
-    color: #0f172a;
-    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
-  }
-
-  .glass-card .text-on-surface-variant {
-    color: #475569 !important;
-  }
-
-  .glass-card .text-on-surface,
-  .glass-card h3,
-  .glass-card h4,
-  .glass-card p {
-    color: #0f172a;
-  }
-
-  .dark .dropdown-item .text-primary {
-    color: #005faa !important;
-  }
-
-  .dark .dropdown-item .text-popup-orange {
-    color: #E87722 !important;
-  }
-
-  .dark .dropdown-item .bg-primary\/10 {
-    background-color: rgba(0, 95, 170, 0.1) !important;
-  }
-
-  .dark .dropdown-item .bg-popup-orange\/10 {
-    background-color: rgba(232, 119, 34, 0.1) !important;
-  }
-
-  /* Learning content column in the dark section */
-  tbody td:nth-child(5) li {
-    color: #ffffff !important;
-  }
-
-  tbody td:nth-child(5) .material-symbols-outlined {
-    color: #ffffff !important;
-    font-size: 18px !important;
-    font-variation-settings: 'wght' 300 !important;
-  }
-
-  /* Ensure apply buttons render horizontally and don't wrap */
-  table.w-full tbody td:last-child button,
-  table.w-full tbody td:last-child a {
-    white-space: nowrap !important;
-    writing-mode: horizontal-tb !important;
-    text-orientation: mixed !important;
-    display: inline-block !important;
-    vertical-align: middle !important;
-  }
-
-  /* Make all table '신청' buttons white background with black text */
-  table.w-full tbody td:last-child button {
-    background-color: #ffffff !important;
-    color: #000000 !important;
-    border-color: transparent !important;
-  }
-  table.w-full tbody td:last-child a.cta-pill {
-    padding: 8px 16px 8px 20px !important;
-    gap: 8px !important;
-    font-size: 13px !important;
-    font-weight: 500 !important;
-    margin-left: -2px !important;
-    background: transparent !important;
-    color: #000000 !important;
-    border-color: #000000 !important;
-    box-shadow: none !important;
-  }
-  table.w-full tbody td:last-child a.cta-pill .material-symbols-outlined {
-    color: #000000 !important;
-    font-size: 16px !important;
-    font-variation-settings: 'wght' 300, 'FILL' 1 !important;
-  }
-
-  /* Make session number badges text-only with white text */
-  table.w-full tbody td:first-child span {
-    background: transparent !important;
-    background-color: transparent !important;
-    color: #ffffff !important;
-    padding: 0 !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
-    display: inline !important;
-    font-size: 15px !important;
-  }
-
-  /* Key Takeaways cards: white background, black text, black left border */
-  .key-takeaways .p-lg {
-    background-color: #ffffff !important;
-    color: #000000 !important;
-    border-left-color: #000000 !important;
-  }
-  .key-takeaways .material-symbols-outlined {
-    color: #000000 !important;
-  }
-  .key-takeaways h3,
-  .key-takeaways p {
-    color: #000000 !important;
-  }
-
-  /* Gradient heading for hero */
-  .gradient-heading {
-    background: linear-gradient(90deg, #7EC8FF 0%, #6A74FF 45%, #C082FF 75%, #5CE1FF 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-    display: inline-block;
-    line-height: 1.05;
-    text-decoration: none;
-    opacity: 0.9;
-  }
-  /* Pill CTA similar to provided example */
-  .cta-pill {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 14px;
-    min-width: 160px;
-    padding: 14px 28px;
-    border-radius: 999px;
-    border: 1px solid rgba(15, 23, 42, 0.9);
-    background: transparent;
-    color: #0f172a;
-    font-weight: 700;
-    text-decoration: none;
-    box-shadow: none;
-    transition: transform .18s ease, box-shadow .18s ease, opacity .18s ease, border-color .18s ease;
-  }
-  .cta-pill .material-symbols-outlined { font-size: 18px; opacity: 0.95; font-weight: bold; }
-  .cta-pill:hover {
-    transform: translateY(-2px);
-    background: transparent;
-    border-color: rgba(15, 23, 42, 1);
-  }
-
-  .foundry-cta-panel {
-    border: 1px solid rgba(148, 163, 184, 0.18);
-    background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(248,250,252,0.96));
-    box-shadow: 0 24px 48px rgba(15, 23, 42, 0.08);
-  }
-
-</style>
-
-<!-- Timeline spacing fix: prevent break label from overlapping times -->
-<style>
-  .timeline-line .pl-xl { padding-left: 88px; }
-  .timeline-line .pl-xl .absolute { left: 8px; }
-  @media (min-width: 768px) {
-    .timeline-line .pl-xl { padding-left: 104px; }
-    .timeline-line .pl-xl .absolute { left: 12px; }
-  }
-</style>
-
-<style>
-  /* Ensure material icons inside timeline icon circle fit and don't show fallback text */
-  .timeline-line .pl-xl .absolute .material-symbols-outlined,
-  .nav-dropdown-menu .dropdown-icon .material-symbols-outlined {
-    font-size: 24px !important;
-    line-height: 1 !important;
-    text-transform: none !important;
-    letter-spacing: normal !important;
-  }
-</style>
-<script>
-  (function () {
-    var targetUrl = 'https://events.teams.microsoft.com/event/ee997a1a-951f-4ae4-868b-0a0f885c6c67@97f42f55-f1db-4804-b1eb-08db083efd4f';
-
-    function applyLink() {
-      var link = document.querySelector('header[data-global-header] a.gradient-primary');
-      if (link) {
-        link.href = targetUrl;
-        return true;
-      }
-      return false;
-    }
-
-    function start() {
-      if (applyLink()) {
-        return;
-      }
-
-      var timer = window.setInterval(function () {
-        if (applyLink()) {
-          window.clearInterval(timer);
+        body {
+            font-family: 'Hanken Grotesk', sans-serif;
+            background-color: var(--tw-color-background);
+            scroll-behavior: smooth;
         }
-      }, 50);
-
-      window.addEventListener('load', function () {
-        applyLink();
-        window.clearInterval(timer);
-      });
-    }
-
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', start);
-    } else {
-      start();
-    }
-  })();
-</script>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-nav {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .card-shadow {
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        .card-shadow:hover {
+            box-shadow: 0px 12px 32px rgba(0, 0, 0, 0.08);
+            transform: translateY(-2px);
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+        .curriculum-accent {
+            border-left: 4px solid #00459a;
+        }
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: #e2e2e5;
+            z-index: 0;
+        }
+    </style>
 </head>
-<body class="bg-background text-on-background font-body-md selection:bg-primary/30">
-
+<body class="text-on-surface">
+<!-- Global header placeholder (mounted from header.html) -->
 <header data-global-header aria-label="사이트 헤더"></header>
-
-<main class="pt-l pb-xl px-margin max-w-7xl mx-auto">
+<main class="pt-32 pb-section-padding">
 <!-- Hero Section -->
-<section class="pt-lg pb-xl animate-fade-in mb-[140px]">
-<h1 class="font-display-lg text-[56px] md:text-[72px] mt-[160px] leading-[1.05] tracking-tight font-semibold text-primary mb-sm ">Foundry Hands-on 교육</h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl">실습 중심의 Foundry 교육 과정을 확인하세요. AI 및 소프트웨어 엔지니어링 역량을 강화하는 체계적인 타임라인과 챕터별 상세 내용을 제공합니다.</p>
-<div class="mt-4 max-w-3xl rounded-xl border border-outline-variant/60 bg-white/85 px-4 py-3 text-on-surface">
-<div class="flex items-center gap-2 text-sm md:text-base font-medium">
-<span class="material-symbols-outlined text-primary" aria-hidden="true">location_on</span>
-<a href="https://map.naver.com/p/entry/place/2011750278?c=15.00,0,0,0,dh&placePath=/home?from=map&from=map&fromPanelNum=1&additionalHeight=76&timestamp=202605220903&locale=ko&svcName=map_pcv5" target="_blank" rel="noopener noreferrer" class="hover:text-primary hover:underline">장소: 리부팅랩 세미나강의실(압구정도산점)</a>
+<section class="max-w-container-max mx-auto px-base md:px-gutter mb-20">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div>
+
+<h1 class="font-display-lg text-display-lg mb-6 text-on-surface leading-tight">
+                        Foundry Hands-on 교육
+                    </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-xl">
+                        실습 중심의 Foundry 교육 과정을 확인하세요. AI 및 소프트웨어 엔지니어링 역량을 강화하는 체계적인 타임라인과 챕터별 상세 내용을 제공합니다.
+                    </p>
+<div class="bg-surface-container-low p-gutter rounded-xl mb-10 border border-outline-variant flex flex-col md:flex-row gap-8">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined">location_on</span>
 </div>
-<div class="mt-2 flex items-center gap-2 text-sm md:text-base font-medium">
-<span class="material-symbols-outlined text-primary" aria-hidden="true">schedule</span>
-<span>시간: 09:00-17:00</span>
+<div>
+<p class="text-body-sm text-on-surface-variant font-medium">장소</p>
+<p class="text-body-md font-bold">리부팅랩 세미나강의실(압구정도산점)</p>
 </div>
 </div>
-<div class="mt-8">
-<a href="https://events.teams.microsoft.com/event/ee997a1a-951f-4ae4-868b-0a0f885c6c67@97f42f55-f1db-4804-b1eb-08db083efd4f" target="_blank" rel="noopener noreferrer" class="cta-pill">
-등록하기
-<span class="material-symbols-outlined">arrow_forward</span>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined">schedule</span>
+</div>
+<div>
+<p class="text-body-sm text-on-surface-variant font-medium">시간</p>
+<p class="text-body-md font-bold">09:00 - 17:00</p>
+</div>
+</div>
+</div>
+<a href="https://events.teams.microsoft.com/event/ee997a1a-951f-4ae4-868b-0a0f885c6c67@97f42f55-f1db-4804-b1eb-08db083efd4f" target="_blank" rel="noopener noreferrer" class="bg-white border-2 border-primary text-primary px-8 py-4 rounded-xl font-bold flex items-center gap-3 hover:bg-primary/5 transition-all shadow-sm group">
+                        등록하기
+                        <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
 </a>
 </div>
-</section>
-<!-- Section 1: Interactive Agenda -->
-<section class="mb-xl">
-<div class="mx-auto w-full max-w-[700px] lg:w-[70%]">
-<div class="flex flex-col gap-2 mb-lg">
-<h2 class="font-headline-lg text-headline-lg flex items-center gap-sm">
-<span class="material-symbols-outlined text-secondary">schedule</span>
-교육 일정
-</h2>
-<p class="text-sm text-on-surface-variant max-w-2xl">
-  한 화면에서 핵심 흐름이 보이도록 카드형으로 정리했습니다.
-</p>
+<div class="relative">
+<div class="absolute -top-10 -right-10 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
+<div class="relative rounded-2xl overflow-hidden shadow-2xl border border-white/50">
+<img alt="Advanced Tech Learning Environment" class="w-full h-[480px] object-cover" data-alt="A high-end, contemporary educational seminar room with rows of laptop stations under soft, architectural lighting. The environment reflects a clean, professional academic setting with a minimalist aesthetic, featuring neutral tones and sharp blue accents from screen displays. Large windows reveal a blurry metropolitan background, contributing to a modern, tech-forward corporate vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXe6csAF3oI-HSBeZEvo0_Afj-PVQZu0b8yCxFAQAwE6LOuM1WiBLHeFCnigjl_4NfNNTRJl0wy5KdRh99fRGB4_jNpN6vSiimzkSxOu8pfKmWIkDPYiYZJw_gLOlFSgim4qFuc7_2XvCykGzl3oJ3RUnxZQz1AMOX1HZbMvnqeTbrQcyZ2Hh6RZ3pk8wtIKUWkTdeamCc__dfozlkAiuotPrPTi4OjqV5TMeLz2G3HtSR36L_4h7CPKL5c5YfDZm2kKyJ-DFajQ"/>
 </div>
-<div class="agenda-grid">
-<article class="agenda-card rounded-2xl p-md h-full">
-<div class="flex items-start justify-between gap-3 mb-3">
-<span class="agenda-time">09:00 - 09:20</span>
-<span class="agenda-tag">Hands-on</span>
-</div>
-<h3 class="agenda-title mb-2">준비 | Foundry 프로젝트 셋업</h3>
-<p class="agenda-desc">Foundry 프로젝트, Python 가상 환경, <code class="bg-white/10 px-1.5 py-0.5 rounded text-[12px] text-on-surface-variant">.env</code> 설정 준비</p>
-</article>
-
-<article class="agenda-card rounded-2xl p-md h-full">
-<div class="flex items-start justify-between gap-3 mb-3">
-<span class="agenda-time">09:20 - 10:00</span>
-<span class="agenda-tag">Hands-on</span>
-</div>
-<h3 class="agenda-title mb-2">1장: Responses API 기초</h3>
-<p class="agenda-desc">Responses API 첫 호출, 역할 지시문, multi-turn 프롬프트 패턴</p>
-</article>
-
-<article class="agenda-card agenda-break rounded-2xl p-md h-full sm:col-span-2">
-<div class="flex items-center justify-between gap-3">
-<span class="agenda-time">10:00 - 10:15</span>
-<span class="agenda-tag" style="background: rgba(255,255,255,0.04); color: #c6cbd8;">휴식</span>
-</div>
-</article>
-
-<article class="agenda-card rounded-2xl p-md h-full">
-<div class="flex items-start justify-between gap-3 mb-3">
-<span class="agenda-time">10:15 - 10:45</span>
-<span class="agenda-tag">Hands-on</span>
-</div>
-<h3 class="agenda-title mb-2">2장: OpenAI-compatible 클라이언트</h3>
-<p class="agenda-desc">공통 설정 검증, OpenAI-compatible client 구성</p>
-</article>
-
-<article class="agenda-card rounded-2xl p-md h-full">
-<div class="flex items-start justify-between gap-3 mb-3">
-<span class="agenda-time">10:45 - 11:15</span>
-<span class="agenda-tag">Hands-on</span>
-</div>
-<h3 class="agenda-title mb-2">3장: Prompt-style Agent</h3>
-<p class="agenda-desc">역할 지시문 기반 prompt-style agent와 대화 상태 유지 구조</p>
-</article>
-
-<article class="agenda-card agenda-break rounded-2xl p-md h-full sm:col-span-2">
-<div class="flex items-center justify-between gap-3">
-<span class="agenda-time">11:15 - 11:30</span>
-<span class="agenda-tag" style="background: rgba(255,255,255,0.04); color: #c6cbd8;">휴식</span>
-</div>
-</article>
-
-<article class="agenda-card rounded-2xl p-md h-full">
-<div class="flex items-start justify-between gap-3 mb-3">
-<span class="agenda-time">11:30 - 12:20</span>
-<span class="agenda-tag">Hands-on</span>
-</div>
-<h3 class="agenda-title mb-2">4장: 도구 호출 &amp; RAG</h3>
-<p class="agenda-desc">로컬 도구 호출, 문서 기반 RAG, specialist handoff plan을 포함한 multi-tool routing</p>
-</article>
-
-<article class="agenda-card agenda-break rounded-2xl p-md h-full sm:col-span-2">
-<div class="flex items-center justify-between gap-3">
-<span class="agenda-time">12:20 - 13:20</span>
-<span class="agenda-tag" style="background: rgba(255,255,255,0.04); color: #c6cbd8;">점심 1시간</span>
-</div>
-</article>
-
-<article class="agenda-card rounded-2xl p-md h-full">
-<div class="flex items-start justify-between gap-3 mb-3">
-<span class="agenda-time">13:20 - 13:50</span>
-<span class="agenda-tag">Hands-on</span>
-</div>
-<h3 class="agenda-title mb-2">5장: Agent 협업</h3>
-<p class="agenda-desc">여러 역할의 agent 순차 협업과 Streamlit UI 연결</p>
-</article>
-
-<article class="agenda-card rounded-2xl p-md h-full">
-<div class="flex items-start justify-between gap-3 mb-3">
-<span class="agenda-time">13:50 - 14:20</span>
-<span class="agenda-tag">Hands-on</span>
-</div>
-<h3 class="agenda-title mb-2">6장: 마이크로서비스 분리</h3>
-<p class="agenda-desc">RAG 기능을 독립 HTTP 도구 서버로 분리하고 클라이언트에서 호출</p>
-</article>
-
-<article class="agenda-card agenda-break rounded-2xl p-md h-full sm:col-span-2">
-<div class="flex items-center justify-between gap-3">
-<span class="agenda-time">14:20 - 14:35</span>
-<span class="agenda-tag" style="background: rgba(255,255,255,0.04); color: #c6cbd8;">휴식</span>
-</div>
-</article>
-
-<article class="agenda-card rounded-2xl p-md h-full">
-<div class="flex items-start justify-between gap-3 mb-3">
-<span class="agenda-time">14:35 - 15:05</span>
-<span class="agenda-tag">Hands-on</span>
-</div>
-<h3 class="agenda-title mb-2">7장: 운영 통제</h3>
-<p class="agenda-desc">guardrails, human review, reflection loop를 통한 운영 통제 패턴</p>
-</article>
-
-<article class="agenda-card rounded-2xl p-md h-full">
-<div class="flex items-start justify-between gap-3 mb-3">
-<span class="agenda-time">15:05 - 15:55</span>
-<span class="agenda-tag">Hands-on</span>
-</div>
-<h3 class="agenda-title mb-2">8장: Foundry Agent Service</h3>
-<p class="agenda-desc">Foundry Agent Service agent 생성, Search tool, Knowledge base, MCPTool, monitoring 연결</p>
-</article>
-
-<article class="agenda-card agenda-break rounded-2xl p-md h-full sm:col-span-2">
-<div class="flex items-center justify-between gap-3">
-<span class="agenda-time">15:55 - 16:45</span>
-<span class="agenda-tag" style="background: rgba(255,255,255,0.04); color: #c6cbd8;">정리</span>
-</div>
-<h3 class="agenda-title mt-3 mb-2">운영 관점 분석</h3>
-<p class="agenda-desc">실행 결과, trace, 포털 monitoring 결과의 운영 관점 해석</p>
-</article>
 </div>
 </div>
 </section>
-
-<!-- Section 2: Key Learning Areas -->
-<section class="py-xl">
-<h2 class="font-headline-lg text-headline-lg mb-lg flex items-center gap-sm">
-<span class="material-symbols-outlined text-secondary">menu_book</span>
-핵심 학습 영역
-</h2>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
-<!-- Chapters 1-2 -->
-<div class="glass-card p-md rounded-xl">
-<div class="flex items-center gap-sm mb-sm">
-<span class="bg-primary/20 text-primary px-sm py-xs rounded font-label-md">CH 1-2</span>
-<h4 class="font-headline-md text-headline-md">API 기초 &amp; 모델 통합</h4>
+<!-- Notice Banner -->
+<section class="max-w-container-max mx-auto px-base md:px-gutter mb-24">
+<div class="bg-primary/5 border border-primary/20 rounded-2xl p-6 flex flex-col md:flex-row items-center justify-between gap-6">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary" data-weight="fill">campaign</span>
+<p class="font-body-md font-bold text-on-surface">공지사항</p>
+<div class="h-4 w-[1px] bg-outline-variant hidden md:block"></div>
+<p class="font-body-md text-on-surface-variant">강의 전 꼭 준비해오셔야 하는 부분입니다.</p>
 </div>
-<ul class="space-y-xs text-on-surface-variant">
-<li class="flex items-start gap-xs"><span class="material-symbols-outlined text-primary text-sm">check_circle</span> Responses API 인터페이스 이해</li>
-<li class="flex items-start gap-xs"><span class="material-symbols-outlined text-primary text-sm">check_circle</span> 프롬프트 엔지니어링 실무</li>
-<li class="flex items-start gap-xs"><span class="material-symbols-outlined text-primary text-sm">check_circle</span> OpenAI-compatible 클라이언트 구성</li>
-</ul>
+<div class="flex gap-4">
+<a class="text-primary font-body-md font-bold underline hover:text-primary-container transition-colors" href="https://www.python.org/downloads/windows/">Python 3.11.9 설치</a>
+<a class="text-primary font-body-md font-bold underline hover:text-primary-container transition-colors" href="https://code.visualstudio.com/">VS Code 설치</a>
+</div>
 </div>
 
-<!-- Chapters 3-4 -->
-<div class="glass-card p-md rounded-xl">
-<div class="flex items-center gap-sm mb-sm">
-<span class="bg-primary/20 text-primary px-sm py-xs rounded font-label-md">CH 3-4</span>
-<h4 class="font-headline-md text-headline-md">Agent 구조 &amp; 도구 연동</h4>
+<div class="mt-5 bg-secondary-container/45 border border-secondary/25 rounded-2xl p-6 md:p-7">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary" data-weight="fill">cloud_sync</span>
+<div>
+<p class="font-body-md font-bold text-on-surface">사전 배포 준비</p>
+<p class="font-body-sm text-on-surface-variant mt-1">원활한 실습을 위해 사전 준비가 필요합니다.</p>
 </div>
-<ul class="space-y-xs text-on-surface-variant">
-<li class="flex items-start gap-xs"><span class="material-symbols-outlined text-primary text-sm">check_circle</span> Prompt-style agent 아키텍처</li>
-<li class="flex items-start gap-xs"><span class="material-symbols-outlined text-primary text-sm">check_circle</span> 로컬 도구 호출 메커니즘</li>
-<li class="flex items-start gap-xs"><span class="material-symbols-outlined text-primary text-sm">check_circle</span> RAG 및 데이터 파이프라인</li>
-</ul>
 </div>
-
-<!-- Chapters 5-6 -->
-<div class="glass-card p-md rounded-xl">
-<div class="flex items-center gap-sm mb-sm">
-<span class="bg-primary/20 text-primary px-sm py-xs rounded font-label-md">CH 5-6</span>
-<h4 class="font-headline-md text-headline-md">협업 &amp; 마이크로서비스</h4>
-</div>
-<ul class="space-y-xs text-on-surface-variant">
-<li class="flex items-start gap-xs"><span class="material-symbols-outlined text-primary text-sm">check_circle</span> 다중 agent 협업 패턴</li>
-<li class="flex items-start gap-xs"><span class="material-symbols-outlined text-primary text-sm">check_circle</span> Streamlit UI 통합</li>
-<li class="flex items-start gap-xs"><span class="material-symbols-outlined text-primary text-sm">check_circle</span> HTTP 도구 서버 아키텍처</li>
-</ul>
-</div>
-
-<!-- Chapters 7-8 -->
-<div class="glass-card p-md rounded-xl">
-<div class="flex items-center gap-sm mb-sm">
-<span class="bg-primary/20 text-primary px-sm py-xs rounded font-label-md">CH 7-8</span>
-<h4 class="font-headline-md text-headline-md">운영 통제 &amp; 배포</h4>
-</div>
-<ul class="space-y-xs text-on-surface-variant">
-<li class="flex items-start gap-xs"><span class="material-symbols-outlined text-primary text-sm">check_circle</span> Guardrails &amp; Human Review</li>
-<li class="flex items-start gap-xs"><span class="material-symbols-outlined text-primary text-sm">check_circle</span> Foundry Agent Service 활용</li>
-<li class="flex items-start gap-xs"><span class="material-symbols-outlined text-primary text-sm">check_circle</span> Monitoring &amp; 프로덕션 운영</li>
+<div class="mt-4 text-body-sm text-on-surface-variant">
+<p><span class="font-semibold text-on-surface">Microsoft Azure 계정</span> 및 <span class="font-semibold text-on-surface">Azure OpenAI 서비스 리소스</span></p>
+<ul class="mt-2 space-y-1">
+<li>• GPT-5.4 배포</li>
+<li>• text-embedding-3-small 모델 배포</li>
+<li>• AI Search 배포</li>
+<li>• Application Insights 생성</li>
 </ul>
 </div>
 </div>
 </section>
-
-<!-- Section 3: Register CTA -->
-<section class="pb-xl mt-20 mb-20">
-<div class="mx-auto w-full max-w-[700px] lg:w-[70%]">
-<div class="foundry-cta-panel rounded-3xl px-6 py-7 md:px-8 md:py-8 text-center">
-<p class="text-xs md:text-sm tracking-[0.18em] uppercase text-secondary-fixed-dim font-semibold mb-3">Register Now</p>
-<h2 class="font-headline-lg text-2xl md:text-[28px] font-semibold text-on-surface mb-3">등록하기</h2>
-<p class="text-sm md:text-base text-on-surface-variant max-w-2xl mx-auto mb-6">
-  Foundry Hands-on 교육에 참여하고 싶다면 아래 버튼으로 바로 등록할 수 있습니다.
-</p>
-<a href="https://events.teams.microsoft.com/event/ee997a1a-951f-4ae4-868b-0a0f885c6c67@97f42f55-f1db-4804-b1eb-08db083efd4f" target="_blank" rel="noopener noreferrer" class="cta-pill mx-auto">
-  등록하기
-  <span class="material-symbols-outlined">arrow_forward</span>
+<!-- Education Schedule Section -->
+<section class="max-w-container-max mx-auto px-base md:px-gutter mb-32">
+<div class="flex flex-col items-center mb-16 text-center">
+<div class="flex items-center gap-2 mb-4 text-primary">
+<span class="material-symbols-outlined">calendar_today</span>
+<h2 class="font-headline-md text-headline-md font-bold">교육 일정</h2>
+</div>
+<p class="font-body-md text-on-surface-variant">한 화면에서 핵심 흐름이 보이도록 카드형으로 정리했습니다.</p>
+</div>
+<div class="relative space-y-8">
+<!-- Timeline Items -->
+<!-- 09:00 - 09:20 -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="bg-white p-8 rounded-2xl card-shadow curriculum-accent">
+<div class="flex justify-between items-start mb-4">
+<span class="font-label-mono text-primary bg-primary/10 px-2 py-1 rounded">09:00 - 09:20</span>
+<span class="font-label-mono text-secondary bg-secondary/10 px-2 py-1 rounded">Hands-on</span>
+</div>
+<h3 class="font-headline-sm mb-3">준비 | Foundry 프로젝트 셋업</h3>
+<p class="text-body-sm text-on-surface-variant">Foundry 프로젝트, Python 가상 환경, .env 설정 준비</p>
+</div>
+<div class="bg-white p-8 rounded-2xl card-shadow curriculum-accent">
+<div class="flex justify-between items-start mb-4">
+<span class="font-label-mono text-primary bg-primary/10 px-2 py-1 rounded">09:20 - 10:00</span>
+<span class="font-label-mono text-secondary bg-secondary/10 px-2 py-1 rounded">Hands-on</span>
+</div>
+<h3 class="font-headline-sm mb-3">1장: Responses API 기초</h3>
+<p class="text-body-sm text-on-surface-variant">Responses API 첫 호출, 역할 지시문, multi-turn 프롬프트 패턴</p>
+</div>
+</div>
+<!-- Break -->
+<div class="bg-surface-container-low py-4 px-8 rounded-xl flex justify-between items-center text-on-surface-variant">
+<span class="font-label-mono">10:00 - 10:15</span>
+<span class="text-body-sm font-medium">휴식</span>
+</div>
+<!-- Sessions 2 & 3 -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="bg-white p-8 rounded-2xl card-shadow curriculum-accent">
+<div class="flex justify-between items-start mb-4">
+<span class="font-label-mono text-primary bg-primary/10 px-2 py-1 rounded">10:15 - 10:45</span>
+<span class="font-label-mono text-secondary bg-secondary/10 px-2 py-1 rounded">Hands-on</span>
+</div>
+<h3 class="font-headline-sm mb-3">2장: OpenAI-compatible 클라이언트</h3>
+<p class="text-body-sm text-on-surface-variant">공통 설정 검증, OpenAI-compatible client 구성</p>
+</div>
+<div class="bg-white p-8 rounded-2xl card-shadow curriculum-accent">
+<div class="flex justify-between items-start mb-4">
+<span class="font-label-mono text-primary bg-primary/10 px-2 py-1 rounded">10:45 - 11:15</span>
+<span class="font-label-mono text-secondary bg-secondary/10 px-2 py-1 rounded">Hands-on</span>
+</div>
+<h3 class="font-headline-sm mb-3">3장: Prompt-style Agent</h3>
+<p class="text-body-sm text-on-surface-variant">역할 지시문 기반 prompt-style agent와 대화 상태 유지 구조</p>
+</div>
+</div>
+<!-- Break -->
+<div class="bg-surface-container-low py-4 px-8 rounded-xl flex justify-between items-center text-on-surface-variant">
+<span class="font-label-mono">11:15 - 11:30</span>
+<span class="text-body-sm font-medium">휴식</span>
+</div>
+<!-- Session 4 -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="bg-white p-8 rounded-2xl card-shadow curriculum-accent col-span-1">
+<div class="flex justify-between items-start mb-4">
+<span class="font-label-mono text-primary bg-primary/10 px-2 py-1 rounded">11:30 - 12:20</span>
+<span class="font-label-mono text-secondary bg-secondary/10 px-2 py-1 rounded">Hands-on</span>
+</div>
+<h3 class="font-headline-sm mb-3">4장: 도구 호출 &amp; RAG</h3>
+<p class="text-body-sm text-on-surface-variant">로컬 도구 호출, 문서 기반 RAG, specialist handoff plan을 포함한 multi-tool routing</p>
+</div>
+<div class="hidden md:flex items-center justify-center opacity-20">
+<span class="material-symbols-outlined text-[120px]">architecture</span>
+</div>
+</div>
+<!-- Lunch -->
+<div class="bg-primary/5 py-6 px-8 rounded-xl flex justify-between items-center text-primary border border-primary/10">
+<span class="font-label-mono">12:20 - 13:20</span>
+<span class="text-body-md font-bold flex items-center gap-2">
+<span class="material-symbols-outlined">restaurant</span>
+                        점심 시간 (1시간)
+                    </span>
+</div>
+<!-- Sessions 5 & 6 -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="bg-white p-8 rounded-2xl card-shadow curriculum-accent">
+<div class="flex justify-between items-start mb-4">
+<span class="font-label-mono text-primary bg-primary/10 px-2 py-1 rounded">13:20 - 13:50</span>
+<span class="font-label-mono text-secondary bg-secondary/10 px-2 py-1 rounded">Hands-on</span>
+</div>
+<h3 class="font-headline-sm mb-3">5장: Agent 협업</h3>
+<p class="text-body-sm text-on-surface-variant">여러 역할의 agent 순차 협업과 Streamlit UI 연결</p>
+</div>
+<div class="bg-white p-8 rounded-2xl card-shadow curriculum-accent">
+<div class="flex justify-between items-start mb-4">
+<span class="font-label-mono text-primary bg-primary/10 px-2 py-1 rounded">13:50 - 14:20</span>
+<span class="font-label-mono text-secondary bg-secondary/10 px-2 py-1 rounded">Hands-on</span>
+</div>
+<h3 class="font-headline-sm mb-3">6장: 마이크로서비스 분리</h3>
+<p class="text-body-sm text-on-surface-variant">RAG 기능을 독립 HTTP 도구 서버로 분리하고 클라이언트에서 호출</p>
+</div>
+</div>
+<!-- Break -->
+<div class="bg-surface-container-low py-4 px-8 rounded-xl flex justify-between items-center text-on-surface-variant">
+<span class="font-label-mono">14:20 - 14:35</span>
+<span class="text-body-sm font-medium">휴식</span>
+</div>
+<!-- Sessions 7 & 8 -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="bg-white p-8 rounded-2xl card-shadow curriculum-accent">
+<div class="flex justify-between items-start mb-4">
+<span class="font-label-mono text-primary bg-primary/10 px-2 py-1 rounded">14:35 - 15:05</span>
+<span class="font-label-mono text-secondary bg-secondary/10 px-2 py-1 rounded">Hands-on</span>
+</div>
+<h3 class="font-headline-sm mb-3">7장: 운영 통제</h3>
+<p class="text-body-sm text-on-surface-variant">guardrails, human review, reflection loop를 통한 운영 통제 패턴</p>
+</div>
+<div class="bg-white p-8 rounded-2xl card-shadow curriculum-accent">
+<div class="flex justify-between items-start mb-4">
+<span class="font-label-mono text-primary bg-primary/10 px-2 py-1 rounded">15:05 - 15:55</span>
+<span class="font-label-mono text-secondary bg-secondary/10 px-2 py-1 rounded">Hands-on</span>
+</div>
+<h3 class="font-headline-sm mb-3">8장: Foundry Agent Service</h3>
+<p class="text-body-sm text-on-surface-variant">Foundry Agent Service agent 생성, Search tool, Knowledge base, MCPTool, monitoring 연결</p>
+</div>
+</div>
+<!-- Summary Session -->
+<div class="bg-white p-8 rounded-2xl card-shadow border-t-4 border-outline-variant">
+<div class="flex justify-between items-start mb-4">
+<span class="font-label-mono text-on-surface-variant bg-surface-container-highest px-2 py-1 rounded">15:55 - 16:45</span>
+<span class="font-label-mono text-on-surface-variant bg-surface-container-highest px-2 py-1 rounded">정리</span>
+</div>
+<h3 class="font-headline-sm mb-3">운영 관점 분석</h3>
+<p class="text-body-sm text-on-surface-variant">실행 결과, trace, 포털 monitoring 결과의 운영 관점 해석</p>
+</div>
+</div>
+</section>
+<!-- Learning Areas Grid -->
+<section class="bg-surface-container-lowest py-section-padding">
+<div class="max-w-container-max mx-auto px-base md:px-gutter">
+<div class="flex items-center gap-3 mb-12">
+<span class="material-symbols-outlined text-primary text-[32px]">menu_book</span>
+<h2 class="font-headline-md text-headline-md font-bold">핵심 학습 영역</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Area 1 -->
+<div class="bg-white p-10 rounded-2xl border border-outline-variant hover:border-primary transition-colors group">
+<div class="flex items-center gap-4 mb-6">
+<span class="font-label-mono bg-primary/10 text-primary px-3 py-1 rounded-full">CH 1-2</span>
+<h3 class="font-headline-sm">API 기초 &amp; 모델 통합</h3>
+</div>
+<ul class="space-y-4">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-[20px]" data-weight="fill">check_circle</span>
+<span class="text-body-md">Responses API 인터페이스 이해</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-[20px]" data-weight="fill">check_circle</span>
+<span class="text-body-md">프롬프트 엔지니어링 실무</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-[20px]" data-weight="fill">check_circle</span>
+<span class="text-body-md">OpenAI-compatible 클라이언트 구성</span>
+</li>
+</ul>
+</div>
+<!-- Area 2 -->
+<div class="bg-white p-10 rounded-2xl border border-outline-variant hover:border-primary transition-colors group">
+<div class="flex items-center gap-4 mb-6">
+<span class="font-label-mono bg-primary/10 text-primary px-3 py-1 rounded-full">CH 3-4</span>
+<h3 class="font-headline-sm">Agent 구조 &amp; 도구 연동</h3>
+</div>
+<ul class="space-y-4">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-[20px]" data-weight="fill">check_circle</span>
+<span class="text-body-md">Prompt-style agent 아키텍처</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-[20px]" data-weight="fill">check_circle</span>
+<span class="text-body-md">로컬 도구 호출 메커니즘</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-[20px]" data-weight="fill">check_circle</span>
+<span class="text-body-md">RAG 및 데이터 파이프라인</span>
+</li>
+</ul>
+</div>
+<!-- Area 3 -->
+<div class="bg-white p-10 rounded-2xl border border-outline-variant hover:border-primary transition-colors group">
+<div class="flex items-center gap-4 mb-6">
+<span class="font-label-mono bg-primary/10 text-primary px-3 py-1 rounded-full">CH 5-6</span>
+<h3 class="font-headline-sm">협업 &amp; 마이크로서비스</h3>
+</div>
+<ul class="space-y-4">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-[20px]" data-weight="fill">check_circle</span>
+<span class="text-body-md">다중 agent 협업 패턴</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-[20px]" data-weight="fill">check_circle</span>
+<span class="text-body-md">Streamlit UI 통합</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-[20px]" data-weight="fill">check_circle</span>
+<span class="text-body-md">HTTP 도구 서버 아키텍처</span>
+</li>
+</ul>
+</div>
+<!-- Area 4 -->
+<div class="bg-white p-10 rounded-2xl border border-outline-variant hover:border-primary transition-colors group">
+<div class="flex items-center gap-4 mb-6">
+<span class="font-label-mono bg-primary/10 text-primary px-3 py-1 rounded-full">CH 7-8</span>
+<h3 class="font-headline-sm">운영 통제 &amp; 배포</h3>
+</div>
+<ul class="space-y-4">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-[20px]" data-weight="fill">check_circle</span>
+<span class="text-body-md">Guardrails &amp; Human Review</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-[20px]" data-weight="fill">check_circle</span>
+<span class="text-body-md">Foundry Agent Service 활용</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-[20px]" data-weight="fill">check_circle</span>
+<span class="text-body-md">Monitoring &amp; 프로덕션 운영</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Final Call to Action -->
+<section class="py-section-padding">
+<div class="max-w-container-max mx-auto px-base md:px-gutter">
+<div class="bg-primary p-12 md:p-20 rounded-3xl text-center text-on-primary relative overflow-hidden">
+<div class="absolute top-0 right-0 w-96 h-96 bg-secondary-container/20 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2"></div>
+<div class="relative z-10">
+<span class="font-label-mono text-primary-fixed mb-4 inline-block uppercase tracking-widest">Register Now</span>
+<h2 class="font-display-lg text-display-lg mb-6">등록하기</h2>
+<p class="font-body-lg text-primary-fixed mb-12 max-w-2xl mx-auto">Foundry Hands-on 교육에 참여하고 싶다면 아래 버튼으로 바로 등록할 수 있습니다.</p>
+<a href="https://events.teams.microsoft.com/event/ee997a1a-951f-4ae4-868b-0a0f885c6c67@97f42f55-f1db-4804-b1eb-08db083efd4f" target="_blank" rel="noopener noreferrer" class="bg-white text-primary px-10 py-5 rounded-xl font-bold text-headline-sm hover:bg-primary-fixed transition-all active:scale-95 shadow-xl inline-flex items-center gap-3">
+                            등록하기
+                            <span class="material-symbols-outlined">arrow_forward</span>
 </a>
 </div>
 </div>
-</section>
-
-
-
-<script>
-  // Simple entry animation
-  document.addEventListener('DOMContentLoaded', () => {
-    const cards = document.querySelectorAll('.glass-card');
-    cards.forEach((card, index) => {
-      card.style.opacity = '0';
-      card.style.transform = 'translateY(20px)';
-      setTimeout(() => {
-        card.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
-        card.style.opacity = '1';
-        card.style.transform = 'translateY(0)';
-      }, 100 * index);
-    });
-
-    const dropdowns = document.querySelectorAll('.nav-dropdown');
-    dropdowns.forEach((dropdown) => {
-      dropdown.addEventListener('mouseenter', () => dropdown.classList.add('active'));
-      dropdown.addEventListener('mouseleave', () => dropdown.classList.remove('active'));
-    });
-  });
-</script>
-<!DOCTYPE html>
-<html class="scroll-smooth" lang="ko">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Megazone Cloud Microsoft SPF Programs 2026</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-  tailwind.config = {
-    darkMode: "class",
-    theme: {
-      extend: {
-        "colors": {
-          "secondary": "#006875",
-          "surface-container-high": "#dfe8ff",
-          "primary": "#005faa",
-          "secondary-fixed-dim": "#00daf3",
-          "tertiary-fixed": "#d7e3fc",
-          "on-tertiary": "#ffffff",
-          "tertiary-container": "#6c778d",
-          "on-secondary-container": "#00616d",
-          "surface-container": "#e7eeff",
-          "surface-container-highest": "#d7e3fc",
-          "outline": "#717783",
-          "background": "#f9f9ff",
-          "tertiary-fixed-dim": "#bbc7df",
-          "on-primary-container": "#ffffff",
-          "on-surface": "#101c2e",
-          "surface-container-low": "#f0f3ff",
-          "primary-fixed-dim": "#a3c9ff",
-          "surface-bright": "#f9f9ff",
-          "on-primary": "#ffffff",
-          "secondary-fixed": "#9cf0ff",
-          "primary-fixed": "#d3e3ff",
-          "surface-variant": "#d7e3fc",
-          "on-primary-fixed": "#001c39",
-          "on-background": "#101c2e",
-          "secondary-container": "#00e3fd",
-          "outline-variant": "#c0c7d4",
-          "surface-dim": "#cfdaf3",
-          "on-tertiary-container": "#ffffff",
-          "tertiary": "#535e73",
-          "on-secondary": "#ffffff",
-          "surface": "#f9f9ff",
-          "primary-container": "#0078d4",
-          "on-primary-fixed-variant": "#004883",
-          "on-surface-variant": "#404752",
-          "surface-container-lowest": "#ffffff",
-          "popup-orange": "#E87722"
-        },
-        "borderRadius": {
-          "DEFAULT": "0.25rem",
-          "lg": "0.5rem",
-          "xl": "0.75rem",
-          "full": "9999px"
-        },
-        "fontFamily": {
-          "headline": ["Plus Jakarta Sans"],
-          "body": ["Inter"],
-          "label": ["Inter"]
-        }
-      },
-    },
-  }
-</script>
-<style>
-  :root {
-    --ui-ink: #0f2138;
-    --ui-deep: #004c8f;
-    --ui-cyan: #12d6f2;
-    --ui-glass: #ffffff;
-    --ui-stroke: rgba(0, 95, 170, 0.1);
-  }
-
-  body {
-    font-family: 'Inter', sans-serif;
-    background:
-      radial-gradient(1200px 600px at 90% -10%, rgba(0, 149, 255, 0.1), transparent 55%),
-      radial-gradient(900px 520px at -10% 25%, rgba(0, 198, 255, 0.08), transparent 60%),
-      linear-gradient(180deg, #f5faff 0%, #e8f4ff 100%);
-    color: var(--ui-ink);
-    overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-  }
-  .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; }
-  .gradient-primary { background: linear-gradient(135deg, #00579f 0%, #0dd2ef 100%); }
-  .gradient-teal { background: linear-gradient(135deg, #006875 0%, #00daf3 100%); }
-  .gradient-orange { background: linear-gradient(135deg, #E87722 0%, #FFB74D 100%); }
-  .hero-mesh {
-    background:
-      radial-gradient(at 0% 0%, rgba(0, 95, 170, 0.12) 0%, transparent 50%),
-      radial-gradient(at 100% 100%, rgba(0, 227, 253, 0.08) 0%, transparent 50%);
-  }
-  .ambient-shadow { box-shadow: 0 10px 28px rgba(8, 29, 53, 0.08); }
-
-  nav {
-    background: var(--ui-glass) !important;
-    border-bottom: 1px solid var(--ui-stroke);
-    box-shadow: 0 6px 20px rgba(7, 31, 58, 0.05);
-  }
-
-  a.gradient-primary {
-    box-shadow: 0 6px 18px rgba(0, 95, 170, 0.16), inset 0 0 0 1px rgba(255, 255, 255, 0.12);
-    position: relative;
-    overflow: hidden;
-  }
-  a.gradient-primary::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(120deg, transparent 20%, rgba(255, 255, 255, 0.12) 50%, transparent 80%);
-    transform: none;
-    transition: none;
-    pointer-events: none;
-  }
-  a.gradient-primary:hover::after {
-    transform: none;
-  }
-
-  /* ============================================ */
-  /* Animated Background — Floating Water Drops   */
-  /* ============================================ */
-  .bg-animation {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    z-index: 0;
-    overflow: hidden;
-    pointer-events: none;
-  }
-  .bg-circle {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(100px);
-    opacity: 0.35;
-    animation: floatCircle 25s ease-in-out infinite;
-  }
-  .bg-circle:nth-child(1) {
-    width: 700px; height: 700px;
-    background: linear-gradient(135deg, rgba(0, 95, 170, 0.40), rgba(0, 227, 253, 0.22));
-    top: -250px; right: -150px;
-    animation-delay: 0s;
-  }
-  .bg-circle:nth-child(2) {
-    width: 500px; height: 500px;
-    background: linear-gradient(135deg, rgba(0, 120, 212, 0.32), rgba(0, 104, 117, 0.22));
-    bottom: 15%; left: -200px;
-    animation-delay: -7s;
-  }
-  .bg-circle:nth-child(3) {
-    width: 450px; height: 450px;
-    background: linear-gradient(135deg, rgba(0, 227, 253, 0.24), rgba(0, 95, 170, 0.20));
-    top: 45%; right: 5%;
-    animation-delay: -12s;
-  }
-  .bg-circle:nth-child(4) {
-    width: 350px; height: 350px;
-    background: linear-gradient(135deg, rgba(0, 104, 117, 0.22), rgba(0, 164, 239, 0.26));
-    bottom: -100px; left: 25%;
-    animation-delay: -18s;
-  }
-  @keyframes floatCircle {
-    0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
-    25%      { transform: translate(40px, -40px) scale(1.08) rotate(2deg); }
-    50%      { transform: translate(-30px, 30px) scale(0.95) rotate(-1deg); }
-    75%      { transform: translate(-40px, -25px) scale(1.03) rotate(1deg); }
-  }
-
-  /* Subtle grid pattern */
-  .grid-pattern {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    z-index: 0;
-    pointer-events: none;
-    background-image:
-      linear-gradient(rgba(0, 95, 170, 0.035) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0, 95, 170, 0.035) 1px, transparent 1px);
-    background-size: 80px 80px;
-    animation: gridMove 40s linear infinite;
-  }
-  @keyframes gridMove {
-    0%   { transform: translate(0, 0); }
-    100% { transform: translate(80px, 80px); }
-  }
-
-  /* Floating particles (water droplets) */
-  .particle {
-    position: fixed;
-    pointer-events: none;
-    opacity: 0.55;
-    z-index: 0;
-    border-radius: 50%;
-  }
-  .particle-1 {
-    width: 10px; height: 10px;
-    background: #00a4ef;
-    top: 18%; left: 8%;
-    animation: particleFloat 18s ease-in-out infinite;
-  }
-  .particle-2 {
-    width: 7px; height: 7px;
-    background: #00e3fd;
-    top: 55%; right: 12%;
-    animation: particleFloat 22s ease-in-out infinite reverse;
-  }
-  .particle-3 {
-    width: 12px; height: 12px;
-    background: #00b7c3;
-    bottom: 25%; left: 18%;
-    animation: particleFloat 25s ease-in-out infinite;
-    animation-delay: -8s;
-  }
-  .particle-4 {
-    width: 6px; height: 6px;
-    background: #005faa;
-    top: 35%; left: 75%;
-    animation: particleFloat 20s ease-in-out infinite;
-    animation-delay: -4s;
-  }
-  @keyframes particleFloat {
-    0%, 100% { transform: translate(0, 0) rotate(0deg); }
-    25%      { transform: translate(60px, -60px) rotate(90deg); }
-    50%      { transform: translate(0, -120px) rotate(180deg); }
-    75%      { transform: translate(-60px, -60px) rotate(270deg); }
-  }
-
-  .dropdown-shadow {
-    box-shadow:
-      0 18px 42px -12px rgba(0, 95, 170, 0.12),
-      0 8px 20px -8px rgba(16, 28, 46, 0.1),
-      0 3px 8px rgba(16, 28, 46, 0.05),
-      0 0 0 1px rgba(0, 95, 170, 0.08);
-  }
-  .event-card {
-    border-color: rgba(0, 95, 170, 0.12) !important;
-    box-shadow: 0 6px 16px rgba(8, 35, 66, 0.06);
-    backdrop-filter: blur(2px);
-    transition: transform 0.45s cubic-bezier(.22,1,.36,1), box-shadow 0.45s cubic-bezier(.22,1,.36,1), border-color 0.45s ease;
-  }
-  .event-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 14px 26px rgba(0, 76, 143, 0.1);
-    border-color: rgba(0, 95, 170, 0.2) !important;
-  }
-
-  /* Dropdown */
-  .nav-dropdown-menu {
-    opacity: 0;
-    visibility: hidden;
-    transform: translateX(-50%) translateY(6px);
-    transition: all 0.3s cubic-bezier(.22,1,.36,1);
-    max-height: 70vh;
-    overflow-y: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    background: rgba(255, 255, 255, 0.94) !important;
-    border-color: rgba(0, 95, 170, 0.12) !important;
-    backdrop-filter: blur(12px);
-  }
-  .nav-dropdown-menu::-webkit-scrollbar {
-    display: none;
-  }
-  .nav-dropdown.active .nav-dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) translateY(0);
-  }
-  .nav-dropdown.active .chevron { transform: rotate(180deg); }
-  .chevron { transition: transform 0.3s ease; }
-
-  /* Show dropdown on hover (desktop) */
-  .nav-dropdown:hover .nav-dropdown-menu {
-    opacity: 1 !important;
-    visibility: visible !important;
-    transform: translateX(-50%) translateY(0) !important;
-    pointer-events: auto !important;
-  }
-  .nav-dropdown:hover .chevron { transform: rotate(180deg); }
-
-  /* Dropdown item hover effects */
-  .dropdown-item {
-    position: relative;
-    transition: all 0.3s cubic-bezier(.22,1,.36,1);
-    overflow: hidden;
-  }
-  .dropdown-item::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 3px;
-    height: 0;
-    background: linear-gradient(180deg, #005faa, #00e3fd);
-    border-radius: 0 3px 3px 0;
-    transition: height 0.3s cubic-bezier(.22,1,.36,1);
-  }
-  .dropdown-item.orange::before {
-    background: linear-gradient(180deg, #E87722, #FFB74D);
-  }
-  .dropdown-item.teal::before {
-    background: linear-gradient(180deg, #006875, #00daf3);
-  }
-  .dropdown-item:hover {
-    background: linear-gradient(135deg, rgba(0,95,170,0.06), rgba(0,227,253,0.04));
-    transform: translateX(4px);
-    box-shadow: 0 4px 16px rgba(0, 95, 170, 0.08);
-  }
-  .dropdown-item.orange:hover {
-    background: linear-gradient(135deg, rgba(232,119,34,0.06), rgba(255,183,77,0.04));
-    box-shadow: 0 4px 16px rgba(232, 119, 34, 0.1);
-  }
-  .dropdown-item.teal:hover {
-    background: linear-gradient(135deg, rgba(0,104,117,0.06), rgba(0,218,243,0.04));
-    box-shadow: 0 4px 16px rgba(0, 104, 117, 0.1);
-  }
-  .dropdown-item:hover::before {
-    height: 60%;
-  }
-  .dropdown-item .dropdown-icon {
-    transition: all 0.3s cubic-bezier(.22,1,.36,1);
-  }
-  .dropdown-item:hover .dropdown-icon {
-    transform: scale(1.1) rotate(-4deg);
-  }
-  .dropdown-item .dropdown-arrow {
-    opacity: 0;
-    transform: translateX(-6px);
-    transition: all 0.3s cubic-bezier(.22,1,.36,1);
-    margin-left: auto;
-    color: #005faa;
-    font-weight: bold;
-    flex-shrink: 0;
-  }
-  .dropdown-item.orange .dropdown-arrow { color: #E87722; }
-  .dropdown-item.teal .dropdown-arrow { color: #006875; }
-  .dropdown-item:hover .dropdown-arrow {
-    opacity: 1;
-    transform: translateX(0);
-  }
-
-  .nav-dropdown-toggle {
-    position: relative;
-    padding-bottom: 0.4rem;
-  }
-  .nav-dropdown-toggle::after {
-    content: '';
-    position: absolute;
-    left: 0.7rem;
-    right: 0.7rem;
-    bottom: 0.1rem;
-    height: 2px;
-    background: linear-gradient(90deg, #005faa, #00e3fd);
-    transform: scaleX(0);
-    transform-origin: left center;
-    transition: transform 0.25s ease;
-    border-radius: 999px;
-  }
-  .nav-dropdown-toggle:hover::after,
-  .nav-dropdown.active .nav-dropdown-toggle::after {
-    transform: scaleX(1);
-  }
-  .nav-dropdown-menu .dropdown-arrow {
-    display: none !important;
-  }
-
-  /* 온라인 웨비나: 종료 항목 아이콘을 회색으로 고정 */
-  nav .nav-dropdown:nth-of-type(1) .nav-dropdown-menu > a.dropdown-item:nth-of-type(n+3) .dropdown-icon,
-  nav .nav-dropdown:nth-of-type(1) .nav-dropdown-menu > a.dropdown-item:nth-of-type(n+3) .dropdown-icon span,
-  nav .nav-dropdown:nth-of-type(1) .nav-dropdown-menu > a.dropdown-item.is-ended .dropdown-icon,
-  nav .nav-dropdown:nth-of-type(1) .nav-dropdown-menu > a.dropdown-item.is-ended .dropdown-icon span {
-    color: #6b7280 !important;
-    -webkit-text-fill-color: #6b7280 !important;
-    background-color: #e6e7eb !important;
-  }
-  nav .nav-dropdown:nth-of-type(1) .nav-dropdown-menu > a.dropdown-item.is-ended .dropdown-icon span.material-symbols-outlined,
-  nav .nav-dropdown:nth-of-type(1) .nav-dropdown-menu > a.dropdown-item.is-ended .dropdown-icon > span {
-    color: #6b7280 !important;
-    -webkit-text-fill-color: #6b7280 !important;
-  }
-  nav .nav-dropdown:nth-of-type(1) .nav-dropdown-menu > a.dropdown-item.is-pending .dropdown-icon,
-  nav .nav-dropdown:nth-of-type(1) .nav-dropdown-menu > a.dropdown-item.is-pending .dropdown-icon span,
-  nav .nav-dropdown:nth-of-type(1) .nav-dropdown-menu > a.dropdown-item.is-pending .dropdown-icon span.material-symbols-outlined,
-  nav .nav-dropdown:nth-of-type(1) .nav-dropdown-menu > a.dropdown-item.is-pending .dropdown-icon > span {
-    color: #6b7280 !important;
-    -webkit-text-fill-color: #6b7280 !important;
-    background-color: #e6e7eb !important;
-  }
-  /* 다시보기: 파란 배경과 파란 아이콘 유지 */
-  nav .nav-dropdown:nth-of-type(4) .nav-dropdown-menu > a.dropdown-item .dropdown-icon,
-  nav .nav-dropdown:nth-of-type(4) .nav-dropdown-menu > a.dropdown-item .dropdown-icon span,
-  nav .nav-dropdown:nth-of-type(4) .nav-dropdown-menu > a.dropdown-item .dropdown-icon span.material-symbols-outlined,
-  nav .nav-dropdown:nth-of-type(4) .nav-dropdown-menu > a.dropdown-item .dropdown-icon > span {
-    color: #005faa !important;
-    -webkit-text-fill-color: #005faa !important;
-    background-color: rgba(0, 95, 170, 0.1) !important;
-  }
-
-  @media (max-width: 1024px) {
-    nav {
-      overflow: hidden;
-    }
-
-    nav > div {
-      height: auto;
-      padding-top: 0.75rem;
-      padding-bottom: 0.75rem;
-    }
-
-    nav a.font-headline {
-      font-size: 1rem;
-      line-height: 1.2;
-      white-space: nowrap;
-    }
-
-    nav .flex-1 > .flex.flex-nowrap {
-      gap: 0.75rem;
-      overflow-x: auto;
-      justify-content: flex-start;
-      padding-bottom: 0.25rem;
-      scrollbar-width: none;
-    }
-
-    nav .flex-1 > .flex.flex-nowrap::-webkit-scrollbar {
-      display: none;
-    }
-
-    .nav-dropdown-menu {
-      display: none !important;
-    }
-  }
-</style>
-</head>
-<body class="bg-surface text-on-surface selection:bg-primary/20">
-
-<!-- Animated Background — Floating Water Drops -->
-<div class="bg-animation" aria-hidden="true">
-  <div class="bg-circle"></div>
-  <div class="bg-circle"></div>
-  <div class="bg-circle"></div>
-  <div class="bg-circle"></div>
 </div>
-<div class="grid-pattern" aria-hidden="true"></div>
-<div class="particle particle-1" aria-hidden="true"></div>
-<div class="particle particle-2" aria-hidden="true"></div>
-<div class="particle particle-3" aria-hidden="true"></div>
-<div class="particle particle-4" aria-hidden="true"></div>
-
-
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant py-12">
+<div class="flex flex-col md:flex-row justify-between items-center w-full max-w-container-max mx-auto px-base">
+<div class="mb-8 md:mb-0">
+<span class="font-headline-sm text-headline-sm font-black text-on-surface">MEGAZONE CLOUD</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2">© 2024 MEGAZONE CLOUD. All rights reserved.</p>
+</div>
+<div class="flex gap-8">
+<a class="font-body-sm text-on-surface-variant hover:text-primary hover:underline transition-all" href="#">이용약관</a>
+<a class="font-body-sm text-on-surface-variant hover:text-primary hover:underline transition-all font-medium" href="#">개인정보처리방침</a>
+<a class="font-body-sm text-on-surface-variant hover:text-primary hover:underline transition-all" href="#">문의하기</a>
+</div>
+</div>
+</footer>
 <script>
-  (function () {
-    try {
-      var dropdowns = Array.prototype.slice.call(document.querySelectorAll('.nav-dropdown'));
-      dropdowns.forEach(function (d) {
-        d.addEventListener('mouseenter', function () {
-          d.classList.add('active');
-          var m = d.querySelector('.nav-dropdown-menu');
-          if (m) {
-            m.style.visibility = 'visible';
-            m.style.opacity = '1';
-            m.style.transform = 'translateX(-50%) translateY(0)';
-            m.style.pointerEvents = 'auto';
-          }
+        // Micro-interaction: Smooth shadow reveal on scroll for cards
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100');
+                    entry.target.classList.remove('translate-y-4');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.card-shadow').forEach(card => {
+            card.classList.add('opacity-0', 'translate-y-4', 'transition-all', 'duration-700');
+            observer.observe(card);
         });
-        d.addEventListener('mouseleave', function () {
-          d.classList.remove('active');
-          var m = d.querySelector('.nav-dropdown-menu');
-          if (m) {
-            m.style.visibility = 'hidden';
-            m.style.opacity = '0';
-            m.style.transform = 'translateX(-50%) translateY(6px)';
-            m.style.pointerEvents = 'none';
-          }
-        });
-      });
-    } catch (e) {}
-  })();
-</script>
-<script>
-  (function () {
-    var FOUNDRY_REGISTER_URL = 'https://events.teams.microsoft.com/event/ee997a1a-951f-4ae4-868b-0a0f885c6c67@97f42f55-f1db-4804-b1eb-08db083efd4f';
-
-    function updateFoundryHeaderLink() {
-      var header = document.querySelector('header[data-global-header]');
-      if (!header) {
-        return false;
-      }
-
-      var link = header.querySelector('a.gradient-primary');
-      if (link) {
-        link.href = FOUNDRY_REGISTER_URL;
-        return true;
-      }
-
-      return false;
-    }
-
-    function init() {
-      if (updateFoundryHeaderLink()) {
-        return;
-      }
-
-      var header = document.querySelector('header[data-global-header]');
-      if (!header || header.__foundryHeaderLinkObserver) {
-        return;
-      }
-
-      var observer = new MutationObserver(function () {
-        if (updateFoundryHeaderLink()) {
-          observer.disconnect();
-        }
-      });
-
-      observer.observe(header, { childList: true, subtree: true });
-      header.__foundryHeaderLinkObserver = observer;
-    }
-
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', init);
-    } else {
-      init();
-    }
-  })();
-</script>
+    </script>
 <!-- Global header scripts -->
 <script src="foundry-header-override.js"></script>
 <script src="global-state-manager.js"></script>
