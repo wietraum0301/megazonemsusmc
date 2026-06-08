@@ -1,65 +1,68 @@
 <!DOCTYPE html>
 
-<html class="scroll-smooth" lang="ko"><head>
+<html class="light" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<title>Fabric Analyst in a Day | Foundry Education</title>
+<!-- Google Fonts: Hanken Grotesk & JetBrains Mono -->
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="styles/header.css">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script id="tailwind-config">
       tailwind.config = {
         darkMode: "class",
         theme: {
           extend: {
             "colors": {
-                    "on-tertiary-fixed-variant": "#812800",
-                    "on-surface-variant": "#c3c6d6",
-                    "secondary-fixed": "#e2e2e2",
-                    "tertiary-fixed": "#ffdbcf",
-                    "on-secondary": "#2f3131",
-                    "on-error": "#690005",
-                    "on-primary-fixed-variant": "#0040a2",
-                    "outline": "#8d90a0",
-                    "surface-container-lowest": "#0c0e15",
-                    "secondary-fixed-dim": "#c6c6c7",
-                    "inverse-surface": "#e1e2ec",
-                    "tertiary-fixed-dim": "#ffb59b",
-                    "primary-container": "#0052cc",
-                    "primary": "#b2c5ff",
-                    "secondary": "#c6c6c7",
-                    "background": "#000000",
-                    "surface": "#11131a",
-                    "on-error-container": "#ffdad6",
-                    "inverse-primary": "#0c56d0",
-                    "on-secondary-container": "#b4b5b5",
-                    "error": "#ffb4ab",
-                    "surface-bright": "#373941",
-                    "surface-dim": "#11131a",
-                    "secondary-container": "#454747",
-                    "inverse-on-surface": "#2e3038",
-                    "on-secondary-fixed-variant": "#454747",
-                    "primary-fixed-dim": "#b2c5ff",
-                    "surface-variant": "#32343c",
-                    "on-primary": "#002b73",
-                    "tertiary-container": "#a33500",
-                    "surface-tint": "#b2c5ff",
-                    "outline-variant": "#434654",
-                    "surface-container-highest": "#32343c",
-                    "on-tertiary-container": "#ffc6b2",
-                    "surface-container-high": "#282a31",
-                    "primary-fixed": "#dae2ff",
-                    "on-surface": "#e1e2ec",
-                    "on-secondary-fixed": "#1a1c1c",
-                    "error-container": "#93000a",
-                    "tertiary": "#ffb59b",
-                    "surface-container-low": "#191b23",
-                    "on-primary-container": "#c4d2ff",
-                    "on-tertiary": "#5b1a00",
-                    "on-tertiary-fixed": "#380d00",
-                    "surface-container": "#1d1f27",
-                    "on-background": "#e1e2ec",
-                    "on-primary-fixed": "#001848"
+                    "inverse-surface": "#2f3133",
+                    "tertiary-fixed": "#dce3eb",
+                    "surface-bright": "#f9f9fc",
+                    "on-error": "#ffffff",
+                    "on-secondary-container": "#004b65",
+                    "tertiary-container": "#5a6168",
+                    "on-secondary-fixed": "#001e2b",
+                    "outline": "#727785",
+                    "on-secondary": "#ffffff",
+                    "surface-tint": "#005ac4",
+                    "on-surface": "#1a1c1e",
+                    "primary-fixed-dim": "#aec6ff",
+                    "surface-container-lowest": "#ffffff",
+                    "surface": "#f9f9fc",
+                    "on-primary": "#ffffff",
+                    "on-primary-fixed-variant": "#004396",
+                    "inverse-on-surface": "#f0f0f3",
+                    "secondary": "#006688",
+                    "surface-variant": "#e2e2e5",
+                    "on-error-container": "#93000a",
+                    "surface-container": "#eeeef0",
+                    "primary-container": "#005cc8",
+                    "outline-variant": "#c2c6d5",
+                    "on-tertiary-fixed": "#151c22",
+                    "on-tertiary": "#ffffff",
+                    "primary": "#00459a",
+                    "inverse-primary": "#aec6ff",
+                    "on-primary-fixed": "#001a42",
+                    "tertiary-fixed-dim": "#c0c7cf",
+                    "background": "#f9f9fc",
+                    "on-tertiary-fixed-variant": "#40484e",
+                    "surface-dim": "#dadadc",
+                    "secondary-fixed": "#c2e8ff",
+                    "on-surface-variant": "#424753",
+                    "on-primary-container": "#cfdcff",
+                    "tertiary": "#424950",
+                    "on-secondary-fixed-variant": "#004d67",
+                    "secondary-container": "#00c1fd",
+                    "secondary-fixed-dim": "#75d1ff",
+                    "on-background": "#1a1c1e",
+                    "error": "#ba1a1a",
+                    "surface-container-low": "#f3f3f6",
+                    "primary-fixed": "#d8e2ff",
+                    "on-tertiary-container": "#d5dce4",
+                    "surface-container-high": "#e8e8ea",
+                    "surface-container-highest": "#e2e2e5",
+                    "error-container": "#ffdad6"
             },
             "borderRadius": {
                     "DEFAULT": "0.25rem",
@@ -68,33 +71,30 @@
                     "full": "9999px"
             },
             "spacing": {
-                    "md": "24px",
-                    "sm": "16px",
-                    "container-max": "1280px",
-                    "xs": "8px",
-                    "lg": "40px",
-                    "xl": "64px",
-                    "gutter": "24px",
-                    "base": "4px"
+                    "section-padding": "80px",
+                    "container-max": "1200px",
+                    "base": "8px",
+                    "margin-mobile": "16px",
+                    "gutter": "24px"
             },
             "fontFamily": {
-                    "body-lg": ["Inter"],
-                    "display-xl": ["Inter"],
-                    "headline-lg": ["Inter"],
-                    "headline-md": ["Inter"],
-                    "label-md": ["Inter"],
-                    "body-sm": ["Inter"],
-                    "label-caps": ["Inter"],
-                    "body-md": ["Inter"]
+                    "body-lg": ["Hanken Grotesk"],
+                    "body-sm": ["Hanken Grotesk"],
+                    "label-mono": ["JetBrains Mono"],
+                    "display-lg-mobile": ["Hanken Grotesk"],
+                    "headline-sm": ["Hanken Grotesk"],
+                    "headline-md": ["Hanken Grotesk"],
+                    "display-lg": ["Hanken Grotesk"],
+                    "body-md": ["Hanken Grotesk"]
             },
             "fontSize": {
                     "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
-                    "display-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                    "headline-lg": ["32px", {"lineHeight": "1.25", "letterSpacing": "-0.01em", "fontWeight": "600"}],
-                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
-                    "label-md": ["14px", {"lineHeight": "1.5", "fontWeight": "500"}],
                     "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
-                    "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "label-mono": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "headline-sm": ["20px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
                     "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
             }
           },
@@ -102,1287 +102,310 @@
       }
     </script>
 <style>
-  :root {
-    --ui-ink: #0f2138;
-    --ui-deep: #004c8f;
-    --ui-cyan: #12d6f2;
-    --ui-glass: #ffffff;
-    --ui-stroke: rgba(0, 95, 170, 0.1);
-  }
-
-  body {
-    font-family: 'Inter', sans-serif;
-    background:
-      radial-gradient(1200px 600px at 90% -10%, rgba(0, 149, 255, 0.1), transparent 55%),
-      radial-gradient(900px 520px at -10% 25%, rgba(0, 198, 255, 0.08), transparent 60%),
-      linear-gradient(180deg, #f5faff 0%, #e8f4ff 100%);
-    color: var(--ui-ink);
-    overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-  }
-  .font-headline { font-family: 'Plus Jakarta Sans'; }
-  .font-gmarket { font-family: 'Gmarket Sans', 'Plus Jakarta Sans', Inter, sans-serif; }
-  .gradient-primary { background: linear-gradient(135deg, #00579f 0%, #0dd2ef 100%); }
-  .gradient-teal { background: linear-gradient(135deg, #006875 0%, #00daf3 100%); }
-  .gradient-orange { background: linear-gradient(135deg, #E87722 0%, #FFB74D 100%); }
-  .hero-mesh {
-    background:
-      radial-gradient(at 0% 0%, rgba(0, 95, 170, 0.12) 0%, transparent 50%),
-      radial-gradient(at 100% 100%, rgba(0, 227, 253, 0.08) 0%, transparent 50%);
-  }
-  .hero-fabric-bg {
-    background:
-      radial-gradient(circle at 50% 96%, rgba(21, 182, 225, 0.42) 0%, rgba(21, 182, 225, 0.18) 18%, transparent 44%),
-      radial-gradient(circle at 18% 14%, rgba(255, 255, 255, 0.10) 0%, transparent 26%),
-      linear-gradient(180deg, #0077bf 0%, #056eb4 42%, #0d84c3 74%, #109acb 100%);
-  }
-  .ambient-shadow { box-shadow: 0 10px 28px rgba(8, 29, 53, 0.08); }
-
-  nav {
-    background: var(--ui-glass) !important;
-    border-bottom: 1px solid var(--ui-stroke);
-    box-shadow: 0 6px 20px rgba(7, 31, 58, 0.05);
-  }
-
-  a.gradient-primary {
-    box-shadow: 0 6px 18px rgba(0, 95, 170, 0.16), inset 0 0 0 1px rgba(255, 255, 255, 0.12);
-    position: relative;
-    overflow: hidden;
-  }
-  a.gradient-primary::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(120deg, transparent 20%, rgba(255, 255, 255, 0.12) 50%, transparent 80%);
-    transform: none;
-    transition: none;
-    pointer-events: none;
-  }
-  a.gradient-primary:hover::after {
-    transform: none;
-  }
-
-  /* ============================================ */
-  /* Animated Background — Floating Water Drops   */
-  /* ============================================ */
-  .bg-animation {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    z-index: 0;
-    overflow: hidden;
-    pointer-events: none;
-  }
-  .bg-circle {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(100px);
-    opacity: 0.35;
-    animation: floatCircle 25s ease-in-out infinite;
-  }
-  .bg-circle:nth-child(1) {
-    width: 700px; height: 700px;
-    background: linear-gradient(135deg, rgba(0, 95, 170, 0.40), rgba(0, 227, 253, 0.22));
-    top: -250px; right: -150px;
-    animation-delay: 0s;
-  }
-  .bg-circle:nth-child(2) {
-    width: 500px; height: 500px;
-    background: linear-gradient(135deg, rgba(0, 120, 212, 0.32), rgba(0, 104, 117, 0.22));
-    bottom: 15%; left: -200px;
-    animation-delay: -7s;
-  }
-  .bg-circle:nth-child(3) {
-    width: 450px; height: 450px;
-    background: linear-gradient(135deg, rgba(0, 227, 253, 0.24), rgba(0, 95, 170, 0.20));
-    top: 45%; right: 5%;
-    animation-delay: -12s;
-  }
-  .bg-circle:nth-child(4) {
-    width: 350px; height: 350px;
-    background: linear-gradient(135deg, rgba(0, 104, 117, 0.22), rgba(0, 164, 239, 0.26));
-    bottom: -100px; left: 25%;
-    animation-delay: -18s;
-  }
-  @keyframes floatCircle {
-    0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
-    25%      { transform: translate(40px, -40px) scale(1.08) rotate(2deg); }
-    50%      { transform: translate(-30px, 30px) scale(0.95) rotate(-1deg); }
-    75%      { transform: translate(-40px, -25px) scale(1.03) rotate(1deg); }
-  }
-
-  /* Subtle grid pattern */
-  .grid-pattern {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    z-index: 0;
-    pointer-events: none;
-    background-image:
-      linear-gradient(rgba(0, 95, 170, 0.035) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0, 95, 170, 0.035) 1px, transparent 1px);
-    background-size: 80px 80px;
-    animation: gridMove 40s linear infinite;
-  }
-  @keyframes gridMove {
-    0%   { transform: translate(0, 0); }
-    100% { transform: translate(80px, 80px); }
-  }
-
-  /* Floating particles (water droplets) */
-  .particle {
-    position: fixed;
-    pointer-events: none;
-    opacity: 0.55;
-    z-index: 0;
-    border-radius: 50%;
-  }
-  .particle-1 {
-    width: 10px; height: 10px;
-    background: #00a4ef;
-    top: 18%; left: 8%;
-    animation: particleFloat 18s ease-in-out infinite;
-  }
-  .particle-2 {
-    width: 7px; height: 7px;
-    background: #00e3fd;
-    top: 55%; right: 12%;
-    animation: particleFloat 22s ease-in-out infinite reverse;
-  }
-  .particle-3 {
-    width: 12px; height: 12px;
-    background: #00b7c3;
-    bottom: 25%; left: 18%;
-    animation: particleFloat 25s ease-in-out infinite;
-    animation-delay: -8s;
-  }
-  .particle-4 {
-    width: 6px; height: 6px;
-    background: #005faa;
-    top: 35%; left: 75%;
-    animation: particleFloat 20s ease-in-out infinite;
-    animation-delay: -4s;
-  }
-  @keyframes particleFloat {
-    0%, 100% { transform: translate(0, 0) rotate(0deg); }
-    25%      { transform: translate(60px, -60px) rotate(90deg); }
-    50%      { transform: translate(0, -120px) rotate(180deg); }
-    75%      { transform: translate(-60px, -60px) rotate(270deg); }
-  }
-
-  .dropdown-shadow {
-    box-shadow:
-      0 18px 42px -12px rgba(0, 95, 170, 0.12),
-      0 8px 20px -8px rgba(16, 28, 46, 0.1),
-      0 3px 8px rgba(16, 28, 46, 0.05),
-      0 0 0 1px rgba(0, 95, 170, 0.08);
-  }
-  .event-card {
-    border-color: rgba(0, 95, 170, 0.12) !important;
-    box-shadow: 0 6px 16px rgba(8, 35, 66, 0.06);
-    backdrop-filter: blur(2px);
-    transition: transform 0.45s cubic-bezier(.22,1,.36,1), box-shadow 0.45s cubic-bezier(.22,1,.36,1), border-color 0.45s ease;
-  }
-  .event-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 14px 26px rgba(0, 76, 143, 0.1);
-    border-color: rgba(0, 95, 170, 0.2) !important;
-  }
-
-  /* Dropdown */
-  .nav-dropdown-menu {
-    opacity: 0;
-    visibility: hidden;
-    transform: translateX(-50%) translateY(6px);
-    transition: all 0.3s cubic-bezier(.22,1,.36,1);
-    max-height: 70vh;
-    overflow-y: auto;
-    background: rgba(255, 255, 255, 0.94) !important;
-    border-color: rgba(0, 95, 170, 0.12) !important;
-    backdrop-filter: blur(12px);
-  }
-  .nav-dropdown.active .nav-dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) translateY(0);
-  }
-  .nav-dropdown.active .chevron { transform: rotate(180deg); }
-  .chevron { transition: transform 0.3s ease; }
-
-  /* Dropdown item hover effects */
-  .dropdown-item {
-    position: relative;
-    transition: all 0.3s cubic-bezier(.22,1,.36,1);
-    overflow: hidden;
-  }
-  .dropdown-item::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 3px;
-    height: 0;
-    background: linear-gradient(180deg, #005faa, #00e3fd);
-    border-radius: 0 3px 3px 0;
-    transition: height 0.3s cubic-bezier(.22,1,.36,1);
-  }
-  .dropdown-item.orange::before {
-    background: linear-gradient(180deg, #E87722, #FFB74D);
-  }
-  .dropdown-item.teal::before {
-    background: linear-gradient(180deg, #006875, #00daf3);
-  }
-  .dropdown-item:hover {
-    background: linear-gradient(135deg, rgba(0,95,170,0.06), rgba(0,227,253,0.04));
-    transform: translateX(4px);
-    box-shadow: 0 4px 16px rgba(0, 95, 170, 0.08);
-  }
-  .dropdown-item.orange:hover {
-    background: linear-gradient(135deg, rgba(232,119,34,0.06), rgba(255,183,77,0.04));
-    box-shadow: 0 4px 16px rgba(232, 119, 34, 0.1);
-  }
-  .dropdown-item.teal:hover {
-    background: linear-gradient(135deg, rgba(0,104,117,0.06), rgba(0,218,243,0.04));
-    box-shadow: 0 4px 16px rgba(0, 104, 117, 0.1);
-  }
-  .dropdown-item:hover::before {
-    height: 60%;
-  }
-  .dropdown-item .dropdown-icon {
-    transition: all 0.3s cubic-bezier(.22,1,.36,1);
-  }
-  .dropdown-item:hover .dropdown-icon {
-    transform: scale(1.1) rotate(-4deg);
-  }
-  .dropdown-item .dropdown-arrow {
-    opacity: 0;
-    transform: translateX(-6px);
-    transition: all 0.3s cubic-bezier(.22,1,.36,1);
-    margin-left: auto;
-    color: #005faa;
-    font-weight: bold;
-    flex-shrink: 0;
-  }
-  .dropdown-item.orange .dropdown-arrow { color: #E87722; }
-  .dropdown-item.teal .dropdown-arrow { color: #006875; }
-  .dropdown-item:hover .dropdown-arrow {
-    opacity: 1;
-    transform: translateX(0);
-  }
-
-  .nav-dropdown-toggle {
-    position: relative;
-    padding-bottom: 0.4rem;
-  }
-  .nav-dropdown-toggle::after {
-    content: '';
-    position: absolute;
-    left: 0.7rem;
-    right: 0.7rem;
-    bottom: 0.1rem;
-    height: 2px;
-    background: linear-gradient(90deg, #005faa, #00e3fd);
-    transform: scaleX(0);
-    transform-origin: left center;
-    transition: transform 0.25s ease;
-    border-radius: 999px;
-  }
-  .nav-dropdown-toggle:hover::after,
-  .nav-dropdown.active .nav-dropdown-toggle::after {
-    transform: scaleX(1);
-  }
-  .nav-dropdown-menu .dropdown-arrow {
-    display: none !important;
-  }
-
-  .material-symbols-outlined {
-    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-    display: inline-block;
-    vertical-align: middle;
-  }
-
-  /* Force nav-dropdown-menu to be light mode - override dark mode completely */
-  .nav-dropdown-menu {
-    background: rgb(255, 255, 255) !important;
-    background-color: rgb(255, 255, 255) !important;
-    border: 1px solid rgba(0, 95, 170, 0.12) !important;
-    color: #101c2e !important;
-    appearance: none !important;
-    -webkit-appearance: none !important;
-    scrollbar-width: none !important;
-    -ms-overflow-style: none !important;
-  }
-
-  .nav-dropdown-menu::-webkit-scrollbar {
-    display: none !important;
-    width: 0 !important;
-    height: 0 !important;
-  }
-
-  .dark .nav-dropdown-menu {
-    background: rgb(255, 255, 255) !important;
-    background-color: rgb(255, 255, 255) !important;
-  }
-
-  .dropdown-item {
-    color: #101c2e !important;
-    background: transparent !important;
-  }
-
-  .dropdown-item .font-semibold {
-    color: #101c2e !important;
-  }
-
-  .dropdown-item .text-on-surface {
-    color: #101c2e !important;
-  }
-
-  .dropdown-item .text-on-surface-variant {
-    color: #717171 !important;
-  }
-
-  /* Icon colors - keep original colors */
-  .dropdown-item .text-primary {
-    color: #005faa !important;
-  }
-
-  .dropdown-item .text-popup-orange {
-    color: #E87722 !important;
-  }
-
-  .dropdown-item .text-secondary {
-    color: #006875 !important;
-  }
-
-  .dropdown-item .text-slate-500 {
-    color: #64748b !important;
-  }
-
-  /* Icon background colors */
-    /* Ensure icon spans inherit text colors properly */
-    .dropdown-item .text-primary span {
-      color: #005faa !important;
-    }
-
-    .dropdown-item .text-secondary span {
-      color: #006875 !important;
-    }
-
-    .dropdown-item .text-popup-orange span {
-      color: #E87722 !important;
-    }
-
-    .dropdown-item .text-slate-500 span {
-      color: #64748b !important;
-    }
-
-    /* Icon background colors */
-    .dropdown-item .bg-primary\/10 {
-    background-color: rgba(0, 95, 170, 0.1) !important;
-  }
-
-  .dropdown-item .bg-popup-orange\/10 {
-    background-color: rgba(232, 119, 34, 0.1) !important;
-  }
-
-  .dropdown-item .bg-secondary\/10 {
-    background-color: rgba(0, 104, 117, 0.1) !important;
-  }
-
-  .dropdown-item .bg-slate-200 {
-    background-color: #e2e8f0 !important;
-  }
-
-  .dropdown-item:hover {
-    background: linear-gradient(135deg, rgba(0,95,170,0.06), rgba(0,227,253,0.04)) !important;
-  }
-
-  .dropdown-item.orange:hover {
-    background: linear-gradient(135deg, rgba(232,119,34,0.06), rgba(255,183,77,0.04)) !important;
-  }
-
-  .dropdown-item.teal:hover {
-    background: linear-gradient(135deg, rgba(0,104,117,0.06), rgba(0,218,243,0.04)) !important;
-  }
-
-  .nav-dropdown-menu .bg-outline-variant\/30 {
-    background-color: rgba(141, 144, 160, 0.3) !important;
-  }
-
-  .nav-dropdown-menu .border-outline-variant {
-    border-color: rgba(141, 144, 160, 0.2) !important;
-  }
-
-  .nav-dropdown-menu .outline-variant {
-    border-color: rgba(141, 144, 160, 0.2) !important;
-  }
-
-  /* Override all dark mode colors in dropdown */
-  .dark .dropdown-item {
-    color: #101c2e !important;
-  }
-
-
-  .dark .dropdown-item .text-on-surface {
-    color: #101c2e !important;
-  }
-
-  .dark .dropdown-item .text-on-surface-variant {
-    color: #717171 !important;
-  }
-
-  .dark .dropdown-item .text-primary {
-    color: #005faa !important;
-  }
-
-  .dark .dropdown-item .text-popup-orange {
-    color: #E87722 !important;
-  }
-
-  .dark .dropdown-item .bg-primary\/10 {
-    background-color: rgba(0, 95, 170, 0.1) !important;
-  }
-
-  .dark .dropdown-item .bg-popup-orange\/10 {
-    background-color: rgba(232, 119, 34, 0.1) !important;
-  }
-
-  /* Learning content column in the dark section */
-  tbody td:nth-child(5) li {
-    color: #ffffff !important;
-  }
-
-  tbody td:nth-child(5) .material-symbols-outlined {
-    color: #ffffff !important;
-    font-size: 18px !important;
-    font-variation-settings: 'wght' 300 !important;
-  }
-
-  /* Ensure apply buttons render horizontally and don't wrap */
-  table.w-full tbody td:last-child button,
-  table.w-full tbody td:last-child a {
-    white-space: nowrap !important;
-    writing-mode: horizontal-tb !important;
-    text-orientation: mixed !important;
-    display: inline-block !important;
-    vertical-align: middle !important;
-  }
-
-  /* Make all table '신청' buttons white background with black text */
-  table.w-full tbody td:last-child button {
-    background-color: #ffffff !important;
-    color: #000000 !important;
-    border-color: transparent !important;
-  }
-  table.w-full tbody td:last-child a.cta-pill {
-    padding: 8px 16px 8px 20px !important;
-    gap: 8px !important;
-    font-size: 13px !important;
-    font-weight: 500 !important;
-    margin-left: -2px !important;
-    background: #ffffff !important;
-    color: #000000 !important;
-    border-color: #ffffff !important;
-    box-shadow: none !important;
-  }
-  table.w-full tbody td:last-child a.cta-pill .material-symbols-outlined {
-    color: #000000 !important;
-    font-size: 16px !important;
-    font-variation-settings: 'wght' 300, 'FILL' 1 !important;
-  }
-
-  /* Make session number badges text-only with white text */
-  table.w-full tbody td:first-child span {
-    background: transparent !important;
-    background-color: transparent !important;
-    color: #ffffff !important;
-    padding: 0 !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
-    display: inline !important;
-    font-size: 15px !important;
-  }
-
-  /* Key Takeaways cards: white background, black text, black left border */
-  .key-takeaways .p-lg {
-    background-color: #ffffff !important;
-    color: #000000 !important;
-    border-left-color: #000000 !important;
-  }
-  .key-takeaways .material-symbols-outlined {
-    color: #000000 !important;
-  }
-  .key-takeaways h3,
-  .key-takeaways p {
-    color: #000000 !important;
-  }
-
-  /* Gradient heading for hero */
-  .gradient-heading {
-    background: none;
-    color: #ffffff;
-    -webkit-text-fill-color: #ffffff;
-    display: inline-block;
-    line-height: 1.05;
-    text-decoration: none;
-    opacity: 1;
-  }
-  /* Fabric page UI polish: make nav/dropdowns and CTAs match site quality */
-  nav.fixed {
-    background: #ffffff !important;
-    box-shadow: 0 12px 30px rgba(2,6,23,0.06);
-    border-bottom: 1px solid rgba(15,23,42,0.04);
-  }
-  .nav-dropdown-toggle {
-    color: #0f172a !important;
-    background: #ffffff !important;
-    border: none !important;
-    padding: 0.4rem 0.75rem !important;
-    font-weight: 600 !important;
-  }
-  .nav-dropdown-menu {
-    width: 20rem !important;
-    padding: 0.5rem !important;
-    border-radius: 1rem !important;
-    box-shadow: 0 18px 42px -12px rgba(0,0,0,0.12), 0 8px 20px -8px rgba(16,28,46,0.06) !important;
-  }
-  /* Hover fallback: show dropdown on hover if JS didn't toggle .active */
-  .nav-dropdown:hover .nav-dropdown-menu {
-    opacity: 1 !important;
-    visibility: visible !important;
-    transform: translateX(-50%) translateY(0) !important;
-  }
-  .dropdown-item { min-height: 56px; padding: 12px !important; gap: 12px !important; align-items: center !important; }
-  .dropdown-item .dropdown-icon { width: 40px !important; height: 40px !important; border-radius: 12px !important; display: flex !important; align-items: center; justify-content: center; font-size: 18px !important; }
-  .dropdown-item .font-semibold { font-size: 15px !important; }
-  .dropdown-item .text-xs { color: #6b7280 !important; }
-  .dropdown-item:hover { transform: translateX(6px) !important; }
-  .cta-pill { background: linear-gradient(135deg,#006875 0%,#00daf3 100%) !important; color: #ffffff !important; border: none !important; box-shadow: 0 8px 24px rgba(3,102,94,0.12) !important; }
-  .gradient-heading { background: linear-gradient(90deg, #7EC8FF 0%, #6A74FF 45%, #C082FF 75%, #5CE1FF 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; }
-
-  /* Make header CTA visually identical to index.html */
-  nav .gradient-primary {
-    background: linear-gradient(135deg, #00579f 0%, #0dd2ef 100%) !important;
-    box-shadow: 0 6px 18px rgba(0, 95, 170, 0.16), inset 0 0 0 1px rgba(255, 255, 255, 0.12) !important;
-    color: #ffffff !important;
-    padding-left: 1.5rem !important;
-    padding-right: 1.5rem !important;
-    padding-top: 0.625rem !important;
-    padding-bottom: 0.625rem !important;
-    border-radius: 999px !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    gap: 0.5rem !important;
-  }
-  nav .gradient-primary::after {
-    content: '' !important;
-    position: absolute !important;
-    inset: 0 !important;
-    background: linear-gradient(120deg, transparent 20%, rgba(255,255,255,0.12) 50%, transparent 80%) !important;
-    pointer-events: none !important;
-  }
-  /* Pill CTA similar to provided example */
-  .cta-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 16px;
-    padding: 14px 32px;
-    border-radius: 999px;
-    border: 1px solid rgba(255,255,255,0.95);
-    background: transparent;
-    color: #ffffff;
-    font-weight: 700;
-    text-decoration: none;
-    box-shadow: none;
-    transition: transform .18s ease, box-shadow .18s ease, opacity .18s ease;
-  }
-  .cta-pill .material-symbols-outlined { font-size: 20px; opacity: 0.95; font-weight: bold; }
-  .cta-pill:hover { transform: translateY(-2px); }
-
-  /* Register button style: transparent background with black border/text */
-  a.cta-pill,
-  button.cta-pill {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 14px;
-    min-height: 56px;
-    padding: 14px 30px;
-    border: 1.5px solid #111111 !important;
-    border-radius: 999px !important;
-    background: transparent !important;
-    color: #111111 !important;
-    font-size: 17px;
-    font-weight: 700;
-    letter-spacing: -0.01em;
-    text-decoration: none;
-    box-shadow: none !important;
-    transition: transform .18s ease, background-color .18s ease, border-color .18s ease, box-shadow .18s ease;
-    overflow: hidden;
-    appearance: none;
-    -webkit-appearance: none;
-  }
-  a.cta-pill::before,
-  button.cta-pill::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    background: rgba(17, 17, 17, 0.02);
-    opacity: 0;
-    transition: opacity .18s ease;
-    pointer-events: none;
-  }
-  a.cta-pill:hover,
-  button.cta-pill:hover {
-    transform: translateY(-2px);
-    background: rgba(17, 17, 17, 0.03) !important;
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08) !important;
-  }
-  a.cta-pill:hover::before,
-  button.cta-pill:hover::before { opacity: 1; }
-  a.cta-pill .material-symbols-outlined,
-  button.cta-pill .material-symbols-outlined {
-    font-size: 20px;
-    font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
-    color: #111111 !important;
-    opacity: 1;
-  }
-
-  .bottom-cta-panel {
-    width: 70%;
-    max-width: 980px;
-    margin: 0 auto;
-    border-radius: 40px;
-    padding: clamp(32px, 5vw, 72px) clamp(24px, 5vw, 96px);
-    background: linear-gradient(135deg, #0a77b8 0%, #16a6d6 52%, #2ac8e8 100%);
-    box-shadow: 0 24px 50px rgba(12, 90, 138, 0.22);
-    position: relative;
-    overflow: hidden;
-  }
-  .bottom-cta-panel::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(circle at 50% 0%, rgba(255,255,255,0.14), transparent 38%),
-      radial-gradient(circle at 100% 50%, rgba(255,255,255,0.10), transparent 26%);
-    pointer-events: none;
-  }
-  .bottom-cta-panel > * {
-    position: relative;
-    z-index: 1;
-  }
-  .bottom-cta-title {
-    color: #ffffff;
-    font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
-    font-size: clamp(32px, 4vw, 58px);
-    line-height: 1.05;
-    font-weight: 800;
-    letter-spacing: -0.04em;
-  }
-  .bottom-cta-copy {
-    color: rgba(255,255,255,0.88);
-    font-size: clamp(15px, 1.5vw, 20px);
-    line-height: 1.6;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-  .bottom-cta-note {
-    color: rgba(255,255,255,0.76);
-    font-size: 14px;
-    margin-top: 18px;
-  }
-  .bottom-cta-panel .cta-pill {
-    border-color: rgba(255,255,255,0.96) !important;
-    background: #ffffff !important;
-    color: #0b5ca8 !important;
-    box-shadow: 0 16px 32px rgba(0, 44, 96, 0.18) !important;
-    min-width: 250px;
-  }
-  .bottom-cta-panel .cta-pill .material-symbols-outlined {
-    color: #0b5ca8 !important;
-  }
-
-  @media (max-width: 640px) {
-    .bottom-cta-panel {
-      width: calc(100% - 32px);
-      max-width: none;
-    }
-  }
-
-</style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        display: inline-block;
+        vertical-align: middle;
+      }
+      .bento-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+      @media (max-width: 1024px) {
+        .bento-grid { grid-template-columns: repeat(2, 1fr); }
+      }
+      @media (max-width: 640px) {
+        .bento-grid { grid-template-columns: 1fr; }
+      }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+    </style>
 </head>
-<body class="font-body-md text-slate-900 antialiased bg-white">
+<body class="bg-background text-on-background font-body-md overflow-x-hidden">
 
 <header data-global-header aria-label="사이트 헤더"></header>
 
-<main class="dark pt-0">
-<!DOCTYPE html>
-
-<html class="light" lang="ko"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Fabric Analyst in a Day</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {
-                        "on-tertiary-container": "#ffffff",
-                        "on-secondary": "#ffffff",
-                        "surface-dim": "#dadad9",
-                        "on-background": "#1a1c1c",
-                        "on-error": "#ffffff",
-                        "inverse-surface": "#2f3130",
-                        "on-primary-container": "#ffffff",
-                        "surface-variant": "#e3e2e1",
-                        "background": "#faf9f8",
-                        "on-secondary-fixed": "#2a0053",
-                        "inverse-primary": "#a3c9ff",
-                        "secondary-fixed-dim": "#dab9ff",
-                        "error": "#ba1a1a",
-                        "on-primary": "#ffffff",
-                        "tertiary-fixed": "#91f4e1",
-                        "on-secondary-fixed-variant": "#5c2d91",
-                        "surface-container-lowest": "#ffffff",
-                        "secondary": "#7547ab",
-                        "inverse-on-surface": "#f1f0ef",
-                        "on-surface-variant": "#404752",
-                        "primary-fixed": "#d3e3ff",
-                        "primary": "#005faa",
-                        "on-tertiary": "#ffffff",
-                        "surface-container-highest": "#e3e2e1",
-                        "on-primary-fixed-variant": "#004883",
-                        "surface-container": "#efeeed",
-                        "surface": "#faf9f8",
-                        "secondary-fixed": "#efdbff",
-                        "error-container": "#ffdad6",
-                        "on-tertiary-fixed": "#00201b",
-                        "outline-variant": "#c0c7d4",
-                        "tertiary": "#006a5c",
-                        "surface-tint": "#0060ab",
-                        "on-tertiary-fixed-variant": "#005046",
-                        "outline": "#717783",
-                        "on-surface": "#1a1c1c",
-                        "primary-container": "#0078d4",
-                        "surface-container-high": "#e9e8e7",
-                        "surface-bright": "#faf9f8",
-                        "tertiary-fixed-dim": "#75d8c5",
-                        "secondary-container": "#c695ff",
-                        "surface-container-low": "#f4f3f2",
-                        "tertiary-container": "#0a8575",
-                        "on-secondary-container": "#552589",
-                        "on-error-container": "#93000a",
-                        "on-primary-fixed": "#001c39",
-                        "primary-fixed-dim": "#a3c9ff"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "0.125rem",
-                        "lg": "0.25rem",
-                        "xl": "0.5rem",
-                        "full": "0.75rem"
-                    },
-                    "spacing": {
-                        "stack-md": "24px",
-                        "stack-lg": "48px",
-                        "stack-sm": "12px",
-                        "container-max": "1200px",
-                        "margin-desktop": "40px",
-                        "margin-mobile": "16px",
-                        "base": "8px",
-                        "gutter": "24px"
-                    },
-                    "fontFamily": {
-                        "headline-sm": ["Inter"],
-                        "label-md": ["Inter"],
-                        "time-code": ["Inter"],
-                        "headline-md": ["Inter"],
-                        "body-lg": ["Inter"],
-                        "body-md": ["Inter"],
-                        "body-sm": ["Inter"],
-                        "display-lg": ["Inter"],
-                        "headline-lg": ["Inter"],
-                        "headline-lg-mobile": ["Inter"]
-                    },
-                    "fontSize": {
-                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
-                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
-                        "time-code": ["16px", { "lineHeight": "24px", "letterSpacing": "0.02em", "fontWeight": "700" }],
-                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
-                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
-                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
-                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
-                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
-                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
-                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
-                    }
-                },
-            },
-        }
-    </script>
-<style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #faf9f8;
-            color: #1a1c1c;
-        }
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        .timeline-line {
-            position: absolute;
-            left: 1.25rem;
-            top: 2rem;
-            bottom: -1rem;
-            width: 2px;
-            background-color: #e3e2e1;
-        }
-        .agenda-row:last-child .timeline-line {
-            display: none;
-        }
-        /* Agenda cards grid (centered, 70% width or max 700px) */
-        .agenda-cards-container { width: 70%; max-width: 700px; margin: 0 auto; }
-        /* Header aligns to same left edge as cards */
-        .agenda-header { width: 70%; max-width: 700px; margin: 0 auto; text-align: left; }
-        .agenda-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-          gap: 16px;
-        }
-        .agenda-grid .agenda-row {
-          display: block;
-        }
-        /* hide timeline markers in grid view */
-        .agenda-grid .timeline-line { display: none !important; }
-        .agenda-grid .agenda-row > .relative.z-10 { display: none !important; }
-        .agenda-grid .agenda-row > div {
-          border-left: none !important;
-          padding: 1rem !important;
-          border-radius: 12px !important;
-          box-shadow: 0 8px 24px rgba(8,35,66,0.06) !important;
-          background: #ffffff !important;
-        }
-        /* Card typography & compact layout for clarity */
-        .agenda-grid .card-meta { display: flex; gap: 8px; align-items: center; justify-content: space-between; margin-bottom: 6px; }
-        .agenda-grid .font-time-code { font-size: 12px; font-weight: 800; color: #005faa; letter-spacing: 0.06em; text-transform: uppercase; }
-        .agenda-grid .px-2.py-0\.5 { padding: 4px 8px !important; font-size: 12px !important; }
-        .agenda-grid h3 { font-size: 18px !important; line-height: 1.15 !important; margin: 4px 0 6px 0 !important; color: #0f172a !important; font-weight: 800 !important; }
-        .agenda-grid p { font-size: 13px !important; color: #475569 !important; margin: 0 !important; display: -webkit-box; line-clamp: 2; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis; }
-        /* Make cards slightly taller and consistent */
-        .agenda-grid .agenda-row > div { min-height: 100px; display: flex; flex-direction: column; justify-content: center; }
-        /* On hover, expand a bit with clearer shadow */
-        .agenda-grid .agenda-row > div:hover { transform: translateY(-6px) scale(1.01); box-shadow: 0 18px 36px rgba(8,35,66,0.08) !important; }
-        /* Mobile: make container full width with side padding */
-        @media (max-width: 640px) {
-          .agenda-cards-container { width: calc(100% - 32px); max-width: none; }
-          .agenda-grid { grid-template-columns: 1fr; gap: 12px; }
-        }
-
-        /* Unified badge styling and small icons */
-        .agenda-grid .badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 10px !important; border-radius: 999px !important; font-weight: 700 !important; font-size: 12px !important; }
-        .agenda-grid .badge .material-symbols-outlined { font-size: 16px; opacity: 0.95; }
-        .agenda-grid .badge.neutral { background: #f1f5f9 !important; color: #0f172a !important; border: 1px solid rgba(15,23,42,0.06) !important; }
-        .agenda-grid .badge.pres { background: linear-gradient(135deg,#00579f 0%,#0dd2ef 100%) !important; color: #fff !important; }
-        .agenda-grid .badge.lab { background: linear-gradient(135deg,#E87722 0%,#FFB74D 100%) !important; color: #fff !important; }
-        .agenda-grid .badge.break { background: rgba(15,23,42,0.03) !important; color: #475569 !important; border: 1px solid rgba(15,23,42,0.04) !important; }
-        .agenda-grid .badge.demo { background: linear-gradient(135deg,#6A74FF 0%,#5CE1FF 100%) !important; color: #fff !important; }
-        .agenda-grid .badge.small { padding: 4px 8px !important; font-size: 11px !important; }
-
-        /* Tag/badge refinements to reduce visual clutter */
-        .agenda-grid .px-2.py-0\.5.rounded { 
-          display: inline-flex !important; 
-          align-items: center; 
-          gap: 6px; 
-          padding: 6px 10px !important; 
-          font-size: 12px !important; 
-          font-weight: 600 !important; 
-          border-radius: 999px !important; 
-          background: #f1f5f9 !important; 
-          color: #0f172a !important; 
-          border: 1px solid rgba(15,23,42,0.06) !important; 
-          white-space: nowrap !important; 
-          text-transform: none !important; 
-        }
-        /* Preserve original semantic color accents for key badge types */
-        .agenda-grid .px-2.py-0\.5.bg-secondary { background: linear-gradient(135deg,#00579f 0%,#0dd2ef 100%) !important; color: #ffffff !important; border: none !important; }
-        .agenda-grid .px-2.py-0\.5.bg-tertiary { background: linear-gradient(135deg,#E87722 0%,#FFB74D 100%) !important; color: #ffffff !important; border: none !important; }
-        .agenda-grid .px-2.py-0\.5.bg-outline-variant\/30 { background: rgba(15,23,42,0.03) !important; color: #475569 !important; border: 1px solid rgba(15,23,42,0.04) !important; }
-        /* If badge text is long (e.g., 'DEMO + LAB 7'), reduce internal spacing and slightly smaller font to keep it neat */
-        .agenda-grid .px-2.py-0\.5.w-fit { padding-left: 8px !important; padding-right: 8px !important; font-size: 11px !important; }
-    </style>
-</head>
-<body class="overflow-x-hidden">
+<main class="pt-20">
 <!-- Hero Section -->
-<section class="relative min-h-[512px] flex items-center justify-center pt-stack-lg pb-stack-lg bg-surface">
-<div class="absolute inset-0 z-0 overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5"></div>
-<div class="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] -mr-48 -mt-48"></div>
-<div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-tertiary/10 rounded-full blur-[100px] -ml-24 -mb-24"></div>
-</div>
-<div class="relative z-10 max-w-container-max mx-auto mt-20 px-margin-mobile md:px-margin-desktop text-center">
-<div class="inline-flex items-center gap-2 px-3 py-1 mb-6 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-label-md text-label-md">
-<span class="material-symbols-outlined text-[16px]">verified</span>
+<section class="max-w-container-max mx-auto px-gutter py-section-padding text-center">
+<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary-container/10 border border-secondary-container/20 text-secondary font-label-mono mb-6">
+<span class="material-symbols-outlined text-[18px]">verified</span>
                 Microsoft Fabric Workshop
             </div>
-<h1 class="font-display-lg text-display-lg md:text-[64px] mb-4 text-on-surface tracking-tight">
+<h1 class="font-display-lg text-display-lg md:text-display-lg max-w-4xl mx-auto mb-6 text-on-surface">
                 Fabric Analyst in a Day
             </h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-[700px] mx-auto mb-10">
-                Microsoft Fabric과 함께 데이터 분석의 미래를 경험하세요. 통합 데이터 분석 플랫폼의 모든 과정을 하루 만에 마스터합니다.
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-10">
+                Microsoft Fabric과 함께 데이터 분석의 미래를 경험하세요. 통합 데이터 분석 플랫폼의 <br />모든 과정을 하루 만에 마스터합니다.
             </p>
-      <div class="max-w-[700px] mx-auto mb-10 rounded-xl border border-outline-variant/60 bg-white/85 px-4 py-3 text-left text-on-surface">
-        <div class="flex items-center gap-2 text-sm md:text-base font-medium">
-          <span class="material-symbols-outlined text-primary" aria-hidden="true">location_on</span>
-          <a href="https://map.naver.com/p/entry/place/12080824?c=15.00,0,0,0,dh&placePath=/home?from=map&fromPanelNum=1&additionalHeight=76&timestamp=202605281354&locale=ko&svcName=map_pcv5" target="_blank" rel="noopener noreferrer" class="hover:text-primary hover:underline">장소: 한국마이크로소프트 13층(제주룸)</a>
-        </div>
-        <div class="mt-2 flex items-center gap-2 text-sm md:text-base font-medium">
-          <span class="material-symbols-outlined text-primary" aria-hidden="true">schedule</span>
-          <span>시간: 09:00-17:00</span>
-        </div>
-      </div>
-      <div class="mt-10 mb-20">
-
-        <a href="https://msevents.microsoft.com/event?id=3940444848" id="register-hero" class="cta-pill">
-          <span class="material-symbols-outlined">how_to_reg</span>
+<div class="glass-card max-w-2xl mx-auto rounded-xl shadow-[0px_4px_20px_rgba(0,0,0,0.05)] p-8 mb-12 flex flex-col md:flex-row justify-center items-center gap-8 border border-outline-variant/30">
+<div class="flex items-center gap-3 text-on-surface">
+<span class="material-symbols-outlined text-primary">location_on</span>
+<span class="font-body-md">한국마이크로소프트 13층 (제주룸)</span>
+</div>
+<div class="w-px h-6 bg-outline-variant hidden md:block"></div>
+<div class="flex items-center gap-3 text-on-surface">
+<span class="material-symbols-outlined text-primary">schedule</span>
+<span class="font-body-md">09:00 - 17:00</span>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row justify-center gap-4">
+<a href="https://msevents.microsoft.com/event?id=3940444848" target="_blank" rel="noopener noreferrer" class="bg-primary text-on-primary px-10 py-4 rounded-lg font-bold shadow-lg hover:shadow-xl transition-all duration-200 hover:-translate-y-1 inline-flex items-center justify-center">
           등록하기
         </a>
-      </div>
 </div>
 </section>
 <!-- Agenda Section -->
-<section class="py-stack-lg bg-background">
-<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-<div class="mb-stack-lg flex flex-col md:flex-row md:items-end justify-between gap-4">
-<div class="agenda-header">
-<h2 class="font-headline-lg text-headline-lg text-on-surface mt-20">Agenda &amp; Workshop Schedule</h2>
-<p class="font-body-md text-body-md text-on-surface-variant mt-2">전문가와 함께하는 체계적인 실습 및 세션 일정입니다.</p>
+<section class="bg-surface-container-low py-section-padding" id="schedule">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="text-center mb-16">
+<h2 class="font-display-lg text-headline-md text-on-surface mb-4">Agenda &amp; Workshop Schedule</h2>
+<p class="font-body-md text-on-surface-variant">전문가와 함께하는 체계적인 실습 및 세션 일정입니다.</p>
+</div>
+<div class="bento-grid">
+<!-- Morning Session -->
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-[0px_4px_20px_rgba(0,0,0,0.05)] border-l-4 border-primary">
+<div class="flex justify-between items-start mb-4">
+<span class="font-label-mono text-primary">09:00 - 10:00</span>
+<span class="bg-primary/10 text-primary text-[10px] px-2 py-0.5 rounded font-label-mono">PRESENTATION</span>
+</div>
+<h3 class="font-headline-sm text-on-surface mb-2">Microsoft Fabric소개</h3>
+<p class="font-body-sm text-on-surface-variant">Workshop overview and Microsoft Fabric vision/roadmap explanation.</p>
+</div>
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-[0px_4px_20px_rgba(0,0,0,0.05)]">
+<div class="flex justify-between items-start mb-4">
+<span class="font-label-mono text-primary">10:00 - 10:30</span>
+<span class="bg-secondary-container/10 text-secondary text-[10px] px-2 py-0.5 rounded font-label-mono">LAB 1</span>
+</div>
+<h3 class="font-headline-sm text-on-surface mb-2">OneLake 개요</h3>
+<p class="font-body-sm text-on-surface-variant">랩 1 - 문제 정의</p>
+</div>
+<div class="bg-surface-container-lowest/50 p-8 rounded-xl border border-dashed border-outline-variant flex items-center justify-center">
+<div class="text-center">
+<span class="font-label-mono text-outline">10:30 - 10:45</span>
+<div class="text-headline-sm text-outline mt-1 italic">휴식</div>
 </div>
 </div>
+<!-- Post Break -->
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-[0px_4px_20px_rgba(0,0,0,0.05)]">
+<div class="flex justify-between items-start mb-4">
+<span class="font-label-mono text-primary">10:45 - 11:00</span>
+<span class="bg-secondary-container/10 text-secondary text-[10px] px-2 py-0.5 rounded font-label-mono">LAB 2</span>
 </div>
-<div class="space-y-4 agenda-cards-container">
-  <div class="agenda-grid">
-<!-- Session 1: Intro -->
-<div class="agenda-row relative flex flex-col md:flex-row gap-6 group">
-<div class="timeline-line md:block hidden"></div>
-<div class="relative z-10 w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center shrink-0 border-4 border-background mt-1 hidden md:flex">
-<span class="material-symbols-outlined text-on-secondary-container text-[20px]">present_to_all</span>
+<h3 class="font-headline-sm text-on-surface mb-2">Data Engineering</h3>
+<p class="font-body-sm text-on-surface-variant">랩 2 - Fabric 작업 영역 생성</p>
 </div>
-<div class="bg-surface p-6 rounded-xl shadow-[0px_4px_12px_rgba(0,0,0,0.05)] border-l-4 border-secondary flex-1 transition-transform hover:scale-[1.01]">
-<div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
-<span class="font-time-code text-time-code text-primary">9:00-10:00</span>
-<span class="px-2 py-0.5 rounded bg-secondary text-on-secondary text-label-md font-label-md w-fit">PRESENTATION</span>
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-[0px_4px_20px_rgba(0,0,0,0.05)]">
+<div class="flex justify-between items-start mb-4">
+<span class="font-label-mono text-primary">11:00 - 12:00</span>
+<span class="bg-secondary-container/10 text-secondary text-[10px] px-2 py-0.5 rounded font-label-mono">LAB 3</span>
 </div>
-<h3 class="font-headline-sm text-headline-sm text-on-surface">Microsoft Fabric 소개</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">워크숍 개요 및 Microsoft Fabric의 비전과 주요 기능 로드맵 설명</p>
+<h3 class="font-headline-sm text-on-surface mb-2">Data Factory</h3>
+<p class="font-body-sm text-on-surface-variant">랩 3 - 레이크하우스 바로 가기 소개(1부)</p>
 </div>
-</div>
-<!-- Session 2: OneLake -->
-<div class="agenda-row relative flex flex-col md:flex-row gap-6 group">
-<div class="timeline-line md:block hidden"></div>
-<div class="relative z-10 w-10 h-10 rounded-full bg-tertiary-container flex items-center justify-center shrink-0 border-4 border-background mt-1 hidden md:flex">
-<span class="material-symbols-outlined text-on-tertiary-container text-[20px]">biotech</span>
-</div>
-<div class="bg-surface p-6 rounded-xl shadow-[0px_4px_12px_rgba(0,0,0,0.05)] border-l-4 border-tertiary flex-1 transition-transform hover:scale-[1.01]">
-<div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
-<span class="font-time-code text-time-code text-primary">10:00-10:30</span>
-<span class="px-2 py-0.5 rounded bg-tertiary text-on-tertiary text-label-md font-label-md w-fit">LAB 1</span>
-</div>
-<h3 class="font-headline-sm text-headline-sm text-on-surface">OneLake 개요</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">랩 1 – 문제 정의</p>
+<div class="bg-surface-container-lowest/50 p-8 rounded-xl border border-dashed border-outline-variant flex items-center justify-center">
+<div class="text-center">
+<span class="font-label-mono text-outline">12:00 - 12:45</span>
+<div class="text-headline-sm text-outline mt-1 italic">점심 시간</div>
 </div>
 </div>
-<!-- Session 3: Break -->
-<div class="agenda-row relative flex flex-col md:flex-row gap-6 group">
-<div class="timeline-line md:block hidden"></div>
-<div class="relative z-10 w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center shrink-0 border-4 border-background mt-1 hidden md:flex">
-<span class="material-symbols-outlined text-on-surface-variant text-[20px]">coffee</span>
+<!-- Afternoon Session -->
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-[0px_4px_20px_rgba(0,0,0,0.05)]">
+<div class="flex justify-between items-start mb-4">
+<span class="font-label-mono text-primary">12:45 - 13:45</span>
+<span class="bg-secondary-container/10 text-secondary text-[10px] px-2 py-0.5 rounded font-label-mono">LAB 4</span>
 </div>
-<div class="bg-surface-container-low p-4 rounded-xl flex-1 border-l-4 border-outline/30">
-<div class="flex items-center justify-between">
-<span class="font-time-code text-time-code text-outline">10:30-10:45</span>
-<span class="px-2 py-0.5 rounded bg-outline-variant/30 text-on-surface-variant text-label-md font-label-md">BREAK</span>
+<h3 class="font-headline-sm text-on-surface mb-2"> </h3>
+<p class="font-body-sm text-on-surface-variant">랩 4 - Data Factory 환경 - 2부</p>
 </div>
-<h3 class="font-body-sm text-body-sm text-on-surface-variant opacity-70">휴식</h3>
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-[0px_4px_20px_rgba(0,0,0,0.05)]">
+<div class="flex justify-between items-start mb-4">
+<span class="font-label-mono text-primary">13:45 - 14:45</span>
+<span class="bg-secondary-container/10 text-secondary text-[10px] px-2 py-0.5 rounded font-label-mono">LAB 5</span>
 </div>
+<h3 class="font-headline-sm text-on-surface mb-2">Data Warehouse</h3>
+<p class="font-body-sm text-on-surface-variant">랩 5 - Data Factory 환경 - 3부</p>
 </div>
-<!-- Session 4: Engineering -->
-<div class="agenda-row relative flex flex-col md:flex-row gap-6 group">
-<div class="timeline-line md:block hidden"></div>
-<div class="relative z-10 w-10 h-10 rounded-full bg-tertiary-container flex items-center justify-center shrink-0 border-4 border-background mt-1 hidden md:flex">
-<span class="material-symbols-outlined text-on-tertiary-container text-[20px]">construction</span>
-</div>
-<div class="bg-surface p-6 rounded-xl shadow-[0px_4px_12px_rgba(0,0,0,0.05)] border-l-4 border-tertiary flex-1 transition-transform hover:scale-[1.01]">
-<div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
-<span class="font-time-code text-time-code text-primary">10:45-11:00</span>
-<span class="px-2 py-0.5 rounded bg-tertiary text-on-tertiary text-label-md font-label-md w-fit">LAB 2</span>
-</div>
-<h3 class="font-headline-sm text-headline-sm text-on-surface">Data Engineering</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">랩 2 – Fabric 작업 영역 생성</p>
+<div class="bg-surface-container-lowest/50 p-8 rounded-xl border border-dashed border-outline-variant flex items-center justify-center">
+<div class="text-center">
+<span class="font-label-mono text-outline">14:45 - 15:00</span>
+<div class="text-headline-sm text-outline mt-1 italic">휴식</div>
 </div>
 </div>
-<!-- Session 5: Factory -->
-<div class="agenda-row relative flex flex-col md:flex-row gap-6 group">
-<div class="timeline-line md:block hidden"></div>
-<div class="relative z-10 w-10 h-10 rounded-full bg-tertiary-container flex items-center justify-center shrink-0 border-4 border-background mt-1 hidden md:flex">
-<span class="material-symbols-outlined text-on-tertiary-container text-[20px]">precision_manufacturing</span>
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-[0px_4px_20px_rgba(0,0,0,0.05)]">
+<div class="flex justify-between items-start mb-4">
+<span class="font-label-mono text-primary">15:00 - 16:00</span>
+<span class="bg-secondary-container/10 text-secondary text-[10px] px-2 py-0.5 rounded font-label-mono">LAB 6</span>
 </div>
-<div class="bg-surface p-6 rounded-xl shadow-[0px_4px_12px_rgba(0,0,0,0.05)] border-l-4 border-tertiary flex-1 transition-transform hover:scale-[1.01]">
-<div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
-<span class="font-time-code text-time-code text-primary">11:00-12:00</span>
-<span class="px-2 py-0.5 rounded bg-tertiary text-on-tertiary text-label-md font-label-md w-fit">LAB 3</span>
+<h3 class="font-headline-sm text-on-surface mb-2">Power BI</h3>
+<p class="font-body-sm text-on-surface-variant">랩 6 - Data Engineering 환경</p>
 </div>
-<h3 class="font-headline-sm text-headline-sm text-on-surface">Data Factory</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">랩 3 – 레이크하우스 바로 가기 소개(1부)</p>
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-[0px_4px_20px_rgba(0,0,0,0.05)]">
+<div class="flex justify-between items-start mb-4">
+<span class="font-label-mono text-primary">16:00 - 16:30</span>
+<span class="bg-secondary-container/10 text-secondary text-[10px] px-2 py-0.5 rounded font-label-mono">LAB 7</span>
 </div>
+<h3 class="font-headline-sm text-on-surface mb-2">예측 모델 데모</h3>
+<p class="font-body-sm text-on-surface-variant">랩 7 - Power BI 환경</p>
 </div>
-<!-- Session 6: Lunch -->
-<div class="agenda-row relative flex flex-col md:flex-row gap-6 group">
-<div class="timeline-line md:block hidden"></div>
-<div class="relative z-10 w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center shrink-0 border-4 border-background mt-1 hidden md:flex">
-<span class="material-symbols-outlined text-on-surface-variant text-[20px]">restaurant</span>
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-[0px_4px_20px_rgba(0,0,0,0.05)]">
+<div class="flex justify-between items-start mb-4">
+<span class="font-label-mono text-primary">16:30 - 16:45</span>
+<span class="bg-secondary-container/10 text-secondary text-[10px] px-2 py-0.5 rounded font-label-mono">LAB 7</span>
 </div>
-<div class="bg-surface-container-low p-4 rounded-xl flex-1 border-l-4 border-outline/30">
-<div class="flex items-center justify-between">
-<span class="font-time-code text-time-code text-outline">12:00-12:45</span>
-<span class="px-2 py-0.5 rounded bg-outline-variant/30 text-on-surface-variant text-label-md font-label-md">LUNCH</span>
+<h3 class="font-headline-sm text-on-surface mb-2">Data Activator 데모</h3>
+<p class="font-body-sm text-on-surface-variant">랩 7 - 정리</p>
 </div>
-<h3 class="font-body-sm text-body-sm text-on-surface-variant opacity-70">점심 시간</h3>
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-[0px_4px_20px_rgba(0,0,0,0.05)]">
+<div class="flex justify-between items-start mb-4">
+<span class="font-label-mono text-primary">16:45 - 17:00</span>
 </div>
-</div>
-<!-- Session 7: Lab 4 -->
-<div class="agenda-row relative flex flex-col md:flex-row gap-6 group">
-<div class="timeline-line md:block hidden"></div>
-<div class="relative z-10 w-10 h-10 rounded-full bg-tertiary-container flex items-center justify-center shrink-0 border-4 border-background mt-1 hidden md:flex">
-<span class="material-symbols-outlined text-on-tertiary-container text-[20px]">factory</span>
-</div>
-<div class="bg-surface p-6 rounded-xl shadow-[0px_4px_12px_rgba(0,0,0,0.05)] border-l-4 border-tertiary flex-1 transition-transform hover:scale-[1.01]">
-<div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
-<span class="font-time-code text-time-code text-primary">12:45-13:45</span>
-<span class="px-2 py-0.5 rounded bg-tertiary text-on-tertiary text-label-md font-label-md w-fit">LAB 4</span>
-</div>
-<h3 class="font-headline-sm text-headline-sm text-on-surface">Data Factory</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">랩 4 – Data Factory 환경 – 2부</p>
+<h3 class="font-headline-sm text-on-surface mb-2">다음 단계 및 리소스</h3>
+<p class="font-body-sm text-on-surface-variant"></p>
 </div>
 </div>
-<!-- Session 8: Warehouse -->
-<div class="agenda-row relative flex flex-col md:flex-row gap-6 group">
-<div class="timeline-line md:block hidden"></div>
-<div class="relative z-10 w-10 h-10 rounded-full bg-tertiary-container flex items-center justify-center shrink-0 border-4 border-background mt-1 hidden md:flex">
-<span class="material-symbols-outlined text-on-tertiary-container text-[20px]">database</span>
-</div>
-<div class="bg-surface p-6 rounded-xl shadow-[0px_4px_12px_rgba(0,0,0,0.05)] border-l-4 border-tertiary flex-1 transition-transform hover:scale-[1.01]">
-<div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
-<span class="font-time-code text-time-code text-primary">13:45-14:45</span>
-<span class="px-2 py-0.5 rounded bg-tertiary text-on-tertiary text-label-md font-label-md w-fit">LAB 5</span>
-</div>
-<h3 class="font-headline-sm text-headline-sm text-on-surface">Data Warehouse</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">랩 5 – Data Factory 환경 – 3부</p>
-</div>
-</div>
-<!-- Session 9: Break -->
-<div class="agenda-row relative flex flex-col md:flex-row gap-6 group">
-<div class="timeline-line md:block hidden"></div>
-<div class="relative z-10 w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center shrink-0 border-4 border-background mt-1 hidden md:flex">
-<span class="material-symbols-outlined text-on-surface-variant text-[20px]">relax</span>
-</div>
-<div class="bg-surface-container-low p-4 rounded-xl flex-1 border-l-4 border-outline/30">
-<div class="flex items-center justify-between">
-<span class="font-time-code text-time-code text-outline">14:45-15:00</span>
-<span class="px-2 py-0.5 rounded bg-outline-variant/30 text-on-surface-variant text-label-md font-label-md">BREAK</span>
-</div>
-<h3 class="font-body-sm text-body-sm text-on-surface-variant opacity-70">휴식</h3>
-</div>
-</div>
-<!-- Session 10: Power BI -->
-<div class="agenda-row relative flex flex-col md:flex-row gap-6 group">
-<div class="timeline-line md:block hidden"></div>
-<div class="relative z-10 w-10 h-10 rounded-full bg-tertiary-container flex items-center justify-center shrink-0 border-4 border-background mt-1 hidden md:flex">
-<span class="material-symbols-outlined text-on-tertiary-container text-[20px]">bar_chart</span>
-</div>
-<div class="bg-surface p-6 rounded-xl shadow-[0px_4px_12px_rgba(0,0,0,0.05)] border-l-4 border-tertiary flex-1 transition-transform hover:scale-[1.01]">
-<div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
-<span class="font-time-code text-time-code text-primary">15:00-16:00</span>
-<span class="px-2 py-0.5 rounded bg-tertiary text-on-tertiary text-label-md font-label-md w-fit">LAB 6</span>
-</div>
-<h3 class="font-headline-sm text-headline-sm text-on-surface">Power BI</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">랩 6 – Data Engineering 환경</p>
-</div>
-</div>
-<!-- Session 11: Demo & Lab 7 -->
-<div class="agenda-row relative flex flex-col md:flex-row gap-6 group">
-<div class="timeline-line md:block hidden"></div>
-<div class="relative z-10 w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center shrink-0 border-4 border-background mt-1 hidden md:flex">
-<span class="material-symbols-outlined text-on-secondary-container text-[20px]">monitoring</span>
-</div>
-<div class="bg-surface p-6 rounded-xl shadow-[0px_4px_12px_rgba(0,0,0,0.05)] border-l-4 border-secondary flex-1 transition-transform hover:scale-[1.01]">
-<div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
-<span class="font-time-code text-time-code text-primary">16:00-16:30</span>
-<span class="px-2 py-0.5 rounded bg-secondary text-on-secondary text-label-md font-label-md w-fit">DEMO + LAB 7</span>
-</div>
-<h3 class="font-headline-sm text-headline-sm text-on-surface">예측 모델 데모</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">랩 7 – Power BI 환경</p>
-</div>
-</div>
-<!-- Session 12: Activator -->
-<div class="agenda-row relative flex flex-col md:flex-row gap-6 group">
-<div class="timeline-line md:block hidden"></div>
-<div class="relative z-10 w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center shrink-0 border-4 border-background mt-1 hidden md:flex">
-<span class="material-symbols-outlined text-on-secondary-container text-[20px]">notification_important</span>
-</div>
-<div class="bg-surface p-6 rounded-xl shadow-[0px_4px_12px_rgba(0,0,0,0.05)] border-l-4 border-secondary flex-1 transition-transform hover:scale-[1.01]">
-<div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
-<span class="font-time-code text-time-code text-primary">16:30-16:45</span>
-<span class="px-2 py-0.5 rounded bg-secondary text-on-secondary text-label-md font-label-md w-fit">DEMO</span>
-</div>
-<h3 class="font-headline-sm text-headline-sm text-on-surface">Data Activator 데모</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">랩 7 – 정리</p>
-</div>
-</div>
-<!-- Session 13: Closing -->
-<div class="agenda-row relative flex flex-col md:flex-row gap-6 group">
-<div class="timeline-line md:block hidden"></div>
-<div class="relative z-10 w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center shrink-0 border-4 border-background mt-1 hidden md:flex">
-<span class="material-symbols-outlined text-on-surface-variant text-[20px]">flag</span>
-</div>
-<div class="bg-surface p-6 rounded-xl mb-24 shadow-[0px_4px_12px_rgba(0,0,0,0.05)] border-l-4 border-outline flex-1 transition-transform hover:scale-[1.01]">
-<div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
-<span class="font-time-code text-time-code text-primary">16:45-17:00</span>
-<span class="px-2 py-0.5 rounded bg-outline text-on-surface text-label-md font-label-md w-fit">CLOSING</span>
-</div>
-<h3 class="font-headline-sm text-headline-sm text-on-surface">다음 단계 및 리소스</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">마무리</p>
-</div>
-</div>
-  </div>
 </div>
 </section>
-  <section class="py-10 bg-background">
-    <div class="bottom-cta-panel text-center mb-40">
-      <h2 class="bottom-cta-title">Fabric 최신 기술로<br/>새로운 가능성을 발견하세요</h2>
-      <p class="bottom-cta-copy mt-6">
-        Microsoft Fabric과 함께 데이터 분석의 미래를 경험하세요.<br/>
-        통합 데이터 분석 플랫폼의 모든 과정을 하루 만에 마스터합니다.
-      </p>
-      <div class="mt-10 flex justify-center">
+<!-- Key Takeaways Section -->
+<section class="py-section-padding" id="curriculum">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="grid md:grid-cols-2 gap-16 items-center">
+<div class="relative rounded-2xl overflow-hidden shadow-2xl h-[500px]">
+<img alt="Data Analytics Visualization" class="w-full h-full object-cover" data-alt="A professional high-tech workspace featuring multiple large high-resolution monitors displaying complex data visualizations, network graphs, and streaming analytics dashboards. The room is modern and dimly lit with soft blue neon accents, reflecting a sophisticated corporate data science environment. High-end computing hardware and clean glass surfaces create an atmosphere of expert technical reliability and academic precision." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrcG5L5tJqXkvBS9jJgDuXdIqKE9GKfJsab-4YtXigF9XApZiTOg1pfCs64EooRjGPF77NLXISfRUjJ03-kHIkJJR7Ho4_Cr-BK7Oh116-U06fT9SStxduR1C13dSuHHIiqDyxrQbOZu0iQRU1gQAZNsMk3Gg2uCFS2_iP2QIXFOg-Zq1hQpBpSwW-1bzIYu-7oxuRVzP3J4bn50GOa-9HgbJtBzZz7B4j79SbmC4pbjv-JvnJmTE84dyLcFZByJhsWNnvpv36sg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent"></div>
+</div>
+<div>
+<h2 class="font-display-lg text-headline-md text-on-surface mb-8">얻게 될 성과</h2>
+<ul class="space-y-6">
+<li class="flex items-start gap-4">
+<div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-[20px]">check</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-on-surface mb-1">통합 데이터 기반</h4>
+<p class="font-body-md text-on-surface-variant">OneLake가 데이터 사일로를 제거하고 조직 전체에 단일 진실 소스를 제공하는 방법을 알아보세요.</p>
+</div>
+</li>
+<li class="flex items-start gap-4">
+<div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-[20px]">check</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-on-surface mb-1">End-to-End 워크플로우 숙련</h4>
+<p class="font-body-md text-on-surface-variant">데이터 수집, 엔지니어링, 웨어하우징, BI를 하나의 원활하고 고성능 파이프라인으로 연결하는 방법을 알아보세요.</p>
+</div>
+</li>
+<li class="flex items-start gap-4">
+<div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-[20px]">check</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-on-surface mb-1">AI 기반 인사이트</h4>
+<p class="font-body-md text-on-surface-variant">Copilot과 통합 AI 모델이 개발을 가속화하고 데이터의 숨겨진 가치를 발견하는 방법을 알아보세요.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Bottom CTA -->
+<section class="max-w-[1200px] mx-auto px-gutter pb-section-padding">
+<div class="relative overflow-hidden rounded-[32px] bg-gradient-to-br from-primary via-secondary to-primary-container p-12 md:p-20 text-center text-on-primary shadow-2xl">
+<!-- Background decoration -->
+<div class="absolute -top-24 -right-24 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+<div class="absolute -bottom-24 -left-24 w-64 h-64 bg-secondary-container/20 rounded-full blur-3xl"></div>
+<div class="relative z-10">
+<h2 class="font-display-lg text-display-lg-mobile md:text-display-lg mb-6 leading-tight">
+                        Microsoft Fabric 최신 기술로<br/>새로운 가능성을 발견하세요
+                    </h2>
+<p class="font-body-lg text-body-lg text-white/90 max-w-2xl mx-auto mb-10">
+                        Microsoft Fabric 워크숍에 참여하여 데이터 분석의 미래를 함께 경험해보세요. 
+                        단 하루 만에 통합 데이터 분석 플랫폼을 마스터할 수 있습니다.
+                    </p>
+<a href="https://msevents.microsoft.com/event?id=3940444848" target="_blank" rel="noopener noreferrer" class="bg-white text-primary px-12 py-4 rounded-lg font-bold text-lg hover:bg-surface-container-lowest transition-all duration-300 transform hover:scale-105 inline-flex items-center gap-3 mx-auto">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">rocket_launch</span>
+                        등록하기
+          </a>
+<p class="mt-6 text-white/70 font-label-mono text-sm">
+                        🚀 한정된 좌석이 있습니다. 아래 등록 양식을 작성해주세요.
+                    </p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-section-padding bg-surface-container-lowest dark:bg-inverse-surface border-t border-outline-variant">
+<div class="flex flex-col md:flex-row justify-between items-center max-w-[1200px] mx-auto px-gutter gap-8">
+<div class="flex flex-col gap-4 text-center md:text-left">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface dark:text-inverse-on-surface">Foundry Education</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant dark:text-on-tertiary-fixed-variant">
+                    © 2024 Foundry Hands-on Technical Education. All rights reserved.
+                </p>
+</div>
+<div class="flex flex-wrap justify-center gap-6">
+<a class="font-body-sm text-body-sm text-on-surface-variant dark:text-on-tertiary-fixed-variant hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200" href="#">Privacy Policy</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant dark:text-on-tertiary-fixed-variant hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200" href="#">Terms of Service</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant dark:text-on-tertiary-fixed-variant hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200" href="#">Contact Support</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant dark:text-on-tertiary-fixed-variant hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200" href="#">Corporate Site</a>
+</div>
+</div>
+</footer>
 
-        <a href="https://msevents.microsoft.com/event?id=3940444848" id="register-bottom-page" class="cta-pill">
-          <span class="material-symbols-outlined">rocket_launch</span>
-          등록하기
-        </a>
-      </div>
-      <p class="bottom-cta-note">📌 관심 있는 분은 아래 등록 폼으로 바로 신청하세요.</p>
-    </div>
-  </section>
+<script src="global-state-manager.js"></script>
+<script src="global-header-loader.js"></script>
+
 <script>
-        // Simple entrance animation for cards
-        document.addEventListener('DOMContentLoaded', () => {
-            const rows = document.querySelectorAll('.agenda-row');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach((entry, index) => {
-                    if (entry.isIntersecting) {
-                        setTimeout(() => {
-                            entry.target.classList.add('opacity-100', 'translate-y-0');
-                            entry.target.classList.remove('opacity-0', 'translate-y-4');
-                        }, index * 100);
-                    }
+    const fabricEventUrl = 'https://msevents.microsoft.com/event?id=3940444848';
+
+    // Override global header CTA only on this page.
+    function bindFabricHeaderRegisterLink() {
+      const headerMount = document.querySelector('header[data-global-header]');
+      if (!headerMount) return;
+
+      const ctaLinks = headerMount.querySelectorAll('a');
+      ctaLinks.forEach(link => {
+        const label = (link.textContent || '').replace(/\s+/g, ' ').trim();
+        if (label.includes('등록하기')) {
+          link.href = fabricEventUrl;
+          link.target = '_blank';
+          link.rel = 'noopener noreferrer';
+        }
+      });
+    }
+
+    bindFabricHeaderRegisterLink();
+    const headerObserver = new MutationObserver(bindFabricHeaderRegisterLink);
+    const headerMountPoint = document.querySelector('header[data-global-header]');
+    if (headerMountPoint) {
+      headerObserver.observe(headerMountPoint, { childList: true, subtree: true });
+    }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
                 });
-            }, { threshold: 0.1 });
-
-            rows.forEach(row => {
-                row.classList.add('transition-all', 'duration-500', 'opacity-0', 'translate-y-4');
-                observer.observe(row);
             });
         });
-    </script>
-    <!-- Global header scripts -->
-    <script src="global-state-manager.js"></script>
-    <script src="global-header-loader.js"></script>
-    <script>
-      (function(){
-        const targetUrl = 'https://msevents.microsoft.com/event?id=3940444848';
 
-        function shouldMatchText(text) {
-          if (!text) return false;
-          const t = text.toString().trim().toLowerCase();
-          if (t.indexOf('등록') !== -1) return true; // catches '지금 등록하기', '등록하기' 등
-          if (t.indexOf('신청') !== -1) return true;
-          return /register|apply/i.test(t);
-        }
-
-        function overrideHeader() {
-          const header = document.querySelector('header[data-global-header]');
+        // Floating Header Effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
           if (!header) return;
-
-          // Update existing anchors to point to target and open in new tab
-          const anchors = header.querySelectorAll('a');
-          anchors.forEach(a => {
-            const txt = (a.textContent || '').trim();
-            if (shouldMatchText(txt)) {
-              a.href = targetUrl;
-              a.target = '_blank';
-              a.rel = 'noopener noreferrer';
+            if (window.scrollY > 20) {
+                header.classList.add('py-2');
+                header.classList.remove('h-20');
+            } else {
+                header.classList.remove('py-2');
+                header.classList.add('h-20');
             }
-          });
-
-          // Add a capture-phase click listener on the header to intercept any navigation
-          header.addEventListener('click', function captureClick(e) {
-            const el = e.target.closest('a, button');
-            if (!el) return;
-            const txt = (el.textContent || '').trim();
-            if (!shouldMatchText(txt)) return;
-
-            // Prevent default navigation and any other handlers
-            e.preventDefault();
-            e.stopPropagation();
-
-            // Open in a new tab/window
-            try {
-              window.open(targetUrl, '_blank', 'noopener');
-            } catch (err) {
-              setTimeout(() => { window.location.href = targetUrl; }, 50);
-            }
-          }, true); // useCapture = true
-        }
-
-        function setupPageButtons() {
-          const ids = ['register-hero', 'register-bottom-page'];
-          ids.forEach(id => {
-            const el = document.getElementById(id);
-            if (!el) return;
-            el.addEventListener('click', (e) => {
-              e.preventDefault();
-              e.stopPropagation();
-              try {
-                window.open(targetUrl, '_blank', 'noopener');
-              } catch (err) {
-                setTimeout(() => { window.location.href = targetUrl; }, 50);
-              }
-            });
-          });
-        }
-
-        // Observe header insertion/updates from global-header-loader and re-run override
-        document.addEventListener('DOMContentLoaded', () => {
-          const root = document.body;
-          const mo = new MutationObserver((mutations) => {
-            if (document.querySelector('header[data-global-header] a, header[data-global-header] button')) {
-              overrideHeader();
-            }
-          });
-          mo.observe(root, { childList: true, subtree: true });
-          // Try immediately in case header/buttons already present
-          overrideHeader();
-          setupPageButtons();
         });
-      })();
     </script>
-  </body></html>
+</body></html>
