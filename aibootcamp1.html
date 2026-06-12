@@ -1,667 +1,619 @@
 <!DOCTYPE html>
-
-<html class="dark" lang="ko"><head>
+<html class="dark" lang="ko">
+<head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>AI Foundry 부트캠프 | Agentic AI 전문가 양성</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            "colors": {
-                    "inverse-primary": "#0060ab",
-                    "secondary": "#4edea3",
-                    "primary-fixed": "#d3e3ff",
-                    "on-tertiary-fixed-variant": "#6900b3",
-                    "inverse-on-surface": "#2c3132",
-                    "on-error": "#690005",
-                    "on-surface-variant": "#c0c7d4",
-                    "surface-container-low": "#171c1d",
-                    "inverse-surface": "#dfe3e4",
-                    "secondary-fixed": "#6ffbbe",
-                    "on-tertiary-fixed": "#2c0051",
-                    "error-container": "#93000a",
-                    "on-primary-container": "#ffffff",
-                    "on-error-container": "#ffdad6",
-                    "on-background": "#dfe3e4",
-                    "secondary-fixed-dim": "#4edea3",
-                    "tertiary-fixed": "#f0dbff",
-                    "on-primary-fixed-variant": "#004883",
-                    "secondary-container": "#00a572",
-                    "surface-container": "#1b2021",
-                    "surface-container-lowest": "#0a0f10",
-                    "primary-container": "#0078d4",
-                    "on-surface": "#dfe3e4",
-                    "background": "#0f1415",
-                    "primary-fixed-dim": "#a3c9ff",
-                    "surface": "#0f1415",
-                    "outline": "#8a919e",
-                    "surface-variant": "#313637",
-                    "on-secondary-fixed": "#002113",
-                    "surface-container-highest": "#313637",
-                    "on-primary": "#00315c",
-                    "tertiary": "#ddb7ff",
-                    "on-tertiary-container": "#ffffff",
-                    "tertiary-fixed-dim": "#ddb7ff",
-                    "error": "#ffb4ab",
-                    "on-secondary-fixed-variant": "#005236",
-                    "outline-variant": "#404752",
-                    "on-secondary": "#003824",
-                    "primary": "#a3c9ff",
-                    "surface-bright": "#353a3b",
-                    "on-primary-fixed": "#001c39",
-                    "on-tertiary": "#490080",
-                    "surface-tint": "#a3c9ff",
-                    "on-secondary-container": "#00311f",
-                    "surface-container-high": "#262b2c",
-                    "surface-dim": "#0f1415",
-                    "tertiary-container": "#9e4aec"
-            },
-            "borderRadius": {
-                    "DEFAULT": "0.25rem",
-                    "lg": "0.5rem",
-                    "xl": "0.75rem",
-                    "full": "9999px"
-            },
-            "spacing": {
-                    "container-max": "1280px",
-                    "unit": "8px",
-                    "gutter": "24px",
-                    "margin-mobile": "16px",
-                    "section-gap": "120px",
-                    "stack-md": "16px",
-                    "stack-lg": "32px",
-                    "stack-sm": "8px"
-            },
-            "fontFamily": {
-                  "h1": ["Plus Jakarta Sans"],
-                    "body-md": ["Inter"],
-                  "h2": ["Plus Jakarta Sans"],
-                    "label-caps": ["Inter"],
-                  "display": ["Plus Jakarta Sans"],
-                    "body-lg": ["Inter"]
-            },
-            "fontSize": {
-                    "h1": ["48px", {"lineHeight": "1.2", "fontWeight": "600"}],
-                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
-                    "h2": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
-                    "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600"}],
-                    "display": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
-            }
-          },
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "inverse-primary": "#0060ab",
+          "secondary": "#4edea3",
+          "primary-fixed": "#d3e3ff",
+          "on-tertiary-fixed-variant": "#6900b3",
+          "inverse-on-surface": "#2c3132",
+          "on-error": "#690005",
+          "on-surface-variant": "#c8d0dc",
+          "surface-container-low": "#171c1d",
+          "inverse-surface": "#dfe3e4",
+          "secondary-fixed": "#6ffbbe",
+          "on-tertiary-fixed": "#2c0051",
+          "error-container": "#93000a",
+          "on-primary-container": "#ffffff",
+          "on-error-container": "#ffdad6",
+          "on-background": "#eef1f3",
+          "secondary-container": "#00a572",
+          "surface-container": "#1b2021",
+          "surface-container-lowest": "#0a0f10",
+          "primary-container": "#0078d4",
+          "on-surface": "#eef1f3",
+          "background": "#0f1415",
+          "primary-fixed-dim": "#a3c9ff",
+          "surface": "#0f1415",
+          "outline": "#8a919e",
+          "surface-variant": "#313637",
+          "on-secondary-fixed": "#002113",
+          "surface-container-highest": "#313637",
+          "on-primary": "#00315c",
+          "tertiary": "#ddb7ff",
+          "on-tertiary-container": "#ffffff",
+          "tertiary-fixed-dim": "#ddb7ff",
+          "error": "#ffb4ab",
+          "on-secondary-fixed-variant": "#005236",
+          "outline-variant": "#404752",
+          "on-secondary": "#003824",
+          "primary": "#a3c9ff",
+          "surface-bright": "#353a3b",
+          "on-primary-fixed": "#001c39",
+          "on-tertiary": "#490080",
+          "surface-tint": "#a3c9ff",
+          "on-secondary-container": "#00311f",
+          "surface-container-high": "#262b2c",
+          "surface-dim": "#0f1415",
+          "tertiary-container": "#9e4aec"
         },
-      }
-    </script>
+        "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        "spacing": {
+          "container-max": "1280px",
+          "unit": "8px",
+          "gutter": "24px",
+          "margin-mobile": "16px",
+          "section-gap": "64px",
+          "stack-md": "16px",
+          "stack-lg": "32px",
+          "stack-sm": "8px"
+        },
+        "fontFamily": {
+          "h1": ["Plus Jakarta Sans"],
+          "body-md": ["Inter"],
+          "h2": ["Plus Jakarta Sans"],
+          "label-caps": ["Inter"],
+          "display": ["Plus Jakarta Sans"],
+          "body-lg": ["Inter"]
+        },
+        "fontSize": {
+          "h1": ["48px", {"lineHeight": "1.2", "fontWeight": "600"}],
+          "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+          "h2": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+          "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600"}],
+          "display": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+          "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+        }
+      },
+    },
+  }
+</script>
 <style>
-        .gradient-primary {
-            background: linear-gradient(135deg, #00579f 0%, #0dd2ef 100%);
-        }
-        .glass-card {
-            background: rgba(49, 54, 55, 0.4);
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        .glow-border:hover {
-            box-shadow: 0 0 20px rgba(0, 120, 212, 0.3);
-            border-color: #0078d4;
-        }
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-                .dropdown-shadow {
-                    box-shadow:
-                        0 18px 42px -12px rgba(0, 95, 170, 0.12),
-                        0 8px 20px -8px rgba(16, 28, 46, 0.1),
-                        0 3px 8px rgba(16, 28, 46, 0.05),
-                        0 0 0 1px rgba(0, 95, 170, 0.08);
-                }
-                    .nav-dropdown-menu {
-                    opacity: 0;
-                    visibility: hidden;
-                    transform: translateX(-50%) translateY(6px);
-                    transition: all 0.3s cubic-bezier(.22,1,.36,1);
-                    max-height: 70vh;
-                    overflow-y: auto;
-                    scrollbar-width: none;
-                    -ms-overflow-style: none;
-                    background: #ffffff !important;
-                    border-color: rgba(0, 95, 170, 0.12) !important;
-                    backdrop-filter: blur(12px);
-                }
-                
-                .nav-dropdown-menu::-webkit-scrollbar {
-                    display: none;
-                    width: 0;
-                    height: 0;
-                }
-                .nav-dropdown.active .nav-dropdown-menu {
-                    opacity: 1;
-                    visibility: visible;
-                    transform: translateX(-50%) translateY(0);
-                }
-                .dropdown-item {
-                    position: relative;
-                    transition: all 0.3s cubic-bezier(.22,1,.36,1);
-                    overflow: hidden;
-                }
-                .dropdown-item::before {
-                    content: '';
-                    position: absolute;
-                    left: 0;
-                    top: 50%;
-                    transform: translateY(-50%);
-                    width: 3px;
-                    height: 0;
-                    background: linear-gradient(180deg, #005faa, #00e3fd);
-                    border-radius: 0 3px 3px 0;
-                    transition: height 0.3s cubic-bezier(.22,1,.36,1);
-                }
-                .dropdown-item.orange::before {
-                    background: linear-gradient(180deg, #E87722, #FFB74D);
-                }
-                .dropdown-item.teal::before {
-                    background: linear-gradient(180deg, #006875, #00daf3);
-                }
-                .dropdown-item:hover {
-                    background: linear-gradient(135deg, rgba(0,95,170,0.06), rgba(0,227,253,0.04));
-                    transform: translateX(4px);
-                    box-shadow: 0 4px 16px rgba(0, 95, 170, 0.08);
-                }
-                .dropdown-item.orange:hover {
-                    background: linear-gradient(135deg, rgba(232,119,34,0.06), rgba(255,183,77,0.04));
-                    box-shadow: 0 4px 16px rgba(232, 119, 34, 0.1);
-                }
-                .dropdown-item.teal:hover {
-                    background: linear-gradient(135deg, rgba(0,104,117,0.06), rgba(0,218,243,0.04));
-                    box-shadow: 0 4px 16px rgba(0, 104, 117, 0.1);
-                }
-                .dropdown-item:hover::before {
-                    height: 60%;
-                }
-                .dropdown-item .dropdown-icon {
-                    transition: all 0.3s cubic-bezier(.22,1,.36,1);
-                }
-                .dropdown-item:hover .dropdown-icon {
-                    transform: scale(1.1) rotate(-4deg);
-                }
-                .dropdown-item .dropdown-arrow {
-                    opacity: 0;
-                    transform: translateX(-6px);
-                    transition: all 0.3s cubic-bezier(.22,1,.36,1);
-                    margin-left: auto;
-                    color: #005faa;
-                    font-weight: bold;
-                    flex-shrink: 0;
-                }
-                .dropdown-item.orange .dropdown-arrow { color: #E87722; }
-                .dropdown-item.teal .dropdown-arrow { color: #006875; }
-                .dropdown-item:hover .dropdown-arrow {
-                    opacity: 1;
-                    transform: translateX(0);
-                }
-                .nav-dropdown-toggle {
-                    position: relative;
-                    padding-bottom: 0.4rem;
-                }
-                .nav-dropdown-toggle::after {
-                    content: '';
-                    position: absolute;
-                    left: 0.7rem;
-                    right: 0.7rem;
-                    bottom: 0.1rem;
-                    height: 2px;
-                    background: linear-gradient(90deg, #005faa, #00e3fd);
-                    transform: scaleX(0);
-                    transform-origin: left center;
-                    transition: transform 0.25s ease;
-                    border-radius: 999px;
-                }
-                .nav-dropdown-toggle:hover::after,
-                .nav-dropdown.active .nav-dropdown-toggle::after {
-                    transform: scaleX(1);
-                }
-                .nav-dropdown-menu .dropdown-arrow {
-                    display: none !important;
-                }
-        [data-tab-content] {
-            display: none;
-        }
-        [data-tab-content].active {
-            display: block;
-        }
-        .tab-button.active {
-            background-color: #0078d4;
-            color: white;
-            box-shadow: 0 0 20px rgba(0, 120, 212, 0.4);
-        }
-    </style>
-    <style>
-        /* Force header dropdown to canonical light appearance (override page dark mode) */
-        header[data-global-header] .nav-dropdown-menu {
-            background: #ffffff !important;
-            color: #0f2138 !important;
-        }
-        header[data-global-header] .nav-dropdown-menu a.dropdown-item {
-            color: #0f2138 !important;
-            background: transparent !important;
-        }
-        header[data-global-header] .nav-dropdown-menu a.dropdown-item .font-semibold,
-        header[data-global-header] .nav-dropdown-menu a.dropdown-item .text-xs,
-        header[data-global-header] .nav-dropdown-menu a.dropdown-item .text-on-surface-variant {
-            color: #374151 !important;
-        }
-        header[data-global-header] .nav-dropdown-toggle,
-        header[data-global-header] .nav-dropdown-toggle * {
-            color: #0f2138 !important;
-        }
-        header[data-global-header] .dropdown-icon {
-            background-color: transparent !important;
-        }
-        /* Ensure normal (non-ended) icons use primary blue tint like canonical header */
-        header[data-global-header] .nav-dropdown-menu > a.dropdown-item .dropdown-icon {
-            background: rgba(0,95,170,0.06) !important;
-            color: #005faa !important;
-        }
-        /* Preserve the onsite green accent like the canonical header */
-        header[data-global-header] .nav-dropdown-menu > a.dropdown-item.teal .dropdown-icon,
-        header[data-global-header] .nav-dropdown-menu > a.dropdown-item.teal .dropdown-icon span {
-            background: rgba(0,104,117,0.08) !important;
-            color: #006875 !important;
-            -webkit-text-fill-color: #006875 !important;
-        }
-        header[data-global-header] .nav-dropdown-menu > a.dropdown-item.orange .dropdown-icon,
-        header[data-global-header] .nav-dropdown-menu > a.dropdown-item.orange .dropdown-icon span {
-            background: rgba(232,119,34,0.08) !important;
-            color: #E87722 !important;
-            -webkit-text-fill-color: #E87722 !important;
-        }
-        /* Keep ended/pending rules intact and apply to all dropdowns */
-        header[data-global-header] .nav-dropdown-menu > a.dropdown-item.is-ended .dropdown-icon,
-        header[data-global-header] .nav-dropdown-menu > a.dropdown-item.is-pending .dropdown-icon {
-            background-color: #e6e7eb !important;
-            color: #6b7280 !important;
-        }
-    </style>
+  :root {
+    --text-primary: #eef1f3;
+    --text-secondary: #c8d0dc;
+    --text-muted: #8a97a8;
+    --accent-blue: #5ba3f5;
+    --accent-green: #4edea3;
+    --accent-purple: #c084fc;
+    --card-bg: rgba(30, 38, 44, 0.85);
+    --card-border: rgba(255,255,255,0.10);
+  }
+  .gradient-primary {
+    background: linear-gradient(135deg, #00579f 0%, #0dd2ef 100%);
+  }
+  .glass-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(16px);
+    border: 1px solid var(--card-border);
+  }
+  .glow-border:hover {
+    box-shadow: 0 0 20px rgba(91,163,245,0.25);
+    border-color: #5ba3f5;
+  }
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
+  [data-tab-content] { display: none; }
+  [data-tab-content].active { display: block; }
+  .tab-button.active {
+    background-color: #0078d4;
+    color: white;
+    box-shadow: 0 0 20px rgba(0,120,212,0.4);
+  }
+
+  /* ── Agenda card overrides for sharp contrast ── */
+  .agenda-card {
+    background: rgba(20, 28, 36, 0.9);
+    border: 1px solid rgba(91,163,245,0.18);
+    border-left-width: 4px;
+  }
+  .agenda-card h5 {
+    color: #eef1f3;
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .agenda-card .desc {
+    color: #9eb3cc;
+    font-size: 13px;
+    line-height: 1.55;
+    margin-bottom: 4px;
+  }
+  .agenda-card .detail {
+    color: #7a9ab8;
+    font-size: 12px;
+    line-height: 1.5;
+    border-top: 1px solid rgba(255,255,255,0.07);
+    padding-top: 8px;
+    margin-top: 6px;
+  }
+
+  /* Section cards */
+  .feature-card {
+    background: rgba(22, 30, 38, 0.92);
+    border: 1px solid rgba(255,255,255,0.09);
+  }
+  .feature-card h3 {
+    color: #ddeeff;
+    font-weight: 700;
+    font-size: 17px;
+    margin-bottom: 8px;
+  }
+  .feature-card p {
+    color: #9eb3cc;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* Audience cards */
+  .audience-card {
+    background: rgba(18, 26, 34, 0.88);
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .audience-card h4 {
+    color: #eef1f3;
+    font-weight: 700;
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  .audience-card p {
+    color: #9eb3cc;
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  /* Info section */
+  .info-label { color: #eef1f3; font-weight: 700; font-size: 17px; margin-bottom: 4px; }
+  .info-text { color: #9eb3cc; font-size: 15px; line-height: 1.6; }
+
+  /* CTA */
+  .cta-btn {
+    background: #0078d4;
+    color: #ffffff;
+    font-weight: 700;
+    border: none;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .cta-btn:hover { background: #005fa3; transform: scale(1.03); }
+
+  /* Vibe session cards */
+  .vibe-card {
+    background: rgba(20, 28, 36, 0.9);
+    border: 1px solid rgba(255,255,255,0.09);
+    border-top-width: 4px;
+    border-top-color: #c084fc;
+  }
+  .vibe-card h4 { color: #eef1f3; font-weight: 700; font-size: 16px; margin-bottom: 8px; }
+  .vibe-card .vibe-label { color: #c084fc; font-weight: 700; font-size: 13px; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
+  .vibe-card .desc { color: #9eb3cc; font-size: 13px; line-height: 1.55; margin-bottom: 4px; }
+  .vibe-card .detail { color: #7a9ab8; font-size: 12px; line-height: 1.5; border-top: 1px solid rgba(255,255,255,0.07); padding-top: 8px; margin-top: 6px; }
+
+  /* Dropdown styles preserved */
+  .dropdown-shadow {
+    box-shadow: 0 18px 42px -12px rgba(0,95,170,0.12), 0 8px 20px -8px rgba(16,28,46,0.1), 0 3px 8px rgba(16,28,46,0.05), 0 0 0 1px rgba(0,95,170,0.08);
+  }
+  .nav-dropdown-menu {
+    opacity: 0; visibility: hidden; transform: translateX(-50%) translateY(6px);
+    transition: all 0.3s cubic-bezier(.22,1,.36,1);
+    max-height: 70vh; overflow-y: auto; scrollbar-width: none; -ms-overflow-style: none;
+    background: #ffffff !important; border-color: rgba(0,95,170,0.12) !important; backdrop-filter: blur(12px);
+  }
+  .nav-dropdown-menu::-webkit-scrollbar { display: none; width: 0; height: 0; }
+  .nav-dropdown.active .nav-dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+  .dropdown-item { position: relative; transition: all 0.3s cubic-bezier(.22,1,.36,1); overflow: hidden; }
+  .dropdown-item::before { content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 3px; height: 0; background: linear-gradient(180deg, #005faa, #00e3fd); border-radius: 0 3px 3px 0; transition: height 0.3s cubic-bezier(.22,1,.36,1); }
+  .dropdown-item:hover { background: linear-gradient(135deg, rgba(0,95,170,0.06), rgba(0,227,253,0.04)); transform: translateX(4px); }
+  .dropdown-item:hover::before { height: 60%; }
+  .nav-dropdown-toggle { position: relative; padding-bottom: 0.4rem; }
+  .nav-dropdown-toggle::after { content: ''; position: absolute; left: 0.7rem; right: 0.7rem; bottom: 0.1rem; height: 2px; background: linear-gradient(90deg, #005faa, #00e3fd); transform: scaleX(0); transform-origin: left center; transition: transform 0.25s ease; border-radius: 999px; }
+  .nav-dropdown-toggle:hover::after, .nav-dropdown.active .nav-dropdown-toggle::after { transform: scaleX(1); }
+</style>
 </head>
 <body class="bg-surface-container-lowest text-on-surface font-body-md overflow-x-hidden">
 
-    <!-- Global header mount -->
-    <header data-global-header></header>
+<header data-global-header></header>
 
 <main class="relative">
-<!-- Hero Section -->
-<section class="relative pt-28 pb-28 overflow-hidden flex items-center">
-<div class="absolute inset-0 z-0">
-<div class="absolute top-1/4 -left-20 w-96 h-96 bg-primary-container/20 rounded-full blur-[120px]"></div>
-<div class="absolute bottom-1/4 -right-20 w-96 h-96 bg-tertiary-container/10 rounded-full blur-[120px]"></div>
-<div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20"></div>
-</div>
-<div class="container-max mx-auto px-8 relative z-10 flex flex-col items-center text-center">
-<span class="font-label-caps text-label-caps text-primary tracking-widest mb-6 block uppercase">Next Generation of AI</span>
-<h1 class="font-display text-display text-white mb-8 max-w-4xl leading-tight">
-                    Agentic AI 시대를 준비하기 위한 <br/>
-<span class="text-primary-container">AI 전문 교육 프로그램</span>
-</h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant mb-12 max-w-2xl">
-                    개발자와 아키텍트를 위한 실무 중심 교육. Azure AI Foundry 기초 과정과 GitHub Copilot 실전 워크숍 중 목적에 맞는 프로그램을 선택하세요.
-                </p>
-<!-- Curriculum Selector Tab Bar -->
-<div class="bg-white/5 border border-white/10 p-1.5 rounded-2xl flex items-center gap-2 mb-12 backdrop-blur-xl">
-<button class="tab-button active px-6 py-3 rounded-xl font-bold transition-all flex items-center gap-2" id="btn-foundry" onclick="switchTab('foundry')">
-<span class="material-symbols-outlined text-xl">architecture</span>
-                        AI Foundry 기초 과정 (2일)
-                    </button>
-<button class="tab-button px-6 py-3 rounded-xl font-bold transition-all text-slate-400 hover:text-white flex items-center gap-2" id="btn-vibe" onclick="switchTab('vibe')">
-<span class="material-symbols-outlined text-xl">auto_fix_high</span>
-                        바이브 코딩 실전 워크숍 (1일)
-                    </button>
-</div>
-</div>
+
+<!-- ══ HERO ══ -->
+<section class="relative pt-24 pb-16 overflow-hidden flex items-center">
+  <div class="absolute inset-0 z-0">
+    <div class="absolute top-1/4 -left-20 w-96 h-96 bg-primary-container/20 rounded-full blur-[120px]"></div>
+    <div class="absolute bottom-1/4 -right-20 w-96 h-96 bg-tertiary-container/10 rounded-full blur-[120px]"></div>
+    <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20"></div>
+  </div>
+  <div class="container-max mx-auto px-8 relative z-10 flex flex-col items-center text-center">
+    <span class="font-label-caps text-label-caps text-primary tracking-widest mb-5 block uppercase">Next Generation of AI</span>
+    <h1 class="font-display text-display text-white mb-6 max-w-4xl leading-tight">
+      Agentic AI 시대를 준비하기 위한<br/>
+      <span class="text-primary-container">AI 전문 교육 프로그램</span>
+    </h1>
+    <p style="color:#c8d0dc; font-size:18px; line-height:1.65; max-width:680px; margin-bottom:36px;">
+      개발자와 아키텍트를 위한 실무 중심 교육. Azure AI Foundry 기초 과정과 GitHub Copilot 실전 워크숍 중 목적에 맞는 프로그램을 선택하세요.
+    </p>
+
+    <!-- Tab Bar -->
+    <div class="bg-white/5 border border-white/10 p-1.5 rounded-2xl flex items-center gap-2 mb-10 backdrop-blur-xl">
+      <button class="tab-button active px-6 py-3 rounded-xl font-bold transition-all flex items-center gap-2" id="btn-foundry" onclick="switchTab('foundry')">
+        <span class="material-symbols-outlined text-xl">architecture</span>
+        AI Foundry 기초 과정 (2일)
+      </button>
+      <button class="tab-button px-6 py-3 rounded-xl font-bold transition-all text-slate-400 hover:text-white flex items-center gap-2" id="btn-vibe" onclick="switchTab('vibe')">
+        <span class="material-symbols-outlined text-xl">auto_fix_high</span>
+        바이브 코딩 실전 워크숍 (1일)
+      </button>
+    </div>
+  </div>
 </section>
-<!-- Dynamic Curriculum Section -->
-<section class="pb-section-gap">
-<div class="container-max mx-auto px-8">
-<!-- Tab 1 Content: AI Foundry 기초 과정 -->
-<div class="active" data-tab-content="" id="content-foundry">
-<div class="mb-16 text-center">
-<h2 class="font-h1 text-h1 text-white mb-4">AI Foundry 기초 과정 (2일)</h2>
-<p class="text-on-surface-variant">모델 탐색부터 배포, 관리까지 Azure AI Foundry의 핵심 전 과정을 마스터합니다.</p>
-</div>
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
-<!-- Day 1 -->
-<div class="space-y-8">
-<div class="flex items-center gap-4 mb-6">
-<div class="h-12 w-12 bg-primary-container rounded-full flex items-center justify-center font-h2 text-white shadow-lg shadow-primary-container/20">01</div>
-<h3 class="font-h2 text-white">1일차: 기초 및 모델 탐색</h3>
-</div>
-<div class="space-y-4">
-<div class="glass-card p-6 rounded-xl border-l-4 border-l-primary-container">
-<h5 class="text-white font-bold mb-1">Step 1: Azure AI Foundry 개요</h5>
-<p class="text-sm text-on-surface-variant">통합 AI 플랫폼 아키텍처 이해 및 리소스 환경 구축</p>
-</div>
-<div class="glass-card p-6 rounded-xl border-l-4 border-l-primary-container">
-<h5 class="text-white font-bold mb-1">Step 2: 모델 카탈로그 활용</h5>
-<p class="text-sm text-on-surface-variant">GPT-4, Phi-3 등 주요 LLM/SLM 모델 탐색 및 성능 벤치마킹</p>
-</div>
-<div class="glass-card p-6 rounded-xl border-l-4 border-l-primary-container">
-<h5 class="text-white font-bold mb-1">Step 3: AI Studio 프롬프트 설계</h5>
-<p class="text-sm text-on-surface-variant">시스템 메시지 최적화 및 구조적 프롬프트 엔지니어링 실습</p>
-</div>
-<div class="glass-card p-6 rounded-xl border-l-4 border-l-primary-container">
-<h5 class="text-white font-bold mb-1">Step 4: AI 서비스 보안 설정</h5>
-<p class="text-sm text-on-surface-variant">엔터프라이즈 환경을 위한 보안 및 Content Safety 적용</p>
-</div>
-</div>
-</div>
-<!-- Day 2 -->
-<div class="space-y-8">
-<div class="flex items-center gap-4 mb-6">
-<div class="h-12 w-12 bg-secondary-container rounded-full flex items-center justify-center font-h2 text-white shadow-lg shadow-secondary-container/20">02</div>
-<h3 class="font-h2 text-white">2일차: 고급 오케스트레이션 및 배포</h3>
-</div>
-<div class="space-y-4">
-<div class="glass-card p-6 rounded-xl border-l-4 border-l-secondary-container">
-<h5 class="text-white font-bold mb-1">Step 5: RAG 아키텍처 구현</h5>
-<p class="text-sm text-on-surface-variant">Azure AI Search 연동 및 고유 데이터를 활용한 지능형 검색 구축</p>
-</div>
-<div class="glass-card p-6 rounded-xl border-l-4 border-l-secondary-container">
-<h5 class="text-white font-bold mb-1">Step 6: Prompt Flow 워크플로우 설계</h5>
-<p class="text-sm text-on-surface-variant">LLM 애플리케이션의 복잡한 로직을 시각적으로 설계 및 테스트</p>
-</div>
-<div class="glass-card p-6 rounded-xl border-l-4 border-l-secondary-container">
-<h5 class="text-white font-bold mb-1">Step 7: 모델 평가 및 고도화</h5>
-<p class="text-sm text-on-surface-variant">답변 품질 평가 지표 설정 및 자동화된 테스트 환경 구축</p>
-</div>
-<div class="glass-card p-6 rounded-xl border-l-4 border-l-secondary-container">
-<h5 class="text-white font-bold mb-1">Step 8: 실무 배포 및 모니터링</h5>
-<p class="text-sm text-on-surface-variant">엔드포인트 생성, 실시간 트래픽 관리 및 토큰 사용량 최적화</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<!-- Tab 2 Content: 바이브 코딩 실전 워크숍 -->
-<div data-tab-content="" id="content-vibe">
-<div class="mb-16 text-center">
-<h2 class="font-h1 text-h1 text-white mb-4">바이브 코딩 실전 워크숍 (1일)</h2>
-<p class="text-on-surface-variant">GitHub Copilot을 파트너 삼아 아이디어를 실제 프로덕트로 만드는 차세대 개발 경험</p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto">
-<div class="glass-card p-8 rounded-2xl border-t-4 border-t-tertiary">
-<div class="text-tertiary font-bold mb-4 flex items-center gap-2">
-<span class="material-symbols-outlined">lightbulb</span> Session 01
-                            </div>
-<h4 class="text-white font-bold mb-3">바이브 코딩 마인드셋 &amp; 기획</h4>
-<p class="text-sm text-on-surface-variant">AI 시대의 개발 생산성 이해 및 구현할 프로젝트 아이디어 구체화</p>
-</div>
-<div class="glass-card p-8 rounded-2xl border-t-4 border-t-tertiary">
-<div class="text-tertiary font-bold mb-4 flex items-center gap-2">
-<span class="material-symbols-outlined">description</span> Session 02
-                            </div>
-<h4 class="text-white font-bold mb-3">AI용 PRD 및 아키텍처 설계</h4>
-<p class="text-sm text-on-surface-variant">GitHub Copilot이 가장 잘 이해할 수 있는 요구사항 정의서와 구조 설계</p>
-</div>
-<div class="glass-card p-8 rounded-2xl border-t-4 border-t-tertiary">
-<div class="text-tertiary font-bold mb-4 flex items-center gap-2">
-<span class="material-symbols-outlined">terminal</span> Session 03
-                            </div>
-<h4 class="text-white font-bold mb-3">실전 코딩: 프론트엔드 및 로직</h4>
-<p class="text-sm text-on-surface-variant">Copilot Chat과 대화를 통해 핵심 기능과 인터페이스를 고속 구현</p>
-</div>
-<div class="glass-card p-8 rounded-2xl border-t-4 border-t-tertiary">
-<div class="text-tertiary font-bold mb-4 flex items-center gap-2">
-<span class="material-symbols-outlined">api</span> Session 04
-                            </div>
-<h4 class="text-white font-bold mb-3">API 연동 및 데이터 통합</h4>
-<p class="text-sm text-on-surface-variant">외부 API 연동 및 백엔드 로직 구성을 통한 서비스의 완성도 향상</p>
-</div>
-<div class="glass-card p-8 rounded-2xl border-t-4 border-t-tertiary">
-<div class="text-tertiary font-bold mb-4 flex items-center gap-2">
-<span class="material-symbols-outlined">bug_report</span> Session 05
-                            </div>
-<h4 class="text-white font-bold mb-3">디버깅 및 코드 최적화</h4>
-<p class="text-sm text-on-surface-variant">AI를 활용한 오류 수정, 리팩토링 및 성능 개선 실습</p>
-</div>
-<div class="glass-card p-8 rounded-2xl border-t-4 border-t-tertiary">
-<div class="text-tertiary font-bold mb-4 flex items-center gap-2">
-<span class="material-symbols-outlined">rocket_launch</span> Session 06
-                            </div>
-<h4 class="text-white font-bold mb-3">성과 공유 및 워크플로우 리뷰</h4>
-<p class="text-sm text-on-surface-variant">최종 결과물 시연 및 개인별 AI 협업 워크플로우 회고</p>
-</div>
-</div>
-</div>
-</div>
+
+<!-- ══ CURRICULUM ══ -->
+<section class="pb-16">
+  <div class="container-max mx-auto px-8">
+
+    <!-- Tab 1: AI Foundry -->
+    <div class="active" data-tab-content id="content-foundry">
+      <div class="mb-10 text-center">
+        <h2 class="font-h1 text-h1 text-white mb-3">AI Foundry 기초 과정 (2일)</h2>
+        <p style="color:#9eb3cc; font-size:16px;">모델 탐색부터 배포, 관리까지 Azure AI Foundry의 핵심 전 과정을 마스터합니다.</p>
+      </div>
+
+      <div class="space-y-10 max-w-5xl mx-auto">
+
+        <!-- Day 1 -->
+        <div>
+          <div class="flex items-center gap-4 mb-5">
+            <div class="h-11 w-11 bg-primary-container rounded-full flex items-center justify-center font-bold text-white text-sm shadow-lg shadow-primary-container/20">01</div>
+            <h3 style="color:#eef1f3; font-size:22px; font-weight:700;">1일차: 기초 및 모델 탐색</h3>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+
+            <div class="agenda-card p-5 rounded-xl" style="border-left-color:#5ba3f5;">
+              <h5>Step 1: Azure AI Foundry 개요</h5>
+              <p class="desc">통합 AI 플랫폼 아키텍처 이해 및 리소스 환경 구축</p>
+              <p class="detail">Azure 구독 연결, AI Hub·Project 구조 파악, 역할 기반 접근 제어(RBAC) 설정까지 실습하며 엔터프라이즈 환경의 기반을 완성합니다.</p>
+            </div>
+
+            <div class="agenda-card p-5 rounded-xl" style="border-left-color:#5ba3f5;">
+              <h5>Step 2: 모델 카탈로그 활용</h5>
+              <p class="desc">GPT-4, Phi-3 등 주요 LLM/SLM 모델 탐색 및 성능 벤치마킹</p>
+              <p class="detail">Foundry 내 모델 카탈로그에서 200개 이상의 모델을 비교하고, 태스크 유형별(생성·분류·요약) 최적 모델 선택 기준을 직접 실험합니다.</p>
+            </div>
+
+            <div class="agenda-card p-5 rounded-xl" style="border-left-color:#5ba3f5;">
+              <h5>Step 3: AI Studio 프롬프트 설계</h5>
+              <p class="desc">시스템 메시지 최적화 및 구조적 프롬프트 엔지니어링 실습</p>
+              <p class="detail">Few-shot 예시, Chain-of-Thought, 역할 지정 기법을 활용한 시스템 프롬프트를 작성하고 응답 품질 변화를 비교·분석합니다.</p>
+            </div>
+
+            <div class="agenda-card p-5 rounded-xl" style="border-left-color:#5ba3f5;">
+              <h5>Step 4: AI 서비스 보안 설정</h5>
+              <p class="desc">엔터프라이즈 환경을 위한 보안 및 Content Safety 적용</p>
+              <p class="detail">Azure Content Safety API를 연동해 유해 콘텐츠 필터링 정책을 구성하고, Private Endpoint와 VNet 통합으로 네트워크 격리 환경을 구축합니다.</p>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Day 2 -->
+        <div>
+          <div class="flex items-center gap-4 mb-5">
+            <div class="h-11 w-11 bg-secondary-container rounded-full flex items-center justify-center font-bold text-white text-sm shadow-lg shadow-secondary-container/20">02</div>
+            <h3 style="color:#eef1f3; font-size:22px; font-weight:700;">2일차: 고급 오케스트레이션 및 배포</h3>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+
+            <div class="agenda-card p-5 rounded-xl" style="border-left-color:#4edea3;">
+              <h5>Step 5: RAG 아키텍처 구현</h5>
+              <p class="desc">Azure AI Search 연동 및 고유 데이터를 활용한 지능형 검색 구축</p>
+              <p class="detail">사내 문서를 벡터 임베딩으로 인덱싱하고, 하이브리드 검색(키워드+시맨틱)으로 정확도 높은 컨텍스트를 LLM에 주입하는 파이프라인을 구성합니다.</p>
+            </div>
+
+            <div class="agenda-card p-5 rounded-xl" style="border-left-color:#4edea3;">
+              <h5>Step 6: Prompt Flow 워크플로우 설계</h5>
+              <p class="desc">LLM 애플리케이션의 복잡한 로직을 시각적으로 설계 및 테스트</p>
+              <p class="detail">분기·루프·병렬 처리가 가능한 DAG 기반 플로우를 노코드 UI로 설계하고, Python 노드를 삽입해 비즈니스 로직을 확장하는 방법을 실습합니다.</p>
+            </div>
+
+            <div class="agenda-card p-5 rounded-xl" style="border-left-color:#4edea3;">
+              <h5>Step 7: 모델 평가 및 고도화</h5>
+              <p class="desc">답변 품질 평가 지표 설정 및 자동화된 테스트 환경 구축</p>
+              <p class="detail">Groundedness, Coherence, Relevance 등 AI 품질 메트릭을 설정하고, 골든 데이터셋 기반의 배치 평가 파이프라인을 자동화합니다.</p>
+            </div>
+
+            <div class="agenda-card p-5 rounded-xl" style="border-left-color:#4edea3;">
+              <h5>Step 8: 실무 배포 및 모니터링</h5>
+              <p class="desc">엔드포인트 생성, 실시간 트래픽 관리 및 토큰 사용량 최적화</p>
+              <p class="detail">관리형 온라인 엔드포인트에 모델을 배포하고, Azure Monitor 대시보드로 레이턴시·토큰 비용·오류율을 실시간 모니터링하는 운영 체계를 완성합니다.</p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Tab 2: 바이브 코딩 -->
+    <div data-tab-content id="content-vibe">
+      <div class="mb-10 text-center">
+        <h2 class="font-h1 text-h1 text-white mb-3">바이브 코딩 실전 워크숍 (1일)</h2>
+        <p style="color:#9eb3cc; font-size:16px;">GitHub Copilot을 파트너 삼아 아이디어를 실제 프로덕트로 만드는 차세대 개발 경험</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-5xl mx-auto">
+
+        <div class="vibe-card p-7 rounded-2xl">
+          <div class="vibe-label"><span class="material-symbols-outlined" style="font-size:18px;">lightbulb</span> Session 01</div>
+          <h4>바이브 코딩 마인드셋 &amp; 기획</h4>
+          <p class="desc">AI 시대의 개발 생산성 이해 및 구현할 프로젝트 아이디어 구체화</p>
+          <p class="detail">전통적 개발 사이클과 AI 협업 개발의 차이를 비교하고, 1일 내 완성 가능한 범위의 프로젝트 스코프를 정의합니다.</p>
+        </div>
+
+        <div class="vibe-card p-7 rounded-2xl">
+          <div class="vibe-label"><span class="material-symbols-outlined" style="font-size:18px;">description</span> Session 02</div>
+          <h4>AI용 PRD 및 아키텍처 설계</h4>
+          <p class="desc">GitHub Copilot이 가장 잘 이해할 수 있는 요구사항 정의서와 구조 설계</p>
+          <p class="detail">Copilot이 코드를 잘 생성하도록 맥락이 풍부한 PRD를 작성하고, 컴포넌트 구조와 데이터 흐름을 다이어그램으로 시각화합니다.</p>
+        </div>
+
+        <div class="vibe-card p-7 rounded-2xl">
+          <div class="vibe-label"><span class="material-symbols-outlined" style="font-size:18px;">terminal</span> Session 03</div>
+          <h4>실전 코딩: 프론트엔드 및 로직</h4>
+          <p class="desc">Copilot Chat과 대화를 통해 핵심 기능과 인터페이스를 고속 구현</p>
+          <p class="detail">인라인 제안과 Chat 패널을 함께 활용해 UI 컴포넌트와 상태 관리 로직을 대화 흐름 속에서 빠르게 완성합니다.</p>
+        </div>
+
+        <div class="vibe-card p-7 rounded-2xl">
+          <div class="vibe-label"><span class="material-symbols-outlined" style="font-size:18px;">api</span> Session 04</div>
+          <h4>API 연동 및 데이터 통합</h4>
+          <p class="desc">외부 API 연동 및 백엔드 로직 구성을 통한 서비스의 완성도 향상</p>
+          <p class="detail">REST·GraphQL API 호출 코드를 Copilot이 자동 생성하게 하고, 오류 처리·인증 흐름까지 프롬프트 한 줄로 완성하는 패턴을 익힙니다.</p>
+        </div>
+
+        <div class="vibe-card p-7 rounded-2xl">
+          <div class="vibe-label"><span class="material-symbols-outlined" style="font-size:18px;">bug_report</span> Session 05</div>
+          <h4>디버깅 및 코드 최적화</h4>
+          <p class="desc">AI를 활용한 오류 수정, 리팩토링 및 성능 개선 실습</p>
+          <p class="detail">스택 트레이스를 붙여넣어 원인 분석과 수정 코드를 동시에 얻고, 중복 코드 제거·함수 분리·타입 안정성 강화를 Copilot과 함께 진행합니다.</p>
+        </div>
+
+        <div class="vibe-card p-7 rounded-2xl">
+          <div class="vibe-label"><span class="material-symbols-outlined" style="font-size:18px;">rocket_launch</span> Session 06</div>
+          <h4>성과 공유 및 워크플로우 리뷰</h4>
+          <p class="desc">최종 결과물 시연 및 개인별 AI 협업 워크플로우 회고</p>
+          <p class="detail">팀원들 앞에서 구현 결과를 라이브 데모하고, 각자가 발견한 Copilot 활용 팁과 워크플로우를 공유해 학습 내용을 내재화합니다.</p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
 </section>
-<!-- Features Section -->
-<section class="py-section-gap bg-surface-container-lowest border-t border-white/5">
-<div class="container-max mx-auto px-8">
-<div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-<div class="glass-card p-10 rounded-2xl glow-border transition-all flex flex-col items-start gap-6">
-<div class="p-4 bg-primary/10 rounded-xl">
-<span class="material-symbols-outlined text-primary text-4xl" data-icon="hub">hub</span>
-</div>
-<div>
-<h3 class="font-h2 text-body-lg text-white mb-3">AI Foundry 기초 과정</h3>
-<p class="text-on-surface-variant">기업용 AI 서비스의 핵심인 Azure AI Foundry의 모든 스택을 2일간 집중적으로 학습합니다.</p>
-</div>
-</div>
-<div class="glass-card p-10 rounded-2xl glow-border transition-all flex flex-col items-start gap-6">
-<div class="p-4 bg-secondary/10 rounded-xl">
-<span class="material-symbols-outlined text-secondary text-4xl" data-icon="terminal">terminal</span>
-</div>
-<div>
-<h3 class="font-h2 text-body-lg text-white mb-3">실무 지향 오케스트레이션</h3>
-<p class="text-on-surface-variant">단순 API 호출을 넘어 Prompt Flow를 통한 고도화된 AI 로직 제어 역량을 확보합니다.</p>
-</div>
-</div>
-<div class="glass-card p-10 rounded-2xl glow-border transition-all flex flex-col items-start gap-6">
-<div class="p-4 bg-tertiary/10 rounded-xl">
-<span class="material-symbols-outlined text-tertiary text-4xl" data-icon="code_blocks">code_blocks</span>
-</div>
-<div>
-<h3 class="font-h2 text-body-lg text-white mb-3">바이브 코딩 실전 워크숍</h3>
-<p class="text-on-surface-variant">기존 개발 방식을 탈피하여 1일 동안 AI와 대화하며 프로덕트를 완성하는 실전 경험을 가집니다.</p>
-</div>
-</div>
-</div>
-</div>
+
+<!-- ══ FEATURES ══ -->
+<section class="py-14 bg-surface-container-lowest border-t border-white/5">
+  <div class="container-max mx-auto px-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-6xl mx-auto">
+
+      <div class="feature-card p-8 rounded-2xl border transition-all glow-border">
+        <div class="p-3 bg-primary/10 rounded-xl w-fit mb-5">
+          <span class="material-symbols-outlined text-4xl" style="color:#5ba3f5;">hub</span>
+        </div>
+        <h3>AI Foundry 기초 과정</h3>
+        <p>기업용 AI 서비스의 핵심인 Azure AI Foundry의 모든 스택을 2일간 집중적으로 학습합니다. 구축 → 평가 → 배포의 전 사이클을 직접 경험합니다.</p>
+      </div>
+
+      <div class="feature-card p-8 rounded-2xl border transition-all glow-border">
+        <div class="p-3 bg-secondary/10 rounded-xl w-fit mb-5">
+          <span class="material-symbols-outlined text-4xl" style="color:#4edea3;">terminal</span>
+        </div>
+        <h3>실무 지향 오케스트레이션</h3>
+        <p>단순 API 호출을 넘어 Prompt Flow를 통한 고도화된 AI 로직 제어 역량을 확보합니다. 복잡한 비즈니스 로직도 시각적으로 설계·관리합니다.</p>
+      </div>
+
+      <div class="feature-card p-8 rounded-2xl border transition-all glow-border">
+        <div class="p-3 bg-tertiary/10 rounded-xl w-fit mb-5">
+          <span class="material-symbols-outlined text-4xl" style="color:#c084fc;">code_blocks</span>
+        </div>
+        <h3>바이브 코딩 실전 워크숍</h3>
+        <p>기존 개발 방식을 탈피하여 1일 동안 AI와 대화하며 프로덕트를 완성하는 실전 경험을 가집니다. 아이디어를 즉시 코드로 전환하는 감각을 키웁니다.</p>
+      </div>
+
+    </div>
+  </div>
 </section>
-<!-- Target Audience -->
-<section class="py-section-gap relative overflow-hidden">
-<div class="container-max mx-auto px-8">
-<div class="flex flex-col items-center mb-16 text-center">
-<h2 class="font-h1 text-h1 text-white mb-4">어떤 프로그램을 선택해야 할까요?</h2>
-<div class="h-1 w-24 bg-primary-container rounded-full"></div>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-<div class="relative group">
-<div class="absolute inset-0 bg-primary/20 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
-<div class="glass-card p-10 rounded-3xl relative z-10 text-center border-white/5 h-full flex flex-col">
-<img class="w-24 h-24 rounded-full mx-auto mb-8 object-cover border-2 border-primary/30" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFmHR8NX5m6NWLl5j8DR4QoHE1SzezeCLQT44NZ5ahbDUOwYsgMpsSx55tdIUJzZaUB2_mfS3Zxq-jIeK49vP8IJFOj3YlPk2aqbAdgDcUPE2qeQqjlYETyYvt97_uppy4l-fBCNygq1EqgqATGA7KRQuZSPvfAelY5myJ3fq3dPnxxmtxS-Q2CUMOWb_Tx21t0-duRJBNr4XKXdIYRJ7rMnaovCiQS9b0hmN0obuLw7CbwZK67xY6riAYkTdR9WylMbxMUSPrIg6p"/>
-<h4 class="font-h2 text-white mb-4">SW 개발자</h4>
-<p class="text-on-surface-variant">빠른 프로덕트 빌딩을 원하신다면 <strong>'바이브 코딩 워크숍'</strong>을, AI 인프라 마스터를 원하시면 <strong>'기초 과정'</strong>을 추천합니다.</p>
-</div>
-</div>
-<div class="relative group">
-<div class="absolute inset-0 bg-secondary/20 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
-<div class="glass-card p-10 rounded-3xl relative z-10 text-center border-white/5 h-full flex flex-col">
-<img class="w-24 h-24 rounded-full mx-auto mb-8 object-cover border-2 border-secondary/30" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDY-JVRkul6E0rcgLFZb0o18e2GFfockaRngmkKz4MjXJIvnEABzj-NuBzbr0Tx3zHbd4ujbIwT6Xf0pWHHk-PQ1ZY5vMsaTR7QIgzV6mmlo0IAnmwKw3zRh4MUnzwY3Pw2O9bNV125qeliF69ipeteOG25GK3FEd3VyXMdwmCoIs7SLE3Vqr9NVOLJucrZeU69F-sG21fA69vsZXNQgJ9-TCEiG6Z_U8PBOi_JWUeXb7qKDi9Y2NoqyyO49MwJRUb4qOQOHPyKwU1K"/>
-<h4 class="font-h2 text-white mb-4">테크 아키텍트</h4>
-<p class="text-on-surface-variant">엔터프라이즈 급 RAG 및 프롬프트 플로우 설계를 위해 <strong>'AI Foundry 기초 과정'</strong>을 권장합니다.</p>
-</div>
-</div>
-<div class="relative group">
-<div class="absolute inset-0 bg-tertiary/20 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
-<div class="glass-card p-10 rounded-3xl relative z-10 text-center border-white/5 h-full flex flex-col">
-<img class="w-24 h-24 rounded-full mx-auto mb-8 object-cover border-2 border-tertiary/30" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaNUMOzXh8Nnd2Hc8knWG8I05s3TLfwg0_rVbvBEFopTnoDTVElxPvT02YjWxxZ7P8VX1fK75s7CYqNkHn11sAk7z3lstKlNdl0eoS75Jxa5HivvBwtAUOrwE8SRzQ1gCbC2Z4A-9B6ORZNFi2bbVMUUf7OeR1qZmZnFfYcwlMdLvEE3V5R8wSWv1yevKALC2IOAq0v4Ln9Rpfp3PHgdfQSsY0doXDIpnHNVKtt4AWbQ4OKM9aZ2vDElPkRkF59IPrtQx8t0EA9WLW"/>
-<h4 class="font-h2 text-white mb-4">IT 리더 및 관리자</h4>
-<p class="text-on-surface-variant">AI 실무 도입의 기술적 타당성 검토와 트렌드 파악을 위해 <strong>두 과정 모두</strong> 유익합니다.</p>
-</div>
-</div>
-</div>
-</div>
+
+<!-- ══ TARGET AUDIENCE ══ -->
+<section class="py-14 relative overflow-hidden">
+  <div class="container-max mx-auto px-8">
+    <div class="flex flex-col items-center mb-10 text-center">
+      <h2 class="font-h1 text-h1 text-white mb-3">어떤 프로그램을 선택해야 할까요?</h2>
+      <div class="h-1 w-24 bg-primary-container rounded-full"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+
+      <div class="relative group">
+        <div class="absolute inset-0 bg-primary/20 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+        <div class="audience-card p-9 rounded-3xl relative z-10 text-center h-full flex flex-col">
+          <img class="w-20 h-20 rounded-full mx-auto mb-6 object-cover border-2 border-blue-500/30" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFmHR8NX5m6NWLl5j8DR4QoHE1SzezeCLQT44NZ5ahbDUOwYsgMpsSx55tdIUJzZaUB2_mfS3Zxq-jIeK49vP8IJFOj3YlPk2aqbAdgDcUPE2qeQqjlYETyYvt97_uppy4l-fBCNygq1EqgqATGA7KRQuZSPvfAelY5myJ3fq3dPnxxmtxS-Q2CUMOWb_Tx21t0-duRJBNr4XKXdIYRJ7rMnaovCiQS9b0hmN0obuLw7CbwZK67xY6riAYkTdR9WylMbxMUSPrIg6p"/>
+          <h4>SW 개발자</h4>
+          <p>빠른 프로덕트 빌딩을 원하신다면 <strong style="color:#c084fc;">'바이브 코딩 워크숍'</strong>을, AI 인프라 마스터를 원하시면 <strong style="color:#5ba3f5;">'기초 과정'</strong>을 추천합니다.</p>
+        </div>
+      </div>
+
+      <div class="relative group">
+        <div class="absolute inset-0 bg-secondary/20 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+        <div class="audience-card p-9 rounded-3xl relative z-10 text-center h-full flex flex-col">
+          <img class="w-20 h-20 rounded-full mx-auto mb-6 object-cover border-2 border-green-500/30" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDY-JVRkul6E0rcgLFZb0o18e2GFfockaRngmkKz4MjXJIvnEABzj-NuBzbr0Tx3zHbd4ujbIwT6Xf0pWHHk-PQ1ZY5vMsaTR7QIgzV6mmlo0IAnmwKw3zRh4MUnzwY3Pw2O9bNV125qeliF69ipeteOG25GK3FEd3VyXMdwmCoIs7SLE3Vqr9NVOLJucrZeU69F-sG21fA69vsZXNQgJ9-TCEiG6Z_U8PBOi_JWUeXb7qKDi9Y2NoqyyO49MwJRUb4qOQOHPyKwU1K"/>
+          <h4>테크 아키텍트</h4>
+          <p>엔터프라이즈급 RAG 및 프롬프트 플로우 설계를 위해 <strong style="color:#5ba3f5;">'AI Foundry 기초 과정'</strong>을 권장합니다.</p>
+        </div>
+      </div>
+
+      <div class="relative group">
+        <div class="absolute inset-0 bg-tertiary/20 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+        <div class="audience-card p-9 rounded-3xl relative z-10 text-center h-full flex flex-col">
+          <img class="w-20 h-20 rounded-full mx-auto mb-6 object-cover border-2 border-purple-500/30" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaNUMOzXh8Nnd2Hc8knWG8I05s3TLfwg0_rVbvBEFopTnoDTVElxPvT02YjWxxZ7P8VX1fK75s7CYqNkHn11sAk7z3lstKlNdl0eoS75Jxa5HivvBwtAUOrwE8SRzQ1gCbC2Z4A-9B6ORZNFi2bbVMUUf7OeR1qZmZnFfYcwlMdLvEE3V5R8wSWv1yevKALC2IOAq0v4Ln9Rpfp3PHgdfQSsY0doXDIpnHNVKtt4AWbQ4OKM9aZ2vDElPkRkF59IPrtQx8t0EA9WLW"/>
+          <h4>IT 리더 및 관리자</h4>
+          <p>AI 실무 도입의 기술적 타당성 검토와 트렌드 파악을 위해 <strong style="color:#4edea3;">두 과정 모두</strong> 유익합니다.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </section>
-<!-- Info Section -->
-<section class="py-section-gap">
-<div class="container-max mx-auto px-8">
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 max-w-6xl mx-auto">
-<div class="space-y-12">
-<div>
-<h2 class="font-h1 text-h1 text-white mb-8">교육 안내 및 장소</h2>
-<div class="space-y-6">
-<div class="flex items-start gap-4">
-<span class="material-symbols-outlined text-primary mt-1" data-icon="calendar_month">calendar_month</span>
-<div>
-<p class="text-white font-bold text-lg">진행 일정</p>
-<p class="text-on-surface-variant">
-<strong>[AI Foundry 기초 과정]</strong> 2025.09.23(화) ~ 24(수)<br/>
-<strong>[바이브 코딩 워크숍]</strong> 2025.09.25(목)
-                                        </p>
-</div>
-</div>
-<div class="flex items-start gap-4">
-<span class="material-symbols-outlined text-primary mt-1" data-icon="location_on">location_on</span>
-<div>
-<p class="text-white font-bold text-lg">교육 장소</p>
-<p class="text-on-surface-variant">한국 마이크로소프트, 더 룸 탁트인 (종로구 케이트윈타워)</p>
-<div class="mt-4 w-full h-48 bg-surface-container rounded-xl overflow-hidden border border-white/5">
-<div class="w-full h-full grayscale hover:grayscale-0 transition-all cursor-pointer bg-[url('https://images.unsplash.com/photo-1577083552431-6e5fd01988ec?auto=format&amp;fit=crop&amp;q=80&amp;w=800')] bg-cover bg-center"></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="space-y-12">
-<div class="glass-card p-8 rounded-3xl border-primary-container/20 bg-primary-container/5">
-<div class="flex items-center gap-6 mb-6">
-<img class="w-20 h-20 rounded-full border-2 border-primary-container object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoMDO5fEFG3vyaULdbONU_P13AwzkDJGsp9JNAuJTn5A3V7UwTtpQv_7SWjl20rYHReUx83_SO8TGRw-c3SVlEG6vtgl9ndSgWXfL27xVDA05oGLCDfsbBjsgZhI0EEF6RUtna2EKf-KIN-_iXWJ4BjiGLRatsbCg-V91WqShiM0ey8E_r3clW5rZ77AursbepLRI8ByVRSbRQx-PrUeKgTFPv_Pi6U41z_lg94CnHGDyZzBkxBmtD2Hkl8omOxTOcPU8lOt9cLGqT"/>
-<div>
-<p class="font-label-caps text-primary mb-1 uppercase">Instructor</p>
-<h4 class="font-h2 text-white">이보라 MVP</h4>
-<p class="text-sm text-on-surface-variant">Microsoft Azure MVP &amp; AI Solutions Expert</p>
-</div>
-</div>
-<div class="space-y-4 border-t border-white/10 pt-6">
-<div class="flex items-start gap-4">
-<span class="material-symbols-outlined text-secondary" data-icon="laptop_mac">laptop_mac</span>
-<div>
-<p class="text-white font-bold">필수 준비물</p>
-<p class="text-sm text-on-surface-variant">개인 노트북 (Windows 10 이상 또는 macOS), Azure 구독 계정 (무료 체험판 가능)</p>
-</div>
-</div>
-</div>
-</div>
-<div class="p-8 rounded-3xl border border-dashed border-slate-700 flex flex-col items-center text-center gap-6">
-<p class="text-on-surface-variant font-medium">원하시는 프로그램을 선택하여 지금 바로 신청하세요.</p>
-<button class="w-full bg-primary-container text-on-primary-container py-4 rounded-xl font-bold hover:shadow-[0_0_20px_rgba(0,120,212,0.4)] transition-all">
-                                신청하기 (선착순 마감)
-                            </button>
-</div>
-</div>
-</div>
-</div>
+
+<!-- ══ INFO ══ -->
+<section class="py-14">
+  <div class="container-max mx-auto px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+
+      <div>
+        <h2 class="font-h1 text-h1 text-white mb-7">교육 안내 및 장소</h2>
+        <div class="space-y-5">
+          <div class="flex items-start gap-4">
+            <span class="material-symbols-outlined mt-1" style="color:#5ba3f5;">calendar_month</span>
+            <div>
+              <p class="info-label">진행 일정</p>
+              <p class="info-text">
+                <strong style="color:#eef1f3;">[AI Foundry 기초 과정]</strong> 2025.09.23(화) ~ 24(수)<br/>
+                <strong style="color:#eef1f3;">[바이브 코딩 워크숍]</strong> 2025.09.25(목)
+              </p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <span class="material-symbols-outlined mt-1" style="color:#5ba3f5;">location_on</span>
+            <div>
+              <p class="info-label">교육 장소</p>
+              <p class="info-text">한국 마이크로소프트, 더 룸 탁트인 (종로구 케이트윈타워)</p>
+              <div class="mt-3 w-full h-44 bg-surface-container rounded-xl overflow-hidden border border-white/5">
+                <div class="w-full h-full grayscale hover:grayscale-0 transition-all cursor-pointer bg-[url('https://images.unsplash.com/photo-1577083552431-6e5fd01988ec?auto=format&fit=crop&q=80&w=800')] bg-cover bg-center"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="space-y-6">
+        <div class="glass-card p-7 rounded-3xl" style="border-color:rgba(91,163,245,0.2); background:rgba(15,30,50,0.85);">
+          <div class="flex items-center gap-5 mb-5">
+            <img class="w-18 h-18 rounded-full border-2 border-blue-400/40 object-cover" style="width:72px;height:72px;" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoMDO5fEFG3vyaULdbONU_P13AwzkDJGsp9JNAuJTn5A3V7UwTtpQv_7SWjl20rYHReUx83_SO8TGRw-c3SVlEG6vtgl9ndSgWXfL27xVDA05oGLCDfsbBjsgZhI0EEF6RUtna2EKf-KIN-_iXWJ4BjiGLRatsbCg-V91WqShiM0ey8E_r3clW5rZ77AursbepLRI8ByVRSbRQx-PrUeKgTFPv_Pi6U41z_lg94CnHGDyZzBkxBmtD2Hkl8omOxTOcPU8lOt9cLGqT"/>
+            <div>
+              <p style="color:#5ba3f5; font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:4px;">Instructor</p>
+              <h4 style="color:#eef1f3; font-size:20px; font-weight:700; margin-bottom:2px;">이보라 MVP</h4>
+              <p style="color:#9eb3cc; font-size:14px;">Microsoft Azure MVP &amp; AI Solutions Expert</p>
+            </div>
+          </div>
+          <div class="border-t border-white/10 pt-5">
+            <div class="flex items-start gap-3">
+              <span class="material-symbols-outlined" style="color:#4edea3; font-size:20px; margin-top:2px;">laptop_mac</span>
+              <div>
+                <p style="color:#eef1f3; font-weight:700; font-size:15px; margin-bottom:4px;">필수 준비물</p>
+                <p style="color:#9eb3cc; font-size:14px;">개인 노트북 (Windows 10 이상 또는 macOS), Azure 구독 계정 (무료 체험판 가능)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-7 rounded-3xl border border-dashed border-slate-600 flex flex-col items-center text-center gap-5" style="background:rgba(15,22,32,0.6);">
+          <p style="color:#9eb3cc; font-size:15px;">원하시는 프로그램을 선택하여 지금 바로 신청하세요.</p>
+          <button class="cta-btn w-full py-4 rounded-xl font-bold text-base">
+            신청하기 (선착순 마감)
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </section>
-<!-- CTA Section -->
-<section class="py-section-gap mb-section-gap">
-<div class="container-max mx-auto px-8">
-<div class="relative rounded-[40px] overflow-hidden bg-gradient-to-br from-primary-container to-tertiary-container p-1 shadow-2xl max-w-4xl mx-auto">
-<div class="bg-surface-container-lowest rounded-[38px] px-8 py-20 flex flex-col items-center text-center">
-<h2 class="font-h1 text-h1 text-white mb-6">내일의 AI 시대를 오늘 준비하세요</h2>
-<p class="font-body-lg text-on-surface-variant mb-12 max-w-2xl">
-                            단기간의 집중적인 투자로 Agentic AI 애플리케이션 개발의 핵심 역량을 확보하고 비즈니스의 가치를 높이세요.
-                        </p>
-<button class="bg-primary-container text-on-primary-container px-12 py-5 rounded-2xl font-bold text-xl hover:scale-105 transition-transform">
-                            지금 신청하고 시작하기
-                        </button>
-</div>
-</div>
-</div>
+
+<!-- ══ CTA ══ -->
+<section class="py-14 mb-8">
+  <div class="container-max mx-auto px-8">
+    <div class="relative rounded-[36px] overflow-hidden p-px shadow-2xl max-w-4xl mx-auto" style="background:linear-gradient(135deg,#0078d4,#9e4aec);">
+      <div class="rounded-[35px] px-8 py-16 flex flex-col items-center text-center" style="background:#0a131e;">
+        <h2 class="font-h1 text-h1 text-white mb-5">내일의 AI 시대를 오늘 준비하세요</h2>
+        <p style="color:#9eb3cc; font-size:18px; line-height:1.65; max-width:560px; margin-bottom:40px;">
+          단기간의 집중적인 투자로 Agentic AI 애플리케이션 개발의 핵심 역량을 확보하고 비즈니스의 가치를 높이세요.
+        </p>
+        <button class="cta-btn px-12 py-4 rounded-2xl font-bold text-lg">
+          지금 신청하고 시작하기
+        </button>
+      </div>
+    </div>
+  </div>
 </section>
+
 </main>
-<!-- Footer -->
-<footer class="bg-[#0A0F10] w-full mt-[120px] border-t border-white/5">
-<div class="max-w-[1280px] mx-auto px-8 py-16 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 font-['Space_Grotesk'] text-sm tracking-wide">
-<div>
-<div class="text-lg font-bold text-slate-300 mb-2">Megazone Cloud</div>
-<p class="text-slate-500">© 2024 Megazone Cloud AI Foundry. All rights reserved.</p>
-</div>
-<div class="flex gap-8">
-<a class="text-slate-500 hover:text-[#0078D4] transition-colors" href="#">문의처</a>
-<a class="text-slate-500 hover:text-[#0078D4] transition-colors" href="#">개인정보처리방침</a>
-<a class="text-slate-500 hover:text-[#0078D4] transition-colors" href="#">파트너 로고</a>
-</div>
-</div>
+
+<!-- ══ FOOTER ══ -->
+<footer style="background:#0a0f10; border-top:1px solid rgba(255,255,255,0.06); margin-top:0;">
+  <div class="max-w-[1280px] mx-auto px-8 py-12 flex flex-col md:flex-row justify-between items-start md:items-center gap-5" style="font-size:14px;">
+    <div>
+      <div style="color:#c8d0dc; font-size:17px; font-weight:700; margin-bottom:4px;">Megazone Cloud</div>
+      <p style="color:#4a5568;">© 2024 Megazone Cloud AI Foundry. All rights reserved.</p>
+    </div>
+    <div class="flex gap-7">
+      <a style="color:#5a6a7a;" href="#" onmouseover="this.style.color='#5ba3f5'" onmouseout="this.style.color='#5a6a7a'">문의처</a>
+      <a style="color:#5a6a7a;" href="#" onmouseover="this.style.color='#5ba3f5'" onmouseout="this.style.color='#5a6a7a'">개인정보처리방침</a>
+      <a style="color:#5a6a7a;" href="#" onmouseover="this.style.color='#5ba3f5'" onmouseout="this.style.color='#5a6a7a'">파트너 로고</a>
+    </div>
+  </div>
 </footer>
+
 <script>
-        function switchTab(tab) {
-            // Content visibility
-            document.querySelectorAll('[data-tab-content]').forEach(content => {
-                content.classList.remove('active');
-            });
-            document.getElementById('content-' + tab).classList.add('active');
-
-            // Button state
-            document.querySelectorAll('.tab-button').forEach(btn => {
-                btn.classList.remove('active');
-                btn.classList.add('text-slate-400');
-                btn.classList.remove('text-white');
-            });
-            const activeBtn = document.getElementById('btn-' + tab);
-            activeBtn.classList.add('active');
-            activeBtn.classList.remove('text-slate-400');
-            activeBtn.classList.add('text-white');
-        }
-
-        // Navigation dropdown - hover based
-        const dropdowns = document.querySelectorAll('.nav-dropdown');
-
-        dropdowns.forEach(dropdown => {
-            dropdown.addEventListener('mouseenter', function() {
-                dropdowns.forEach(d => d.classList.remove('active'));
-                this.classList.add('active');
-            });
-
-            dropdown.addEventListener('mouseleave', function() {
-                this.classList.remove('active');
-            });
-        });
-    </script>
-</script>
-<!-- Ensure header/dropdown links open in same tab (preserve CTA) -->
-<script>
-document.addEventListener('DOMContentLoaded', function(){
-    // Remove target/rel on nav links except CTA with .gradient-primary
-    document.querySelectorAll('nav a:not(.gradient-primary), .nav-dropdown-menu a:not(.gradient-primary)').forEach(a=>{
-        a.removeAttribute('target');
-        a.removeAttribute('rel');
+  function switchTab(tab) {
+    document.querySelectorAll('[data-tab-content]').forEach(c => c.classList.remove('active'));
+    document.getElementById('content-' + tab).classList.add('active');
+    document.querySelectorAll('.tab-button').forEach(btn => {
+      btn.classList.remove('active');
+      btn.classList.add('text-slate-400');
+      btn.classList.remove('text-white');
     });
+    const activeBtn = document.getElementById('btn-' + tab);
+    activeBtn.classList.add('active');
+    activeBtn.classList.remove('text-slate-400');
+    activeBtn.classList.add('text-white');
+  }
+  const dropdowns = document.querySelectorAll('.nav-dropdown');
+  dropdowns.forEach(dropdown => {
+    dropdown.addEventListener('mouseenter', function() {
+      dropdowns.forEach(d => d.classList.remove('active'));
+      this.classList.add('active');
+    });
+    dropdown.addEventListener('mouseleave', function() { this.classList.remove('active'); });
+  });
+</script>
 
-    // Intercept nav clicks and force same-tab navigation for left-clicks
-    document.addEventListener('click', function(e){
-        const a = e.target.closest('a');
-        if(!a) return;
-        if(a.closest('nav') && !a.classList.contains('gradient-primary')){
-            if(e.button===0 && !e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey){
-                const href = a.getAttribute('href');
-                if(href && !href.startsWith('javascript:') && href !== '#'){
-                    e.preventDefault();
-                    window.location.href = href;
-                }
-            }
-        }
-    }, true);
-});
-    </script>
+<script src="global-state-manager.js"></script>
+<script src="global-header-loader.js"></script>
 
-    <!-- Global header scripts: state manager then loader -->
-    <script src="global-state-manager.js"></script>
-    <script src="global-header-loader.js"></script>
-
-</body></html>
+</body>
+</html>
