@@ -123,6 +123,9 @@
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
       }
+      .korean-keep {
+        word-break: keep-all;
+      }
     </style>
 </head>
 <body class="bg-background text-on-background font-body-md overflow-x-hidden">
@@ -142,13 +145,18 @@
 <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-10">
                 Microsoft Fabric과 함께 데이터 분석의 미래를 경험하세요. 통합 데이터 분석 플랫폼의 <br />모든 과정을 하루 만에 마스터합니다.
             </p>
-<div class="glass-card max-w-2xl mx-auto rounded-xl shadow-[0px_4px_20px_rgba(0,0,0,0.05)] p-8 mb-12 flex flex-col md:flex-row justify-center items-center gap-8 border border-outline-variant/30">
-<div class="flex items-center gap-3 text-on-surface">
+<div class="glass-card max-w-3xl mx-auto rounded-xl shadow-[0px_4px_20px_rgba(0,0,0,0.05)] p-8 mb-12 flex flex-col md:flex-row md:flex-nowrap justify-center items-center gap-8 border border-outline-variant/30">
+<div class="flex items-center gap-3 text-on-surface whitespace-nowrap">
 <span class="material-symbols-outlined text-primary">location_on</span>
-<span class="font-body-md">한국마이크로소프트 13층 (제주룸)</span>
+<span class="font-body-md korean-keep">한국마이크로소프트 13층 (제주룸)</span>
 </div>
 <div class="w-px h-6 bg-outline-variant hidden md:block"></div>
-<div class="flex items-center gap-3 text-on-surface">
+<div class="flex items-center gap-3 text-on-surface whitespace-nowrap">
+<span class="material-symbols-outlined text-primary">calendar_today</span>
+<span class="font-body-md korean-keep">6월 26일 (금)</span>
+</div>
+<div class="w-px h-6 bg-outline-variant hidden md:block"></div>
+<div class="flex items-center gap-3 text-on-surface whitespace-nowrap">
 <span class="material-symbols-outlined text-primary">schedule</span>
 <span class="font-body-md">09:00 - 17:00</span>
 </div>
