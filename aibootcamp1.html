@@ -129,8 +129,8 @@
                     overflow-y: auto;
                     scrollbar-width: none;
                     -ms-overflow-style: none;
-                    background: #ffffff !important;
-                    border-color: rgba(0, 95, 170, 0.12) !important;
+                        background: #ffffff !important;
+                        border-color: rgba(0, 95, 170, 0.12) !important;
                     backdrop-filter: blur(12px);
                 }
                 
@@ -228,6 +228,17 @@
                 .nav-dropdown-menu .dropdown-arrow {
                     display: none !important;
                 }
+                /* Header token collision fix: keep injected header text readable in light header */
+                header[data-global-header] .text-on-surface,
+                header[data-global-header] .nav-dropdown-toggle,
+                header[data-global-header] .nav-dropdown-toggle * {
+                    color: #0f2138 !important;
+                    -webkit-text-fill-color: #0f2138 !important;
+                }
+                header[data-global-header] .text-on-surface-variant {
+                    color: #4b5563 !important;
+                    -webkit-text-fill-color: #4b5563 !important;
+                }
         [data-tab-content] {
             display: none;
         }
@@ -240,58 +251,11 @@
             box-shadow: 0 0 20px rgba(0, 120, 212, 0.4);
         }
     </style>
-    <style>
-        /* Force header dropdown to canonical light appearance (override page dark mode) */
-        header[data-global-header] .nav-dropdown-menu {
-            background: #ffffff !important;
-            color: #0f2138 !important;
-        }
-        header[data-global-header] .nav-dropdown-menu a.dropdown-item {
-            color: #0f2138 !important;
-            background: transparent !important;
-        }
-        header[data-global-header] .nav-dropdown-menu a.dropdown-item .font-semibold,
-        header[data-global-header] .nav-dropdown-menu a.dropdown-item .text-xs,
-        header[data-global-header] .nav-dropdown-menu a.dropdown-item .text-on-surface-variant {
-            color: #374151 !important;
-        }
-        header[data-global-header] .nav-dropdown-toggle,
-        header[data-global-header] .nav-dropdown-toggle * {
-            color: #0f2138 !important;
-        }
-        header[data-global-header] .dropdown-icon {
-            background-color: transparent !important;
-        }
-        /* Ensure normal (non-ended) icons use primary blue tint like canonical header */
-        header[data-global-header] .nav-dropdown-menu > a.dropdown-item .dropdown-icon {
-            background: rgba(0,95,170,0.06) !important;
-            color: #005faa !important;
-        }
-        /* Preserve the onsite green accent like the canonical header */
-        header[data-global-header] .nav-dropdown-menu > a.dropdown-item.teal .dropdown-icon,
-        header[data-global-header] .nav-dropdown-menu > a.dropdown-item.teal .dropdown-icon span {
-            background: rgba(0,104,117,0.08) !important;
-            color: #006875 !important;
-            -webkit-text-fill-color: #006875 !important;
-        }
-        header[data-global-header] .nav-dropdown-menu > a.dropdown-item.orange .dropdown-icon,
-        header[data-global-header] .nav-dropdown-menu > a.dropdown-item.orange .dropdown-icon span {
-            background: rgba(232,119,34,0.08) !important;
-            color: #E87722 !important;
-            -webkit-text-fill-color: #E87722 !important;
-        }
-        /* Keep ended/pending rules intact and apply to all dropdowns */
-        header[data-global-header] .nav-dropdown-menu > a.dropdown-item.is-ended .dropdown-icon,
-        header[data-global-header] .nav-dropdown-menu > a.dropdown-item.is-pending .dropdown-icon {
-            background-color: #e6e7eb !important;
-            color: #6b7280 !important;
-        }
-    </style>
 </head>
 <body class="bg-surface-container-lowest text-on-surface font-body-md overflow-x-hidden">
 
     <!-- Global header mount -->
-    <header data-global-header></header>
+    <header data-global-header data-header-theme="light"></header>
 
 <main class="relative">
 <!-- Hero Section -->

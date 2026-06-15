@@ -128,7 +128,13 @@
           parsedStyles.forEach(function (s) {
             try {
               if (s.id && document.getElementById(s.id)) return;
-              var ns = document.createElement('style'); if (s.id) ns.id = s.id; ns.appendChild(document.createTextNode(s.textContent || s.innerHTML || '')); document.head.appendChild(ns);
+              var cssText = s.textContent || s.innerHTML || '';
+              // Keep header visuals, but do not let header.html override host page theme.
+              cssText = cssText
+                .replace(/(^|})\s*html\s*\{[^}]*\}/g, '$1')
+                .replace(/(^|})\s*body\s*\{[^}]*\}/g, '$1');
+              if (!cssText || !cssText.trim()) return;
+              var ns = document.createElement('style'); if (s.id) ns.id = s.id; ns.appendChild(document.createTextNode(cssText)); document.head.appendChild(ns);
             } catch (e) {}
           });
         } catch (e) {}
@@ -248,12 +254,13 @@
                     if (brand) brand.classList.add('global-header-brand');
                   } catch (e) {}
 
-                  // Prefer page-wide dark mode flags; otherwise compute background brightness
+                  // Resolve header theme from explicit mount attribute first, then nav background brightness.
                   try {
-                    var forcedDark = (document.documentElement && document.documentElement.classList && document.documentElement.classList.contains('dark')) ||
-                      (document.body && document.body.classList && document.body.classList.contains('dark'));
-                    if (forcedDark) {
+                    var explicitTheme = (mountPoint.getAttribute('data-header-theme') || '').toLowerCase();
+                    if (explicitTheme === 'dark') {
                       mountedNav.classList.add('dark-header');
+                    } else if (explicitTheme === 'light') {
+                      mountedNav.classList.remove('dark-header');
                     } else {
                       var cs = window.getComputedStyle(mountedNav);
                       var bg = cs.backgroundColor || cs.background;
@@ -261,9 +268,9 @@
                       if (m) {
                         var r = parseInt(m[1], 10), g = parseInt(m[2], 10), b = parseInt(m[3], 10);
                         var luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
-                        if (luminance < 0.55) {
-                          mountedNav.classList.add('dark-header');
-                        }
+                        mountedNav.classList.toggle('dark-header', luminance < 0.55);
+                      } else {
+                        mountedNav.classList.remove('dark-header');
                       }
                     }
                   } catch (e) {}
