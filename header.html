@@ -343,6 +343,20 @@
     transform: translateX(0);
   }
 
+  /* Keep long titles wrapping on the left while status badges stay pinned right */
+  .nav-dropdown-menu .dropdown-item .font-semibold.flex.items-center.gap-2 {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: start;
+    column-gap: 0.5rem;
+  }
+  .nav-dropdown-menu .dropdown-item .font-semibold.flex.items-center.gap-2 > span {
+    margin-left: 0 !important;
+    justify-self: end;
+    align-self: start;
+    transform: none !important;
+  }
+
   .nav-dropdown-toggle {
     position: relative;
     padding-bottom: 0.4rem;
@@ -519,7 +533,7 @@
       top: calc(var(--mobile-nav-bottom, 106px) + 0.5rem) !important;
       left: 50% !important;
       right: auto !important;
-      width: min(20.5rem, calc(100vw - 1.25rem)) !important;
+      width: min(18.5rem, calc(100vw - 1.25rem)) !important;
       min-width: 0 !important;
       transform: translateX(-50%) !important;
       margin-top: 0 !important;
@@ -560,6 +574,20 @@
       line-height: 1.28 !important;
       white-space: normal !important;
       word-break: keep-all;
+    }
+
+    .nav-dropdown-menu .dropdown-item .font-semibold.flex.items-center.gap-2 {
+      display: grid !important;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: start;
+      column-gap: 0.5rem;
+    }
+
+    .nav-dropdown-menu .dropdown-item .font-semibold.flex.items-center.gap-2 > span {
+      margin-left: 0 !important;
+      justify-self: end;
+      align-self: start;
+      transform: none !important;
     }
 
     .nav-dropdown-menu .dropdown-item .text-xs {
