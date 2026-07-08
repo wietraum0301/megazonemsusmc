@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Video Player</title>
+  <style>
+    body { margin:0; background:#000; color:#fff; display:flex; align-items:center; justify-content:center; height:100vh; }
+    .wrap { width:90%; max-width:1000px; }
+    video { width:100%; height:auto; background:#000; }
+    .info { margin-top:12px; text-align:left; }
+    a { color:#8ef; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <video id="player" controls preload="metadata" playsinline></video>
+    <div class="info" id="info"></div>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(location.search);
+    const src = params.get('src');
+    const info = document.getElementById('info');
+    const player = document.getElementById('player');
+    if(!src) {
+      info.innerHTML = 'No video source provided.';
+    } else {
+      const url = decodeURIComponent(src);
+      player.src = url;
+      info.innerHTML = '<div>If playback fails, <a href="'+url+'" target="_blank" rel="noopener">open raw file</a> or <a href="'+url+'" download>download</a> and play locally.</div>';
+      player.addEventListener('error', (e)=>{
+        info.innerHTML += '<div style="color:#f88;margin-top:8px;">Playback error. Try downloading the file or open in a different browser.</div>';
+      });
+    }
+  </script>
+</body>
+</html>
