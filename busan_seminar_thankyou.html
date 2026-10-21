@@ -9,6 +9,7 @@
   />
 
   <title>부산 고객 세미나 참석 감사</title>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&amp;display=swap" rel="stylesheet"/>
 
   <style>
     :root {
@@ -24,6 +25,7 @@
       --shadow: 0 10px 30px rgba(15,23,42,.07);
       --hover: 0 22px 50px rgba(37,99,235,.15);
 
+      /* Global Navigation */
       --ui-ink: #0f2138;
       --ui-deep: #004c8f;
       --ui-cyan: #12d6f2;
@@ -31,15 +33,24 @@
       --ui-stroke: rgba(0,95,170,.1);
     }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
       padding-bottom: 82px;
       color: #182230;
       background:
-        radial-gradient(circle at 10% 0%, rgba(56,189,248,.08), transparent 28%),
+        radial-gradient(
+          circle at 10% 0%,
+          rgba(56,189,248,.08),
+          transparent 28%
+        ),
         var(--bg);
       font-family: "Segoe UI", "Noto Sans KR", Arial, sans-serif;
     }
@@ -53,64 +64,19 @@
     /* =========================================================
        GLOBAL HEADER / NAVIGATION
        ========================================================= */
+
     [data-global-header] {
       position: relative;
       z-index: 1000;
     }
 
     [data-global-header] nav {
-      position: sticky;
-      top: 0;
-      z-index: 1001;
       background: var(--ui-glass) !important;
       border-bottom: 1px solid var(--ui-stroke);
       box-shadow: 0 6px 20px rgba(7,31,58,.05);
     }
 
-    [data-global-header] .nav-inner {
-      width: min(1120px, 100%);
-      margin: 0 auto;
-      padding: 0 20px;
-      min-height: 64px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-    }
-
-    [data-global-header] .nav-left,
-    [data-global-header] .nav-right {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    [data-global-header] .brand {
-      color: var(--ui-ink);
-      font-weight: 800;
-      text-decoration: none;
-      white-space: nowrap;
-    }
-
-    [data-global-header] .nav-link,
-    [data-global-header] .nav-dropdown-toggle {
-      border: 0;
-      background: transparent;
-      color: #17406d;
-      font-weight: 700;
-      font-size: 14px;
-      text-decoration: none;
-      padding: 10px 12px;
-      border-radius: 10px;
-      cursor: pointer;
-    }
-
-    [data-global-header] .nav-link:hover,
-    [data-global-header] .nav-dropdown-toggle:hover {
-      background: rgba(0,95,170,.06);
-    }
-
-    .dropdown-shadow {
+    [data-global-header] .dropdown-shadow {
       box-shadow:
         0 18px 42px -12px rgba(0,95,170,.12),
         0 8px 20px -8px rgba(16,28,46,.1),
@@ -118,20 +84,7 @@
         0 0 0 1px rgba(0,95,170,.08);
     }
 
-    .nav-dropdown { position: relative; }
-
-    .nav-dropdown-menu {
-      position: absolute;
-      left: 50%;
-      top: calc(100% + 10px);
-      min-width: 260px;
-      padding: 10px;
-      border-radius: 14px;
-      border: 1px solid rgba(0,95,170,.12) !important;
-      background: rgba(255,255,255,.94) !important;
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-
+    [data-global-header] .nav-dropdown-menu {
       opacity: 0;
       visibility: hidden;
       transform: translateX(-50%) translateY(6px);
@@ -140,34 +93,37 @@
       overflow-y: auto;
       scrollbar-width: none;
       -ms-overflow-style: none;
-      z-index: 1200;
+      background: rgba(255,255,255,.94) !important;
+      border-color: rgba(0,95,170,.12) !important;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
     }
 
-    .nav-dropdown-menu::-webkit-scrollbar { display: none; }
+    [data-global-header] .nav-dropdown-menu::-webkit-scrollbar {
+      display: none;
+    }
 
-    .nav-dropdown.active .nav-dropdown-menu {
+    [data-global-header] .nav-dropdown.active .nav-dropdown-menu {
       opacity: 1;
       visibility: visible;
       transform: translateX(-50%) translateY(0);
     }
 
-    .nav-dropdown.active .chevron { transform: rotate(180deg); }
-    .chevron { transition: transform .3s ease; margin-left: 6px; }
+    [data-global-header] .nav-dropdown.active .chevron {
+      transform: rotate(180deg);
+    }
 
-    .dropdown-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
+    [data-global-header] .chevron {
+      transition: transform .3s ease;
+    }
+
+    [data-global-header] .dropdown-item {
       position: relative;
       transition: all .3s cubic-bezier(.22,1,.36,1);
       overflow: hidden;
-      border-radius: 10px;
-      padding: 10px 12px;
-      text-decoration: none;
-      color: #15385f;
     }
 
-    .dropdown-item::before {
+    [data-global-header] .dropdown-item::before {
       content: "";
       position: absolute;
       left: 0;
@@ -180,15 +136,58 @@
       transition: height .3s cubic-bezier(.22,1,.36,1);
     }
 
-    .dropdown-item:hover {
-      background: linear-gradient(135deg, rgba(0,95,170,.06), rgba(0,227,253,.04));
+    [data-global-header] .dropdown-item.orange::before {
+      background: linear-gradient(180deg,#E87722,#FFB74D);
+    }
+
+    [data-global-header] .dropdown-item.teal::before {
+      background: linear-gradient(180deg,#006875,#00daf3);
+    }
+
+    [data-global-header] .dropdown-item:hover {
+      background:
+        linear-gradient(
+          135deg,
+          rgba(0,95,170,.06),
+          rgba(0,227,253,.04)
+        );
       transform: translateX(4px);
       box-shadow: 0 4px 16px rgba(0,95,170,.08);
     }
 
-    .dropdown-item:hover::before { height: 60%; }
+    [data-global-header] .dropdown-item.orange:hover {
+      background:
+        linear-gradient(
+          135deg,
+          rgba(232,119,34,.06),
+          rgba(255,183,77,.04)
+        );
+      box-shadow: 0 4px 16px rgba(232,119,34,.1);
+    }
 
-    .dropdown-item .dropdown-arrow {
+    [data-global-header] .dropdown-item.teal:hover {
+      background:
+        linear-gradient(
+          135deg,
+          rgba(0,104,117,.06),
+          rgba(0,218,243,.04)
+        );
+      box-shadow: 0 4px 16px rgba(0,104,117,.1);
+    }
+
+    [data-global-header] .dropdown-item:hover::before {
+      height: 60%;
+    }
+
+    [data-global-header] .dropdown-item .dropdown-icon {
+      transition: all .3s cubic-bezier(.22,1,.36,1);
+    }
+
+    [data-global-header] .dropdown-item:hover .dropdown-icon {
+      transform: scale(1.1) rotate(-4deg);
+    }
+
+    [data-global-header] .dropdown-item .dropdown-arrow {
       opacity: 0;
       transform: translateX(-6px);
       transition: all .3s cubic-bezier(.22,1,.36,1);
@@ -198,17 +197,25 @@
       flex-shrink: 0;
     }
 
-    .dropdown-item:hover .dropdown-arrow {
+    [data-global-header] .dropdown-item.orange .dropdown-arrow {
+      color: #E87722;
+    }
+
+    [data-global-header] .dropdown-item.teal .dropdown-arrow {
+      color: #006875;
+    }
+
+    [data-global-header] .dropdown-item:hover .dropdown-arrow {
       opacity: 1;
       transform: translateX(0);
     }
 
-    .nav-dropdown-toggle {
+    [data-global-header] .nav-dropdown-toggle {
       position: relative;
       padding-bottom: .4rem;
     }
 
-    .nav-dropdown-toggle::after {
+    [data-global-header] .nav-dropdown-toggle::after {
       content: "";
       position: absolute;
       left: .7rem;
@@ -222,53 +229,169 @@
       border-radius: 999px;
     }
 
-    .nav-dropdown-toggle:hover::after,
-    .nav-dropdown.active .nav-dropdown-toggle::after {
+    [data-global-header] .nav-dropdown-toggle:hover::after,
+    [data-global-header] .nav-dropdown.active .nav-dropdown-toggle::after {
       transform: scaleX(1);
     }
 
-    .nav-dropdown-menu .dropdown-arrow { display: none !important; }
-
-    [data-global-header] .mobile-toggle {
-      display: none;
-      border: 0;
-      background: transparent;
-      font-size: 20px;
-      cursor: pointer;
-      color: #17406d;
-      padding: 8px 10px;
-      border-radius: 8px;
+    [data-global-header] .nav-dropdown-menu .dropdown-arrow {
+      display: none !important;
     }
 
-    [data-global-header] .mobile-menu {
-      display: none;
-      border-top: 1px solid rgba(0,95,170,.1);
-      padding: 10px 20px 14px;
+    /* The shared markup is styled here without a utility CSS dependency. */
+    [data-global-header] [hidden] { display: none !important; }
+    [data-global-header] .nav-inner {
+      max-width: 1280px;
+      min-height: 72px;
+      margin: auto;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+    [data-global-header] a { text-decoration: none; color: inherit; }
+    [data-global-header] button { font: inherit; cursor: pointer; }
+    [data-global-header] :is(a, button):focus-visible {
+      outline: 3px solid #005faa;
+      outline-offset: 3px;
+    }
+    [data-global-header] .brand {
+      font-size: 18px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    [data-global-header] .nav-content,
+    [data-global-header] .nav-menus {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    [data-global-header] .nav-content { flex: 1; justify-content: space-between; }
+    [data-global-header] .nav-dropdown { position: relative; }
+    [data-global-header] .nav-dropdown-toggle {
+      border: 0;
+      border-radius: 20px;
+      padding: 10px;
       background: #fff;
-    }
-
-    [data-global-header] .mobile-menu.open { display: block; }
-
-    [data-global-header] .mobile-menu a,
-    [data-global-header] .mobile-menu button {
-      width: 100%;
-      text-align: left;
-      display: block;
-      border: 0;
-      background: transparent;
-      padding: 10px 8px;
       color: #17406d;
+      font-size: 14px;
       font-weight: 700;
-      text-decoration: none;
+      white-space: nowrap;
+    }
+    [data-global-header] .nav-dropdown-toggle:hover { background: #eff6ff; }
+    [data-global-header] .mobile-short-label { display: none; }
+    [data-global-header] .nav-dropdown-menu {
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 50%;
+      width: min(320px, calc(100vw - 32px));
+      max-height: min(70vh, 600px);
+      padding: 8px;
+      border: 1px solid #dbeafe;
+      border-radius: 16px;
+      box-shadow: 0 18px 42px rgba(15,23,42,.16);
+      z-index: 1;
+      scrollbar-width: auto;
+    }
+    [data-global-header] .nav-dropdown-menu::-webkit-scrollbar { display: block; width: 8px; }
+    [data-global-header] .dropdown-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px;
+      border-radius: 12px;
+      font-size: 14px;
+      line-height: 1.5;
+      overflow-wrap: anywhere;
+    }
+    [data-global-header] .dropdown-item > div:last-of-type { min-width: 0; flex: 1; }
+    [data-global-header] .dropdown-item > div:last-of-type > div:first-child { font-weight: 700; }
+    [data-global-header] .dropdown-item > div:last-of-type > div:last-child { font-size: 12px; }
+    [data-global-header] .dropdown-item > div:last-of-type span {
+      display: inline-block;
+      padding: 1px 5px;
+      border-radius: 4px;
+      background: #e2e8f0;
+      color: #475569;
+      font-size: 10px;
+    }
+    [data-global-header] .dropdown-icon {
+      width: 36px;
+      height: 36px;
+      flex: 0 0 36px;
+      display: grid;
+      place-items: center;
+      border-radius: 10px;
+      color: #005faa;
+      background: #e0efff;
+    }
+    [data-global-header] .orange .dropdown-icon { color: #E87722; background: #fff2e5; }
+    [data-global-header] .teal .dropdown-icon { color: #006875; background: #dcf7f7; }
+    [data-global-header] :is(.is-ended, .is-pending) .dropdown-icon { color: #64748b; background: #e2e8f0; }
+    [data-global-header] .material-symbols-outlined {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      overflow: hidden;
+      font-family: "Material Symbols Outlined";
+      font-size: 20px;
+      line-height: 20px;
+      white-space: nowrap;
+    }
+    [data-global-header] svg { width: 20px; height: 20px; flex-shrink: 0; }
+    [data-global-header] .nav-cta a {
+      display: inline-flex;
+      padding: 10px 16px;
+      border-radius: 24px;
+      background: linear-gradient(135deg,#00579f,#0078d4);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    [data-global-header] .mobile-toggle { display: none; }
+    @media (max-width:1023px) {
+      [data-global-header] .nav-inner { flex-wrap: wrap; gap: 12px; padding: 12px 16px; min-height: 64px; }
+      [data-global-header] .brand { font-size: 15px; }
+      [data-global-header] .mobile-toggle {
+        display: block;
+        margin-left: auto;
+        border: 1px solid #cbd5e1;
+        border-radius: 8px;
+        padding: 8px 12px;
+        background: #fff;
+        color: #17406d;
+      }
+      [data-global-header] .nav-content { display: none; }
+      [data-global-header] .mobile-open .nav-content {
+        display: block;
+        flex: 0 0 100%;
+        max-height: calc(100dvh - 88px);
+        overflow-y: auto;
+        padding: 4px;
+      }
+      [data-global-header] .nav-menus { display: block; }
+      [data-global-header] .nav-dropdown-toggle { width: 100%; text-align: left; }
+      [data-global-header] .nav-dropdown-menu,
+      [data-global-header] .nav-dropdown.active .nav-dropdown-menu {
+        position: static;
+        width: 100%;
+        max-height: none;
+        margin: 0 !important;
+        transform: none;
+        box-shadow: none;
+      }
+      [data-global-header] .nav-cta { margin-top: 12px; }
     }
 
     /* =========================================================
        PAGE
        ========================================================= */
+
     .page {
       width: min(1120px,100%);
       margin: 0 auto;
-      overflow: visible; /* 핵심: 드롭다운 잘림 방지 */
+      overflow: hidden;
       background: var(--surface);
       border: 1px solid rgba(226,232,240,.85);
       border-radius: 0 0 30px 30px;
@@ -281,8 +404,16 @@
       padding: 76px 7%;
       color: #fff;
       background:
-        radial-gradient(circle at 85% 12%, rgba(56,189,248,.42), transparent 27%),
-        radial-gradient(circle at 15% 100%, rgba(79,70,229,.35), transparent 33%),
+        radial-gradient(
+          circle at 85% 12%,
+          rgba(56,189,248,.42),
+          transparent 27%
+        ),
+        radial-gradient(
+          circle at 15% 100%,
+          rgba(79,70,229,.35),
+          transparent 33%
+        ),
         linear-gradient(135deg,#07182e,#174d9c 58%,#4f46e5);
     }
 
@@ -295,12 +426,18 @@
       height: 310px;
       border: 1px solid rgba(255,255,255,.13);
       border-radius: 50%;
-      box-shadow: 0 0 0 42px rgba(255,255,255,.035), 0 0 0 84px rgba(255,255,255,.025);
+      box-shadow:
+        0 0 0 42px rgba(255,255,255,.035),
+        0 0 0 84px rgba(255,255,255,.025);
     }
 
-    .hero > * { position: relative; z-index: 1; }
+    .hero > * {
+      position: relative;
+      z-index: 1;
+    }
 
-    .eyebrow, .pill {
+    .eyebrow,
+    .pill {
       display: inline-flex;
       align-items: center;
       width: fit-content;
@@ -333,10 +470,17 @@
       line-height: 1.75;
     }
 
-    section { padding: 58px 7%; }
-    .soft { background: #eef5ff; }
+    section {
+      padding: 58px 7%;
+    }
 
-    .heading { margin-bottom: 34px; }
+    .soft {
+      background: #eef5ff;
+    }
+
+    .heading {
+      margin-bottom: 34px;
+    }
 
     .heading h2 {
       display: inline-block;
@@ -365,20 +509,29 @@
       line-height: 1.75;
     }
 
-    .session-grid, .demo-grid {
+    /* =========================================================
+       SESSION CARDS
+       ========================================================= */
+
+    .session-grid,
+    .demo-grid {
       display: grid;
       grid-template-columns: repeat(3,minmax(0,1fr));
       gap: 20px;
     }
 
-    .session-card, .demo-card {
+    .session-card,
+    .demo-card {
       min-width: 0;
       overflow: hidden;
       background: #fff;
       border: 1px solid var(--line);
       border-radius: 22px;
       box-shadow: var(--shadow);
-      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+      transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        border-color .25s ease;
     }
 
     .session-card {
@@ -386,11 +539,14 @@
       flex-direction: column;
       min-height: 300px;
       padding: 28px 24px;
-      background: linear-gradient(#fff,#fff) padding-box, linear-gradient(135deg,#dbeafe,#e0e7ff) border-box;
+      background:
+        linear-gradient(#fff,#fff) padding-box,
+        linear-gradient(135deg,#dbeafe,#e0e7ff) border-box;
       border: 1px solid transparent;
     }
 
-    .session-card:hover, .demo-card:hover {
+    .session-card:hover,
+    .demo-card:hover {
       transform: translateY(-5px);
       box-shadow: var(--hover);
       border-color: #bfdbfe;
@@ -414,7 +570,8 @@
       letter-spacing: -.4px;
     }
 
-    .session-card p, .demo-card p {
+    .session-card p,
+    .demo-card p {
       margin: 0;
       color: var(--slate);
       font-size: 15px;
@@ -428,7 +585,9 @@
       padding-top: 24px;
     }
 
-    .actions.split { grid-template-columns: 1fr; }
+    .actions.split {
+      grid-template-columns: 1fr;
+    }
 
     .button {
       display: flex;
@@ -460,12 +619,30 @@
       transform: translateY(-1px);
     }
 
-    .demo-grid { grid-template-columns: repeat(6,minmax(0,1fr)); }
-    .demo-card { grid-column: span 2; }
-    .demo-card:nth-child(4) { grid-column: 2 / span 2; }
-    .demo-card:nth-child(5) { grid-column: 4 / span 2; }
+    /* =========================================================
+       DEMO
+       ========================================================= */
 
-    .demo-copy { min-height: 188px; padding: 25px 23px 22px; }
+    .demo-grid {
+      grid-template-columns: repeat(6,minmax(0,1fr));
+    }
+
+    .demo-card {
+      grid-column: span 2;
+    }
+
+    .demo-card:nth-child(4) {
+      grid-column: 2 / span 2;
+    }
+
+    .demo-card:nth-child(5) {
+      grid-column: 4 / span 2;
+    }
+
+    .demo-copy {
+      min-height: 188px;
+      padding: 25px 23px 22px;
+    }
 
     .video-heading {
       display: flex;
@@ -522,6 +699,10 @@
       text-underline-offset: 4px;
     }
 
+    /* =========================================================
+       NEXT CTA
+       ========================================================= */
+
     .next-box {
       position: relative;
       overflow: hidden;
@@ -559,6 +740,10 @@
       line-height: 1.7;
     }
 
+    /* =========================================================
+       FLOATING CONTACT
+       ========================================================= */
+
     .floating-contact {
       position: fixed;
       right: 28px;
@@ -570,14 +755,25 @@
       min-height: 54px;
       padding: 0 20px;
       color: #fff;
-      background: linear-gradient(135deg, #2563eb, #4f46e5 55%, #2563eb);
+      background:
+        linear-gradient(
+          135deg,
+          #2563eb,
+          #4f46e5 55%,
+          #2563eb
+        );
       border: 1px solid rgba(255,255,255,.2);
       border-radius: 999px;
       font-size: 14px;
       font-weight: 700;
       text-decoration: none;
-      box-shadow: 0 12px 28px rgba(37,99,235,.3), 0 4px 10px rgba(15,23,42,.12);
-      transition: transform .22s ease, box-shadow .22s ease, filter .22s ease;
+      box-shadow:
+        0 12px 28px rgba(37,99,235,.3),
+        0 4px 10px rgba(15,23,42,.12);
+      transition:
+        transform .22s ease,
+        box-shadow .22s ease,
+        filter .22s ease;
     }
 
     .floating-contact::before {
@@ -599,23 +795,61 @@
       box-shadow: 0 18px 38px rgba(37,99,235,.38);
     }
 
-    @media (max-width:900px) {
-      .session-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
-      .demo-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
-      .demo-card, .demo-card:nth-child(4), .demo-card:nth-child(5) { grid-column: auto; }
+    /* =========================================================
+       RESPONSIVE
+       ========================================================= */
 
-      [data-global-header] .nav-right { display: none; }
-      [data-global-header] .mobile-toggle { display: inline-flex; }
+    @media (max-width:900px) {
+      .session-grid {
+        grid-template-columns: repeat(2,minmax(0,1fr));
+      }
+
+      .demo-grid {
+        grid-template-columns: repeat(2,minmax(0,1fr));
+      }
+
+      .demo-card,
+      .demo-card:nth-child(4),
+      .demo-card:nth-child(5) {
+        grid-column: auto;
+      }
     }
 
     @media (max-width:640px) {
-      body { padding-bottom: 74px; }
-      .page { border-radius: 0; }
-      .hero { padding: 54px 6%; }
-      section { padding: 42px 6%; }
-      .session-grid, .demo-grid { grid-template-columns: 1fr; gap: 15px; }
-      .session-card, .demo-copy { min-height: auto; }
-      .next-box { padding: 29px 24px; border-radius: 19px; }
+      body {
+        padding-bottom: 74px;
+      }
+
+      .page {
+        border-radius: 0;
+      }
+
+      .hero {
+        padding: 54px 6%;
+      }
+
+      section {
+        padding: 42px 6%;
+      }
+
+      .session-grid,
+      .demo-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+
+      .session-card {
+        min-height: auto;
+      }
+
+      .demo-copy {
+        min-height: auto;
+      }
+
+      .next-box {
+        padding: 29px 24px;
+        border-radius: 19px;
+      }
 
       .floating-contact {
         right: 16px;
@@ -627,116 +861,514 @@
     }
 
     @media (prefers-reduced-motion:reduce) {
-      html { scroll-behavior: auto; }
-      * { transition: none !important; }
-      .session-card:hover, .demo-card:hover, .button:hover, .floating-contact:hover { transform: none; }
+      html {
+        scroll-behavior: auto;
+      }
+
+      * {
+        transition: none !important;
+      }
+
+      .session-card:hover,
+      .demo-card:hover,
+      .button:hover,
+      .floating-contact:hover {
+        transform: none;
+      }
     }
   </style>
 </head>
 
 <body>
-  <header data-global-header aria-label="사이트 헤더"></header>
 
+  <!-- =======================================================
+       GLOBAL HEADER
+       첫 번째 HTML과 동일한 공통 헤더 로더
+       ======================================================= -->
+  <header data-global-header data-header-layout="standalone" aria-label="사이트 헤더"></header>
+
+
+  <!-- =======================================================
+       MAIN
+       ======================================================= -->
   <main class="page">
-    <!-- 기존 main 콘텐츠(세미나 카드/데모 등)는 그대로 유지 -->
-    <!-- ... 현재 파일의 본문 콘텐츠 그대로 ... -->
+
+    <!-- HERO -->
+    <header class="hero">
+      <div class="eyebrow">
+        AGENTIC ENTERPRISE × MICROSOFT 365 COPILOT
+      </div>
+
+      <h1>
+        부산 고객 세미나에 함께해 주셔서 감사합니다.
+      </h1>
+
+      <p>
+        2026년 10월 15일 웨스틴 조선 부산에서 진행된 세미나의
+        주요 발표 자료, Hands-on 실습 자료와 데모 영상을 한 페이지에
+        모았습니다. 현장에서 확인한 Microsoft AI 활용 시나리오를
+        다시 만나보세요.
+      </p>
+    </header>
+
+
+    <!-- =====================================================
+         SESSION MATERIALS
+         ===================================================== -->
+    <section aria-labelledby="sessions-title">
+
+      <div class="heading">
+        <h2 id="sessions-title">
+          세미나 주요 세션 및 자료
+        </h2>
+
+        <p>
+          각 세션 카드에서 발표 자료와 Hands-on 실습 파일을
+          바로 확인할 수 있습니다.
+        </p>
+      </div>
+
+
+      <div class="session-grid">
+
+        <!-- SESSION 01 -->
+        <article class="session-card">
+          <span class="pill">
+            SESSION 01
+          </span>
+
+          <h3>
+            Copilot Studio + SAP
+          </h3>
+
+          <p>
+            AI, 거울에서 보이는 것보다 가까이에 있습니다.
+          </p>
+
+          <div class="actions">
+            <a
+              class="button"
+              href="https://mbcgtmvideos.blob.core.windows.net/copilot/%EB%B0%9C%ED%91%9C%20%EC%9E%90%EB%A3%8C%20-%20AI%EA%B0%80%20%EA%B1%B0%EC%9A%B8%EC%97%90%20%EB%B3%B4%EC%9D%B4%EB%8A%94%20%EA%B2%83%EB%B3%B4%EB%8B%A4%20%EA%B0%80%EA%B9%8C%EC%9D%B4%20%EC%9E%88%EC%9D%8C.pdf?sp=r&amp;st=2026-10-20T04:28:35Z&amp;se=2027-10-20T12:43:35Z&amp;spr=https&amp;sv=2026-02-06&amp;sr=b&amp;sig=nXh9bRhF5RWxIABdegxMm56XEpcm2saCHGFbBaZpzsM%3D"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              발표자료 보기
+              <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </article>
+
+
+        <!-- SESSION 02 -->
+        <article class="session-card">
+          <span class="pill">
+            SESSION 02
+          </span>
+
+          <h3>
+            M365 Copilot Update
+          </h3>
+
+          <p>
+            소개 자료와 Hands-on 실습 파일을 확인하세요.
+          </p>
+
+          <div class="actions split">
+
+            <a
+              class="button"
+              href="https://mbcgtmvideos.blob.core.windows.net/copilot/20261015%20Agentic%20Enterprise%20-%20M365%20Copilot%20AX%20%EC%86%8C%EA%B0%9C.pdf?sp=r&amp;st=2026-10-20T04:29:13Z&amp;se=2027-10-20T12:44:13Z&amp;spr=https&amp;sv=2026-02-06&amp;sr=b&amp;sig=9WfPKqRMIsFMia2HnvkQgrNeuL33Dr07RhprQXTC74k%3D"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              발표자료 보기
+              <span aria-hidden="true">↗</span>
+            </a>
+
+            <a
+              class="button secondary"
+              download
+              href="https://mbcgtmvideos.blob.core.windows.net/copilot/Hands-on%20%EC%8B%A4%EC%8A%B5%EC%9E%90%EB%A3%8C%201.zip?sp=r&amp;st=2026-10-20T04:30:27Z&amp;se=2027-10-20T12:45:27Z&amp;spr=https&amp;sv=2026-02-06&amp;sr=b&amp;sig=4htsbjRWw%2Fo0lyed34tS9zs%2FVKFxTCAMFQESGdGgY5A%3D"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              실습자료 다운로드
+              <span aria-hidden="true">↓</span>
+            </a>
+
+          </div>
+        </article>
+
+
+        <!-- SESSION 03 -->
+        <article class="session-card">
+          <span class="pill">
+            SESSION 03
+          </span>
+
+          <h3>
+            AI, 어떻게 시작할까요?
+          </h3>
+
+          <p>
+            단계별 AI 전환 로드맵을 제시합니다.
+          </p>
+
+          <div class="actions">
+            <a
+              class="button"
+              href="https://mbcgtmvideos.blob.core.windows.net/copilot/How%20to%20Initiate%20AI%20with%20Microsoft_15Oct2025.pdf?sp=r&amp;st=2026-10-20T06:31:04Z&amp;se=2027-10-20T14:46:04Z&amp;spr=https&amp;sv=2026-02-06&amp;sr=b&amp;sig=vdqjm%2Bjq0FW7mnL2NBaeCs3GY%2Fnl8Q4rlaQmPSxs7Rk%3D"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              발표자료 보기
+              <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         COPILOT DEMOS
+         ===================================================== -->
+    <section
+      aria-labelledby="demos-title"
+      class="soft"
+    >
+
+      <div class="heading">
+        <h2 id="demos-title">
+          Microsoft 365 Copilot 데모 다시 보기
+        </h2>
+
+        <p>
+          페이지에서 바로 재생하거나 전체 화면으로 확인해 보세요.
+        </p>
+      </div>
+
+
+      <div class="demo-grid">
+
+        <!-- DEMO 01 -->
+        <article class="demo-card">
+
+          <div class="demo-copy">
+            <span class="pill">
+              DEMO 01
+            </span>
+
+            <h3>
+              Copilot Chat: HTML Dashboard
+            </h3>
+
+            <p>
+              웹 기반 업무 대시보드 경험을 확인하세요.
+            </p>
+          </div>
+
+          <div class="video-heading">
+            <span>데모영상 미리보기</span>
+            <span aria-hidden="true" class="play">▶</span>
+          </div>
+
+          <div class="video-wrap">
+            <video
+              aria-label="Copilot Chat HTML Dashboard 데모"
+              controls
+              playsinline
+              preload="metadata"
+            >
+              <source
+                src="https://mbcgtmvideos.blob.core.windows.net/copilot/Copilot%20Chat%20HTML%20Dashboard_General%20%EB%8D%B0%EB%AA%A8.mp4?sp=r&amp;st=2026-10-20T04:31:44Z&amp;se=2027-10-20T12:46:44Z&amp;spr=https&amp;sv=2026-02-06&amp;sr=b&amp;sig=H2Y3RkKNSYcbk%2B%2FtJDSVwLkR%2Bfnt5JCE16h0fvcvE7Y%3D"
+                type="video/mp4"
+              />
+              브라우저에서 HTML5 비디오를 지원하지 않습니다.
+            </video>
+          </div>
+
+          <div class="video-footer">
+            <a
+              href="https://mbcgtmvideos.blob.core.windows.net/copilot/Copilot%20Chat%20HTML%20Dashboard_General%20%EB%8D%B0%EB%AA%A8.mp4?sp=r&amp;st=2026-10-20T04:31:44Z&amp;se=2027-10-20T12:46:44Z&amp;spr=https&amp;sv=2026-02-06&amp;sr=b&amp;sig=H2Y3RkKNSYcbk%2B%2FtJDSVwLkR%2Bfnt5JCE16h0fvcvE7Y%3D"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              전체 화면으로 보기 ↗
+            </a>
+          </div>
+
+        </article>
+
+
+        <!-- DEMO 02 -->
+        <article class="demo-card">
+
+          <div class="demo-copy">
+            <span class="pill">
+              DEMO 02
+            </span>
+
+            <h3>
+              Copilot Chat + Word
+            </h3>
+
+            <p>
+              문서 작성과 요약 시나리오를 영상으로 따라해 보세요.
+            </p>
+          </div>
+
+          <div class="video-heading">
+            <span>데모영상 미리보기</span>
+            <span aria-hidden="true" class="play">▶</span>
+          </div>
+
+          <div class="video-wrap">
+            <video
+              aria-label="Copilot Chat Word 데모"
+              controls
+              playsinline
+              preload="metadata"
+            >
+              <source
+                src="https://mbcgtmvideos.blob.core.windows.net/copilot/Copilot%20Chat%20Word_General%20%EB%8D%B0%EB%AA%A8.mp4?sp=r&amp;st=2026-10-20T04:40:19Z&amp;se=2027-10-20T12:55:19Z&amp;spr=https&amp;sv=2026-02-06&amp;sr=b&amp;sig=v%2BtPB1SJheybc1m5FQ%2Fmk9iR27FMi8469S6O9gqYwU8%3D"
+                type="video/mp4"
+              />
+              브라우저에서 HTML5 비디오를 지원하지 않습니다.
+            </video>
+          </div>
+
+          <div class="video-footer">
+            <a
+              href="https://mbcgtmvideos.blob.core.windows.net/copilot/Copilot%20Chat%20Word_General%20%EB%8D%B0%EB%AA%A8.mp4?sp=r&amp;st=2026-10-20T04:40:19Z&amp;se=2027-10-20T12:55:19Z&amp;spr=https&amp;sv=2026-02-06&amp;sr=b&amp;sig=v%2BtPB1SJheybc1m5FQ%2Fmk9iR27FMi8469S6O9gqYwU8%3D"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              전체 화면으로 보기 ↗
+            </a>
+          </div>
+
+        </article>
+
+
+        <!-- DEMO 03 -->
+        <article class="demo-card">
+
+          <div class="demo-copy">
+            <span class="pill">
+              DEMO 03
+            </span>
+
+            <h3>
+              Copilot + Excel ①
+            </h3>
+
+            <p>
+              데이터 탐색과 분석의 첫 번째 실습 시나리오입니다.
+            </p>
+          </div>
+
+          <div class="video-heading">
+            <span>데모영상 미리보기</span>
+            <span aria-hidden="true" class="play">▶</span>
+          </div>
+
+          <div class="video-wrap">
+            <video
+              aria-label="Copilot Excel 첫 번째 데모"
+              controls
+              playsinline
+              preload="metadata"
+            >
+              <source
+                src="https://mbcgtmvideos.blob.core.windows.net/copilot/Copilot%20Excel%201_General%20%EB%8D%B0%EB%AA%A8.mp4?sp=r&amp;st=2026-10-20T04:42:14Z&amp;se=2027-10-20T12:57:14Z&amp;spr=https&amp;sv=2026-02-06&amp;sr=b&amp;sig=RFus7%2F2m4WLI2LbQx6E3eIQqvoTLx5FNoXxrX00vHdo%3D"
+                type="video/mp4"
+              />
+              브라우저에서 HTML5 비디오를 지원하지 않습니다.
+            </video>
+          </div>
+
+          <div class="video-footer">
+            <a
+              href="https://mbcgtmvideos.blob.core.windows.net/copilot/Copilot%20Excel%201_General%20%EB%8D%B0%EB%AA%A8.mp4?sp=r&amp;st=2026-10-20T04:42:14Z&amp;se=2027-10-20T12:57:14Z&amp;spr=https&amp;sv=2026-02-06&amp;sr=b&amp;sig=RFus7%2F2m4WLI2LbQx6E3eIQqvoTLx5FNoXxrX00vHdo%3D"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              전체 화면으로 보기 ↗
+            </a>
+          </div>
+
+        </article>
+
+
+        <!-- DEMO 04 -->
+        <article class="demo-card">
+
+          <div class="demo-copy">
+            <span class="pill">
+              DEMO 04
+            </span>
+
+            <h3>
+              Copilot + Excel ②
+            </h3>
+
+            <p>
+              한 단계 더 확장된 Excel 활용 시나리오입니다.
+            </p>
+          </div>
+
+          <div class="video-heading">
+            <span>데모영상 미리보기</span>
+            <span aria-hidden="true" class="play">▶</span>
+          </div>
+
+          <div class="video-wrap">
+            <video
+              aria-label="Copilot Excel 두 번째 데모"
+              controls
+              playsinline
+              preload="metadata"
+            >
+              <source
+                src="https://mbcgtmvideos.blob.core.windows.net/copilot/Copilot%20Excel%202_General%20%EB%8D%B0%EBPebVbamyawz91yxdesmMYzy%2BRK4%3D"
+                type="video/mp4"
+              />
+              브라우저에서 HTML5 비디오를 지원하지 않습니다.
+            </video>
+          </div>
+
+          <div class="video-footer">
+            <a
+              href="https://mbcgtmvideos.blob.core.windows.net/copilot/Copilot%20Excel%202_General%20%EB%8D%B0%EB%AA%A8.mp4?sp=r&amp;st=2026-10-20T04:43:11Z&amp;se=2027-10-20T12:58:11Z&amp;spr=https&amp;sv=2026-02-06&amp;sr=b&amp;sig=8hi39KT1tBU3PVWHPebVbamyawz91yxdesmMYzy%2BRK4%3D"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              전체 화면으로 보기 ↗
+            </a>
+          </div>
+
+        </article>
+
+
+        <!-- DEMO 05 -->
+        <article class="demo-card">
+
+          <div class="demo-copy">
+            <span class="pill">
+              DEMO 05
+            </span>
+
+            <h3>
+              Copilot + PowerPoint
+            </h3>
+
+            <p>
+              아이디어를 발표 자료로 전환하는 흐름을 확인하세요.
+            </p>
+          </div>
+
+          <div class="video-heading">
+            <span>데모영상 미리보기</span>
+            <span aria-hidden="true" class="play">▶</span>
+          </div>
+
+          <div class="video-wrap">
+            <video
+              aria-label="Copilot PowerPoint 데모"
+              controls
+              playsinline
+              preload="metadata"
+            >
+              <source
+                src="https://mbcgtmvideos.blob.core.windows.net/copilot/Copilot%20PowerPoint_General%20%EB%8D%B0%EB%AA%A8.mp4?sp=r&amp;st=2026-10-20T04:50:35Z&amp;se=2027-10-20T13:05:35Z&amp;spr=https&amp;sv=2026-02-06&amp;sr=b&amp;sig=jfhqzNFIbIMIaWJzGnkcmlHfm%2F89cJ207bY9Vg28xE4%3D"
+                type="video/mp4"
+              />
+              브라우저에서 HTML5 비디오를 지원하지 않습니다.
+            </video>
+          </div>
+
+          <div class="video-footer">
+            <a
+              href="https://mbcgtmvideos.blob.core.windows.net/copilot/Copilot%20PowerPoint_General%20%EB%8D%B0%EB%AA%A8.mp4?sp=r&amp;st=2026-10-20T04:50:35Z&amp;se=2027-10-20T13:05:35Z&amp;spr=https&amp;sv=2026-02-06&amp;sr=b&amp;sig=jfhqzNFIbIMIaWJzGnkcmlHfm%2F89cJ207bY9Vg28xE4%3D"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              전체 화면으로 보기 ↗
+            </a>
+          </div>
+
+        </article>
+
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         NEXT STEP CTA
+         ===================================================== -->
+    <section aria-labelledby="next-title">
+
+      <div class="next-box">
+
+        <h2 id="next-title">
+          AI 활용, 다음 단계로 연결해 보세요.
+        </h2>
+
+        <p>
+          업무 시나리오 발굴, Microsoft 365 Copilot 도입,
+          Copilot Studio 기반 에이전트 구축과 PoC가 필요하다면
+          문의를 남겨 주세요.
+        </p>
+
+        <a
+          class="button"
+          href="https://forms.cloud.microsoft/r/3UhYiDyURM"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          AI 도입 문의하기
+          <span aria-hidden="true">↗</span>
+        </a>
+
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
+    <footer>
+      부산 고객 세미나 참석에 다시 한번 감사드립니다.
+      <br/>
+      제공 자료는 세미나 참석 고객을 위한 후속 안내용입니다.
+    </footer>
+
   </main>
 
-  <script>
-    (function () {
-      const headerHTML = `
-        <nav aria-label="글로벌 네비게이션">
-          <div class="nav-inner">
-            <div class="nav-left">
-              <a class="brand" href="/">MEGAZONE × Microsoft</a>
-            </div>
 
-            <div class="nav-right" role="menubar" aria-label="데스크톱 메뉴">
-              <a class="nav-link" href="/">홈</a>
+  <!-- =======================================================
+       FLOATING CONTACT
+       ======================================================= -->
+  <a
+    aria-label="AI 도입 문의 양식 작성"
+    class="floating-contact"
+    href="https://forms.cloud.microsoft/r/3UhYiDyURM"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    AI 도입 문의
+    <span aria-hidden="true">↗</span>
+  </a>
 
-              <div class="nav-dropdown">
-                <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-haspopup="true">
-                  세미나 자료
-                  <span class="chevron">⌄</span>
-                </button>
-                <div class="nav-dropdown-menu dropdown-shadow" role="menu">
-                  <a class="dropdown-item" href="/wietraum0301/megazonemsusmc/blob/main/busan_seminar_thankyou.html">
-                    부산 세미나 Thank You
-                    <span class="dropdown-arrow">→</span>
-                  </a>
-                  <a class="dropdown-item" href="#">
-                    발표자료 모음
-                    <span class="dropdown-arrow">→</span>
-                  </a>
-                  <a class="dropdown-item" href="#">
-                    데모영상 모음
-                    <span class="dropdown-arrow">→</span>
-                  </a>
-                </div>
-              </div>
 
-              <a class="nav-link" href="#sessions-title">세션</a>
-              <a class="nav-link" href="#demos-title">데모</a>
-            </div>
+  <!-- =======================================================
+       GLOBAL HEADER SCRIPTS
+       첫 번째 HTML과 동일
+       ======================================================= -->
+  <script src="global-state-manager.js"></script>
+  <script src="global-header-loader.js"></script>
 
-            <button class="mobile-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="메뉴 열기/닫기">☰</button>
-          </div>
-
-          <div id="mobile-menu" class="mobile-menu" aria-label="모바일 메뉴">
-            <a href="/">홈</a>
-            <a href="/wietraum0301/megazonemsusmc/blob/main/busan_seminar_thankyou.html">부산 세미나 Thank You</a>
-            <a href="#sessions-title">세션</a>
-            <a href="#demos-title">데모</a>
-          </div>
-        </nav>
-      `;
-
-      const mount = document.querySelector("[data-global-header]");
-      if (!mount) return;
-      mount.innerHTML = headerHTML;
-
-      const dropdowns = Array.from(mount.querySelectorAll(".nav-dropdown"));
-      const closeAllDropdowns = () => {
-        dropdowns.forEach((d) => {
-          d.classList.remove("active");
-          const btn = d.querySelector(".nav-dropdown-toggle");
-          if (btn) btn.setAttribute("aria-expanded", "false");
-        });
-      };
-
-      dropdowns.forEach((dropdown) => {
-        const btn = dropdown.querySelector(".nav-dropdown-toggle");
-        if (!btn) return;
-
-        btn.addEventListener("click", (e) => {
-          e.preventDefault();
-          const willOpen = !dropdown.classList.contains("active");
-          closeAllDropdowns();
-          if (willOpen) {
-            dropdown.classList.add("active");
-            btn.setAttribute("aria-expanded", "true");
-          }
-        });
-      });
-
-      document.addEventListener("click", (e) => {
-        if (!mount.contains(e.target)) closeAllDropdowns();
-      });
-
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") closeAllDropdowns();
-      });
-
-      const mobileToggle = mount.querySelector(".mobile-toggle");
-      const mobileMenu = mount.querySelector("#mobile-menu");
-
-      if (mobileToggle && mobileMenu) {
-        mobileToggle.addEventListener("click", () => {
-          const isOpen = mobileMenu.classList.toggle("open");
-          mobileToggle.setAttribute("aria-expanded", String(isOpen));
-        });
-      }
-    })();
-  </script>
 </body>
 </html>
