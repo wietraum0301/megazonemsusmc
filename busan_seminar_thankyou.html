@@ -9,7 +9,66 @@
   />
 
   <title>Agentic Enterprise로 가는 AX Journey</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&amp;display=swap" rel="stylesheet"/>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "secondary": "#006875",
+            "surface-container-high": "#dfe8ff",
+            "primary": "#005faa",
+            "secondary-fixed-dim": "#00daf3",
+            "tertiary-fixed": "#d7e3fc",
+            "on-tertiary": "#ffffff",
+            "tertiary-container": "#6c778d",
+            "on-secondary-container": "#00616d",
+            "surface-container": "#e7eeff",
+            "surface-container-highest": "#d7e3fc",
+            "outline": "#717783",
+            "background": "#f9f9ff",
+            "tertiary-fixed-dim": "#bbc7df",
+            "on-primary-container": "#ffffff",
+            "on-surface": "#101c2e",
+            "surface-container-low": "#f0f3ff",
+            "primary-fixed-dim": "#a3c9ff",
+            "surface-bright": "#f9f9ff",
+            "on-primary": "#ffffff",
+            "secondary-fixed": "#9cf0ff",
+            "primary-fixed": "#d3e3ff",
+            "surface-variant": "#d7e3fc",
+            "on-primary-fixed": "#001c39",
+            "on-background": "#101c2e",
+            "secondary-container": "#00e3fd",
+            "outline-variant": "#c0c7d4",
+            "surface-dim": "#cfdaf3",
+            "on-tertiary-container": "#ffffff",
+            "tertiary": "#535e73",
+            "on-secondary": "#ffffff",
+            "surface": "#f9f9ff",
+            "primary-container": "#0078d4",
+            "on-primary-fixed-variant": "#004883",
+            "on-surface-variant": "#404752",
+            "surface-container-lowest": "#ffffff",
+            "popup-orange": "#E87722"
+          },
+          borderRadius: {
+            DEFAULT: "0.25rem",
+            lg: "0.5rem",
+            xl: "0.75rem",
+            full: "9999px"
+          },
+          fontFamily: {
+            headline: ["Plus Jakarta Sans"],
+            body: ["Inter"],
+            label: ["Inter"]
+          }
+        }
+      }
+    };
+  </script>
 
   <style>
     :root {
@@ -59,329 +118,6 @@
     video:focus-visible {
       outline: 3px solid rgba(56,189,248,.9);
       outline-offset: 3px;
-    }
-
-    /* =========================================================
-       GLOBAL HEADER / NAVIGATION
-       ========================================================= */
-
-    [data-global-header] {
-      position: relative;
-      z-index: 1000;
-    }
-
-    [data-global-header] nav {
-      background: var(--ui-glass) !important;
-      border-bottom: 1px solid var(--ui-stroke);
-      box-shadow: 0 6px 20px rgba(7,31,58,.05);
-    }
-
-    [data-global-header] .dropdown-shadow {
-      box-shadow:
-        0 18px 42px -12px rgba(0,95,170,.12),
-        0 8px 20px -8px rgba(16,28,46,.1),
-        0 3px 8px rgba(16,28,46,.05),
-        0 0 0 1px rgba(0,95,170,.08);
-    }
-
-    [data-global-header] .nav-dropdown-menu {
-      opacity: 0;
-      visibility: hidden;
-      transform: translateX(-50%) translateY(6px);
-      transition: all .3s cubic-bezier(.22,1,.36,1);
-      max-height: 70vh;
-      overflow-y: auto;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-      background: rgba(255,255,255,.94) !important;
-      border-color: rgba(0,95,170,.12) !important;
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-    }
-
-    [data-global-header] .nav-dropdown-menu::-webkit-scrollbar {
-      display: none;
-    }
-
-    [data-global-header] .nav-dropdown.active .nav-dropdown-menu {
-      opacity: 1;
-      visibility: visible;
-      transform: translateX(-50%) translateY(0);
-    }
-
-    [data-global-header] .nav-dropdown.active .chevron {
-      transform: rotate(180deg);
-    }
-
-    [data-global-header] .chevron {
-      transition: transform .3s ease;
-    }
-
-    [data-global-header] .dropdown-item {
-      position: relative;
-      transition: all .3s cubic-bezier(.22,1,.36,1);
-      overflow: hidden;
-    }
-
-    [data-global-header] .dropdown-item::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 3px;
-      height: 0;
-      background: linear-gradient(180deg,#005faa,#00e3fd);
-      border-radius: 0 3px 3px 0;
-      transition: height .3s cubic-bezier(.22,1,.36,1);
-    }
-
-    [data-global-header] .dropdown-item.orange::before {
-      background: linear-gradient(180deg,#E87722,#FFB74D);
-    }
-
-    [data-global-header] .dropdown-item.teal::before {
-      background: linear-gradient(180deg,#006875,#00daf3);
-    }
-
-    [data-global-header] .dropdown-item:hover {
-      background:
-        linear-gradient(
-          135deg,
-          rgba(0,95,170,.06),
-          rgba(0,227,253,.04)
-        );
-      transform: translateX(4px);
-      box-shadow: 0 4px 16px rgba(0,95,170,.08);
-    }
-
-    [data-global-header] .dropdown-item.orange:hover {
-      background:
-        linear-gradient(
-          135deg,
-          rgba(232,119,34,.06),
-          rgba(255,183,77,.04)
-        );
-      box-shadow: 0 4px 16px rgba(232,119,34,.1);
-    }
-
-    [data-global-header] .dropdown-item.teal:hover {
-      background:
-        linear-gradient(
-          135deg,
-          rgba(0,104,117,.06),
-          rgba(0,218,243,.04)
-        );
-      box-shadow: 0 4px 16px rgba(0,104,117,.1);
-    }
-
-    [data-global-header] .dropdown-item:hover::before {
-      height: 60%;
-    }
-
-    [data-global-header] .dropdown-item .dropdown-icon {
-      transition: all .3s cubic-bezier(.22,1,.36,1);
-    }
-
-    [data-global-header] .dropdown-item:hover .dropdown-icon {
-      transform: scale(1.1) rotate(-4deg);
-    }
-
-    [data-global-header] .dropdown-item .dropdown-arrow {
-      opacity: 0;
-      transform: translateX(-6px);
-      transition: all .3s cubic-bezier(.22,1,.36,1);
-      margin-left: auto;
-      color: #005faa;
-      font-weight: bold;
-      flex-shrink: 0;
-    }
-
-    [data-global-header] .dropdown-item.orange .dropdown-arrow {
-      color: #E87722;
-    }
-
-    [data-global-header] .dropdown-item.teal .dropdown-arrow {
-      color: #006875;
-    }
-
-    [data-global-header] .dropdown-item:hover .dropdown-arrow {
-      opacity: 1;
-      transform: translateX(0);
-    }
-
-    [data-global-header] .nav-dropdown-toggle {
-      position: relative;
-      padding-bottom: .4rem;
-    }
-
-    [data-global-header] .nav-dropdown-toggle::after {
-      content: "";
-      position: absolute;
-      left: .7rem;
-      right: .7rem;
-      bottom: .1rem;
-      height: 2px;
-      background: linear-gradient(90deg,#005faa,#00e3fd);
-      transform: scaleX(0);
-      transform-origin: left center;
-      transition: transform .25s ease;
-      border-radius: 999px;
-    }
-
-    [data-global-header] .nav-dropdown-toggle:hover::after,
-    [data-global-header] .nav-dropdown.active .nav-dropdown-toggle::after {
-      transform: scaleX(1);
-    }
-
-    [data-global-header] .nav-dropdown-menu .dropdown-arrow {
-      display: none !important;
-    }
-
-    /* The shared markup is styled here without a utility CSS dependency. */
-    [data-global-header] [hidden] { display: none !important; }
-    [data-global-header] .nav-inner {
-      max-width: 1280px;
-      min-height: 72px;
-      margin: auto;
-      padding: 12px 24px;
-      display: flex;
-      align-items: center;
-      gap: 24px;
-    }
-    [data-global-header] a { text-decoration: none; color: inherit; }
-    [data-global-header] button { font: inherit; cursor: pointer; }
-    [data-global-header] :is(a, button):focus-visible {
-      outline: 3px solid #005faa;
-      outline-offset: 3px;
-    }
-    [data-global-header] .brand {
-      font-size: 18px;
-      font-weight: 800;
-      white-space: nowrap;
-    }
-    [data-global-header] .nav-content,
-    [data-global-header] .nav-menus {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    [data-global-header] .nav-content { flex: 1; justify-content: space-between; }
-    [data-global-header] .nav-dropdown { position: relative; }
-    [data-global-header] .nav-dropdown-toggle {
-      border: 0;
-      border-radius: 20px;
-      padding: 10px;
-      background: #fff;
-      color: #17406d;
-      font-size: 14px;
-      font-weight: 700;
-      white-space: nowrap;
-    }
-    [data-global-header] .nav-dropdown-toggle:hover { background: #eff6ff; }
-    [data-global-header] .mobile-short-label { display: none; }
-    [data-global-header] .nav-dropdown-menu {
-      position: absolute;
-      top: calc(100% + 8px);
-      left: 50%;
-      width: min(320px, calc(100vw - 32px));
-      max-height: min(70vh, 600px);
-      padding: 8px;
-      border: 1px solid #dbeafe;
-      border-radius: 16px;
-      box-shadow: 0 18px 42px rgba(15,23,42,.16);
-      z-index: 1;
-      scrollbar-width: auto;
-    }
-    [data-global-header] .nav-dropdown-menu::-webkit-scrollbar { display: block; width: 8px; }
-    [data-global-header] .dropdown-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 12px;
-      border-radius: 12px;
-      font-size: 14px;
-      line-height: 1.5;
-      overflow-wrap: anywhere;
-    }
-    [data-global-header] .dropdown-item > div:last-of-type { min-width: 0; flex: 1; }
-    [data-global-header] .dropdown-item > div:last-of-type > div:first-child { font-weight: 700; }
-    [data-global-header] .dropdown-item > div:last-of-type > div:last-child { font-size: 12px; }
-    [data-global-header] .dropdown-item > div:last-of-type span {
-      display: inline-block;
-      padding: 1px 5px;
-      border-radius: 4px;
-      background: #e2e8f0;
-      color: #475569;
-      font-size: 10px;
-    }
-    [data-global-header] .dropdown-icon {
-      width: 36px;
-      height: 36px;
-      flex: 0 0 36px;
-      display: grid;
-      place-items: center;
-      border-radius: 10px;
-      color: #005faa;
-      background: #e0efff;
-    }
-    [data-global-header] .orange .dropdown-icon { color: #E87722; background: #fff2e5; }
-    [data-global-header] .teal .dropdown-icon { color: #006875; background: #dcf7f7; }
-    [data-global-header] :is(.is-ended, .is-pending) .dropdown-icon { color: #64748b; background: #e2e8f0; }
-    [data-global-header] .material-symbols-outlined {
-      display: inline-block;
-      width: 20px;
-      height: 20px;
-      overflow: hidden;
-      font-family: "Material Symbols Outlined";
-      font-size: 20px;
-      line-height: 20px;
-      white-space: nowrap;
-    }
-    [data-global-header] svg { width: 20px; height: 20px; flex-shrink: 0; }
-    [data-global-header] .nav-cta a {
-      display: inline-flex;
-      padding: 10px 16px;
-      border-radius: 24px;
-      background: linear-gradient(135deg,#00579f,#0078d4);
-      color: #fff;
-      font-size: 14px;
-      font-weight: 700;
-      white-space: nowrap;
-    }
-    [data-global-header] .mobile-toggle { display: none; }
-    @media (max-width:1023px) {
-      [data-global-header] .nav-inner { flex-wrap: wrap; gap: 12px; padding: 12px 16px; min-height: 64px; }
-      [data-global-header] .brand { font-size: 15px; }
-      [data-global-header] .mobile-toggle {
-        display: block;
-        margin-left: auto;
-        border: 1px solid #cbd5e1;
-        border-radius: 8px;
-        padding: 8px 12px;
-        background: #fff;
-        color: #17406d;
-      }
-      [data-global-header] .nav-content { display: none; }
-      [data-global-header] .mobile-open .nav-content {
-        display: block;
-        flex: 0 0 100%;
-        max-height: calc(100dvh - 88px);
-        overflow-y: auto;
-        padding: 4px;
-      }
-      [data-global-header] .nav-menus { display: block; }
-      [data-global-header] .nav-dropdown-toggle { width: 100%; text-align: left; }
-      [data-global-header] .nav-dropdown-menu,
-      [data-global-header] .nav-dropdown.active .nav-dropdown-menu {
-        position: static;
-        width: 100%;
-        max-height: none;
-        margin: 0 !important;
-        transform: none;
-        box-shadow: none;
-      }
-      [data-global-header] .nav-cta { margin-top: 12px; }
     }
 
     /* =========================================================
@@ -885,7 +621,7 @@
        GLOBAL HEADER
        첫 번째 HTML과 동일한 공통 헤더 로더
        ======================================================= -->
-  <header data-global-header data-header-layout="standalone" aria-label="사이트 헤더"></header>
+  <header data-global-header aria-label="사이트 헤더"></header>
 
 
   <!-- =======================================================
